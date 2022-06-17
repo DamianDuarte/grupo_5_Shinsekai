@@ -14,4 +14,4 @@
 
 ## Integrantes
 - **Damian Duarte**
-- **Julián B. Ortega**: Se me da bien el Back end pero usualmente prefiero el Front. Tengo experiencia usando HTML/CSS, PHP y C#, éste último únicamente en relación con desarrollo de videojuegos en Unity.
+- **Julián B. Ortega**: Se me da bien el Back end pero usualmente prefiero el Front. Tengo experiencia usando HTML/CSS, PHP y C#, éste último únicamente en relación con desarrollo de videojuegos en Unity. Creador de Mini-Eric.
