@@ -1,5 +1,5 @@
 # Trabajo integrador Grupo 5: Shinsekai
-## Shinsekai es una tienda de productos frikis orientado al publico amante de juegos (mesa y virtual), comics y mangas y coleccionistas de todo tipo. Contara con 3 suscripciones: 
+## Shinsekai es una tienda de productos frikis orientado al publico amante de juegos (mesa y virtual), comics, mangas y coleccionistas de todo tipo. Contara con 3 suscripciones: 
 
 1. Base ($5): Ademas de contar con un descuento de suscriptor, tendra la opcion de leer los comics o mangas de manera online totalmente gratis.
 
@@ -11,6 +11,6 @@
 
 3. Miembro de honor ($12, $18, $28, $38): En esta suscripcion se obtendran "La caja" seleccionada anteriormente y la suscripcion base. Ademas obtendran acceso a estrenos y mercancia nueva que llegue a nuestro local.
 
-##Integrantes
+## Integrantes
 - Damian Duarte
 - Julián B. Ortega
