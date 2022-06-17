@@ -13,5 +13,18 @@
 3. **Miembro de honor ($12, $18, $28, $38)**: En esta suscripcion se obtendran "La caja" seleccionada anteriormente y la suscripcion base. Ademas obtendran acceso a estrenos y mercancia nueva que llegue a nuestro local.
 
 ## Integrantes
-- **Damian Duarte**
+- **Damian Duarte** 27 años, Plaza Huincul-Neuquén. Estudiante de programacion web FullStack en la Fundacion Formar
 - **Julián B. Ortega**: Se me da bien el Back end pero usualmente prefiero el Front. Tengo experiencia usando HTML/CSS, PHP y C#, éste último únicamente en relación con desarrollo de videojuegos en Unity. Creador de Mini-Eric.
+
+
+
+
+
+
+## Links de referencias:
+- https://store.crunchyroll.com/collections/sale Carrito desplegable/compra rapida/ home/banner/ 
+- https://atsuko.com/products/cowboy-bebop-scenes-crew-neck-sweatshirt parte de detalle
+- https://otakumode.com/signup?r=/&via=header registro rapido
+- https://corgiorgy.com/ Corgy orgy
+- https://otakumode.com/cart menu de edicion de carrito
+- https://www.frikihouse.com.ar/ diseño general 
