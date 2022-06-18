@@ -15,7 +15,7 @@
 ## Integrantes
 - **Damian Duarte** 27 años, Plaza Huincul-Neuquén. Estudiante de programacion web FullStack en la Fundacion Formar
 - **Julián B. Ortega**: Se me da bien el Back end pero usualmente prefiero el Front. Tengo experiencia usando HTML/CSS, PHP y C#, éste último únicamente en relación con desarrollo de videojuegos en Unity. Creador de Mini-Eric.
-- **Micaela Vizcarra** Tengo 24 años y soy de Lanús, Buenos Aires. Actualmente estoy realizando el curso de programación junto con la Fundación Formar y Digital House.
+- **Micaela Vizcarra** Tengo 24 años y soy de Lanús, Buenos Aires. Actualmente estoy realizando el curso de programación junto con la Fundación Formar y Digital House. 
 
 
 
