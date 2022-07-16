@@ -1,0 +1,85 @@
+/* Paletas de colores */
+:root{
+    /* Paletas de colores */
+    /* Dark */
+    --d_bgc: #292F36;
+    --d_header_footer: #C70A80;
+    --d_buttons: #590696;
+    --d_squares: #FBCB0A; 
+    --d_font:#F7FFF7;
+    /* Light */
+    --l_bgc: #F7FFF7;
+    --l_header_footer: #4ECDC4;
+    --l_buttons: #FF6B6B;
+    --l_squares: #FFE66D;
+    --l_font:#292F36;
+    /* Tipo de Fuentes */
+    --f_logo: 'Inter';
+    --f_general: 'Mulish';
+    /* Tamaño de fuente */
+    --fs_h1: 44px;
+    --fs_h2: 40px;
+    --fs_h3: 24px;
+    --fs_h4: 20px;
+    --fs_p: 18px;
+}
+
+
+*
+{
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body
+{
+    font-family: var(--f_general) ;
+}
+
+a h1{
+    font-family: var(--f_logo);
+    font-size: var(--fs_h1);
+    color: var(--l_font);
+    text-transform: uppercase;
+}
+
+h2{
+    font-size: var(--fs_h2);
+    text-transform: uppercase;
+    font-style: italic;
+    font-weight: 900;
+}
+
+h3{
+    font-size: var(--fs_h3);
+    text-transform: capitalize;
+    font-weight: 500;
+}
+
+h4{
+    font-size: var(--fs_h4);
+    text-transform: capitalize;
+    font-weight: 500;
+}
+
+p{
+    font-size: var(--fs_p);
+    text-transform: capitalize;
+    font-weight: 300;
+}
+
+
+a
+{
+    text-decoration: none;
+}
+
+li
+{
+    list-style: none;
+}
+
+ol, ul
+{
+    padding:0px;
+}

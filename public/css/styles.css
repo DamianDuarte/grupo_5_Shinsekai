@@ -1,0 +1,14 @@
+@import "/css/general.css";
+@import "/css/home.css";
+@import "/css/login.css";
+@import "/css/register.css";
+@import "/css/cart.css";
+@import "/css/details.css";
+@import "/css/eric.css";
+
+/* Fuentes */
+
+/* Shinsekai */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;300;500;700;900&display=swap');
+/* General */
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@200;300;400;500;700;900&display=swap');
