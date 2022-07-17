@@ -1,0 +1,33 @@
+.eric
+{
+
+}
+
+/*! ////// HEADER ////// */
+.eric__header
+{
+
+}
+
+/*! ////// MAIN ////// */
+.eric__main
+{
+
+}
+
+/*! ////// FOOTER ////// */
+.eric__footer
+{
+
+}
+
+/*! |||||||||||| Media Queries [ Afecta según la anchura/dispositivo que se use ] */
+@media (min-width: 426px)  /** Tablet y Desktop - CSS aquí dentro solo afecta a anchura 426 o mayor */
+{
+    
+}
+
+@media (min-width: 769px) /** Desktop - CSS aquí dentro solo afecta a anchura 769 o mayor */
+{
+
+}

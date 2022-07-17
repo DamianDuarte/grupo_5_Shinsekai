@@ -1,29 +1,32 @@
-/* Paletas de colores */
-:root{
-    /* Paletas de colores */
-    /* Dark */
-    --d_bgc: #292F36;
-    --d_header_footer: #C70A80;
-    --d_buttons: #590696;
-    --d_squares: #FBCB0A; 
-    --d_font:#F7FFF7;
-    /* Light */
-    --l_bgc: #F7FFF7;
-    --l_header_footer: #4ECDC4;
-    --l_buttons: #FF6B6B;
-    --l_squares: #FFE66D;
-    --l_font:#292F36;
-    /* Tipo de Fuentes */
+:root
+{
+    /*! -- Paletas de colores -- */
+    /** Dark */
+    --dark_bg: #292F36;
+    --dark_header_footer: #C70A80;
+    --dark_buttons: #590696;
+    --dark_squares: #FBCB0A; 
+    --dark_font:#F7FFF7;
+
+    /** Light */
+    --light_bg: #F7FFF7;
+    --light_header_footer: #4ECDC4;
+    --light_buttons: #FF6B6B;
+    --light_squares: #FFE66D;
+    --light_font:#292F36;
+
+    /*! -- Tipo de Fuentes -- */
     --f_logo: 'Inter';
     --f_general: 'Mulish';
-    /* Tamaño de fuente */
+
+    /*! -- Tamaño de fuente -- */
     --fs_h1: 44px;
     --fs_h2: 40px;
-    --fs_h3: 24px;
-    --fs_h4: 20px;
+    --fs_h3: 36px;
+    --fs_h4: 24px;
+    --fs_h5: 20px;
     --fs_p: 18px;
 }
-
 
 *
 {
@@ -33,41 +36,55 @@
 
 body
 {
-    font-family: var(--f_general) ;
+    font-family: var(--f_general);
+    background-color: var(--c_bg);
 }
 
-a h1{
+a, h1, h2, h3, h4, h5, p, b, i, span, em, strong, small, sub, sup
+{
+    color: var(--c_font);
+}
+
+h1
+{
     font-family: var(--f_logo);
     font-size: var(--fs_h1);
-    color: var(--l_font);
     text-transform: uppercase;
-}
-
-h2{
-    font-size: var(--fs_h2);
-    text-transform: uppercase;
-    font-style: italic;
     font-weight: 900;
 }
 
-h3{
-    font-size: var(--fs_h3);
-    text-transform: capitalize;
-    font-weight: 500;
+h2
+{
+    font-size: var(--fs_h2);
+    font-style: italic;
+    text-transform: uppercase;
+    font-weight: 900;
 }
 
-h4{
+h3
+{
+    font-size: var(--fs_h3);
+    text-transform: capitalize;
+    font-weight: 700;
+}
+
+h4
+{
     font-size: var(--fs_h4);
     text-transform: capitalize;
     font-weight: 500;
 }
 
-p{
-    font-size: var(--fs_p);
-    text-transform: capitalize;
-    font-weight: 300;
+h5
+{
+    font-size: var(--fs_h5);
+    font-weight: 500;
 }
 
+p{
+    font-size: var(--fs_p);
+    font-weight: 300;
+}
 
 a
 {
@@ -82,4 +99,32 @@ li
 ol, ul
 {
     padding:0px;
+}
+
+
+/*! -- Con esto se seleccionan los colores según el tema de tu dispositivo -- */
+@media(prefers-color-scheme: dark) 
+{
+    :root 
+    {
+        /** Tema oscuro - Dark*/
+        --c_bg: var(--dark_bg);
+        --c_header_footer: var(--dark_header_footer);
+        --c_buttons: var(--dark_buttons);
+        --c_squares: var(--dark_squares);
+        --c_font: var(--dark_font);
+    }
+}
+
+@media(prefers-color-scheme: light) 
+{
+    :root
+    {
+        /** Tema claro - Light*/
+        --c_bg: var(--light_bg);
+        --c_header_footer: var(--light_header_footer);
+        --c_buttons: var(--light_buttons);
+        --c_squares: var(--light_squares);
+        --c_font: var(--light_font);
+    }
 }
