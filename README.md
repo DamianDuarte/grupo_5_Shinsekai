@@ -19,9 +19,6 @@
 - **Aldana Magali Gayoso** Tengo 26 años y actualmente resido en Lanus oeste, soy estudiante de programacion web FullStack en la Fundacion Formar junto con Digital House.
 
 
-
-
-
 ## Links de referencias:
 - https://store.crunchyroll.com/collections/sale Carrito desplegable/compra rapida/ home/banner/ 
 - https://atsuko.com/products/cowboy-bebop-scenes-crew-neck-sweatshirt parte de detalle
