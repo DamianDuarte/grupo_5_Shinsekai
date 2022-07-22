@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,9 +10,103 @@
     <script src="/components/footer.js" type="text/javascript" defer></script>
     <title>Shinsekai</title>
 </head>
+
 <body class="details">
     <header-component></header-component>
-    <main class="details__main"></main>
+    <main class="details__main">
+        <div class="details__main--photo">
+            <div class="details__main--preview">
+                <figure class="details__main--min">
+                    <img width="60%" src="/img/caja.jpg" alt="">
+                </figure>
+                <figure class="details__main--min">
+                    <img width="60%" src="/img/caja.jpg" alt="">
+                </figure>
+                <figure class="details__main--min">
+                    <img width="60%" src="/img/caja.jpg" alt="">
+                </figure>
+                <figure class="details__main--min">
+                    <img width="60%" src="/img/caja.jpg" alt="">
+                </figure>
+            </div>
+            <figure class="details__main--max">
+                <img width="60%" src="/img/caja.jpg" alt="">
+            </figure>
+        </div>
+        <article class="detail__main--detail">
+            <div class="details__main--stars">
+                <p><i class="fa-solid fa-star"></i></p>
+                <p><i class="fa-solid fa-star"></i></p>
+                <p><i class="fa-solid fa-star"></i></p>
+                <p><i class="fa-solid fa-star"></i></p>
+                <p><i class="fa-solid fa-star"></i></p>
+            </div>
+            <p>Reseña de producto</p>
+            <h3>Nombre del producto</h3>
+            <h4>$999.99</h4>
+            <div class="details__main--chart">
+                <h5>Tabla de talles</h5>
+                <form action="" method="POST">
+                    <select name="Talle" value="Talle">
+                        <option value="">Selecciona talle...</option>
+                        <option value="1">XS</option>
+                        <option value="2">S</option>
+                        <option value="3">M</option>
+                        <option value="4">L</option>
+                        <option value="5">XL</option>
+                        <option value="6">XXL</option>
+                        <option value="7">XXXL</option>
+                        <option value="8">4XL</option>
+                    </select>
+                </form>
+            </div>
+            <div class="details__main--add-to-cart">
+                <button type="submit">Agregar al carrito<i class="fa-solid fa-cart-plus"></i></button>
+                <form>
+                    <input type="text" value="0" id="item" name="item" disabled>
+                    <button onclick="incrementar()">+</button>
+                    <button onclick="decrementar()">-</button>
+                </form>
+            </div>
+            <div class="details__main--prod-detail">
+                <h3>Detalle del producto</h3>
+                <p>Albion Online es un MMORPG no lineal multiplataforma ambientado en un mundo de fantasía medieval. El juego cuenta con una economía impulsada por los jugadores en la que casi todos los objetos son fabricados por ellos. Combina las armas y armaduras que le convengan a tu estilo de juego en un sistema único y sin clases en donde “eres lo que llevas”. Explora el mundo, enfréntate a otros aventureros en emocionantes batallas, conquista territorios y construye un hogar.</p>
+            </div>
+            <div class="details__main--share">
+                <i class="fa-solid fa-heart"></i>
+                <i class="fa-solid fa-share-nodes"></i>
+            </div>
+            <div class="details__main--prod-rel">
+                <h3>productos relacionados</h3>
+                <div class="details__main--prod-rel--figure">
+                    <figure class="details__main--rel">
+                        <img width="60%" src="/img/caja.jpg" alt="">
+                    </figure>
+                    <figure class="details__main--rel">
+                        <img width="60%" src="/img/caja.jpg" alt="">
+                    </figure>
+                    <figure class="details__main--rel">
+                        <img width="60%" src="/img/caja.jpg" alt="">
+                    </figure>
+                    <figure class="details__main--rel">
+                        <img width="60%" src="/img/caja.jpg" alt="">
+                    </figure>
+                </div>
+            </div>
+            <div class="details__main--Q&A">
+                <h3>Preguntas y respuestas</h3>
+                <i class="fa-solid fa-messages-question"></i>
+                <form action="">
+                <textarea name="Pregunta"  cols="30" rows="10"
+                style="resize: none;"></textarea>
+                </form>
+                <figure>
+                    <img  width="90%" src="/img/timmy.jpg" alt="">
+                </figure>
+            </div>
+        </article>
+    </main>
     <footer-component></footer-component>
 </body>
+
 </html>
