@@ -3,8 +3,80 @@
 
 }
 
-/*! ////// MAIN ////// */
-.cart__main
+.cart__title
+{
+
+}
+
+
+/*! Lista de productos en el carrito*/
+.cart__list
+{
+
+}
+
+.cart__list__product
+{
+
+}
+
+/*! Productos (Se usan en la lista y para el producto de "puede interesarte")*/
+.product--img
+{
+
+}
+.product--name
+{
+
+}
+.product--price
+{
+
+}
+.product--delete
+{
+
+}
+.product--amountButton
+{
+
+}
+.product--amount
+{
+
+}
+.product--button /*! Este botón va al final, es el de "Agregar al carrito"*/
+{
+
+}
+
+/*! Cupones, totales, etc. */
+.cart__pago
+{
+
+}
+
+.cart__pago__discount
+{
+
+}
+
+.cart__pago__subtotal
+{
+
+}
+
+.cart__pago__total
+{
+
+}
+
+.cart__pago__payment
+{
+    
+}
+
+.cart__pago__related
 {
 
 }
