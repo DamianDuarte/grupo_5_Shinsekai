@@ -1,15 +1,233 @@
 .details
 {
-
+    background-color: var(--c_bg);
+    padding: 3%;
 }
 
 /*! ////// MAIN ////// */
-.details__main
-{
-    
+
+/* Photo */
+.details__main--photo{
+    gap: 5px;
+}
+
+.details__main--preview{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-between;
 }
 
 
+.details__main--preview img{
+    width: 23%;
+}
+
+.details__main--max{
+    width: 100%;
+    margin-top: 10px;
+}
+
+.details__main--max img{
+    width: 100%;
+}
+
+/* Prod Detalles */
+
+/* Reseña y estrellas */
+.details__main--detail{
+    margin-top: 10px;
+    background-color: var(--c_squares);
+    border-radius: 15px;
+    
+}
+
+.details__main--sar{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-between;
+    padding: 15px 5px;
+}
+
+.details__main--stars{
+    display: flex;
+    flex-direction: row;
+    width: 35%;
+    
+}
+.details__main--stars i{
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: var(--light_font);
+    width: 30%;
+    display: flex;
+}
+
+.details__main--detail p{
+    color: var(--light_font);
+    font-weight: 600;
+    width: 60%;
+    justify-content: center;
+}
+
+/* Nombre y Precio */
+.details__main--detail h3{
+    text-align: center;
+    color: var(--light_font);
+    font-size: 30px;
+    font-weight: 900;
+    padding-bottom: 15px;
+}
+
+.details__main--price{
+    color: var(--light_font);
+    font-weight: 900;
+    padding: 15px;
+}
+
+/* Tabla de talles */
+.details__main--chart h5{
+    color: var(--light_font);
+    font-weight: 100;
+    font-style: italic;
+    text-align: right;
+    padding-right: 15px;
+    font-size: var(--fs_p);
+}
+.details__main--chart form{
+    width: 100%;
+    padding: 2px 15px 15px
+}
+.details__main--chart form select{
+    width: 100%;
+    border: solid 2px var(--light_font);
+    border-radius: 5px;
+    text-align: center;
+}
+
+.details__main--add-to-cart{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 0 15px 15px;
+}
+
+.details__main--add-to-cart--button{
+    background-color: var(--c_buttons);
+    color: var(--c_font);
+    padding: 5px 15px;
+    border: none;
+    border-radius: 15px;
+    width: 65%;
+    font-size: 15px;
+}
+
+.details__main--add-to-cart form{
+    width: 32%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-left: 2%;
+}
+.number_view{
+    width: 36%;
+    text-align: center;
+}
+.btn-plus .btn-min{
+    width: 5%;
+}
+
+/* Detalle del producto */
+
+.details__main--prod-detail h4{
+    text-align: center;
+    color: var(--light_font);
+    padding-bottom: 15px;
+    font-weight: 900;
+    font-size: 15px;
+}
+
+.details__main--prod-detail p{
+    text-align: center;
+    color: var(--light_font);
+    padding-bottom: 15px;
+    font-size: 10px;
+    width: 100%;
+}
+
+/* Compartir y guardar */
+.details__main--share{
+    padding-left: 5%;
+    padding-bottom: 10%;
+}
+
+.details__main--share i{
+    padding: 2%;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: var(--light_font);
+    font-size: 20px;
+    color: var(--light_font) ;
+}
+
+/* Productos relacionados */
+
+.details__main--prod-rel h3{
+    font-size: 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.details__main--prod-rel--image{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.details__main--prod-rel--image img{
+    width: 23%;
+}
+
+/* Preguntas y Respuestas */
+.details__main--QaA h3{
+    font-size: 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.details__main--QaA--title i{
+    color: var(--c_font);
+}
+
+
+.details__main--QaA form textarea{
+    width: 100%;
+    border-radius: 5px;
+    background-color: var(--c_font);
+}
+
+.details__main--QaA-btn{
+    border: none;
+    border-radius: 5px;
+    background-color: var(--c_buttons);
+    text-align: center;
+    color: var(--c_font);
+    margin-top: 2%;
+    margin-bottom: 2%;
+    padding: 5px;
+    text-transform: uppercase;
+    font-size: 10px;
+}
+
+.details__main--QaA img{
+    width: 100%;
+}
 
 /*! |||||||||||| Media Queries [ Afecta según la anchura/dispositivo que se use ] */
 @media (min-width: 426px)  /** Tablet y Desktop - CSS aquí dentro solo afecta a anchura 426 o mayor */

@@ -16,39 +16,33 @@
     <main class="details__main">
         <div class="details__main--photo">
             <div class="details__main--preview">
-                <figure class="details__main--min">
-                    <img width="60%" src="/img/caja.jpg" alt="">
-                </figure>
-                <figure class="details__main--min">
-                    <img width="60%" src="/img/caja.jpg" alt="">
-                </figure>
-                <figure class="details__main--min">
-                    <img width="60%" src="/img/caja.jpg" alt="">
-                </figure>
-                <figure class="details__main--min">
-                    <img width="60%" src="/img/caja.jpg" alt="">
-                </figure>
+                <img src="/img/caja.jpg" alt="">
+                <img src="/img/caja.jpg" alt="">
+                <img src="/img/caja.jpg" alt="">
+                <img src="/img/caja.jpg" alt="">
             </div>
-            <figure class="details__main--max">
-                <img width="60%" src="/img/caja.jpg" alt="">
-            </figure>
+            <div class="details__main--max">
+                <img src="/img/caja.jpg" alt="">
+            </div>
         </div>
-        <article class="detail__main--detail">
-            <div class="details__main--stars">
-                <p><i class="fa-solid fa-star"></i></p>
-                <p><i class="fa-solid fa-star"></i></p>
-                <p><i class="fa-solid fa-star"></i></p>
-                <p><i class="fa-solid fa-star"></i></p>
-                <p><i class="fa-solid fa-star"></i></p>
+        <article class="details__main--detail">
+            <div class="details__main--sar">
+                <div class="details__main--stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <p>Reseña de producto</p>
             </div>
-            <p>Reseña de producto</p>
             <h3>Nombre del producto</h3>
-            <h4>$999.99</h4>
+            <h4 class="details__main--price">$999.99</h4>
             <div class="details__main--chart">
                 <h5>Tabla de talles</h5>
                 <form action="" method="POST">
-                    <select name="Talle" value="Talle">
-                        <option value="">Selecciona talle...</option>
+                    <select name="Talle"  value="Talle">
+                        <option value="0" disabled selected>Selecciona talle...</option>
                         <option value="1">XS</option>
                         <option value="2">S</option>
                         <option value="3">M</option>
@@ -61,50 +55,46 @@
                 </form>
             </div>
             <div class="details__main--add-to-cart">
-                <button type="submit">Agregar al carrito<i class="fa-solid fa-cart-plus"></i></button>
+                <button class="details__main--add-to-cart--button"  type="submit">Agregar al carrito   <i class="fa-solid fa-cart-shopping"></i></button>
                 <form>
-                    <input type="text" value="0" id="item" name="item" disabled>
-                    <button onclick="incrementar()">+</button>
-                    <button onclick="decrementar()">-</button>
+                    <input class="number_view" type="text" value="0" id="item" name="item" disabled>
+                    <button class="btn-plus" onclick="incrementar()">+</button>
+                    <button class="btn-min" onclick="decrementar()">-</button>
                 </form>
             </div>
             <div class="details__main--prod-detail">
-                <h3>Detalle del producto</h3>
-                <p>Albion Online es un MMORPG no lineal multiplataforma ambientado en un mundo de fantasía medieval. El juego cuenta con una economía impulsada por los jugadores en la que casi todos los objetos son fabricados por ellos. Combina las armas y armaduras que le convengan a tu estilo de juego en un sistema único y sin clases en donde “eres lo que llevas”. Explora el mundo, enfréntate a otros aventureros en emocionantes batallas, conquista territorios y construye un hogar.</p>
+                <h4>Detalle del producto</h4>
+                <p>Albion Online es un MMORPG no lineal multiplataforma ambientado en un mundo de fantasía medieval. El
+                    juego cuenta con una economía impulsada por los jugadores en la que casi todos los objetos son
+                    fabricados por ellos. Combina las armas y armaduras que le convengan a tu estilo de juego en un
+                    sistema único y sin clases en donde “eres lo que llevas”. Explora el mundo, enfréntate a otros
+                    aventureros en emocionantes batallas, conquista territorios y construye un hogar.</p>
             </div>
             <div class="details__main--share">
                 <i class="fa-solid fa-heart"></i>
                 <i class="fa-solid fa-share-nodes"></i>
             </div>
-            <div class="details__main--prod-rel">
-                <h3>productos relacionados</h3>
-                <div class="details__main--prod-rel--figure">
-                    <figure class="details__main--rel">
-                        <img width="60%" src="/img/caja.jpg" alt="">
-                    </figure>
-                    <figure class="details__main--rel">
-                        <img width="60%" src="/img/caja.jpg" alt="">
-                    </figure>
-                    <figure class="details__main--rel">
-                        <img width="60%" src="/img/caja.jpg" alt="">
-                    </figure>
-                    <figure class="details__main--rel">
-                        <img width="60%" src="/img/caja.jpg" alt="">
-                    </figure>
-                </div>
-            </div>
-            <div class="details__main--Q&A">
-                <h3>Preguntas y respuestas</h3>
-                <i class="fa-solid fa-messages-question"></i>
-                <form action="">
-                <textarea name="Pregunta"  cols="30" rows="10"
-                style="resize: none;"></textarea>
-                </form>
-                <figure>
-                    <img  width="90%" src="/img/timmy.jpg" alt="">
-                </figure>
-            </div>
         </article>
+        <div class="details__main--prod-rel">
+            <h3>productos relacionados</h3>
+            <div class="details__main--prod-rel--image">
+                    <img src="/img/caja.jpg" alt="">
+                    <img src="/img/caja.jpg" alt="">
+                    <img src="/img/caja.jpg" alt="">
+                    <img src="/img/caja.jpg" alt="">
+            </div>
+        </div>
+        <div class="details__main--QaA">
+            <div class="details__main--QaA--title">
+            <h3>Preguntas y respuestas </h3>
+            <i class="fa-solid fa-messages-question"></i>
+            </div>
+            <form action="">
+                <textarea name="Pregunta" cols="30" rows="2" placeholder="Escriba su pregunta" style="resize: none;"></textarea>
+                <button class="details__main--QaA-btn" type="submit">enviar</button>
+            </form>
+            <img src="/img/timmy.jpg" alt="">
+        </div>
     </main>
     <footer-component></footer-component>
 </body>
