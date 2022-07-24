@@ -1,0 +1,196 @@
+.header
+{
+    position: sticky;
+    top: 0;
+    height: 60px;
+    width: 100%;
+    background-color: var(--c_header_footer);
+}
+
+.header__mitad 
+{
+    display:flex;
+    align-items: center;
+    padding: 0 3vw;
+    height: 100%;
+}
+
+.header__mitad h1
+{
+    font-size: var(--fs_h2);
+}
+
+
+.header__mitad__logo
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+#burger
+{
+    color: var(--c_font);
+    font-size: 36px;
+}
+
+.header__mitad__logo i
+{
+    display: block;
+}
+
+.header__mitad__logo img, .header__mitad__searchbar, .header__mitad__buttons, .header__categorias
+{
+    display:none;
+}
+
+select { /*! Remueve flecha de options (Select)*/
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+
+@media (min-width: 630px)  /** Tablet y Desktop - CSS aquí dentro solo afecta a anchura 426 o mayor */
+{
+    .header__mitad
+    {
+        height: 100%;
+        justify-content: space-between;
+    }
+
+    .header__mitad__logo
+    {
+        display:flex;
+        justify-content:start;
+        gap: 15px;
+        width: 60%;
+    }
+
+    .header__mitad__logo a
+    {
+        display:flex;
+        align-items: center;
+        height: 60px;
+    }
+
+    .header__mitad__logo img
+    {
+        display:inline;
+        height: 65px;
+        padding-right: 5px;
+    }
+
+    .header__mitad__buttons
+    {
+        display: flex;
+        align-items: center;  
+    }
+
+    .header__mitad__buttons__search
+    {
+        font-size: 24px;
+        padding: 10px;
+        margin-right: 5px;
+    }
+
+    .header__mitad__buttons__button
+    {
+        background-color: var(--c_font);
+        border-radius: 100%;
+        font-size: 18px;
+        padding: 10px;
+        margin-right: 5px;
+    }
+
+    .header__mitad__buttons__button i
+    {
+        color: var(--c_bg);
+    }
+}
+
+@media (min-width: 910px) /** Desktop - CSS aquí dentro solo afecta a anchura 769 o mayor */
+{
+    .header__mitad__logo
+    {
+        width: auto;
+    }
+
+    #burger
+    {
+        display:none;
+    }
+
+    .header__mitad__logo img
+    {
+        height: 50px;
+    }
+    
+    .header__mitad__searchbar, .header__categorias
+    {
+        display: flex;
+    }
+
+    .header__mitad__searchbar
+    {
+        height: 60%;
+        width: 45%;
+        justify-content: center;
+        background-color: var(--c_font);
+        border-radius: 20px;
+        padding: 5px;
+    }
+
+    .header__mitad__searchbar--filter
+    {
+        background-color: var(--c_font);
+        color: var(--c_bg);
+        text-align: center;
+        border: none;
+        width: 15%;
+        border-radius: 20px;
+    }
+
+    .header__mitad__searchbar--input
+    {
+        background-color: var(--c_font);
+        color: var(--c_bg);
+        border: none;
+        width: 80%;
+        border-radius: 20px;
+        margin: 0px 2px;
+    }
+
+    .header__mitad__searchbar--button
+    {
+        background-color: var(--c_font);
+        border: none;
+        cursor: pointer;
+        margin-right: 5px;
+    }
+
+    .header__mitad__searchbar--button i
+    {
+        color:var(--c_bg)
+    }
+
+    .header__categorias
+    {
+        display: flex;
+        background-color: var(--c_font);
+        justify-content: space-around;
+        padding: 5px 25px; 
+    }
+
+    .header__categorias--categoria
+    {
+        font-size: var(--fs_p);
+        color: var(--c_bg);
+        font-weight: 500;
+    }
+
+    .header__mitad__buttons__search
+    {
+        display: none;
+    }
+}
