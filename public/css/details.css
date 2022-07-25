@@ -206,6 +206,11 @@
     color: var(--c_font);
 }
 
+.details__main--QaA form{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
 
 .details__main--QaA form textarea{
     width: 100%;
