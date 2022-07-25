@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/DamianDuarte/grupo_5_Shinsekai#readme",
   "dependencies": {
-    "express": "^4.18.1"
+    "express": "^4.18.1",
+    "nodemon": "^2.0.19"
   }
 }

@@ -1,6 +1,8 @@
 /*! -- CSS Stylesheets -- */
 @import "/css/normalize.css";
 @import "/css/general.css";
+@import "/css/header.css";
+@import "/css/footer.css";
 @import "/css/eric.css";
 @import "/css/home.css";
 @import "/css/login.css";
