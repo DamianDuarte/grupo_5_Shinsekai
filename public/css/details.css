@@ -1,10 +1,11 @@
-.details
+
+
+/*! ////// MAIN ////// */
+.details__main
 {
     background-color: var(--c_bg);
     padding: 3%;
 }
-
-/*! ////// MAIN ////// */
 
 /* Photo */
 .details__main--photo{
