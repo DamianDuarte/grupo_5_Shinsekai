@@ -6,6 +6,80 @@
 /*! ////// MAIN ////// */
 .home__main
 {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.home__main h3
+{
+    
+}
+
+.home__main__banner img
+{
+    width:100%;
+}
+
+.home__main__showcase
+{
+
+}
+
+.home__main__showcase
+{
+
+}
+
+.home__main__showcase__rebajas
+{
+    display: flex;
+    
+}
+
+.home__main__showcase__rebajas__producto img
+{
+
+}
+
+.home__main__showcase__populares
+{
+
+}
+
+.home__main__showcase__populares__producto
+{
+    
+}
+
+#banner2
+{
+    display:none;
+}
+
+.home__main__carrousel
+{
+    display:none;
+}
+
+.home__main__carrousel__producto
+{
+
+}
+
+.home__main__infinite
+{
+
+}
+
+.home__main__infinite__recomendaciones
+{
+
+}
+
+.home__main__infinite__recomendaciones__producto
+{
 
 }
 
