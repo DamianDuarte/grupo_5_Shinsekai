@@ -1,13 +1,10 @@
-class Footer extends HTMLElement 
-{
-    constructor() 
-    {
-      super();
-    }
-  
-    connectedCallback() 
-    {
-      this.innerHTML = `
+class Footer extends HTMLElement {
+  constructor() {
+    super();
+  }
+
+  connectedCallback() {
+    this.innerHTML = `
         <hr>
         <footer class="footer">
           <section class="footer__socialMedia">
@@ -20,46 +17,46 @@ class Footer extends HTMLElement
             </div>
             <h2>en las redes!</h2>
           </section>
+          <div class="footer__socialMedia__links">
           <section class="footer__elements">
-            <div class="footer__elements__column">
               <h4>Título</h4>
               <ul class="footer__elements__column__links">
-                <li><a>Elemento de footer</a></li>
-                <li><a>Elemento de footer</a></li>
-                <li><a>Elemento de footer</a></li>
+                  <li><a>Elemento de footer</a></li>
+                  <li><a>Elemento de footer</a></li>
+                  <li><a>Elemento de footer</a></li>
               </ul>
               <hr class="footer__elements__colums__hr">
           </section>
           <section class="footer__elements">
               <h4>Título</h4>
               <ul class="footer__elements__column__links">
-                <li><a>Elemento de footer</a></li>
-                <li><a>Elemento de footer</a></li>
-                <li><a>Elemento de footer</a></li> 
+                  <li><a>Elemento de footer</a></li>
+                  <li><a>Elemento de footer</a></li>
+                  <li><a>Elemento de footer</a></li>
               </ul>
               <hr class="footer__elements__colums__hr">
           </section>
           <section class="footer__elements">
               <h4>Título</h4>
               <ul class="footer__elements__column__links">
-                <li><a>Elemento de footer</a></li>
-                <li><a>Elemento de footer</a></li>
-                <li><a>Elemento de footer</a></li>
+                  <li><a>Elemento de footer</a></li>
+                  <li><a>Elemento de footer</a></li>
+                  <li><a>Elemento de footer</a></li>
               </ul>
               <hr class="footer__elements__colums__hr">
           </section>
           <section class="footer__elements">
               <h4>Título</h4>
               <ul class="footer__elements__column__links">
-                <li><a>Elemento de footer</a></li>
-                <li><a>Elemento de footer</a></li>
-                <li><a>Elemento de footer</a></li>
+                  <li><a>Elemento de footer</a></li>
+                  <li><a>Elemento de footer</a></li>
+                  <li><a>Elemento de footer</a></li>
               </ul>
-            </div>
           </section>
-        </footer>
-      `;
-    }
+      </div>
+  </footer>      
+  `;
   }
-  
-  customElements.define('footer-component', Footer);
+}
+
+customElements.define('footer-component', Footer);
