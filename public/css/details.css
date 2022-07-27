@@ -103,7 +103,7 @@
 }
 .details__main--chart form select{
     width: 100%;
-    border: solid 2px var(--light_font);
+    border: solid 1px var(--light_font);
     border-radius: 5px;
     text-align: center;
 }
