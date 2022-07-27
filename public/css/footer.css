@@ -13,11 +13,10 @@
 
 }
 
-.footer__socialMedia__botones__boton{
+.footer__socialMedia__botones a{
     background-color: var(--c_bg);
-    padding: 4%;
     border-radius: 50%;
-    font-size: 20px;
+    padding: 15px;
 }
 
 .footer__elements{
