@@ -5,7 +5,6 @@ class Footer extends HTMLElement {
 
   connectedCallback() {
     this.innerHTML = `
-        <hr>
         <footer class="footer">
           <section class="footer__socialMedia">
             <h2>¡Siguenos</h2>
