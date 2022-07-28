@@ -14,6 +14,7 @@
 <body class="details">
     <header-component></header-component>
     <main class="details__main">
+        <div class="details__main__photo-detail">
         <div class="details__main--photo">
             <div class="details__main--preview">
                 <img src="/img/caja.jpg" alt="">
@@ -42,29 +43,29 @@
                 <h5>Tabla de talles</h5>
                 <form action="" method="POST">
                     <select name="Talle"  value="Talle">
-                        <option value="-1" disabled selected hidden>Selecciona talle...</option>
-                        <option value="1">XS</option>
-                        <option value="2">S</option>
-                        <option value="3">M</option>
-                        <option value="4">L</option>
-                        <option value="5">XL</option>
-                        <option value="6">XXL</option>
-                        <option value="7">XXXL</option>
-                        <option value="8">4XL</option>
+                        <option class="form__option" value="-1" disabled selected hidden>Selecciona talle...</option>
+                        <option class="form__option" value="1">XS</option>
+                        <option class="form__option" value="2">S</option>
+                        <option class="form__option" value="3">M</option>
+                        <option class="form__option" value="4">L</option>
+                        <option class="form__option" value="5">XL</option>
+                        <option class="form__option" value="6">XXL</option>
+                        <option class="form__option" value="7">XXXL</option>
+                        <option class="form__option" value="8">4XL</option>
                     </select>
                 </form>
             </div>
             <div class="details__main--add-to-cart">
                 <button class="details__main--add-to-cart--button"  type="submit">Agregar al carrito   <i class="fa-solid fa-cart-shopping"></i></button>
-                <form>
+                <form class="details__main--form">
+                    <button class="btn-plus" onclick="decrementar()">-</button>
                     <input class="number_view" type="text" value="0" id="item" name="item" disabled>
-                    <button class="btn-plus" onclick="incrementar()">+</button>
-                    <button class="btn-min" onclick="decrementar()">-</button>
+                    <button class="btn-min" onclick="incrementar()">+</button>
                 </form>
             </div>
             <div class="details__main--prod-detail">
                 <h4>Detalle del producto</h4>
-                <p>Albion Online es un MMORPG no lineal multiplataforma ambientado en un mundo de fantasía medieval. El
+                <p class="details__main--prod--text">Albion Online es un MMORPG no lineal multiplataforma ambientado en un mundo de fantasía medieval. El
                     juego cuenta con una economía impulsada por los jugadores en la que casi todos los objetos son
                     fabricados por ellos. Combina las armas y armaduras que le convengan a tu estilo de juego en un
                     sistema único y sin clases en donde “eres lo que llevas”. Explora el mundo, enfréntate a otros
@@ -75,6 +76,7 @@
                 <i class="fa-solid fa-share-nodes"></i>
             </div>
         </article>
+    </div>
         <div class="details__main--prod-rel">
             <h3>productos relacionados</h3>
             <div class="details__main--prod-rel--image">

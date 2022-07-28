@@ -132,12 +132,18 @@
     flex-wrap: wrap;
     padding-left: 2%;
 }
+
+.details__main--add-to-cart form button{
+    border: none;
+}
+
 .number_view{
     width: 36%;
     text-align: center;
 }
 .btn-plus .btn-min{
     width: 5%;
+    border: none;
 }
 
 /* Detalle del producto */
@@ -156,6 +162,7 @@
     padding-bottom: 15px;
     font-size: 10px;
     width: 100%;
+    padding: 0 15px 0 15px;
 }
 
 /* Compartir y guardar */
@@ -235,13 +242,93 @@
     width: 100%;
 }
 
-/*! |||||||||||| Media Queries [ Afecta según la anchura/dispositivo que se use ] */
-@media (min-width: 426px)  /** Tablet y Desktop - CSS aquí dentro solo afecta a anchura 426 o mayor */
+
+/* Tablet */
+
+@media (min-width: 426px)  
 {
-    
+    .details__main__photo-detail{
+        display: flex;
+        flex-direction: row;
+        flex-wrap:wrap;
+        justify-content: space-between;
+    }
+
+    .details__main--photo{
+        width: 52%;
+    }
+
+    .details__main--detail{
+        width: 46%;
+        margin-top: 0;
+    }
+    .details__main--detail h3 {
+        font-size: 32px;
+    }
+
+    .details__main--share{
+        padding-bottom: 2%;
+    }
 }
 
-@media (min-width: 769px) /** Desktop - CSS aquí dentro solo afecta a anchura 769 o mayor */
-{
+/* Desktop */
 
+@media (min-width: 769px) {
+    .details__main__photo-detail{
+    margin-top: 25px;
+    }
+
+    .details__main--sar{
+        padding: 15;
+    }
+
+    .details__main--stars{
+        font-size: 25px;
+    }
+
+    .details__main--detail p{
+        text-align: end;
+        font-size: 25px;
+    }
+
+    .details__main--detail h3{
+        font-size: 45px;
+    }
+
+    .details__main--detail h4{
+        font-size: 30px;
+    }
+
+    .details__main--prod-detail{
+        font-size: 25px;
+    }
+
+    .details__main--prod-detail p{
+        text-align: start;
+        font-size: 19px;
+    }
+    
+    .details__main--chart select{
+        font-size: 20px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
+    .details__main--add-to-cart{
+        justify-content: space-between;
+    }
+
+    .details__main--add-to-cart--button{
+        padding: 10px;
+    }
+
+    .details__main--share {
+        padding-top: 10%;
+        padding-left: 5%;
+        padding-bottom: 1%;
+    }
+
+    .details__main--share i{
+        font-size: 35px;
+    }
 }
