@@ -1,13 +1,106 @@
-.register
-{
 
-}
 
 /*! ////// MAIN ////// */
-.register__main
+.register__main 
 {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.register__main h3
+{
+    color: var(--c_font);
+}
+
+.register__main hr
+{
+    width: 50%;
+    height: 1px;
+    background-color: var(--c_font);
+    margin-bottom: 10px;
+}
+
+.register__main__section
+{
+    background-color: var(--c_squares);
 
 }
+
+.register__main__section--quick
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.form__button--quick
+{
+    border-radius: 30px;
+    border: 1px solid var(--c_buttons);
+    background-color: var(--c_buttons);
+    color: var(--c_font);
+    padding: 15px;
+    margin: 10px;
+}
+
+.register__main__section--general
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.form__box--campo
+{
+    background-color: var(--c_bg);
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 5px;
+    padding-left: 3px;
+}
+
+.form__box--campo input
+{
+    border: none;
+}
+
+.form__text--error
+{
+    color: var(--c_buttons);
+}
+
+.form__box--item
+{
+    padding-bottom: 10px;
+}
+
+.register__main__section--send
+{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+}
+
+.form__button--send
+{
+    background-color: var(--c_buttons);
+    padding: 5px 30px;
+    border-radius: 10px;
+}
+
+.form__button--cancel
+{
+    border-bottom: 1px solid black;
+}
+
+textarea:focus,input:focus
+ {
+    outline: none;
+ }
+
 
 /*! |||||||||||| Media Queries [ Afecta según la anchura/dispositivo que se use ] */
 @media (min-width: 426px)  /** Tablet y Desktop - CSS aquí dentro solo afecta a anchura 426 o mayor */

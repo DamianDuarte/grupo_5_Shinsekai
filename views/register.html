@@ -9,62 +9,68 @@
     <script src="/components/footer.js" type="text/javascript" defer></script>
     <title>Shinsekai</title>
 </head>
+
 <body class="register">
     <header-component></header-component>
+
     <main class="register__main">
+        
         <h3>Bienvenido</h3>
         <hr>
-        <section class="register__main__section__general">
-            <form action="">
-                <div class="form__box">
-                    <input class="form__input" type="image" id="image">
-                    <label class="form__label" for="image">Adjuntar imagen</label>
-                </div>
-                    <div class="form__box">
-                        <label class="form__label" for="nombre">Nombre:</label>
-                        <input class="form__input" type="text" id="nombre">
+            
+        <form for="" class="register__main__section" novalidate>
+                
+            <section class="register__main__section--quick">
+                    <button class="form__button--quick" type="submit"><i class="fa-brands fa-google"></i></button>
+                    <button class="form__button--quick" type="submit"><i class="fa-brands fa-facebook"></i></button>
+                    <button class="form__button--quick" type="submit"><i class="fa-brands fa-twitter"></i></button>
+                </section>
+            <hr>
+            <section class="register__main__section--general">
+
+                        <input class="form__input--profile" type="image" id="image">
+                        <label class="form__label" for="image">Adjuntar imagen</label>
+
+                    <div class="form__box--campo">
+                        <i class="fa-solid fa-user"></i><input class="form__input" type="text" placeholder="Nombre" name="searchInput" id="name" for="text">
                     </div>
-                    <div class="form__box">
-                        <label class="form__label" for="apellido">Apellido:</label>
-                        <input class="form__input" type="text" id="apellido">
+                    <small class="form__text--error">El nombre es obligatorio</small>
+
+                    <div class="form__box--campo">
+                        <i class="fa-solid fa-user"></i><input class="form__input" type="" placeholder="Apellido" id="apellido" name="lastName">
                     </div>
-                    <div class="form__box">
-                        <label class="form__label" for="email">Usuario:</label>
-                        <input class="form__input" type="email" id="email">
+                    <small class="form__text--error">El apellido es obligatorio</small>
+
+                    <div class="form__box--campo">
+                        <i class="fa-solid fa-at"></i><input class="form__input" type="email" placeholder="Email" id="email" name="email">
                     </div>
+                    <small class="form__text--error">El email es obligatorio</small>
+    
+                    <div class="form__box--campo">
+                        <i class="fa-solid fa-lock"></i><input class="form__input" type="password" placeholder="Contraseña" id="password" name="password">
                     </div>
-                    <div class="form__box">
-                        <label class="form__label" for="email">Email:</label>
-                        <input class="form__input" type="email" id="email">
+                    <small class="form__text--error">El password debe contener entre 6 y 12 caracteres</small>
+    
+                    <div class="form__box--campo">
+                        <i class="fa-solid fa-lock"></i><input class="form__input" type="password" placeholder="Confirmar contraseña" id="password2">
                     </div>
-                    <div class="form__box">
-                        <label class="form__label" for="password">Contraseña:</label>
-                        <input class="form__input" type="password" id="password">
+                    <small class="form__text--error">Las contraseñas no coinciden</small>
+
+                </section>
+
+                <section class="register__main__section--send">
+
+                    <div class="form__box--item">
+                        <input class="form__checkbox" type="checkbox" id="terminos">
+                        <label for="terminos">Acepto los términos y condiciones</label>
                     </div>
-                    <div class="form__box">
-                        <label class="form__label" for="password2">Confirma contraseña:</label>
-                        <input class="form__input" type="password" id="password2">
-                    </div>  
+
+                        <button  class="form__button--send" type="submit">Registrate</button>
+                        
+                        <a href="" class="form__button--cancel">Cancelar</a>
+
+                </section>
             </form>
-        </section>
-        <hr>
-        <section class="register__main__section__quick">
-            <div class="form__box">
-                <button  class="form__button--send" type="submit">Google</button>
-                <button  class="form__button--send" type="submit">Facebook</button>
-                <button  class="form__button--send" type="submit">Twiter</button>
-            </div>
-        </section>
-        <section class="register__main__section__send">
-            <div class="form__box">
-                <input class="form__checkbox" type="checkbox" id="terminos">
-                <label for="terminos">Acepto los términos y condiciones</label>
-            </div>
-            <div class="form__box">
-                <a href="" class="form__button--cancel">Cancelar</a>
-                <button  class="form__button--send" type="submit">Registrate</button>
-            </div>
-        </section>
     </main>
     <footer-component></footer-component>
 </body>
