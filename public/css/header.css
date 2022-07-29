@@ -5,6 +5,7 @@
     height: 60px;
     width: 100%;
     background-color: var(--c_header_footer);
+    z-index: 5;
 }
 
 .header__mitad 
@@ -111,6 +112,10 @@ select { /*! Remueve flecha de options (Select)*/
 
 @media (min-width: 910px) /** Desktop - CSS aquí dentro solo afecta a anchura 769 o mayor */
 {
+    .header
+    {
+        margin-bottom: 30px;
+    }
     .header__mitad__logo
     {
         width: auto;
@@ -179,7 +184,7 @@ select { /*! Remueve flecha de options (Select)*/
         display: flex;
         background-color: var(--c_font);
         justify-content: space-around;
-        padding: 5px 25px; 
+        padding: 5px 25px;
     }
 
     .header__categorias--categoria
