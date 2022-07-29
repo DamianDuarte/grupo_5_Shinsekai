@@ -13,12 +13,16 @@
     <header-component></header-component>
     <main class="login__main">
 
-        <h3>Bienvenido</h3>
-        <hr>
+        <h4>Bienvenido</h4>
 
-        <form for="" class="login__main_section" novalidate>
+        <form for="" class="login__main__section" novalidate>
+            
+            <section class="login__main__section__general">
+
+            <input class="form__button--img" type="image" placeholder="fa-solid fa-user" name="searchInput" id="user" for="image">
+
             <div class="form__box--campo">
-                <i class="fa-solid fa-at"></i><input class="form__input" type="email" placeholder="Email" id="email" name="email">
+                <i class="fa-solid fa-at"></i><input class="form__input" type="email" placeholder="Usuario" id="email" name="email">
             </div>
             <small class="form__text--error">El email es obligatorio</small>
 
@@ -26,14 +30,27 @@
                 <i class="fa-solid fa-lock"></i><input class="form__input" type="password" placeholder="Contraseña" id="password" name="password">
             </div>
             <small class="form__text--error">La contraseña es incorrecta</small>
+
             <div class="form__box--item">
                 <input class="form__checkbox" type="checkbox" id="terminos">
                 <label for="terminos">Recordarme</label>
             </div>
 
                 <button  class="form__button--send" type="submit">Registrate</button>
+
+                <section class="login__main__section__general--quick">
+                    <button class="form__button--quick" type="submit"><i class="fa-brands fa-google"></i></button>
+                    <button class="form__button--quick" type="submit"><i class="fa-brands fa-facebook-square"></i></button>
+                    <button class="form__button--quick" type="submit"><i class="fa-brands fa-twitter"></i></button>
+                </section>
+            </section>
+
+            <section class="login__main__section__footer">
                 
+                <a href="" class="form__button--register">¿Perdiste la contraseña?</a>
+                <a href="/views/register.html" class="form__button--register">¿No tienes cuenta?</a>
                 <a href="" class="form__button--cancel">Cancelar</a>
+            </section>
         </form>
     </main>
     <footer-component></footer-component>

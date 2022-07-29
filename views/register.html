@@ -15,21 +15,29 @@
 
     <main class="register__main">
         
-        <h3>Bienvenido</h3>
-        <hr>
-            
+        <h4>Bienvenido</h4>
+          
         <form for="" class="register__main__section" novalidate>
                 
             <section class="register__main__section--quick">
                     <button class="form__button--quick" type="submit"><i class="fa-brands fa-google"></i></button>
-                    <button class="form__button--quick" type="submit"><i class="fa-brands fa-facebook"></i></button>
+                    <button class="form__button--quick" type="submit"><i class="fa-brands fa-facebook-square"></i></i></button>
                     <button class="form__button--quick" type="submit"><i class="fa-brands fa-twitter"></i></button>
                 </section>
             <hr>
-            <section class="register__main__section--general">
+            <section class="register__main-extra">
+                
+        <input class="form__button--img" type="image" placeholder="fa-solid fa-user" name="searchInput" id="user" for="image">
 
-                        <input class="form__input--profile" type="image" id="image">
-                        <label class="form__label" for="image">Adjuntar imagen</label>
+        <select name="user" class="option" value="name">
+            <option value="">Elige usuario</option>
+            <option value="">Juli</option>
+            <option value="">Mica</option>
+            <option value="">Dami</option>
+            <option value="">Eric</option>
+         </select>
+
+         <section class="register__main__section--general">
 
                     <div class="form__box--campo">
                         <i class="fa-solid fa-user"></i><input class="form__input" type="text" placeholder="Nombre" name="searchInput" id="name" for="text">
@@ -45,6 +53,11 @@
                         <i class="fa-solid fa-at"></i><input class="form__input" type="email" placeholder="Email" id="email" name="email">
                     </div>
                     <small class="form__text--error">El email es obligatorio</small>
+
+                    <div class="form__box--campo">
+                        <i class="fa-solid fa-user"></i><input class="form__input" type="text" placeholder="Usuario" name="searchInput" id="name" for="text">
+                    </div>
+                    <small class="form__text--error">El usuario es obligatorio</small>
     
                     <div class="form__box--campo">
                         <i class="fa-solid fa-lock"></i><input class="form__input" type="password" placeholder="Contraseña" id="password" name="password">
@@ -70,6 +83,7 @@
                         <a href="" class="form__button--cancel">Cancelar</a>
 
                 </section>
+            </section>
             </form>
     </main>
     <footer-component></footer-component>

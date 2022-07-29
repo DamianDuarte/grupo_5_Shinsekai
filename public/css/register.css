@@ -1,28 +1,39 @@
 
-
 /*! ////// MAIN ////// */
 .register__main 
 {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
+    align-items: center;
+    padding-bottom: 10px;
 }
 
-.register__main h3
+.register__main h4
 {
     color: var(--c_font);
+    border-bottom: 1px solid var(--c_font);
+    width: 130px;
+    text-align: center;
+    margin: 20px;
+    padding-top: 10px;
+    
 }
 
-.register__main hr
+.register__main-extra
 {
-    width: 50%;
-    height: 1px;
-    background-color: var(--c_font);
-    margin-bottom: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
 .register__main__section
 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     background-color: var(--c_squares);
 
 }
@@ -31,16 +42,19 @@
 {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
+    margin: 0px 20px;
+    border-bottom: 1px solid var(--c_font) ;
+    padding: 10px;
 }
 
 .form__button--quick
 {
     border-radius: 30px;
-    border: 1px solid var(--c_buttons);
+    border: 1px solid var(--c_font);
     background-color: var(--c_buttons);
     color: var(--c_font);
-    padding: 15px;
+    padding: 20px;
     margin: 10px;
 }
 
@@ -48,16 +62,37 @@
 {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+
+select
+{
+    border: 1px solid var(--c_buttons);
+    padding: 3px 20px;
+}
+
+.form__button--img
+{
+    border: 1px solid var(--c_buttons);
+    width: 100px;
+    margin: 10px;
 }
 
 .form__box--campo
 {
-    background-color: var(--c_bg);
-    border: 1px solid black;
+    background-color: var(--c_buttons);
+    border: 1px solid var(--c_buttons);
     border-radius: 5px;
     margin: 5px;
-    padding-left: 3px;
+    margin-top: 10px;
+
+}
+
+.form__box--campo i
+{
+    padding: 3px;
 }
 
 .form__box--campo input
@@ -81,19 +116,23 @@
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     padding: 10px;
 }
 
 .form__button--send
 {
     background-color: var(--c_buttons);
-    padding: 5px 30px;
+    padding: 5px 40px;
     border-radius: 10px;
+    margin: 10px;
+    color: var(--c_font);
 }
 
 .form__button--cancel
 {
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid var(--c_font);
+    width: 60px;
 }
 
 textarea:focus,input:focus
@@ -105,10 +144,67 @@ textarea:focus,input:focus
 /*! |||||||||||| Media Queries [ Afecta según la anchura/dispositivo que se use ] */
 @media (min-width: 426px)  /** Tablet y Desktop - CSS aquí dentro solo afecta a anchura 426 o mayor */
 {
-    
+    .register__main__section
+    {
+        flex-direction: row-reverse;
+        width: 100%;
+    }
+
+    .register__main__section--quick
+    {
+        flex-direction: column;
+        justify-content: space-around;
+        border-bottom: none;
+        border-left: 1px solid var(--c_buttons);
+        align-items: center;
+        margin: 70px 0px;
+        padding-left: 30px;
+    }
+
+    .register__main-extra
+    {
+        width: 75%;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+
+    .form__text--error
+    {
+        display: none;
+    }
+
+    .register__main__section--general
+    {
+        flex-direction: row;
+        margin: 20px;
+        justify-content: space-around;
+    }
 }
 
 @media (min-width: 769px) /** Desktop - CSS aquí dentro solo afecta a anchura 769 o mayor */
 {
+    .register__main
+    {
+        padding: 20px 0px;
+    }
 
+    .register__main__section
+    {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        padding: 20px;
+    }
+
+    .register__main-extra
+    {
+        width: 60%;
+    }
+
+    .register__main__section--quick
+    {
+        width: 30%;
+        padding: none;
+    }
 }
