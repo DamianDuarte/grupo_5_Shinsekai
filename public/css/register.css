@@ -1,4 +1,22 @@
+.register__header__logo
+{
+    background-color: var(--c_header_footer);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    width: 100%;
+}
 
+.register__header__logo img
+{
+    display: none;
+}
+
+.register__header__logo h1
+{
+    font-size: var(--fs_h2);
+}
 /*! ////// MAIN ////// */
 .register__main 
 {
@@ -15,7 +33,8 @@
     border-bottom: 1px solid var(--c_font);
     width: 130px;
     text-align: center;
-    margin: 20px;
+    margin-top: 15px;
+    margin-bottom: 10px;
     padding-top: 10px;
     
 }
@@ -27,6 +46,7 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
+    padding: 15px;
 }
 
 .register__main__section
@@ -35,6 +55,9 @@
     flex-wrap: wrap;
     justify-content: center;
     background-color: var(--c_squares);
+    margin: 20px;
+    border-radius: 10px;
+
 
 }
 
@@ -45,7 +68,7 @@
     justify-content: space-between;
     margin: 0px 20px;
     border-bottom: 1px solid var(--c_font) ;
-    padding: 10px;
+    padding: 20px 0px;
 }
 
 .form__button--quick
@@ -71,6 +94,7 @@ select
 {
     border: 1px solid var(--c_buttons);
     padding: 3px 20px;
+    margin-bottom: 10px;
 }
 
 .form__button--img
@@ -132,8 +156,16 @@ select
 .form__button--cancel
 {
     border-bottom: 1px solid var(--c_font);
-    width: 60px;
+    width: 80px;
 }
+
+.register__footer 
+{
+    background-color: var(--c_header_footer);
+    text-align: center;
+    padding: 10px;
+}
+
 
 textarea:focus,input:focus
  {
@@ -144,10 +176,15 @@ textarea:focus,input:focus
 /*! |||||||||||| Media Queries [ Afecta según la anchura/dispositivo que se use ] */
 @media (min-width: 426px)  /** Tablet y Desktop - CSS aquí dentro solo afecta a anchura 426 o mayor */
 {
+    .register__main
+    {
+        padding: 0px 30px;
+    }
     .register__main__section
     {
         flex-direction: row-reverse;
-        width: 100%;
+        flex-wrap: wrap;
+
     }
 
     .register__main__section--quick
@@ -158,12 +195,12 @@ textarea:focus,input:focus
         border-left: 1px solid var(--c_buttons);
         align-items: center;
         margin: 70px 0px;
-        padding-left: 30px;
+        padding: 0px 25px
     }
 
     .register__main-extra
     {
-        width: 75%;
+        width: 80%;
         display: flex;
         flex-wrap: wrap;
         flex-direction: column;
@@ -177,7 +214,7 @@ textarea:focus,input:focus
     .register__main__section--general
     {
         flex-direction: row;
-        margin: 20px;
+        margin: 10px;
         justify-content: space-around;
     }
 }
@@ -186,7 +223,7 @@ textarea:focus,input:focus
 {
     .register__main
     {
-        padding: 20px 0px;
+        padding: 10px 50px;
     }
 
     .register__main__section
@@ -194,17 +231,21 @@ textarea:focus,input:focus
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
-        padding: 20px;
+        padding: 10px;
     }
 
     .register__main-extra
     {
-        width: 60%;
+        width: 65%;
     }
 
     .register__main__section--quick
     {
         width: 30%;
-        padding: none;
+    }
+
+    .register__main__section--general
+    {
+        margin: 20px;
     }
 }

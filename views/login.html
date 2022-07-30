@@ -1,16 +1,25 @@
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/styles.css">
     <script src="https://kit.fontawesome.com/da8f9c3d94.js" crossorigin="anonymous"></script>
-    <script src="/components/header.js" type="text/javascript" defer></script>
-    <script src="/components/footer.js" type="text/javascript" defer></script>
     <title>Shinsekai</title>
 </head>
+
 <body class="login">
-    <header-component></header-component>
+
+    <header class="login__header">
+        <figure class="login__header__logo">
+            <img src="/img/logo.png" alt="logo">
+            <h1>Shinsekai</h1>
+          </a>
+        </figure>
+      </header>
+
     <main class="login__main">
 
         <h4>Bienvenido</h4>
@@ -36,7 +45,7 @@
                 <label for="terminos">Recordarme</label>
             </div>
 
-                <button  class="form__button--send" type="submit">Registrate</button>
+                <button  class="form__button--send" type="submit">Iniciar</button>
 
                 <section class="login__main__section__general--quick">
                     <button class="form__button--quick" type="submit"><i class="fa-brands fa-google"></i></button>
@@ -53,6 +62,9 @@
             </section>
         </form>
     </main>
-    <footer-component></footer-component>
+    <footer class="login__footer">
+        <h5>© Shinsekai</h5>
+        <p>Derechos reservados</p>
+    </footer>
 </body>
 </html>
