@@ -1,84 +1,195 @@
-.cart
-{
-
+/*! ////// MAIN ////// */
+.cart__main {
+    background-color: var(--c_squares);
+    padding: 4% 7%;
 }
 
-.cart__title
-{
-
+.cart__title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 3%;
 }
 
-
-/*! Lista de productos en el carrito*/
-.cart__list
-{
-
+.cart__title a i{
+    font-size: 23px;
+    color: var(--light_font);
 }
 
-.cart__list__product
-{
-
+.cart__title h3{
+    font-size: 23px;
+    color: var(--light_font);
 }
 
-/*! Productos (Se usan en la lista y para el producto de "puede interesarte")*/
-.product--img
-{
-
-}
-.product--name
-{
-
-}
-.product--price
-{
-
-}
-.product--delete
-{
-
-}
-.product--amountButton
-{
-
-}
-.product--amount
-{
-
-}
-.product--button /*! Este botón va al final, es el de "Agregar al carrito"*/
-{
-
-}
-
-/*! Cupones, totales, etc. */
-.cart__pago
-{
-
-}
-
-.cart__pago__discount
-{
-
-}
-
-.cart__pago__subtotal
-{
-
-}
-
-.cart__pago__total
-{
-
-}
-
-.cart__pago__payment
-{
+.cart__list{
     
 }
 
-.cart__pago__related
-{
+.product__container{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-bottom: 7%;
+}
 
+.cart__list__product{
+    
+}
+
+.cart__list__product--img{
+    width: 100%;
+    margin-top: 0%;
+}
+.cart__list--product-form{
+    width: 70%;
+}
+
+.cart__list__product--name--price p{
+    width: 100%;
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: var(--c_bg);
+}
+
+.product--price{
+    margin-bottom: 50px;
+}
+
+.cart_list__form{
+    display: flex;
+    width: 100%;
+    margin-top: 40px;
+    align-items: center;
+}
+
+.cart__list--form{
+    width: 70%;
+}
+
+.button-number{
+    width: 20%;
+}
+
+.button-plus button-min{
+    width: 10%;
+}
+
+.product--delete i{
+    color: var(--light_font);
+}
+
+.cart__pago{
+
+}
+
+.cart__pago__discount{
+    display: flex;
+}
+
+.cart__pago__discount input{
+    border: none;
+    background-color: var(--c_squares);
+    width: 60%;
+}
+
+.cart__pago__discount button{
+    border: none;
+    background-color: var(--c_buttons);
+    color: var(--c_font);
+    border-radius: 20px;
+    font-size: 85%;
+    padding: 10px;
+}
+
+.cart__pago__subtotal{
+    display: flex;
+    justify-content: space-between;
+    margin: 3%;
+}
+
+.cart__pago__subtotal p{
+    color: var(--light_font);
+}
+
+.cart__pago__total{
+    display: flex;
+    justify-content: space-between;
+    margin: 3%;
+}
+
+.cart__pago__total p{
+    color: var(--light_font);
+}
+
+.cart__pago__payment{
+    display: flex;
+    justify-content: center;
+    margin: 5%;
+    flex-direction: column;
+}
+
+.cart__pago__payment button{
+    border: none;
+    border-radius: 20px;
+    background-color: var(--c_buttons);
+    color: var(--c_font);
+    padding: 15px;
+    width: 100%;
+    margin-bottom: 5%;
+}
+
+.continue--shopping--button{
+    text-align: center;
+    text-decoration: underline;
+    width: 100%;
+    align-self: flex-end;
+    color: var(--light_font);
+}
+
+.cart__line{
+    width: 80%;
+    text-align: center;
+    margin: 10%;
+}
+
+.quick--add--to--bag{
+    text-align: center;
+    margin-bottom: 5%;
+    color: var(--light_font);
+}
+
+.related{   
+    display: flex;
+    width: 300px;
+    height: 100px;
+}
+
+.related_product-info{
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+}
+
+.related p{
+    margin-top: 0px;
+    margin-left: 20px;
+    margin-bottom: 0px;
+    color: var(--light_font);
+}
+
+.related button{
+    margin-top: 20px;
+    margin-left: 20px;
+    background-color: var(--c_buttons);
+    color: var(--c_font);
+    border: none;
+    padding: 5px;
+    border-radius: 20px;
+}
+
+.related img{
+    width: 100px;
+    height: 100px;
 }
 
 /*! |||||||||||| Media Queries [ Afecta según la anchura/dispositivo que se use ] */
