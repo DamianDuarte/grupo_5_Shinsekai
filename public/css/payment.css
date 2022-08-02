@@ -25,6 +25,7 @@
     justify-content: left;
     gap: 10px;
     margin: 0px 5px 25px;
+    width: 150px;
 }
 
 .payment__main__topButtons__back h4
@@ -302,6 +303,17 @@
 
 @media (min-width: 768px)  /** L-Tablet ~ S-Desktop */
 {
+    .payment__main__topButtons__back
+    {
+        margin: 20px 2% 15px;
+        width: 200px;
+    }
+
+    .payment__main__topButtons__back h4, .payment__main__topButtons i
+    {
+        font-size: 24px;
+    }
+
     #payment__main__div
     {
         margin: 0px 2%;
