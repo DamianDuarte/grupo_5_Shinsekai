@@ -90,7 +90,7 @@
     align-items: center;
 }
 
-select
+.register select
 {
     border: 1px solid var(--c_buttons);
     padding: 3px 20px;
@@ -167,7 +167,7 @@ select
 }
 
 
-textarea:focus,input:focus
+.register textarea:focus, .register input:focus
  {
     outline: none;
  }

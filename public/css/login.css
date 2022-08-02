@@ -94,6 +94,11 @@
 }
 
 
+.login textarea:focus, .login input:focus
+ {
+    outline: none;
+ }
+
 /*! |||||||||||| Media Queries [ Afecta según la anchura/dispositivo que se use ] */
 @media (min-width: 426px)  /** Tablet y Desktop - CSS aquí dentro solo afecta a anchura 426 o mayor */
 {
@@ -167,8 +172,6 @@
     {
        padding-top: 15px;
     }
-
-
 }
 
 
