@@ -23,8 +23,7 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    align-items: center;
-    padding-bottom: 10px;
+    align-items: center;  
 }
 
 .register__main h4
@@ -35,7 +34,7 @@
     text-align: center;
     margin-top: 15px;
     margin-bottom: 10px;
-    padding-top: 10px;
+    padding: 10px;
     
 }
 
@@ -46,7 +45,6 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 15px;
 }
 
 .register__main__section
@@ -55,7 +53,7 @@
     flex-wrap: wrap;
     justify-content: center;
     background-color: var(--c_squares);
-    margin: 20px;
+    margin: 20px 30px 20px;
     border-radius: 10px;
 
 
@@ -66,7 +64,6 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin: 0px 20px;
     border-bottom: 1px solid var(--c_font) ;
     padding: 20px 0px;
 }
@@ -79,6 +76,8 @@
     color: var(--c_font);
     padding: 20px;
     margin: 10px;
+    box-shadow: 0px 2px 0px var(--c_font);
+
 }
 
 .register__main__section--general
@@ -97,12 +96,36 @@ select
     margin-bottom: 10px;
 }
 
-.form__button--img
-{
-    border: 1px solid var(--c_buttons);
-    width: 100px;
+ .form__box--user
+ {
+    position: relative;
+    padding: 10px;
+    width: 85px;
+    height: 80px;
     margin: 10px;
-}
+    background-color: var(--c_buttons);
+    border-radius: 5px;
+    box-shadow: 0px 3px 0px var(--c_font);
+ }
+ 
+ .form__box--user i 
+ {
+    margin-top: 20px;
+    color: var(--c_font);
+ }
+
+ .form__button--user
+ {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+
+ }
 
 .form__box--campo
 {
@@ -151,6 +174,8 @@ select
     border-radius: 10px;
     margin: 10px;
     color: var(--c_font);
+    box-shadow: 0px 3px 0px var(--c_font);
+
 }
 
 .form__button--cancel
@@ -176,15 +201,27 @@ textarea:focus,input:focus
 /*! |||||||||||| Media Queries [ Afecta según la anchura/dispositivo que se use ] */
 @media (min-width: 426px)  /** Tablet y Desktop - CSS aquí dentro solo afecta a anchura 426 o mayor */
 {
+    .register__header__logo
+    {
+        justify-content: flex-start;
+        padding-left: 10px;
+    }
+    .register__header__logo img
+    {
+        display: flex;
+        width: 90px;
+        margin-right: 10px;
+        margin-left: 25px;
+    }
+   
     .register__main
     {
-        padding: 0px 30px;
+        padding: 0px 20px;
     }
     .register__main__section
     {
         flex-direction: row-reverse;
         flex-wrap: wrap;
-
     }
 
     .register__main__section--quick
@@ -244,8 +281,15 @@ textarea:focus,input:focus
         width: 30%;
     }
 
+    .form__button--quick
+    {
+        padding: 30px;
+        border-radius: 40px;
+    }
+
     .register__main__section--general
     {
         margin: 20px;
     }
+    
 }
