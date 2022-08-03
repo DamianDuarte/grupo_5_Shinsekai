@@ -48,6 +48,8 @@
     width: 100%;
     font-size: 16px;
     margin-bottom: 5px;
+    margin-left: 10px;
+    margin-top: 10px;
     color: var(--c_bg);
 }
 
@@ -58,7 +60,7 @@
 .cart_list__form{
     display: flex;
     width: 100%;
-    margin-top: 40px;
+    margin-top: 24px;
     align-items: center;
 }
 
@@ -115,6 +117,7 @@
     display: flex;
     justify-content: space-between;
     margin: 3%;
+
 }
 
 .cart__pago__total p{
@@ -149,7 +152,7 @@
 .cart__line{
     width: 80%;
     text-align: center;
-    margin: 10%;
+    margin: 7%;
 }
 
 .quick--add--to--bag{
@@ -158,47 +161,48 @@
     color: var(--light_font);
 }
 
-.related{   
-    display: flex;
+.related
+{   display: flex;
     width: 300px;
     height: 100px;
 }
 
-.related_product-info{
+.related_product-info
+{
     display: flex;
     flex-direction: column;
-    padding-top: 10px;
+    padding-top: 7px;
 }
 
-.related p{
+.related p
+{
     margin-top: 0px;
-    margin-left: 20px;
+    margin-left: 10px;
     margin-bottom: 0px;
+    font-size: 16px;
     color: var(--light_font);
+    
 }
 
-.related button{
+.related button
+{
     margin-top: 20px;
     margin-left: 20px;
     background-color: var(--c_buttons);
     color: var(--c_font);
     border: none;
-    padding: 5px;
+    padding: 9px;
     border-radius: 20px;
 }
 
-.related img{
+.related img
+{
     width: 100px;
     height: 100px;
 }
 
-/*! |||||||||||| Media Queries [ Afecta según la anchura/dispositivo que se use ] */
-@media (min-width: 426px)  /** Tablet y Desktop - CSS aquí dentro solo afecta a anchura 426 o mayor */
-{
-    
+@media (min-width: 426px) {
 }
-
-@media (min-width: 769px) /** Desktop - CSS aquí dentro solo afecta a anchura 769 o mayor */
-{
+@media (min-width: 769px){
 
 }
