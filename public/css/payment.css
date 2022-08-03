@@ -1,0 +1,511 @@
+.payment__main h4
+{
+    text-align: center;
+}
+
+#payment__main__div
+{
+    display:flex;
+    flex-direction: column;
+}
+
+/*! Botones: Métodos de pago*/
+
+.payment__main__topButtons
+{
+    display:flex;
+    flex-direction: column;
+    margin: 15px 0px;
+}
+
+.payment__main__topButtons__back
+{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 10px;
+    margin: 0px 5px 25px;
+    width: 150px;
+}
+
+.payment__main__topButtons__back h4
+{
+    font-size: 16px;
+}
+
+.payment__main__topButtons__choices
+{
+    display: flex;
+    margin: 10px;
+    gap: 10px;
+    justify-content: center;
+}
+
+.payment__main__topButtons__choices--choice
+{
+    border: none;
+    border-radius: 100px;
+    background-color: var(--c_squares);
+    width: 90px;
+    height: 90px;
+    padding: 15px;
+    cursor: pointer;
+}
+
+.payment__main__topButtons__choices--choice img
+{
+    width: 100%;
+}
+
+.payment__main__topButtons__choices--choice b
+{
+    display: none;
+}
+
+/*! Información de cantidades de producto */
+
+.payment__main__info__amount
+{
+    background-color: var(--c_squares);
+    padding: 15px;
+    margin-bottom: 10px;
+}
+
+.payment__main__info__amount .mobile-info
+{
+    display: flex;
+    justify-content: space-around;
+}
+
+.payment__main__info__amount .mobile-info *
+{
+    width: 20%;
+}
+
+.payment__main hr
+{
+    border: solid 1px var(--c_font);
+    margin: 3px 0px 10px;
+}
+
+.payment__main__info__amount--img
+{
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.payment__main__info__amount h3, .payment__main__info__amount h4, .payment__main__info__amount p
+{
+    font-size: 12px;
+}
+
+.payment__main__info__amount__list
+{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.payment__main__info__amount__list__product
+{
+    display: flex;
+    align-items:baseline;
+    flex-direction: row;
+}
+
+.payment__main__info__amount__list__product__column:first-child
+{
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+}
+
+.payment__main__info__amount__list__product__column
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 25%;
+}
+
+.payment__main__info__amount__list__product__column p
+{
+    width: 100%;
+}
+.payment__main__info__amount__list__product__column a
+{
+    width: 50%;
+}
+
+.payment__main__info__amount__list__product__column a p
+{
+    width: 100%;
+}
+
+.payment__main__info__amount__list__product__column p, .payment__main__info__amount__list__product__column h4
+{
+    text-align: center;
+    width: 100%;
+}
+
+.payment__main__info__amount__list__product__column .amount
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+}
+
+.payment__main__info__amount__list__product__column .amount button 
+{
+    width: 20%;
+    height: 25px;
+    font-size: 7px;
+    padding:0;
+}
+
+.payment__main__info__amount__list__product__column .amount p
+{
+    text-align: center;
+    width: 20%;
+}
+
+.payment__main__info__amount__list__product__column .desktop-cantidad, .payment__main__info__amount__list__product__column .desktop-precio
+{
+    display: none;
+}
+
+/*! Formulario de pago */
+
+.payment__main__info__payment
+{
+    padding: 15px;
+    background-color: var(--c_squares);
+    margin-bottom: 10px;
+}
+
+.payment__main__info__payment__left, .payment__main__info__payment__right
+{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.payment__main__info__payment .shared-fields
+{
+    display: flex;
+    flex-direction: row;
+    gap: 10%;
+    width: 100%;
+}
+
+.payment__main__info__payment .shared-fields .field
+{
+    width: 100%;
+}
+
+.payment__main__info__payment label
+{
+    font-weight: 600;
+}
+
+.payment__main__info__payment input
+{
+    border: none;
+    width: 100%;
+    border-radius: 20px;
+    height: 35px;
+    margin: 5px 0px;
+    padding-left: 10px;
+    font-size: 14px;
+}
+
+/*! Información de productos (totales) */
+
+.payment__main__total
+{
+    background-color: var(--c_squares);
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.payment__main__total h3
+{
+    text-align: center;
+    width: 100%;
+}
+
+.payment__main__total h5
+{
+    text-align: center;
+}
+
+.payment__main__total__titles
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 7px;
+}
+
+.payment__main__total__titles .column-element1
+{
+    text-align: left;
+}
+
+.payment__main__total__row
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.payment__main__total .column-element1
+{
+    width: 70%;
+}
+
+.payment__main__total .column-element2
+{
+    text-align: center;
+    width: 30%;
+}
+
+.payment__main__total__pay
+{
+    width: 50%;
+    margin: 20px 25% 5px;
+    background-color: var(--c_buttons);
+    color: var(--c_font);
+    padding: 13px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+
+/*!!!! Media queries !!!!*/
+
+@media (min-width: 426px) and (max-width: 767px) /** L-Mobile ~ S-Tablet */
+{
+    #payment__main__div
+    {
+        margin: 0px 5%;
+    }
+
+    .payment__main__total, .payment__main__info__payment, .payment__main__info__amount
+    {
+        padding: 5%;
+        margin: 3%;
+    }
+}
+
+@media (min-width: 768px)  /** L-Tablet ~ S-Desktop */
+{
+    .payment__main__topButtons__back
+    {
+        margin: 20px 2% 15px;
+        width: 200px;
+    }
+
+    .payment__main__topButtons__back h4, .payment__main__topButtons i
+    {
+        font-size: 24px;
+    }
+
+    #payment__main__div
+    {
+        margin: 0px 2%;
+        flex-direction: row;
+        gap: 10px;
+        width: 98%;
+    }
+
+    .payment__main__info
+    {
+        width: 70%;
+    }
+
+    .payment__main__total
+    {
+        width: 26%;
+        height: 100%;
+    }
+
+    /*! Botones: Métodos de pago*/
+    .payment__main__topButtons__choices--choice
+    {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 150px;
+        height: 70px;
+    }
+
+    .payment__main__topButtons__choices--choice img
+    {
+        width: 30%;
+    }
+
+    .payment__main__topButtons__choices--choice b
+    {
+        display:block;
+        width: 65%;
+    }
+
+    /*! Información de cantidades de producto */
+    .payment__main__info__amount
+    {
+        display: flex;
+    }
+
+    .payment__main__info__amount--img
+    {
+        max-width: 25%;
+        height: 100%;
+        margin-right: 10px;
+    }
+
+    .payment__main__info__amount .mobile-info, .payment__main__info__amount hr
+    {
+        display: none;
+    }
+
+    .payment__main__info__amount__list
+    {
+        width: 75%;
+    }
+
+    .payment__main__info__amount__list__product__column, .payment__main__info__amount__list__product__column:first-child
+    {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .payment__main__info__amount__list__product__column:first-child
+    {
+        width: 50%;
+    }
+
+    .payment__main__info__amount__list__product__column
+    {
+        width: 30%;
+    }
+
+    .payment__main__info__amount__list__product__column p, .payment__main__info__amount__list__product__column h4
+    {
+        text-align: left;
+    }
+
+    .payment__main__info__amount__list__product__column a
+    {
+        width: 100%;
+    }
+
+    .payment__main__info__amount__list__product__column p
+    {
+        margin-top: 12px;
+        text-align:left;
+    }
+
+    .payment__main__info__amount__list__product__column .amount
+    {
+        position: relative;
+        bottom: 13px;
+        left: 75px;
+    }
+
+    .payment__main__info__amount__list__product__column .amount button 
+    {
+        height: 15px;
+        width: 15px;
+    }
+
+    .payment__main__info__amount__list__product__column .amount p
+    {
+        margin:0;
+    }
+
+    .payment__main__info__amount__list__product__column .desktop-cantidad, .payment__main__info__amount__list__product__column .desktop-precio
+    {
+        display: block;
+    }
+
+    /*! Formulario de pago */
+
+    .payment__main__info__payment
+    {
+        display: flex;
+        justify-content: space-around;
+        padding: 2%;
+    }
+
+    .payment__main__info__payment input
+    {
+        height: 25px;
+        font-size: 12px;
+        margin: 10px 0px;
+    }
+
+    .payment__main__info__payment .field
+    {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .payment__main__info__payment .field label
+    {
+        font-size: 12px;
+        width: 20%;
+        text-align: left;
+    }
+
+    .payment__main__info__payment .shared-fields .field label
+    {
+        width: 80%;
+    }
+
+    .payment__main__info__payment__left, .payment__main__info__payment__right
+    {
+        width: 45%;
+    }
+
+    /*! Información de productos (totales) */
+
+    .payment__main__total .column-element1, .payment__main__total .column-element2
+    {
+        font-size: 12px;
+    }
+
+    .payment__main__total__pay
+    {
+        font-size: 14px;
+        margin: 20px 10% 5px;
+        width: 80%;
+    }
+}
+
+@media (min-width: 1020px) /** L-Desktop */
+{
+    /*! Información de cantidades de producto */
+    .payment__main__info__amount h4, .payment__main__info__amount p
+    {
+        font-size: 16px;
+    }
+
+    /*! Información de productos (totales) */
+
+    .payment__main__total .column-element1, .payment__main__total .column-element2
+    {
+        font-size: 15px;
+    }
+
+    .payment__main__total__pay
+    {
+        font-size: 16px;
+        margin: 20px 10% 5px;
+        width: 80%;
+    }
+}

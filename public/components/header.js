@@ -12,7 +12,7 @@ class Header extends HTMLElement
         <section class="header__mitad">
         <figure class="header__mitad__logo">
           <i id="burger" class="fa-solid fa-bars"></i>
-          <a href="#">
+          <a href="/">
             <img src="/img/logo.png" alt="logo">
             <h1>Shinsekai</h1>
           </a>
@@ -35,9 +35,9 @@ class Header extends HTMLElement
     
           <nav class="header__mitad__buttons">
             <a class="header__mitad__buttons__search"href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
-            <a class="header__mitad__buttons__button" href="#"><i class="fa-solid fa-heart"></i></a>
-            <a class="header__mitad__buttons__button" href="#"><i class="fa-solid fa-cart-shopping"></i></a>
-            <a class="header__mitad__buttons__button" href="#"><i class="fa-solid fa-right-from-bracket"></i></a>
+            <a class="header__mitad__buttons__button" href="/login"><i class="fa-solid fa-user"></i></a>
+            <a class="header__mitad__buttons__button" href="/cart"><i class="fa-solid fa-cart-shopping"></i></a>
+            <a class="header__mitad__buttons__button" href="/register"><i class="fa-solid fa-right-from-bracket"></i></a>
           </nav>
         </section>
 

@@ -1,17 +1,69 @@
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/styles.css">
     <script src="https://kit.fontawesome.com/da8f9c3d94.js" crossorigin="anonymous"></script>
-    <script src="/components/header.js" type="text/javascript" defer></script>
-    <script src="/components/footer.js" type="text/javascript" defer></script>
     <title>Shinsekai</title>
 </head>
+
 <body class="login">
-    <header-component></header-component>
-    <main class="login__main"></main>
-    <footer-component></footer-component>
+
+    <header class="login__header">
+        <a href="/" class="login__header__logo">
+            <img src="/img/logo.png" alt="logo">
+            <h1>Shinsekai</h1>
+          </a>
+      </header>
+
+    <main class="login__main">
+
+        <h4>Bienvenido</h4>
+
+        <form for="" class="login__main__section" novalidate>
+            
+            <section class="login__main__section__general">
+
+            <input class="form__button--img" type="image" placeholder="fa-solid fa-user" name="searchInput" id="user" for="image">
+
+            <div class="form__box--campo">
+                <i class="fa-solid fa-at"></i><input class="form__input" type="email" placeholder="Usuario" id="email" name="email">
+            </div>
+            <small class="form__text--error">El email es obligatorio</small>
+
+            <div class="form__box--campo">
+                <i class="fa-solid fa-lock"></i><input class="form__input" type="password" placeholder="Contraseña" id="password" name="password">
+            </div>
+            <small class="form__text--error">La contraseña es incorrecta</small>
+
+            <div class="form__box--item">
+                <input class="form__checkbox" type="checkbox" id="terminos">
+                <label for="terminos">Recordarme</label>
+            </div>
+
+                <button  class="form__button--send" type="submit">Iniciar</button>
+
+                <section class="login__main__section__general--quick">
+                    <button class="form__button--quick" type="submit"><i class="fa-brands fa-google"></i></button>
+                    <button class="form__button--quick" type="submit"><i class="fa-brands fa-facebook-square"></i></button>
+                    <button class="form__button--quick" type="submit"><i class="fa-brands fa-twitter"></i></button>
+                </section>
+            </section>
+
+            <section class="login__main__section__footer">
+                
+                <a href="" class="form__button--register">¿Perdiste la contraseña?</a>
+                <a href="register" class="form__button--register">¿No tienes cuenta?</a>
+                <a href="/" class="form__button--cancel">Cancelar</a>
+            </section>
+        </form>
+    </main>
+    <footer class="login__footer">
+        <h5>© Shinsekai</h5>
+        <p>Derechos reservados</p>
+    </footer>
 </body>
 </html>

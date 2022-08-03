@@ -1,7 +1,19 @@
 /*! ////// MAIN ////// */
 .cart__main {
+
+    /*! Agrego esto para que no se rompa al aumentar el ancho de pantalla*/
+    width: 320px;
+    height: 535px;
+
+    /** Tengo que comentarte esta línea*/
+    /*padding: 4% 7%;*/
+
+    /** Y lo reemplazo por esto*/
+    padding: 0px 5px 750px;
+
+    /*! Luego editalo como prefieras. f/ Julián*/
+
     background-color: var(--c_squares);
-    padding: 4% 7%;
 }
 
 .cart__title{

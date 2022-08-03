@@ -11,6 +11,7 @@ app.get("/details", (req, res) => res.sendFile(path.join(__dirname, 'views', 'de
 app.get("/login", (req, res) => res.sendFile(path.join(__dirname, 'views', 'login.html')));
 app.get("/register", (req, res) => res.sendFile(path.join(__dirname, 'views', 'register.html')));
 app.get("/eric", (req, res) => res.sendFile(path.join(__dirname, 'views', 'eric.html')));
+app.get("/payment", (req, res) => res.sendFile(path.join(__dirname, 'views', 'payment.html')));
 
 app.listen(app.get('puerto'), () =>
 {
