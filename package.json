@@ -1,27 +1,18 @@
 {
-  "name": "grupo_5_shinsekai",
-  "version": "Alpha 0.1.0",
-  "description": "Creacion de pagina web dedicada a venta de articulos online",
-  "main": "app.js",
+  "name": "grupo-5-shinsekai",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon",
-    "start": "node ./app.js"
+    "start": "node ./src/bin/www"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/DamianDuarte/grupo_5_Shinsekai.git"
-  },
-  "keywords": [],
-  "author": "Damian Duarte, Julián B. Ortega, Micaela Vizcarra, Aldana Magali Gayoso",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/DamianDuarte/grupo_5_Shinsekai/issues"
-  },
-  "homepage": "https://github.com/DamianDuarte/grupo_5_Shinsekai#readme",
   "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "ejs": "~2.6.1",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "morgan": "~1.9.1",
     "dotenv": "^16.0.1",
-    "express": "^4.18.1",
     "nodemon": "^2.0.19"
   }
 }
