@@ -11,12 +11,4 @@ router
 /* home */
 .get ('/', home)
 
-/* details & payment */
-.get('/details', details)
-.get('/payment', payment)
-
-/* login & register */
-.get('/login', login)
-.get ('/register', register);
-
 module.exports = router;
