@@ -1,0 +1,160 @@
+<html lang="en">
+    <!-- Head -->
+    <%- include('./partials/head', { title: 'Home' }) %>   
+    
+    <body class="editProducts">
+        <!-- Header -->
+        <%- include('./partials/header') %> 
+        
+        <main class="editProducts__main">
+            <h3 id="big_h">Administrar productos</h3>
+
+            <section class="editProducts__main__agregar">
+                <h3>Agregar producto</h3>
+                <hr>
+                <div class="hugeContainer">
+                    <input type="file" name="productImg" id="productImg" accept=".jpg, .png, .jpeg" hidden>
+                    <label class="editProducts__main__agregar__productImg" for="productImg">
+                        <img src="/img/product.jpg" alt="productImg">
+                    </label>
+                    
+                    <form class="editProducts__main__agregar__form" action="">
+                        <div class="inputGroup">
+                            <input class="c_nombre"type="text" placeholder="Nombre del producto">
+                            <input class="c_precio" type="text" placeholder="Precio">
+                            <select class="c_categoria" name="category" id="category" required>
+                                <option value="-1" disabled selected hidden>Categoría</option>
+                                <option value="0">hurr</option>
+                                <option value="1">durr</option>
+                                <option value="2">hurr</option>
+                                <option value="3">durr</option>
+                            </select>
+                        </div>
+
+                        <textarea name="description" id="description" placeholder="Descripción" cols="30" rows="10"></textarea>
+                        <h4>Etiquetas</h4>
+                        <hr>
+                        <div class="tagGroup">
+                            <input type="checkbox" name="c_tag1" id="c_tag1" value="1" hidden>
+                            <label for="c_tag1">Nuevo</label>
+                            
+                            <input type="checkbox" name="c_tag2" id="c_tag2" value="2" hidden>
+                            <label for="c_tag2">Popular</label>
+
+                            <input type="checkbox" name="c_tag3" id="c_tag3" value="3" hidden>
+                            <label for="c_tag3">Anime</label>
+
+                            <input type="checkbox" name="c_tag4" id="c_tag4" value="4" hidden>
+                            <label for="c_tag4">Comida</label>
+
+                            <input type="checkbox" name="c_tag5" id="c_tag5" value="5" hidden>
+                            <label for="c_tag5">Vestimenta</label>
+                            
+                            <input type="checkbox" name="c_tag6" id="c_tag6" value="6" hidden>
+                            <label for="c_tag6">Entretenimiento</label>
+
+                            <input type="checkbox" name="c_tag7" id="c_tag7" value="7" hidden>
+                            <label for="c_tag7">Accesorios</label>
+
+                            <input type="checkbox" name="c_tag8" id="c_tag8" value="8" hidden>
+                            <label for="c_tag8">Comida</label>
+                        </div>
+
+                        <button type="submit">Listo</button>
+                    </form>
+                </div>
+            </section>
+
+            <section class="editProducts__main__editar">
+                <hr id="main_hr">
+                <h3>Editar producto</h3>
+                <hr>
+
+                <div class="hugeContainer">
+                    <form action="">
+                        <div class="inputGroup">
+                            <input class="e_buscar" type="text" placeholder="Buscar...">
+                            <select class="e_categoria" name="category" id="category" required>
+                                <option value="-1" disabled selected hidden>Categoría</option>
+                                <option value="0">hurr</option>
+                                <option value="1">durr</option>
+                                <option value="2">hurr</option>
+                                <option value="3">durr</option>
+                            </select>
+                        </div>
+    
+                        <div class="tagGroup">
+                            <input type="checkbox" name="e_tag1" id="e_tag1" value="1" hidden>
+                            <label for="e_tag1">Nuevo</label>
+                                
+                            <input type="checkbox" name="e_tag2" id="e_tag2" value="2" hidden>
+                            <label for="e_tag2">Popular</label>
+    
+                            <input type="checkbox" name="e_tag3" id="e_tag3" value="3" hidden>
+                            <label for="e_tag3">Anime</label>
+    
+                            <input type="checkbox" name="e_tag4" id="e_tag4" value="4" hidden>
+                            <label for="e_tag4">Comida</label>
+                            
+                            <input type="checkbox" name="e_tag5" id="e_tag5" value="5" hidden>
+                            <label for="e_tag5">Vestimenta</label>
+                            
+                            <input type="checkbox" name="e_tag6" id="e_tag6" value="6" hidden>
+                            <label for="e_tag6">Entretenimiento</label>
+
+                            <input type="checkbox" name="e_tag7" id="e_tag7" value="7" hidden>
+                            <label for="e_tag7">Accesorios</label>
+
+                            <input type="checkbox" name="e_tag8" id="e_tag8" value="8" hidden>
+                            <label for="e_tag8">Comida</label>
+
+                        </div>
+
+                        <button type="submit">Buscar</button>
+                    </form>
+    
+                    <div class="productList">
+                        <article>
+                            <img src="/img/product.jpg" alt="producto">
+                            <h5>Nombre del producto</h5>
+                        </article>
+                        <article>
+                            <img src="/img/product.jpg" alt="producto">
+                            <h5>Nombre del producto</h5>
+                        </article>
+                        <article>
+                            <img src="/img/product.jpg" alt="producto">
+                            <h5>Nombre del producto</h5>
+                        </article>
+                        <article>
+                            <img src="/img/product.jpg" alt="producto">
+                            <h5>Nombre del producto</h5>
+                        </article>
+                        <article>
+                            <img src="/img/product.jpg" alt="producto">
+                            <h5>Nombre del producto</h5>
+                        </article>
+                        <article>
+                            <img src="/img/product.jpg" alt="producto">
+                            <h5>Nombre del producto</h5>
+                        </article>
+                        <article>
+                            <img src="/img/product.jpg" alt="producto">
+                            <h5>Nombre del producto</h5>
+                        </article>
+                        <article>
+                            <img src="/img/product.jpg" alt="producto">
+                            <h5>Nombre del producto</h5>
+                        </article>
+                        <article>
+                            <img src="/img/product.jpg" alt="producto">
+                            <h5>Nombre del producto</h5>
+                        </article>
+                    </div>
+                </div>
+                
+            </section>
+        </main>
+
+    </body>
+</html>

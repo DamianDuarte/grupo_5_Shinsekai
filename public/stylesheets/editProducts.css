@@ -1,0 +1,375 @@
+.editProducts
+{
+    background-color: var(--dark_bg);
+}
+
+#big_h
+{
+    background-color: var(--light_bg);
+}
+
+#main_hr
+{
+    display: block;
+    border: none;
+    border-top: 2px solid var(--light_bg);
+    border-top-style:dashed;
+    border-top-width: 6px;
+    margin-top: 15px;
+    margin-bottom: 40px;
+}
+
+/** Groups */
+
+.editProducts__main input, .editProducts__main select, .editProducts__main textarea
+{
+    border-radius: 10px;
+    height: 40px;
+    margin-bottom: 10px;
+    border: none;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.editProducts__main hr, .editProducts__main h4
+{
+    display: none;
+}
+
+.editProducts__main .inputGroup, .editProducts__main .productList
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.editProducts__main h3
+{
+    width: 100%;
+    text-align: center;
+    color: var(--light_font);
+    padding: 10px 0px;
+}
+
+.editProducts__main__agregar h3, .editProducts__main__editar h3
+{
+    font-size: 26px;
+    color: var(--light_bg)
+}
+
+.editProducts__main__agregar , .editProducts__main__editar
+{
+    padding: 10px 0px;
+    margin-bottom: 10px;
+}
+
+
+
+/*! MAIN */
+
+.editProducts__main textarea
+{
+    width: 100%;
+    padding-top: 10px;
+}
+
+.editProducts__main h4
+{
+    font-size: 18px;
+}
+
+.editProducts__main button
+{
+    width: 100%;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--c_buttons);
+    color: var(--c_font);
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.editProducts__main .hugeContainer
+{
+    margin: 15px;
+}
+
+.editProducts__main .tagGroup
+{
+    width: 100%;
+    display: flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+    justify-content:left;
+    margin-bottom: 15px;
+}
+
+.editProducts__main .tagGroup label
+{
+    border-radius: 10px;
+    border: solid 1px var(--light_bg);
+    padding: 5px;
+    margin: 4px 2px;
+    width:fit-content;
+    cursor: pointer;
+}
+
+.editProducts__main .tagGroup input[type="checkbox"]:checked+label
+{
+    background-color: var(--light_bg);
+    color: var(--light_font);
+}
+
+
+
+/*! MAIN ---- Agregar producto */
+
+.editProducts__main__agregar
+{
+    background-color: var(--dark_bg);
+}
+
+
+.editProducts__main__agregar__productImg
+{
+    width: 100%;
+    margin-bottom: 25px;
+    cursor: pointer;
+}
+
+.editProducts__main__agregar__productImg img
+{
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+
+/*! MAIN ---- Editar producto */
+
+.editProducts__main__editar
+{
+    background-color: var(--dark_bg);
+}
+
+.editProducts__main__editar .productList
+{
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: solid 1px var(--light_bg);
+}
+
+.editProducts__main__editar .productList article
+{
+    display: flex;
+    justify-content:space-around;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+.editProducts__main__editar .productList article:hover
+{
+    background-color: var(--c_header_footer);
+    cursor: pointer;
+}
+
+.editProducts__main__editar .productList article img
+{
+    width: 25%;
+}
+
+
+/*!!!!!!!!!!!!!!!!|||||||||||||||||!!!!!!!!!!!!!!!*/
+/*!!!!!!!!!!!!!!!!| MEDIA QUERIES |!!!!!!!!!!!!!!!*/
+/*!!!!!!!!!!!!!!!||||||||||||||||||!!!!!!!!!!!!!!!*/
+
+
+@media (min-width: 426px) /** Tablet y Desktop */
+{
+    .editProducts__main hr, .editProducts__main h4
+    {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    /*! MAIN */
+
+    .editProducts__main .inputGroup
+    {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .editProducts__main h4
+    {
+        margin-top: 10px;
+    }
+
+    /*! MAIN ---- Agregar producto */
+
+    .editProducts__main__agregar
+    {
+        margin-bottom: 0;
+    }
+
+    .editProducts__main__agregar .inputGroup .c_nombre
+    {
+        width: 43.65%;
+    }
+
+    .editProducts__main__agregar .inputGroup .c_precio
+    {
+        width: 19.4%;
+    }
+
+    .editProducts__main__agregar .inputGroup .c_categoria
+    {
+        width: 33.95%;
+    }
+
+    /*! MAIN ---- Editar producto */
+
+    .editProducts__main__editar .inputGroup .e_buscar
+    {
+        width: 64.666%;
+    }
+
+    .editProducts__main__editar .inputGroup .e_categoria
+    {
+        width: 32.333%;
+    }
+
+    .editProducts__main__editar .productList
+    {
+        display:flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .editProducts__main__editar .productList article
+    {
+        width: fit-content;
+    }
+
+    .editProducts__main__editar .productList article img
+    {
+        width: 50px;
+        height: 50px;
+        padding-right: 5px;
+    }
+
+    .editProducts__main__editar .productList article h5
+    {
+        font-size: 16px;
+        width: 100px;
+    }
+
+}
+
+@media (min-width:550px) and (max-width: 829px) /** Only tablet */
+{
+    .editProducts__main__agregar .inputGroup
+    {
+        flex-direction: column;
+    }
+
+    .editProducts__main__agregar .inputGroup .c_nombre, .editProducts__main__agregar .inputGroup .c_precio, .editProducts__main__agregar .inputGroup .c_categoria
+    {
+        width: 100%;
+    }
+}
+
+@media (min-width: 550px) /** Tablet y Desktop */
+{
+    /*! MAIN */
+
+
+    /*! MAIN ---- Agregar producto */
+    .editProducts__main__agregar .hugeContainer
+    {
+        display: flex;
+        gap: 20px;
+    }
+
+    .editProducts__main__agregar__productImg
+    {
+        width: 50%;
+        height: 50%;
+    }
+
+    /*! MAIN ---- Editar producto */
+
+    .editProducts__main__editar .productList article img
+    {
+        width: 70px;
+        height: 70px;
+    }
+
+
+    .editProducts__main__editar .productList article h5
+    {
+        font-size: 18px;
+        width: 120px;
+    }
+}
+
+@media (min-width: 830px) /** Desktop */
+{
+    .editProducts__main__agregar .tagGroup
+    {
+        height: 35%;
+        overflow-y: auto;
+        align-content: flex-start;
+    }
+
+    .editProducts__main__agregar .tagGroup label
+    {
+        height: 30px;
+    }
+
+    .editProducts__main__editar .productList article img
+    {
+        width: 9vw;
+        height: 9vw;
+    }
+
+    .editProducts__main__editar .productList article h5
+    {
+        font-size: 2vw;
+        width: 20vw;
+    }
+}
+
+@media (min-width: 1025px) /** Desktop and larger stuff */
+{
+    .editProducts__main textarea
+    {
+        height: 25%;
+    }
+
+    .editProducts .hugeContainer
+    {
+        width: 97%;
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .editProducts__main__editar .productList article
+    {
+        width: 32%;
+    }
+
+    .editProducts__main__editar .productList article img
+    {
+        width: 90px;
+        height: 90px;
+    }
+
+    .editProducts__main__editar .productList article h5
+    {
+        font-size: 20px;
+        width: 220px;
+    }
+}
