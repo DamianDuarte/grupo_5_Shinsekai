@@ -83,8 +83,8 @@
     height: 40px;
     border: none;
     border-radius: 10px;
-    background-color: var(--c_buttons);
-    color: var(--c_font);
+    background-color: var(--c_header_footer);
+    color: var(--dark_font);
     font-size: 20px;
     font-weight: 600;
 }
@@ -106,6 +106,7 @@
 
 .editProducts__main .tagGroup label
 {
+    color: var(--light_bg);
     border-radius: 10px;
     border: solid 1px var(--light_bg);
     padding: 5px;
@@ -177,6 +178,10 @@
     width: 25%;
 }
 
+.editProducts__main__editar .productList article h5
+{
+    color: var(--light_bg);
+}
 
 /*!!!!!!!!!!!!!!!!|||||||||||||||||!!!!!!!!!!!!!!!*/
 /*!!!!!!!!!!!!!!!!| MEDIA QUERIES |!!!!!!!!!!!!!!!*/
