@@ -1,8 +1,8 @@
 module.exports={
     details: (req, res)=>{
-        return res.render('details')
+        return res.render('./products/details')
     },
     payment: (req, res)=>{
-        return res.render('payment')
+        return res.render('./products/payment')
     }
 }
