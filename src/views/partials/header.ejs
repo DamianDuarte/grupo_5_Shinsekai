@@ -26,10 +26,8 @@
 
         <nav class="header__mitad__buttons">
             <a class="header__mitad__buttons__search" href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
-            <a class="header__mitad__buttons__button" href="/user/login"><i class="fa-solid fa-user"></i></a>
-            <a class="header__mitad__buttons__button" href="/products/MICArt"><i class="fa-solid fa-cart-shopping"></i></a>
-            <a class="header__mitad__buttons__button" href="/user/register"><i
-                    class="fa-solid fa-right-from-bracket"></i></a>
+            <button id="modalTrigger--userAccess" class="header__mitad__buttons__button"><i class="fa-solid fa-user"></i></button>
+            <button id="modalTrigger--MICArt" class="header__mitad__buttons__button"><i class="fa-solid fa-cart-shopping"></i></button>
         </nav>
     </section>
 
@@ -47,3 +45,6 @@
         <a class="header__categorias--categoria" href="#">Categoría</a>
     </section>
 </header>
+
+<%- include('./UserAccess') %> 
+<%- include('./MICArt') %> 

@@ -1,0 +1,228 @@
+/** Modal */
+
+.userAccess
+{
+    display: none;
+    position: fixed;
+    z-index: 7;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.userAccess__content
+{
+    background-color: var(--c_squares);
+    margin: 10px auto;
+    height: 95vh;
+    padding: 20px;
+    width: 80%;
+    overflow-y: auto; 
+}
+
+.userAccess .close--userAccess
+{
+    display: fixed;
+    color: var(--c_buttons);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.userAccess .close--userAccess:hover, .userAccess .close--userAccess:focus
+{
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/*! userAccess content */
+
+.userAccess__content input[type="text"], .userAccess__content input[type="password"], .userAccess__content input[type="email"], .userAccess__content form button
+{
+    margin-bottom: 10px;
+    border-radius: 20px;
+    padding: 8px 15px;
+    border: none;
+    font-size: 14px;
+}
+
+.userAccess__content h3, .userAccess__content a, .userAccess__content label
+{
+    text-align: center;
+}
+
+.userAccess__content a, .userAccess__content label
+{
+    font-size: 12px;
+}
+
+.userAccess__content a
+{
+    border-bottom: 1px solid var(--c_font);
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.userAccess__content button
+{
+    background-color: var(--c_buttons);
+    color: white;
+}
+
+.userAccess__content .checkbox
+{
+    display:flex;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-left: 15px;
+}
+
+.userAccess__content .checkbox label
+{
+    padding-left: 15px;
+}
+
+.userAccess__content .checkbox button
+{
+    margin: 0;
+    padding: 0;
+}
+
+.userAccess__content form
+{
+    display:flex;
+    flex-direction: column;
+}
+
+.userAccess__content h3
+{
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.userAccess__content hr
+{
+    margin: 20px 0;
+    border:none;
+    border-top: 1px solid var(--c_font);
+}
+
+/*! userAccess content -- Quick login/register */
+
+.userAccess__content__quick
+{
+    margin: 0 auto 15px;
+    text-align: center;
+    padding: 5px 0px 15px;
+    width: 175px;
+}
+
+.userAccess__content__quick--button
+{
+    border-radius: 100%;
+    width: 40px;
+    height: 40px;
+}
+
+/*! userAccess content -- split parts */
+
+.userAccess__content__split
+{
+    display:flex;
+    flex-direction: column;
+}
+
+/*! Split -- login */
+
+.userAccess__content__split__login
+{
+    display: flex;
+    flex-direction: column;
+}
+
+/*! Split -- register */
+.userAccess__content__split__register
+{
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 375px) 
+{
+    .userAccess__content__split__login, .userAccess__content__split__register
+    {
+        padding: 0 5%;
+    }
+}
+
+@media (min-width: 425px) 
+{
+    .userAccess__content__split__login, .userAccess__content__split__register
+    {
+        padding: 0 8%;
+    }
+}
+
+@media (min-width: 630px) 
+{
+    .userAccess__content__quick
+    {
+        border: none;
+        width: 200px;
+        
+    }
+
+    .userAccess__content__quick--button
+    {
+        width: 55px;
+        height: 55px;
+    }
+
+    .userAccess__content
+    {
+        margin-top: 10vh;
+        width: 90%;
+        height: 80vh;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .userAccess .close--userAccess
+    {
+        padding-right: 20px;
+    }
+
+    .userAccess__content__split
+    {
+        flex-direction: row-reverse;
+        justify-content:center;
+    }
+
+    .userAccess__content__split__login, .userAccess__content__split__register
+    {
+        padding: 0 7vh;
+        width: 50%;
+    }
+
+    .userAccess__content__split__register
+    {
+        border-right: 1px solid var(--c_font);
+    }
+}
+
+@media (min-width: 769px) 
+{
+    .userAccess__content__split__login, .userAccess__content__split__register
+    {
+        padding: 0 9vh;
+    }
+
+    .userAccess__content
+    {
+        max-width: 769px;
+    }
+}

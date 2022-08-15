@@ -1,0 +1,52 @@
+<div id="userAccess" class="userAccess">
+
+    <div class="userAccess__content">
+        <span class="close--userAccess">&times;</span>
+
+        <div class="userAccess__content__quick">
+            <button class="userAccess__content__quick--button" type="submit"><i class="fa-brands fa-google"></i></button>
+            <button class="userAccess__content__quick--button" type="submit"><i class="fa-brands fa-facebook-square"></i></button>
+            <button class="userAccess__content__quick--button" type="submit"><i class="fa-brands fa-twitter"></i></button>
+        </div>
+
+        <div class="userAccess__content__split">
+            <div class="userAccess__content__split__login">
+                <h3>Accede a tu cuenta</h3>
+
+                <form action="">
+                    <input type="text" name="username" id="username" placeholder="Usuario/Email" required>
+                    <input type="password" name="password" id="password" placeholder="Contraseña" required>
+                    <div class="checkbox">
+                        <input type="checkbox" name="rememberMe" id="rememberMe">
+                        <label for="rememberMe">Recordarme</label>
+                    </div>
+                    <button type="submit">Acceder</button>
+                </form>
+
+                <a href="#">¿Olvidaste tu contraseña? ¡Click aquí!</a>
+            </div>
+            
+            <hr>
+
+            <div class="userAccess__content__split__register">
+                <h3>Registrate</h3>
+
+                <form action="">
+                    <input type="text" name="username" id="username" placeholder="Nombre de usuario" required>
+                    <input type="email" name="email" id="email" placeholder="Email" required>
+                    <input type="password" name="password" id="password" placeholder="Contraseña" required>
+                    <input type="password" name="v_password" id="v_password" placeholder="Repetir contraseña" required>
+                    <div class="checkbox">
+                        <input type="checkbox" name="terms" id="terms">
+                        <label for="terms">Acepto términos y condiciones</label>
+                    </div>
+                    <button type="submit">Listo</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- !!! Scripts !!! -->
+<script src="/javascript/userAccess_modal.js"></script>

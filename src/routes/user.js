@@ -1,13 +1,9 @@
 var express = require('express');
 var router = express.Router();
 
-const {login, register}=require('../controllers/userController');
+/* const { } = require('../controllers/userController');
 
-/* GET home page. */
 router
+ .get('', )
 
-/* login & register */
-.get('/login', login)
-.get ('/register', register);
-
-module.exports = router;
+module.exports = router; */

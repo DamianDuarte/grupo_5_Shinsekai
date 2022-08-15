@@ -4,8 +4,5 @@ module.exports={
     },
     payment: (req, res)=>{
         return res.render('payment')
-    },
-    micart: (req, res)=>{
-        return res.render('MICArt')
     }
 }
