@@ -20,6 +20,7 @@
     padding: 20px;
     width: 80%;
     overflow-y: auto; 
+    border-radius: 15px;
 }
 
 .userAccess .close--userAccess
