@@ -54,6 +54,11 @@
     background-color: var(--c_squares);
 }
 
+.cart__main .cart-discount
+{
+    border-bottom: solid 1px gray;
+}
+
 .cart__title{
     display: flex;
     justify-content: space-between;
@@ -192,14 +197,6 @@
     padding: 15px;
     width: 100%;
     margin-bottom: 5%;
-}
-
-.continue--shopping--button{
-    text-align: center;
-    text-decoration: underline;
-    width: 100%;
-    align-self: flex-end;
-    color: var(--light_font);
 }
 
 .cart__line{
