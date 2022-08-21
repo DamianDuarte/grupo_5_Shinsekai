@@ -14,88 +14,64 @@
                 <a href="/products/details"><img src="/img/sale.png" alt="sale2"></a>
                 <a href="/products/details"><img src="/img/sale.png" alt="sale3"></a>
             </section>
+
             <section class="home__main__showcase__populares">
                 <h3>Productos populares</h3>
-                <a class="home__producto" href="/products/details"><img src="/img/product.jpg" alt="producto1">
-                <div class="home__producto__nameContainer">
-                    <h4>Poster - De birras con los profes</h4>
-                </div> 
-            </a>
-                <a class="home__producto" href="/products/details"><img src="/img/product.jpg" alt="producto2">
-                <div class="home__producto__nameContainer">
-                    <h4>Poster - De birras con los profes</h4>
-                </div> 
-            </a>
-                <a class="home__producto" href="/products/details"><img src="/img/product.jpg" alt="producto3">
-                <div class="home__producto__nameContainer">
-                    <h4>Poster - De birras con los profes</h4>
-                </div> 
-            </a>
-                <a class="home__producto" href="/products/details"><img src="/img/product.jpg" alt="producto4">
-                <div class="home__producto__nameContainer">
-                    <h4>Poster - De birras con los profes</h4>
-                </div> 
-            </a>
+                <% 
+                    const popular = products.filter(product => product.tags.includes(1));
+                    for( let i = 0; i < 4; i++ ) 
+                    { 
+                        let product = popular[popular.length - (i + 1)];
+                %>
+
+                <a class="home__producto" href="/products/details">
+                    <img src="/img/products/<%= product.images[0] %>" onmouseover="this.src='/img/products/<%= product.images[1] %>';" onmouseout="this.src='/img/products/<%= product.images[0] %>';" alt="producto<%= product.id %>">
+                    <div class="home__producto__nameContainer">
+                        <h4><%= product.name %></h4>
+                    </div> 
+                </a>
+
+                <%  } %>
             </section>
         </div>
         
         <a class="home__main__banner" id="banner2" href="/products/details"><img src="/img/banner2.png" alt="banner2"></a>
         <section class="home__main__carrousel">
-            <a href="#"><img src="/img/category.png" alt="producto1"></a>
-            <a href="#"><img src="/img/category.png" alt="producto2"></a>
-            <a href="#"><img src="/img/category.png" alt="producto3"></a>
-            <a href="#"><img src="/img/category.png" alt="producto4"></a>
-            <a href="#"><img src="/img/category.png" alt="producto5"></a>
+            <% 
+            const randomTags = tags;
+            while (randomTags.length > 5) 
+            {
+                randomTags.splice(Math.floor(Math.random() * (randomTags.length - 1)), 1)
+            }
+
+            for (let i = 0; i < randomTags.length; i++) 
+                { %>
+
+            <a href="#">
+                <img src="/img/<%= randomTags[i].image %>" alt="tag<%= randomTags[i].id %>">
+            </a>
+           
+            <%  } %>
         </section>
 
         <div class="home__main__infinite">
             <h3>Recomendaciones para tí</h3>
+
             <section class="home__main__infinite__recomendaciones">
-                <a class="home__producto" href="/products/details"><img src="/img/product.jpg" alt="producto1">
-                <div class="home__producto__nameContainer">
-                    <h4>Poster - De birras con los profes</h4>
-                </div> 
-            </a>
-                <a class="home__producto" href="/products/details"><img src="/img/product.jpg" alt="producto2">
-                <div class="home__producto__nameContainer">
-                    <h4>Poster - De birras con los profes</h4>
-                </div> 
-            </a>
-                <a class="home__producto" href="/products/details"><img src="/img/product.jpg" alt="producto3">
-                <div class="home__producto__nameContainer">
-                    <h4>Poster - De birras con los profes</h4>
-                </div> 
-            </a>
-                <a class="home__producto" href="/products/details"><img src="/img/product.jpg" alt="producto4">
-                <div class="home__producto__nameContainer">
-                    <h4>Poster - De birras con los profes</h4>
-                </div> 
-            </a>
-                <a class="home__producto" href="/products/details"><img src="/img/product.jpg" alt="producto5">
-                <div class="home__producto__nameContainer">
-                    <h4>Poster - De birras con los profes</h4>
-                </div> 
-            </a>
-                <a class="home__producto" href="/products/details"><img src="/img/product.jpg" alt="producto6">
-                <div class="home__producto__nameContainer">
-                    <h4>Poster - De birras con los profes</h4>
-                </div> 
-            </a>
-                <a class="home__producto" href="/products/details"><img src="/img/product.jpg" alt="producto7">
-                <div class="home__producto__nameContainer">
-                    <h4>Poster - De birras con los profes</h4>
-                </div> 
-            </a>
-                <a class="home__producto" href="/products/details"><img src="/img/product.jpg" alt="producto8">
-                <div class="home__producto__nameContainer">
-                    <h4>Poster - De birras con los profes</h4>
-                </div> 
-            </a>
-                <a class="home__producto" href="/products/details"><img src="/img/product.jpg" alt="producto9">
-                <div class="home__producto__nameContainer">
-                    <h4>Poster - De birras con los profes</h4>
-                </div> 
-            </a>
+                <% 
+                    for( let i = 0; i < products.length; i++ ) 
+                    { 
+                        let product = products[i];
+                %>
+                
+                <a class="home__producto" href="/products/details">
+                    <img src="/img/products/<%= product.images[0] %>" onmouseover="this.src='/img/products/<%= product.images[1] %>';" onmouseout="this.src='/img/products/<%= product.images[0] %>';" alt="producto<%= product.id %>">
+                    <div class="home__producto__nameContainer">
+                        <h4><%= product.name %></h4>
+                    </div> 
+                </a>
+                
+                <%  } %>
             </section>
         </div>
     </main>

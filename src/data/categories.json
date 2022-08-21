@@ -1,0 +1,52 @@
+[
+    {
+        "id": 0,
+        "name": "Anime",
+        "description": "Anime, ya sabes, animaciones japonesas. Esa wea friki rara."
+    },
+    {
+        "id": 1,
+        "name": "Comida",
+        "description": "Artículos que puedes comerte. Yummy."
+    },
+    {
+        "id": 2,
+        "name": "Vestimenta",
+        "description": "¡Viste tus gustos para conocer a gente que los comparta! ...O si quieres encajar en algún grupo friki."
+    },
+    {
+        "id": 3,
+        "name": "Entretenimiento",
+        "description": "Si vas a procrastinar, al menos diviertete todo lo que puedas en el proceso. ¡Busca ideas aquí!"
+    },
+    {
+        "id": 4,
+        "name": "Rol",
+        "description": "Obtén todo lo que necesitas para juegos de rol. Dados, tableros, libros, ¡lo que sea!"
+    },
+    {
+        "id": 5,
+        "name": "Decoración",
+        "description": "Decora tu cuarto, casa, escritorio o lugar preferido con tus gustos."
+    },
+    {
+        "id": 6,
+        "name": "Manga",
+        "description": "Comics, pero japoneses. Sip, más historias raras traidas de japón."
+    },
+    {
+        "id": 7,
+        "name": "Novelas ligeras",
+        "description": "Novelas japonesas, pero con ilustraciones anime cada tanto. Por cierto, de ligeras no tienen nada, lol."
+    },
+    {
+        "id": 8,
+        "name": "Comics",
+        "description": "Comics. ¿Nunca has óido de comics? Dibujitos con historias."
+    },
+    {
+        "id": 9,
+        "name": "Figuras",
+        "description": "Figuras de tus personajes favoritos. A menos que sea algo muuy normie, escondelas de tus padres o amigos si no quieres que te miren raro."
+    }
+]

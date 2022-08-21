@@ -1,0 +1,50 @@
+[
+    {
+        "id": 0,
+        "name": "Nuevo",
+        "description": "Estos son los novedades más recientes en Shinsekai. ¡Echa un vistazo!",
+        "image": "tag.png"
+    },
+    {
+        "id": 1,
+        "name": "Popular",
+        "description": "Los articulos más populares de esta temporada.",
+        "image": "tag.png"
+    },
+    {
+        "id": 2,
+        "name": "Japón",
+        "description": "Productos provenientes de la nación del sol naciente y cosas raras.",
+        "image": "tag.png"
+    },
+    {
+        "id": 3,
+        "name": "Western",
+        "description": "Todo los productos que no sean asiáticos, van aquí.",
+        "image": "tag.png"
+    },
+    {
+        "id": 4,
+        "name": "Asia",
+        "description": "Japón ya tiene su tag, así que aquí van todos los productos de Asia (excepto Japón)",
+        "image": "tag.png"
+    },
+    {
+        "id": 5,
+        "name": "En español",
+        "description": "Significa que alguien lo tradujo al español, chaval. Mola mogollón.",
+        "image": "tag.png"
+    },
+    {
+        "id": 6,
+        "name": "En Inglés",
+        "description": "Content that spics can't understand. If you're reading this, you probably can.",
+        "image": "tag.png"
+    },
+    {
+        "id": 7,
+        "name": "Sin traducir",
+        "description": "No está traducido. Está en su idioma de origen, sea inglés, japonés, chino o afrikaans.",
+        "image": "tag.png"
+    }
+]
