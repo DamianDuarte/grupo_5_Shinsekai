@@ -8,7 +8,7 @@ function loadData(filenameJSON)
 
 function saveData(data, filenameJSON)
 {
-    fs.writeFileSync(path.join(__dirname, filenameJSON), JSON.stringify(data), 'utf-8');
+    fs.writeFileSync(path.join(__dirname, filenameJSON), JSON.stringify(data, null, 3), 'utf-8');
 }
 
 module.exports = { loadData, saveData };

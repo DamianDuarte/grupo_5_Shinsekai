@@ -1,62 +1,98 @@
 [
-    {
-        "id": 0,
-        "name": "Poster - De birras con los profes",
-        "price": 9999.99,
-        "discount": 99,
-        "description": "Un poster de los profes Julián Aquino y Juan Vieyra, tomandose una birra",
-        "category": 0,
-        "tags": [0, 1],
-        "images": ["product.jpg", "product-behind.jpg"]
-    },
-    {
-        "id": 1,
-        "name": "Poster - Los profes con las birras",
-        "price": 9999.99,
-        "discount": 99,
-        "description": "Un poster de los profes Julián Aquino y Juan Vieyra, tomandose una birra",
-        "category": 0,
-        "tags": [0, 1],
-        "images": ["product.jpg", "product-behind.jpg"]
-    },
-    {
-        "id": 2,
-        "name": "Poster - De profes las birras",
-        "price": 9999.99,
-        "discount": 99,
-        "description": "Un poster de los profes Julián Aquino y Juan Vieyra, tomandose una birra",
-        "category": 0,
-        "tags": [0, 1],
-        "images": ["product.jpg", "product-behind.jpg"]
-    },
-    {
-        "id": 3,
-        "name": "Poster - Las birras con los profes",
-        "price": 9999.99,
-        "discount": 99,
-        "description": "Un poster de los profes Julián Aquino y Juan Vieyra, tomandose una birra",
-        "category": 0,
-        "tags": [0, 1],
-        "images": ["product.jpg", "product-behind.jpg"]
-    },
-    {
-        "id": 4,
-        "name": "Poster - De las birras los profes",
-        "price": 9999.99,
-        "discount": 99,
-        "description": "Un poster de los profes Julián Aquino y Juan Vieyra, tomandose una birra",
-        "category": 0,
-        "tags": [0, 1],
-        "images": ["product.jpg", "product-behind.jpg"]
-    },
-    {
-        "id": 5,
-        "name": "Poster - Profes birras",
-        "price": 9999.99,
-        "discount": 99,
-        "description": "Un poster de los profes Julián Aquino y Juan Vieyra, tomandose una birra",
-        "category": 0,
-        "tags": [0, 1],
-        "images": ["product.jpg", "product-behind.jpg"]
-    }
+   {
+      "id": 0,
+      "name": "Poster - De birras con los profes",
+      "price": 9999.99,
+      "discount": 99,
+      "description": "Un poster de los profes Julián Aquino y Juan Vieyra, tomandose una birra",
+      "category": 0,
+      "tags": [
+         0,
+         1
+      ],
+      "images": [
+         "product.jpg",
+         "product-behind.jpg"
+      ]
+   },
+   {
+      "id": 1,
+      "name": "Poster - Los profes con las birras",
+      "price": 9999.99,
+      "discount": 99,
+      "description": "Un poster de los profes Julián Aquino y Juan Vieyra, tomandose una birra",
+      "category": 0,
+      "tags": [
+         0,
+         1
+      ],
+      "images": [
+         "product.jpg",
+         "product-behind.jpg"
+      ]
+   },
+   {
+      "id": 2,
+      "name": "Poster - De profes las birras",
+      "price": 9999.99,
+      "discount": 99,
+      "description": "Un poster de los profes Julián Aquino y Juan Vieyra, tomandose una birra",
+      "category": 0,
+      "tags": [
+         0,
+         1
+      ],
+      "images": [
+         "product.jpg",
+         "product-behind.jpg"
+      ]
+   },
+   {
+      "id": 3,
+      "name": "Poster - Las birras con los profes",
+      "price": 9999.99,
+      "discount": 99,
+      "description": "Un poster de los profes Julián Aquino y Juan Vieyra, tomandose una birra",
+      "category": 0,
+      "tags": [
+         0,
+         1
+      ],
+      "images": [
+         "product.jpg",
+         "product-behind.jpg"
+      ]
+   },
+   {
+      "id": 4,
+      "name": "Poster - De las birras los profes",
+      "price": 9999.99,
+      "discount": 99,
+      "description": "Un poster de los profes Julián Aquino y Juan Vieyra, tomandose una birra",
+      "category": 0,
+      "tags": [
+         0,
+         1
+      ],
+      "images": [
+         "product.jpg",
+         "product-behind.jpg"
+      ]
+   },
+   {
+      "id": 5,
+      "name": "Poster - Profes birras",
+      "price": 9999.99,
+      "discount": 99,
+      "description": "Un poster de los profes Julián Aquino y Juan Vieyra, tomandose una birra",
+      "category": 0,
+      "tags": [
+         0,
+         1
+      ],
+      "images": [
+         "product.jpg",
+         "product-behind.jpg"
+      ]
+   }
 ]

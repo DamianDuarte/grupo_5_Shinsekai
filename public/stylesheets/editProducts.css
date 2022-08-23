@@ -144,6 +144,10 @@
     margin-bottom: 25px;
 }
 
+.editProducts__main__agregar .c_categoria
+{
+    width: 100%;
+}
 
 /*! MAIN ---- Editar producto */
 
@@ -159,7 +163,7 @@
     border-top: solid 1px var(--light_bg);
 }
 
-.editProducts__main__editar .productList article
+.editProducts__main__editar .productList a
 {
     display: flex;
     justify-content:space-around;
@@ -167,18 +171,18 @@
     padding: 5px;
 }
 
-.editProducts__main__editar .productList article:hover
+.editProducts__main__editar .productList a:hover
 {
     background-color: var(--c_header_footer);
     cursor: pointer;
 }
 
-.editProducts__main__editar .productList article img
+.editProducts__main__editar .productList a img
 {
     width: 25%;
 }
 
-.editProducts__main__editar .productList article h5
+.editProducts__main__editar .productList a h5
 {
     color: var(--light_bg);
 }
@@ -221,12 +225,12 @@
         width: 43.65%;
     }
 
-    .editProducts__main__agregar .inputGroup .c_precio
+    .editProducts__main__agregar .inputGroup .c_descuento
     {
         width: 19.4%;
     }
 
-    .editProducts__main__agregar .inputGroup .c_categoria
+    .editProducts__main__agregar .inputGroup .c_precio
     {
         width: 33.95%;
     }
@@ -252,19 +256,19 @@
         width: 100%;
     }
 
-    .editProducts__main__editar .productList article
+    .editProducts__main__editar .productList a
     {
         width: fit-content;
     }
 
-    .editProducts__main__editar .productList article img
+    .editProducts__main__editar .productList a img
     {
         width: 50px;
         height: 50px;
         padding-right: 5px;
     }
 
-    .editProducts__main__editar .productList article h5
+    .editProducts__main__editar .productList a h5
     {
         font-size: 16px;
         width: 100px;
@@ -279,7 +283,7 @@
         flex-direction: column;
     }
 
-    .editProducts__main__agregar .inputGroup .c_nombre, .editProducts__main__agregar .inputGroup .c_precio, .editProducts__main__agregar .inputGroup .c_categoria
+    .editProducts__main__agregar .inputGroup .c_nombre, .editProducts__main__agregar .inputGroup .c_descuento, .editProducts__main__agregar .inputGroup .c_precio
     {
         width: 100%;
     }
@@ -305,14 +309,14 @@
 
     /*! MAIN ---- Editar producto */
 
-    .editProducts__main__editar .productList article img
+    .editProducts__main__editar .productList a img
     {
         width: 70px;
         height: 70px;
     }
 
 
-    .editProducts__main__editar .productList article h5
+    .editProducts__main__editar .productList a h5
     {
         font-size: 18px;
         width: 120px;
@@ -333,13 +337,13 @@
         height: 30px;
     }
 
-    .editProducts__main__editar .productList article img
+    .editProducts__main__editar .productList a img
     {
         width: 9vw;
         height: 9vw;
     }
 
-    .editProducts__main__editar .productList article h5
+    .editProducts__main__editar .productList a h5
     {
         font-size: 2vw;
         width: 20vw;
@@ -361,18 +365,18 @@
         margin-right: auto;
     }
 
-    .editProducts__main__editar .productList article
+    .editProducts__main__editar .productList a
     {
         width: 32%;
     }
 
-    .editProducts__main__editar .productList article img
+    .editProducts__main__editar .productList a img
     {
         width: 90px;
         height: 90px;
     }
 
-    .editProducts__main__editar .productList article h5
+    .editProducts__main__editar .productList a h5
     {
         font-size: 20px;
         width: 220px;

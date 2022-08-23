@@ -1,0 +1,27 @@
+<html lang="en">
+<%- include('../partials/head', { title: 'Home' }) %>
+
+    <body class="home">
+        <%- include('../partials/header') %>
+            <main class="home__main">
+                <section style="display:flex; flex-wrap: wrap; justify-content: center; margin: 5%; gap: 40px 15px;">
+                <% 
+                    for( let i = 0; i < products.length; i++ ) 
+                    { 
+                        let product = products[i];
+                %>
+                
+                <a class="home__producto" href="/products/details/<%= product.id %>" style="width: 250px; height: 250px;">
+                    <img src="/img/products/<%= product.images[0] %>" onmouseover="this.src='/img/products/<%= product.images[1] %>';" onmouseout="this.src='/img/products/<%= product.images[0] %>';" alt="producto<%= product.id %>">
+                    <div class="home__producto__nameContainer">
+                        <h4 style="height: 150px;"><%= product.name %></h4>
+                    </div> 
+                </a>
+                
+                <%  } %>
+                </section>
+            </main>
+            <%- include('../partials/footer') %>
+    </body>
+
+</html>

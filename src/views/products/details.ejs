@@ -11,13 +11,12 @@
         <div class="details__main__photo-detail">
         <div class="details__main--photo">
             <div class="details__main--preview">
-                <img src="/img/caja.jpg" alt="">
-                <img src="/img/caja.jpg" alt="">
-                <img src="/img/caja.jpg" alt="">
-                <img src="/img/caja.jpg" alt="">
+                <% if(product.images.constructor === Array) product.images.forEach((img, index) => { %>
+                    <img src="/img/products/<%= img %>" alt="<%= product.name + index %>">
+                <% }) %>
             </div>
             <div class="details__main--max">
-                <img src="/img/caja.jpg" alt="">
+                <img src="/img/products/<%= product.images[0] %>" alt="<%= product.name %>0-max">
             </div>
         </div>
         <article class="details__main--detail">
@@ -31,8 +30,8 @@
                 </div>
                 <p>Reseña de producto</p>
             </div>
-            <h3>Nombre del producto</h3>
-            <h4 class="details__main--price">$999.99</h4>
+            <h3><%= product.name %></h3>
+            <h4 class="details__main--price">$<%= product.price %></h4>
             <div class="details__main--chart">
                 <h5>Tabla de talles</h5>
                 <form action="" method="POST">
@@ -59,15 +58,14 @@
             </div>
             <div class="details__main--prod-detail">
                 <h4>Detalle del producto</h4>
-                <p class="details__main--prod--text">Albion Online es un MMORPG no lineal multiplataforma ambientado en un mundo de fantasía medieval. El
-                    juego cuenta con una economía impulsada por los jugadores en la que casi todos los objetos son
-                    fabricados por ellos. Combina las armas y armaduras que le convengan a tu estilo de juego en un
-                    sistema único y sin clases en donde “eres lo que llevas”. Explora el mundo, enfréntate a otros
-                    aventureros en emocionantes batallas, conquista territorios y construye un hogar.</p>
+                <p class="details__main--prod--text"><%= product.description %></p>
             </div>
             <div class="details__main--share">
                 <i class="fa-solid fa-heart"></i>
                 <i class="fa-solid fa-share-nodes"></i>
+                <a href="/edit/product/<%= product.id %>"><i class="fa-solid fa-pen-to-square"></i></a>
+                <button style="background-color: var(--c_squares)" type="submit" form="deleteForm"><i class="fa-solid fa-trash-can"></i></button>
+                <form id="deleteForm" action="/edit/product/delete/<%= product.id %>?_method=DELETE" method="POST"></form>
             </div>
         </article>
     </div>

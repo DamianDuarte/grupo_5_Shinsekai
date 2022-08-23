@@ -8,20 +8,21 @@
             </a>
         </figure>
 
-        <form class="header__mitad__searchbar" action="">
+        <form class="header__mitad__searchbar" action="/search">
             <select class="header__mitad__searchbar--filter" name="filtro" id="filtro">
                 <option value="-1" disabled selected hidden>Filtro</option>
                 <% for( let i = 0; i < tags.length; i++ ) { %>
                     <option value="<%= tags[i].id %>"><%= tags[i].name %></option>
                 <% } %>
             </select>
-            <input class="header__mitad__searchbar--input" type="text" name="search" id="search" placeholder="Buscar">
+            <input class="header__mitad__searchbar--input" type="text" name="keywords" id="keywords" placeholder="Buscar">
             <button class="header__mitad__searchbar--button" type="submit"><i
                     class="fa-solid fa-magnifying-glass"></i></button>
         </form>
 
         <nav class="header__mitad__buttons">
             <a class="header__mitad__buttons__search" href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+            <a class="header__mitad__buttons__button" href="/edit/product"><i class="fa-solid fa-file-pen"></i></a>
             <button id="modalTrigger--userAccess" class="header__mitad__buttons__button"><i class="fa-solid fa-user"></i></button>
             <button id="modalTrigger--MICArt" class="header__mitad__buttons__button"><i class="fa-solid fa-cart-shopping"></i></button>
         </nav>
@@ -29,7 +30,7 @@
 
     <section class="header__categorias">
         <% for( let i = 0; i < categories.length; i++ ) { %>
-            <a class="header__categorias--categoria" href="#"><%= categories[i].name %></a>
+            <a class="header__categorias--categoria" href="/search?keywords=<%= categories[i].name %>"><%= categories[i].name %></a>
         <% } %>
     </section>
 </header>

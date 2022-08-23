@@ -6,7 +6,7 @@ const {details, payment}= require('../controllers/productController');
 router
 
 /* details & payment */
-.get('/details', details)
+.get('/details/:id', details)
 .get('/payment', payment)
 
 module.exports = router;

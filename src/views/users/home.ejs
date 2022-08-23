@@ -24,7 +24,7 @@
                         let product = popular[popular.length - (i + 1)];
                 %>
 
-                <a class="home__producto" href="/products/details">
+                <a class="home__producto" href="/products/details/<%= product.id %>">
                     <img src="/img/products/<%= product.images[0] %>" onmouseover="this.src='/img/products/<%= product.images[1] %>';" onmouseout="this.src='/img/products/<%= product.images[0] %>';" alt="producto<%= product.id %>">
                     <div class="home__producto__nameContainer">
                         <h4><%= product.name %></h4>
@@ -64,7 +64,7 @@
                         let product = products[i];
                 %>
                 
-                <a class="home__producto" href="/products/details">
+                <a class="home__producto" href="/products/details/<%= product.id %>">
                     <img src="/img/products/<%= product.images[0] %>" onmouseover="this.src='/img/products/<%= product.images[1] %>';" onmouseout="this.src='/img/products/<%= product.images[0] %>';" alt="producto<%= product.id %>">
                     <div class="home__producto__nameContainer">
                         <h4><%= product.name %></h4>
