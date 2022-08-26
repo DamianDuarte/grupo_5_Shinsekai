@@ -1,98 +1,351 @@
-[
+[ 
    {
-      "id": 0,
-      "name": "Poster - De birras con los profes",
-      "price": 9999.99,
-      "discount": 99,
-      "description": "Un poster de los profes Julián Aquino y Juan Vieyra, tomandose una birra",
-      "category": 0,
-      "tags": [
-         0,
-         1
-      ],
-      "images": [
-         "product.jpg",
-         "product-behind.jpg"
-      ]
+     "id": 1,
+     "name": "Suscripcion Base",
+     "price": 5,
+     "discount": 0,
+     "description": "Suscripcion base. Ofrece descuento a suscriptor y acceso a leer comics o mangas online GRATIS",
+     "size": [],
+     "stock": 52,
+     "category": 3,
+     "tags": [7, 5, 4, 3, 6],
+     "images": ["boleto"]
    },
    {
-      "id": 1,
-      "name": "Poster - Los profes con las birras",
-      "price": 9999.99,
-      "discount": 99,
-      "description": "Un poster de los profes Julián Aquino y Juan Vieyra, tomandose una birra",
-      "category": 0,
-      "tags": [
-         0,
-         1
-      ],
-      "images": [
-         "product.jpg",
-         "product-behind.jpg"
-      ]
+     "id": 2,
+     "name": "Mistery box ORO",
+     "price": 40,
+     "discount": 0,
+     "description": "Caja mensual que contara con 12 articulos al azar ademas de los beneficios de suscripcion",
+     "size": [],
+     "stock": 53,
+     "category": 1,
+     "tags": [6, 7, 2, 5, 1, 4],
+     "images": ["caja-oro"]
    },
    {
-      "id": 2,
-      "name": "Poster - De profes las birras",
-      "price": 9999.99,
-      "discount": 99,
-      "description": "Un poster de los profes Julián Aquino y Juan Vieyra, tomandose una birra",
-      "category": 0,
-      "tags": [
-         0,
-         1
-      ],
-      "images": [
-         "product.jpg",
-         "product-behind.jpg"
-      ]
+     "id": 3,
+     "name": "Mistery box PLATA",
+     "price": 30,
+     "discount": 0,
+     "description": "Caja mensual que contara con 8 articulos al azar ademas de los beneficios de suscripcion",
+     "size": [],
+     "stock": 7,
+     "category": 1,
+     "tags": [6, 5, 2, 7],
+     "images": ["caja-plata"]
    },
    {
-      "id": 3,
-      "name": "Poster - Las birras con los profes",
-      "price": 9999.99,
-      "discount": 99,
-      "description": "Un poster de los profes Julián Aquino y Juan Vieyra, tomandose una birra",
-      "category": 0,
-      "tags": [
-         0,
-         1
-      ],
-      "images": [
-         "product.jpg",
-         "product-behind.jpg"
-      ]
+     "id": 4,
+     "name": "Mistery box BRONCE",
+     "price": 20,
+     "discount": 0,
+     "description": "Caja mensual que contara con 6 articulos al azar ademas de los beneficios de suscripcion",
+     "size": [],
+     "stock": 22,
+     "category": 7,
+     "tags": [7],
+     "images": ["caja-bronce"]
    },
    {
-      "id": 4,
-      "name": "Poster - De las birras los profes",
-      "price": 9999.99,
-      "discount": 99,
-      "description": "Un poster de los profes Julián Aquino y Juan Vieyra, tomandose una birra",
-      "category": 0,
-      "tags": [
-         0,
-         1
-      ],
-      "images": [
-         "product.jpg",
-         "product-behind.jpg"
-      ]
+     "id": 5,
+     "name": "Mistery box HIERRO",
+     "price": 10,
+     "discount": 0,
+     "description": "Caja mensual que contara con 4 articulos al azar ademas de los beneficios de suscripcion",
+     "size": [],
+     "stock": 12,
+     "category": 5,
+     "tags": [3, 1, 7, 6],
+     "images": ["caja-hierro"]
    },
    {
-      "id": 5,
-      "name": "Poster - Profes birras",
-      "price": 9999.99,
-      "discount": 99,
-      "description": "Un poster de los profes Julián Aquino y Juan Vieyra, tomandose una birra",
-      "category": 0,
-      "tags": [
-         0,
-         1
-      ],
-      "images": [
-         "product.jpg",
-         "product-behind.jpg"
-      ]
+     "id": 7,
+     "name": "Miembro de honor ORO",
+     "price": 38,
+     "discount": 0,
+     "description": "Como miembro de honor, contara con la suscripcion base, la mistery box ORO y ademas acceso a estrenos y mercancia nueva que llegue al local",
+     "size": [],
+     "stock": 11,
+     "category": 4,
+     "tags": [1, 7],
+     "images": ["honor-oro"]
+   },
+   {
+     "id": 8,
+     "name": "Miembro de honor PLATA",
+     "price": 28,
+     "discount": 0,
+     "description": "Como miembro de honor, contara con la suscripcion base, la mistery box PLATA y ademas acceso a estrenos y mercancia nueva que llegue al local",
+     "size": [],
+     "stock": 43,
+     "category": 3,
+     "tags": [7, 4, 6, 1, 2, 5],
+     "images": ["honor-plata"]
+   },
+   {
+     "id": 9,
+     "name": "Miembro de honor BRONCE",
+     "price": 18,
+     "discount": 0,
+     "description": "Como miembro de honor, contara con la suscripcion base, la mistery box BRONCE y ademas acceso a estrenos y mercancia nueva que llegue al local",
+     "size": [],
+     "stock": 44,
+     "category": 2,
+     "tags": [3],
+     "images": ["honor-bronce"]
+   },
+   {
+     "id": 10,
+     "name": "Miembro de honor HIERRO",
+     "price": 12,
+     "discount": 0,
+     "description": "Como miembro de honor, contara con la suscripcion base, la mistery box HIERRO y ademas acceso a estrenos y mercancia nueva que llegue al local",
+     "size": [],
+     "stock": 59,
+     "category": 5,
+     "tags": [2, 5, 6, 7, 4, 3],
+     "images": ["honor-hierro"]
+   },
+   {
+     "id": 11,
+     "name": "Juice - V8 Splash",
+     "price": 23,
+     "discount": 50,
+     "description": "Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis. Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem. Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus. ",
+     "size": ["XXXL", "XS", "L"],
+     "stock": 11,
+     "category": 7,
+     "tags": [6, 4, 2, 1, 7, 3],
+     "images": ["Img-10", "Img-7", "img-2", "Img-9", "Img-3"]
+   },
+   {
+     "id": 12,
+     "name": "Table Cloth 144x90 White",
+     "price": 1,
+     "discount": 80,
+     "description": "Nullam molestie nibh in lectus. Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio. Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim.",
+     "size": ["XL"],
+     "stock": 54,
+     "category": 2,
+     "tags": [1, 7, 2, 6, 4, 3, 5],
+     "images": ["img-2", "Img-6", "Img-9", "Img-8", "Img-1", "Img-10"]
+   },
+   {
+     "id": 13,
+     "name": "Oneshot Automatic Soap System",
+     "price": 47,
+     "discount": 10,
+     "description": "Mauris lacinia sapien quis libero. Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh. In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet. Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. ",
+     "size": ["XXXL"],
+     "stock": 38,
+     "category": 1,
+     "tags": [2],
+     "images": ["img-2", "Img-8", "Img-1", "Img-9"]
+   },
+   {
+     "id": 14,
+     "name": "Artichoke - Bottom, Canned",
+     "price": 82,
+     "discount": 10,
+     "description": "Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem. Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit. Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque. Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus. In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus. Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst. Maecenas ut massa quis augue luctus tincidunt.",
+     "size": ["XL", "4XL"],
+     "stock": 83,
+     "category": 7,
+     "tags": [1, 7, 3, 4, 5, 2],
+     "images": ["Img-1", "Img-4", "Img-7", "Img-8", "Img-3", "Img-9", "Img-6"]
+   },
+   {
+     "id": 15,
+     "name": "Compound - Rum",
+     "price": 19,
+     "discount": 10,
+     "description": "Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet. Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. ",
+     "size": ["4XL"],
+     "stock": 74,
+     "category": 4,
+     "tags": [7, 3, 6, 4, 5],
+     "images": ["Img-9", "Img-8", "img-2", "Img-1"]
+   },
+   {
+     "id": 16,
+     "name": "Longos - Cheese Tortellini",
+     "price": 94,
+     "discount": 20,
+     "description": "Mauris sit amet eros. Suspendisse accumsan tortor quis turpis. Sed ante. Vivamus tortor. Duis mattis egestas metus. Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh. Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est.",
+     "size": ["XL", "XS"],
+     "stock": 6,
+     "category": 1,
+     "tags": [3, 5, 1, 2, 6],
+     "images": ["Img-1", "Img-7", "Img-10", "Img-9", "Img-5", "img-2", "Img-8"]
+   },
+   {
+     "id": 17,
+     "name": "Onions - Red Pearl",
+     "price": 98,
+     "discount": 50,
+     "description": "In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo. Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis. Sed ante. Vivamus tortor. Duis mattis egestas metus. ",
+     "size": ["4XL", "XXXL"],
+     "stock": 94,
+     "category": 1,
+     "tags": [3],
+     "images": ["Img-9", "Img-1", "Img-6", "Img-4"]
+   },
+   {
+     "id": 18,
+     "name": "Chocolate Bar - Coffee Crisp",
+     "price": 88,
+     "discount": 30,
+     "description": "Aenean sit amet justo. Morbi ut odio. Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl. Aenean lectus. Pellentesque eget nunc.",
+     "size": [],
+     "stock": 87,
+     "category": 4,
+     "tags": [7, 4, 3, 5, 2],
+     "images": ["Img-5", "Img-8", "Img-1", "Img-10", "img-2", "Img-4", "Img-7"]
+   },
+   {
+     "id": 19,
+     "name": "Chevere Logs",
+     "price": 49,
+     "discount": 30,
+     "description": "Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui. Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti. Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.",
+     "size": ["XS"],
+     "stock": 92,
+     "category": 3,
+     "tags": [3, 1, 4, 6],
+     "images": ["img-2", "Img-3", "Img-10", "Img-1"]
+   },
+   {
+     "id": 20,
+     "name": "Salmon - Sockeye Raw",
+     "price": 8,
+     "discount": 80,
+     "description": "Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum. Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est. Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.",
+     "size": ["4XL", "XL", "M"],
+     "stock": 71,
+     "category": 2,
+     "tags": [1, 7, 3, 6, 2],
+     "images": ["img-2", "Img-6", "Img-9", "Img-1"]
+   },
+   {
+     "id": 21,
+     "name": "Mace",
+     "price": 85,
+     "discount": 10,
+     "description": "Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero. Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.",
+     "size": ["4XL"],
+     "stock": 59,
+     "category": 6,
+     "tags": [1],
+     "images": ["img-2", "Img-6", "Img-8", "Img-5", "Img-7"]
+   },
+   {
+     "id": 22,
+     "name": "Sauce - Fish 25 Ozf Bottle",
+     "price": 80,
+     "discount": 30,
+     "description": "Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio. Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin interdum mauris non ligula pellentesque ultrices.",
+     "size": ["M", "XL", "XXXL"],
+     "stock": 82,
+     "category": 3,
+     "tags": [3, 2, 7, 1, 5, 6],
+     "images": ["Img-9", "Img-4", "Img-5", "Img-3", "Img-10"]
+   },
+   {
+     "id": 23,
+     "name": "Potato - Sweet",
+     "price": 9,
+     "discount": 80,
+     "description": "Cras in purus eu magna vulputate luctus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue. Vestibulum rutrum rutrum neque.",
+     "size": [],
+     "stock": 71,
+     "category": 2,
+     "tags": [2, 4],
+     "images": ["Img-5", "Img-1", "Img-3", "Img-8"]
+   },
+   {
+     "id": 24,
+     "name": "Raisin - Dark",
+     "price": 43,
+     "discount": 20,
+     "description": "Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum. Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est. Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum. Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem. Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit. Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque. Duis bibendum. Morbi non quam nec dui luctus rutrum.",
+     "size": ["L"],
+     "stock": 2,
+     "category": 5,
+     "tags": [1, 5, 3, 2, 6, 7, 4],
+     "images": ["Img-1", "Img-9", "Img-6", "img-2", "Img-5", "Img-8", "Img-10"]
+   },
+   {
+     "id": 25,
+     "name": "Pork - Back, Short Cut, Boneless",
+     "price": 72,
+     "discount": 10,
+     "description": "Vestibulum rutrum rutrum neque. Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio. Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. ",
+     "size": [],
+     "stock": 20,
+     "category": 3,
+     "tags": [1, 3, 7, 6],
+     "images": ["Img-10", "Img-7", "Img-9", "Img-1", "img-2"]
+   },
+   {
+     "id": 26,
+     "name": "Wine - German Riesling",
+     "price": 84,
+     "discount": 20,
+     "description": "Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis. Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem. Sed sagittis",
+     "size": [],
+     "stock": 38,
+     "category": 2,
+     "tags": [5, 4],
+     "images": ["Img-3", "Img-4", "Img-1", "img-2", "Img-9", "Img-10", "Img-7"]
+   },
+   {
+     "id": 27,
+     "name": "Food Colouring - Blue",
+     "price": 65,
+     "discount": 20,
+     "description": "In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet. Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui. Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.",
+     "size": ["XL", "S"],
+     "stock": 89,
+     "category": 3,
+     "tags": [5, 4, 7, 3, 2],
+     "images": ["Img-8", "Img-1", "img-2", "Img-6", "Img-3", "Img-5", "Img-9"]
+   },
+   {
+     "id": 28,
+     "name": "Wine - Malbec Trapiche Reserve",
+     "price": 100,
+     "discount": 80,
+     "description": "Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl. Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum. Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est. Phasellus sit amet erat. Nulla tempus.",
+     "size": ["M"],
+     "stock": 54,
+     "category": 6,
+     "tags": [2, 5, 6, 7],
+     "images": ["Img-6", "Img-5", "Img-8", "Img-1"]
+   },
+   {
+     "id": 29,
+     "name": "Gelatine Leaves - Bulk",
+     "price": 22,
+     "discount": 30,
+     "description": "In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat. Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede. Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.",
+     "size": ["4XL"],
+     "stock": 63,
+     "category": 5,
+     "tags": [6, 1, 7, 5],
+     "images": ["Img-9", "Img-5", "Img-1", "Img-8", "Img-10", "Img-6", "Img-7"]
+   },
+   {
+     "id": 30,
+     "name": "Sage - Fresh",
+     "price": 36,
+     "discount": 20,
+     "description": "Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus. In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus. Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst. Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat. Curabitur gravida nisi at nibh. In hac habitasse platea dictumst.",
+     "size": ["XXXL", "XL", "S"],
+     "stock": 100,
+     "category": 4,
+     "tags": [3, 4, 7, 1],
+     "images": ["Img-4", "Img-7", "Img-1", "img-2"]
    }
-]
+ ]
+ 
