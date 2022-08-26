@@ -26,3 +26,7 @@
 - https://corgiorgy.com/ Corgy orgy
 - https://otakumode.com/cart menu de edicion de carrito
 - https://www.frikihouse.com.ar/ diseño general 
+
+
+## Tamaño de imagenes: 
+- 330px x 330px
