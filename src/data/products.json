@@ -117,7 +117,7 @@
      "stock": 11,
      "category": 7,
      "tags": [6, 4, 2, 1, 7, 3],
-     "images": ["img-10", "img-7", "img-2", "img-9", "img-3"]
+     "images": ["img-10.png", "img-7.png", "img-2.png", "img-9.png", "img-3.png"]
    },
    {
      "id": 12,
@@ -129,7 +129,7 @@
      "stock": 54,
      "category": 2,
      "tags": [1, 7, 2, 6, 4, 3, 5],
-     "images": ["img-2", "img-6", "img-9", "img-8", "img-1", "img-10"]
+     "images": ["img-2.png", "img-6.png", "img-9.png", "img-8.png", "img-1.png", "img-10.png"]
    },
    {
      "id": 13,
@@ -141,7 +141,7 @@
      "stock": 38,
      "category": 1,
      "tags": [2],
-     "images": ["img-2", "img-8", "img-1", "img-9"]
+     "images": ["img-2.png", "img-8.png", "img-1.png", "img-9.png"]
    },
    {
      "id": 14,
@@ -153,7 +153,7 @@
      "stock": 83,
      "category": 7,
      "tags": [1, 7, 3, 4, 5, 2],
-     "images": ["img-1", "img-4", "img-7", "img-8", "img-3", "img-9", "img-6"]
+     "images": ["img-1.png", "img-4.png", "img-7.png", "img-8.png", "img-3.png", "img-9.png", "img-6.png"]
    },
    {
      "id": 15,
@@ -165,7 +165,7 @@
      "stock": 74,
      "category": 4,
      "tags": [7, 3, 6, 4, 5],
-     "images": ["img-9", "img-8", "img-2", "img-1"]
+     "images": ["img-9.png", "img-8.png", "img-2.png", "img-1.png"]
    },
    {
      "id": 16,
@@ -177,7 +177,7 @@
      "stock": 6,
      "category": 1,
      "tags": [3, 5, 1, 2, 6],
-     "images": ["img-1", "img-7", "img-10", "img-9", "img-5", "img-2", "img-8"]
+     "images": ["img-1.png", "img-7.png", "img-10.png", "img-9.png", "img-5.png", "img-2.png", "img-8.png"]
    },
    {
      "id": 17,
@@ -189,7 +189,7 @@
      "stock": 94,
      "category": 1,
      "tags": [3],
-     "images": ["img-9", "img-1", "img-6", "img-4"]
+     "images": ["img-9.png", "img-1.png", "img-6.png", "img-4.png"]
    },
    {
      "id": 18,
@@ -201,7 +201,7 @@
      "stock": 87,
      "category": 4,
      "tags": [7, 4, 3, 5, 2],
-     "images": ["img-5", "img-8", "img-1", "img-10", "img-2", "img-4", "img-7"]
+     "images": ["img-5.png", "img-8.png", "img-1.png", "img-10.png", "img-2.png", "img-4.png", "img-7.png"]
    },
    {
      "id": 19,
@@ -213,7 +213,7 @@
      "stock": 92,
      "category": 3,
      "tags": [3, 1, 4, 6],
-     "images": ["img-2", "img-3", "img-10", "img-1"]
+     "images": ["img-2.png", "img-3.png", "img-10.png", "img-1.png"]
    },
    {
      "id": 20,
@@ -225,7 +225,7 @@
      "stock": 71,
      "category": 2,
      "tags": [1, 7, 3, 6, 2],
-     "images": ["img-2", "img-6", "img-9", "img-1"]
+     "images": ["img-2.png", "img-6.png", "img-9.png", "img-1.png"]
    },
    {
      "id": 21,
@@ -237,7 +237,7 @@
      "stock": 59,
      "category": 6,
      "tags": [1],
-     "images": ["img-2", "img-6", "img-8", "img-5", "img-7"]
+     "images": ["img-2.png", "img-6.png", "img-8.png", "img-5.png", "img-7.png"]
    },
    {
      "id": 22,
@@ -249,7 +249,7 @@
      "stock": 82,
      "category": 3,
      "tags": [3, 2, 7, 1, 5, 6],
-     "images": ["img-9", "img-4", "img-5", "img-3", "img-10"]
+     "images": ["img-9.png", "img-4.png", "img-5.png", "img-3.png", "img-10.png"]
    },
    {
      "id": 23,
@@ -261,7 +261,7 @@
      "stock": 71,
      "category": 2,
      "tags": [2, 4],
-     "images": ["img-5", "img-1", "img-3", "img-8"]
+     "images": ["img-5.png", "img-1.png", "img-3.png", "img-8.png"]
    },
    {
      "id": 24,
@@ -273,7 +273,7 @@
      "stock": 2,
      "category": 5,
      "tags": [1, 5, 3, 2, 6, 7, 4],
-     "images": ["img-1", "img-9", "img-6", "img-2", "img-5", "img-8", "img-10"]
+     "images": ["img-1.png", "img-9.png", "img-6.png", "img-2.png", "img-5.png", "img-8.png", "img-10.png"]
    },
    {
      "id": 25,
@@ -285,7 +285,7 @@
      "stock": 20,
      "category": 3,
      "tags": [1, 3, 7, 6],
-     "images": ["img-10", "img-7", "img-9", "img-1", "img-2"]
+     "images": ["img-10.png", "img-7.png", "img-9.png", "img-1.png", "img-2.png"]
    },
    {
      "id": 26,
@@ -297,7 +297,7 @@
      "stock": 38,
      "category": 2,
      "tags": [5, 4],
-     "images": ["img-3", "img-4", "img-1", "img-2", "img-9", "img-10", "img-7"]
+     "images": ["img-3.png", "img-4.png", "img-1.png", "img-2.png", "img-9.png", "img-10.png", "img-7.png"]
    },
    {
      "id": 27,
@@ -309,7 +309,7 @@
      "stock": 89,
      "category": 3,
      "tags": [5, 4, 7, 3, 2],
-     "images": ["img-8", "img-1", "img-2", "img-6", "img-3", "img-5", "img-9"]
+     "images": ["img-8.png", "img-1.png", "img-2.png", "img-6.png", "img-3.png", "img-5.png", "img-9.png"]
    },
    {
      "id": 28,
@@ -321,7 +321,7 @@
      "stock": 54,
      "category": 6,
      "tags": [2, 5, 6, 7],
-     "images": ["img-6", "img-5", "img-8", "img-1"]
+     "images": ["img-6.png", "img-5.png", "img-8.png", "img-1.png"]
    },
    {
      "id": 29,
@@ -333,7 +333,7 @@
      "stock": 63,
      "category": 5,
      "tags": [6, 1, 7, 5],
-     "images": ["img-9", "img-5", "img-1", "img-8", "img-10", "img-6", "img-7"]
+     "images": ["img-9.png", "img-5.png", "img-1.png", "img-8.png", "img-10.png", "img-6.png", "img-7.png"]
    },
    {
      "id": 30,
@@ -345,7 +345,7 @@
      "stock": 100,
      "category": 4,
      "tags": [3, 4, 7, 1],
-     "images": ["img-4", "img-7", "img-1", "img-2"]
+     "images": ["img-4.png", "img-7.png", "img-1.png", "img-2.png"]
    }
  ]
  
