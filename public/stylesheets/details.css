@@ -15,11 +15,11 @@
 .details__main--preview{
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: unwrap;
     width: 100%;
-    justify-content: space-between;
+    overflow-x: auto;
+    gap: 10px;
 }
-
 
 .details__main--preview img{
     width: 23%;
