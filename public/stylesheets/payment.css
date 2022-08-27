@@ -1,3 +1,8 @@
+#payment__main__div h4, #payment__main__div p, #payment__main__div label
+{
+    color: var(--light_font);
+}
+
 .payment__main h4
 {
     text-align: center;
@@ -233,13 +238,18 @@
 {
     text-align: center;
     width: 100%;
+    color: var(--light_font)
 }
 
 .payment__main__total h5
 {
     text-align: center;
+    color: var(--light_font)
 }
 
+.payment__main__total hr{
+    border-color: var(--light_font)
+}
 .payment__main__total__titles
 {
     display: flex;
