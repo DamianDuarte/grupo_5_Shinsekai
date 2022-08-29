@@ -16,7 +16,7 @@
          6
       ],
       "images": [
-         "boleto"
+         "product-noimg.png", "product-noimg.png"
       ]
    },
    {
@@ -37,7 +37,7 @@
          4
       ],
       "images": [
-         "caja-oro"
+         "oro1.png", "oro2.png"
       ]
    },
    {
@@ -56,7 +56,7 @@
          7
       ],
       "images": [
-         "caja-plata"
+         "plata1.png", "plata2.png"
       ]
    },
    {
@@ -72,7 +72,7 @@
          7
       ],
       "images": [
-         "caja-bronce"
+         "bronce1.png", "bronce2.png"
       ]
    },
    {
@@ -91,7 +91,7 @@
          6
       ],
       "images": [
-         "caja-hierro"
+         "hierro1.png", "hierro2.png"
       ]
    },
    {
@@ -108,7 +108,7 @@
          7
       ],
       "images": [
-         "honor-oro"
+         "product-noimg.png", "product-noimg.png"
       ]
    },
    {
@@ -129,7 +129,7 @@
          5
       ],
       "images": [
-         "honor-plata"
+         "product-noimg.png", "product-noimg.png"
       ]
    },
    {
@@ -145,7 +145,7 @@
          3
       ],
       "images": [
-         "honor-bronce"
+         "product-noimg.png", "product-noimg.png"
       ]
    },
    {
@@ -166,7 +166,7 @@
          3
       ],
       "images": [
-         "honor-hierro"
+         "product-noimg.png", "product-noimg.png"
       ]
    },
    {
