@@ -116,6 +116,29 @@ ol, ul
     padding:0px;
 }
 
+
+/** Custom scrollbar **/
+::-webkit-scrollbar 
+{
+    width: 10px;
+    height: 12px;
+}
+  
+::-webkit-scrollbar-track 
+{
+    background: var(--light_bg);
+}
+  
+::-webkit-scrollbar-thumb 
+{
+    background: var(--c_header_footer);
+}
+  
+::-webkit-scrollbar-thumb:hover 
+{
+    background: var(--dark_bg);
+}
+
 /*! -- Con esto se seleccionan los colores según el tema de tu dispositivo -- */
 @media(prefers-color-scheme: dark) 
 {
