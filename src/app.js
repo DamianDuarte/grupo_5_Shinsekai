@@ -6,8 +6,8 @@ var logger = require('morgan');
 const methodOverride = require('method-override');
 
 var mainRouter = require('./routes/main');
-var productsRouter= require('./routes/products');
-/* var userRouter= require('./routes/user'); */
+var productsRouter = require('./routes/products');
+var userRouter= require('./routes/user');
 var editRouter = require('./routes/edit');
 
 var app = express();
@@ -26,7 +26,7 @@ app.use(methodOverride('_method'));
 
 app.use('/', mainRouter);
 app.use('/products', productsRouter);
-/* app.use('/user', userRouter); */
+app.use('/user', userRouter);
 app.use('/edit', editRouter);
 
 // catch 404 and forward to error handler

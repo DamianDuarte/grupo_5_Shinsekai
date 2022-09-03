@@ -1,9 +1,13 @@
 var express = require('express');
 var router = express.Router();
 
-/* const { } = require('../controllers/userController');
+const { users, userProfile, edit, update, deleteUser } = require('../controllers/userController');
 
 router
- .get('', )
+ .get('/', users)
+ .get('/:username', userProfile)
+ .get('/edit/:username', edit)
+ .put('/edit/:username', update)
+ .delete('/delete/:username', deleteUser)
 
-module.exports = router; */
+module.exports = router;
