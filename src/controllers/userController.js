@@ -30,5 +30,8 @@ module.exports =
 
         dataParser.saveData(users, 'users.json');
         return res.redirect('/');
+    },
+    editProfile: (req, res)=>{
+        return res.render("editProfile")
     }
 }
