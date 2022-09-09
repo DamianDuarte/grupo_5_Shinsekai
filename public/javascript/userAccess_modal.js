@@ -13,13 +13,6 @@ user_span.onclick = function() {
 }
 
 //* Al hacer click fuera del contenido, cerrar el modal.
-/* window.onclick = function(event) {
-  if (event.target == user_modal) {
-    user_modal.style.display = "none";
-  }
-} */
-
-//* Al hacer click fuera del contenido, cerrar el modal.
 window.addEventListener("click", function(event) {
   if (event.target == user_modal) {
     user_modal.style.display = "none";

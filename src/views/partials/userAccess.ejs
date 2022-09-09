@@ -1,5 +1,5 @@
-<div id="userAccess" class="userAccess">
-
+<div style="<%= (locals.loginErrors || locals.registerErrors) && 'display: block' %>" id="userAccess" class="userAccess">
+ 
     <div class="userAccess__content">
         <span class="close--userAccess">&times;</span>
 
@@ -13,11 +13,18 @@
             <div class="userAccess__content__split__login">
                 <h3>Accede a tu cuenta</h3>
 
-                <form action="">
-                    <input type="text" name="username" id="username" placeholder="Usuario/Email" required>
-                    <input type="password" name="password" id="password" placeholder="Contraseña" required>
+                <form action="/user/login" method="POST">
+                    <input type="text" name="userName" id="userName" placeholder="Usuario/Email" value="<%= locals.loginOld && loginOld.userName %>" required>
+                    <% if(locals.loginErrors && loginErrors.userName) {%>
+                        <p class="errorMsg"><%= loginErrors.userName.msg %> </p>
+                    <% } %>
+
+                    <input type="password" name="password" id="password" placeholder="Contraseña" value="<%= locals.loginOld && loginOld.password %>" required>
+                    <% if(locals.loginErrors && loginErrors.password) {%>
+                        <p class="errorMsg"><%= loginErrors.password.msg %> </p>
+                    <% } %>
                     <div class="checkbox">
-                        <input type="checkbox" name="rememberMe" id="rememberMe">
+                        <input type="checkbox" name="rememberMe" id="rememberMe" <%= (locals.loginOld && loginOld.rememberMe) && "checked" %>>
                         <label for="rememberMe">Recordarme</label>
                     </div>
                     <button type="submit">Acceder</button>
@@ -31,15 +38,35 @@
             <div class="userAccess__content__split__register">
                 <h3>Registrate</h3>
 
-                <form action="">
-                    <input type="text" name="username" id="username" placeholder="Nombre de usuario" required>
-                    <input type="email" name="email" id="email" placeholder="Email" required>
-                    <input type="password" name="password" id="password" placeholder="Contraseña" required>
-                    <input type="password" name="v_password" id="v_password" placeholder="Repetir contraseña" required>
+                <form action="/user/register" method="POST">
+                    <input type="text" name="userName" id="userName" placeholder="Nombre de usuario" value="<%= locals.registerOld && registerOld.userName %>" required>
+                    <% if(locals.registerErrors && registerErrors.userName) {%>
+                        <p class="errorMsg"><%= registerErrors.userName.msg %> </p>
+                    <% } %>
+
+                    <input type="email" name="email" id="email" placeholder="Email" value="<%= locals.registerOld && registerOld.email %>" required>
+                    <% if(locals.registerErrors && registerErrors.email) {%>
+                        <p class="errorMsg"><%= registerErrors.email.msg %> </p>
+                    <% } %>
+
+                    <input type="password" name="password" id="password" placeholder="Contraseña" value="<%= locals.registerOld && registerOld.password %>" required>
+                    <% if(locals.registerErrors && registerErrors.password) {%>
+                        <p class="errorMsg"><%= registerErrors.password.msg %> </p>
+                    <% } %>
+
+                    <input type="password" name="v_password" id="v_password" placeholder="Repetir contraseña" value="<%= locals.registerOld && registerOld.v_password %>" required>
+                    <% if(locals.registerErrors && registerErrors.v_password) {%>
+                        <p class="errorMsg"><%= registerErrors.v_password.msg %> </p>
+                    <% } %>
+
                     <div class="checkbox">
-                        <input type="checkbox" name="terms" id="terms">
+                        <input type="checkbox" name="terms" id="terms" <%= (locals.registerOld && registerOld.terms) && "checked" %>>
                         <label for="terms">Acepto términos y condiciones</label>
                     </div>
+                    <% if(locals.registerErrors && registerErrors.terms) {%>
+                        <p class="errorMsg"><%= registerErrors.terms.msg %> </p>
+                    <% } %>
+
                     <button type="submit">Listo</button>
                 </form>
             </div>

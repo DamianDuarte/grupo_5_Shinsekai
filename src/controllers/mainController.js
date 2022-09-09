@@ -26,7 +26,7 @@ module.exports={
         const categories = dataParser.loadData('categories.json');
         const tags = dataParser.loadData('tags.json');
 
-        return res.render('./users/home', { products, categories, tags});
+        return res.render('./users/home', { products, categories, tags });
     },
     search: (req, res) =>
     {
