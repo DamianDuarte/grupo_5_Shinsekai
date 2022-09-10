@@ -5,10 +5,10 @@ const { users, userProfile, edit, update, deleteUser, editProfile } = require('.
 
 router
  .get('/', users)
- .get('/:username', userProfile)
+ .get('/profile', editProfile)
  .get('/edit/:username', edit)
  .put('/edit/:username', update)
  .delete('/delete/:username', deleteUser)
- .get('/profile', editProfile)
+ .get('/:username', userProfile)
 
 module.exports = router;

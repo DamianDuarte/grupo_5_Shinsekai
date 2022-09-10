@@ -1,6 +1,6 @@
 <html lang="en">
 <head>
-    <%- include('./partials/head', { title: 'Perfil' }) %>
+    <%- include('../partials/head', { title: 'Perfil' }) %>
 </head>
 <body>
 <header>
@@ -11,7 +11,69 @@
 <div>
     <img src="/img/users/AvatarDefault.jpeg" alt="">
     <h3>Nombre Generico</h3>
-    <p><a href=""></a><i class="fa-sharp fa-solid fa-pen">>Editar</i</p>
+    <p><a href=""></a>Editar<i class="fa-sharp fa-solid fa-pen"></i></p>
+    <form action="">
+        <div>
+            <h3>
+                General
+            </h3>
+            <label for="">Nombre</label>
+            <input type="text" name="">
+            <label for="">Apellido</label>
+            <input type="text" name="">
+            <label for="">Genero</label>
+            <input type="text" name="">
+            <label for="">Edad</label>
+            <input type="text" name="">
+            <label for="">Ciudad</label>
+            <input type="text" name="">
+            <label for="">Pais</label>
+            <input type="text" name="">
+        </div>
+        <div>
+            <h3>
+                Cuenta
+            </h3>
+            <label for="">E-mail</label>
+            <input type="text" name="">
+            <label for="">Contraseña</label>
+            <input type="text" name="">
+        </div>
+        <div>
+            <h3>
+                Intereses
+            </h3>
+            <label for="">Anime</label>
+            <input type="checkbox" name="" id="" value="" hidden>
+            <label for="">Manga</label>
+            <input type="checkbox" name="" id="" value="" hidden>
+            <label for="">Comics</label>
+            <input type="checkbox" name="" id="" value="" hidden>
+            <label for="">Dc</label>
+            <input type="checkbox" name="" id="" value="" hidden>
+            <label for="">Marvel</label>
+            <input type="checkbox" name="" id="" value="" hidden>
+            <label for="">Nuevo</label>
+            <input type="checkbox" name="" id="" value="" hidden>
+            <label for="">Premium</label>
+            <input type="checkbox" name="" id="" value="" hidden>
+            <label for="">No Premium</label>
+            <input type="checkbox" name="" id="" value="" hidden>
+        </div>
+        <div>
+            <label for="">Tu plan es</label>
+            <input type="text" name="">
+            <label for="">Se actializara el pago el dia</label>
+            <input type="text" name="">
+            <label for="">del siguiente metodo de pago</label>
+            <input type="text" name="">
+            <button name="Cancel">Cancelar Suscripcion</button>
+        </div>
+        <div>
+            <button name="save">Guardar</button>
+            <button name="cancel">Cancelar</button>
+        </div>
+    </form>
 </div>
 </main>
 <footer>
