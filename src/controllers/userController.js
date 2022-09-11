@@ -7,13 +7,17 @@ const products = dataParser.loadData('products.json');
 const categories = dataParser.loadData('categories.json');
 const tags = dataParser.loadData('tags.json');
 
-const admins = ['damian', 'maga', 'mica', 'julian', 'eric'];
+const admins = dataParser.loadData('admins.json');
+const isAdmin = (user) => 
+{
+    return admins.find(a => a.userName === user.userName)
+}
 
 module.exports = 
 {
     users: (req, res) =>
     {
-        return res.render('./users/users', { users, products, categories, tags});
+        return res.render('./users/users', { users, products, categories, tags, isAdmin});
     },
     userProfile: (req, res) =>
     {
@@ -55,11 +59,15 @@ module.exports =
                 image: "default-img.jpg"
             }
 
+            //* Check admin permission
+            const admin = isAdmin(newUser) ? true : false; 
+
             //* Create session
             req.session.user =
             {
                 userName: newUser.userName,
-                image: newUser.image
+                image: newUser.image,
+                admin
             }
 
             //* Save files
@@ -87,7 +95,7 @@ module.exports =
                 : user = users.find(u => u.userName === req.body.userName.trim());
 
             //* Check admin permission
-            const admin = admins.includes(user.userName) ? true : false; 
+            const admin = isAdmin(user) ? true : false; 
 
             //* Create session
             req.session.user =

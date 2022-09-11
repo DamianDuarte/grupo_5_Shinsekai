@@ -94,5 +94,21 @@
       "email": "testo@gmail.com",
       "password": "$2a$10$LYabBo8QOERhHrTAFm28uOdsXqk/asHvho74Oip6LlPw3mUC394ai",
       "image": "default-img.jpg"
+   },
+   {
+      "userName": "dev",
+      "firstName": "",
+      "lastName": "",
+      "email": "dev@dev.com",
+      "password": "$2a$10$UDv5IQ3XS3pF0Q9r0rR/1upWDJ1YvFCpjv6xyq38zmrFvU3lyEvxC",
+      "image": "default-img.jpg"
+   },
+   {
+      "userName": "julian",
+      "firstName": "",
+      "lastName": "",
+      "email": "j.gakusei11@gmail.com",
+      "password": "$2a$10$Gfc6tZroyYRWfEqxWYlheOMF5MCZohZEmpbX.WwwfxlwjRfZMFQ5S",
+      "image": "default-img.jpg"
    }
 ]
