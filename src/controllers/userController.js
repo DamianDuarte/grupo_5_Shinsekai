@@ -1,10 +1,13 @@
 const { validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
 const dataParser = require('../data/dataParser');
+const session = require('express-session');
 const users = dataParser.loadData('users.json');
 const products = dataParser.loadData('products.json');
 const categories = dataParser.loadData('categories.json');
 const tags = dataParser.loadData('tags.json');
+
+const admins = ['damian', 'maga', 'mica', 'julian', 'eric'];
 
 module.exports = 
 {
@@ -83,15 +86,24 @@ module.exports =
                 user = users.find(u => u.email === req.body.userName.trim().toLowerCase())
                 : user = users.find(u => u.userName === req.body.userName.trim());
 
-            //! Check admin permissions [ADD IT HERE]
-            //! Check admin permissions [ADD IT HERE]
-            //! Check admin permissions [ADD IT HERE]
+            //* Check admin permission
+            const admin = admins.includes(user.userName) && true; 
 
             //* Create session
             req.session.user =
             {
                 userName: user.userName,
-                image: user.image
+                image: user.image,
+                admin
+            }
+
+            //* RememberMe Cookie
+            if(req.body.rememberMe)
+            {
+                res.cookie('Shinsekai', req.session.user,
+                {
+                    maxAge: 5000 * 60
+                })
             }
         }
         else
@@ -101,5 +113,12 @@ module.exports =
         }
 
         return res.redirect('back');
+    },
+    logout: (req, res) =>
+    {
+        req.session.destroy();
+        res.clearCookie('Shinsekai');
+
+        return res.redirect('/');
     }
 }

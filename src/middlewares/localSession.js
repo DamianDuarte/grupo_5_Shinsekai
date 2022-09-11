@@ -1,6 +1,14 @@
 module.exports = (req, res, next) =>
 {
-    req.session.user && (res.locals.user = req.session.user);
+    //* Si existe cookie de Shinsekai, logear session y guardarla en locals
+    if(req.cookies.Shinsekai) 
+    {
+        res.locals.user = req.session.user = req.cookies.Shinsekai;
+    }
+    else if (req.session.user) //* Si no existe cookie pero existe session, guardarla en locals
+    {
+        res.locals.user = req.session.user
+    }
     
     //* Si la session contiene data de errores (login), guardarlos en locals y borrarlos de session.
     if(req.session.loginErrors)
