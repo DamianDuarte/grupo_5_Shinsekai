@@ -1,6 +1,6 @@
 module.exports = (req, res, next) =>
 {
-    if(res.locals.user.admin)
+    if(res.locals.user && res.locals.user.admin)
     {
         next();
     }

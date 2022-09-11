@@ -87,7 +87,7 @@ module.exports =
                 : user = users.find(u => u.userName === req.body.userName.trim());
 
             //* Check admin permission
-            const admin = admins.includes(user.userName) && true; 
+            const admin = admins.includes(user.userName) ? true : false; 
 
             //* Create session
             req.session.user =
