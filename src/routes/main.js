@@ -3,6 +3,7 @@ var router = express.Router();
 
 const {home, search} = require('../controllers/mainController');
 
+
 /* GET home page. */
 router
 

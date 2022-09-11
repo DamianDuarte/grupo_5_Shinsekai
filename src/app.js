@@ -41,6 +41,12 @@ app.use('/', mainRouter);
 app.use('/products', productsRouter);
 app.use('/user', userRouter);
 app.use('/edit', editRouter);
+app.use(session(
+  {
+    secret: 'Shinsekai11',
+    resave: false,
+    saveUninitialized: true
+  }));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
