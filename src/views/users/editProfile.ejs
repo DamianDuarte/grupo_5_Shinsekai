@@ -17,8 +17,8 @@
                 <p><a href=""></a>Editar<i class="fa-sharp fa-solid fa-pen"></i></p>
             </div>
             <form class="main__body__profile__form" action="">
-                <div>
-                    <h3>
+                <div class="profile__forms-divs" >
+                    <h3 class="profile-titles" >
                         General
                     </h3>
                     <div class="form__spaces">
@@ -45,8 +45,8 @@
                     <label for="country">Pais</label>
                     <input type="text" name="country">
                 </div>
-                <div>
-                    <h3>
+                <div class="profile__forms-divs" >
+                    <h3 class="profile-titles" >
                         Cuenta
                     </h3>
                     <div class="form__spaces">
@@ -58,13 +58,13 @@
                     <input type="text" name="password">
                     </div>
                 </div>
-                <div>
-                    <h3>
+                <div class="profile__forms-divs" >
+                    <h3 class="profile-titles" >
                         Intereses
                     </h3>
 
                     </div>
-                    <!-- Wey diego esta gay -->
+                    <!-- Tags de Intereses -->
                     <div class="tagGroup">
                         <input type="checkbox" name="tags" id="anime" value="50" hidden>
                         <label for="anime">Anime</label>
@@ -85,16 +85,22 @@
                     </div>
                     
                 </div>
-                <div>
-                    <h3>
+                <div class="profile__forms-divs" >
+                    <h3 class="profile-titles" >
                         Facturacion
                     </h3>
-                    <label for="plan">Tu plan es</label>
-                    <input type="text" name="plan">
-                    <label for="payment-day">Se actializara el pago el dia</label>
-                    <input type="text" name="payment-day">
-                    <label for="payment-method">del siguiente metodo de pago</label>
-                    <input type="text" name="payment-method">
+                    <div class="profile__plans__divs">
+                    <label class="profile__plans__form" for="plan">Tu plan es</label>
+                    <input class="profile__pans__inputs" type="text" name="plan">
+                    </div>
+                    <div class="profile__plans__divs">
+                    <label class="profile__plans__form" for="payment-day">Se actializara el pago el dia</label>
+                    <input class="profile__pans__inputs" type="text" name="payment-day">
+                    </div>
+                    <div class="profile__plans__divs">
+                    <label class="profile__plans__form" for="payment-method">del siguiente metodo de pago</label>
+                    <input class="profile__pans__inputs" type="text" name="payment-method">
+                    </div>
                     <button class="cancel-button-plan" name="Cancel">Cancelar Suscripcion</button>
                 </div>
                 <div class="main__profile__buttons">
