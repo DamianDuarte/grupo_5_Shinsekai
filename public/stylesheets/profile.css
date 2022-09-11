@@ -1,0 +1,136 @@
+/* Imagen de perfil y nombre */
+
+.main__body__profile{
+    background-color: var(--c_squares);
+    margin: 5%;
+    border-radius: 15px;
+}
+
+.main__body__profile-image{
+   width: 40%;
+   margin: auto;
+   padding-top: 5%;
+}
+
+.main__body__profile-image img{
+    width: 100%;
+    border-radius: 50%;
+    border:solid 2px var(--dark_bg);
+}
+
+.main__body__profile-image h3{
+    font-size: 25px;
+    padding-top: 2%;
+    color: var(--dark_bg);
+    text-align: center;
+}
+
+.main__body__profile-image p{
+    text-align: center;
+    font-size: 12px;
+    color: blueviolet
+}
+.main__body__profile-image p i{
+    font-size: 12px;
+    color: blueviolet;
+    padding-left: 1%;
+}
+
+/* Formulario */
+
+.main__body__profile__form{
+    padding: 2%;
+
+}
+
+.main__body__profile__form div{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.form__spaces{
+    padding-top: 5%;
+}
+
+.main__body__profile__form h3{
+    text-align: center;
+    color: var(--dark_bg);
+}
+
+.main__body__profile__form label{
+    color: var(--dark_bg);
+    font-weight: 600;
+    
+}
+
+.main__body__profile__form input{
+    border-radius: 5px;
+    width: 100%;
+    border: none;
+    background-color: var(--dark_font);
+    height: 25px;
+
+}
+
+/* Intereses */
+.main__body__profile__form .tagGroup
+{
+    width: 100%;
+    display: flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+    justify-content:center;
+    margin-bottom: 15px;
+}
+
+
+.main__body__profile__form .tagGroup label
+{
+    color: var(--dark_bg);
+    border-radius: 10px;
+    border: solid 1px var(--light_bg);
+    padding: 5px;
+    margin: 4px 2px;
+    width:fit-content;
+    cursor: pointer;
+}
+
+.main__body__profile__form .tagGroup input[type="checkbox"]:checked+label
+{
+    background-color: var(--light_bg);
+    color: var(--light_font);
+}
+
+/* Botones */
+
+.cancel-button-plan{
+    margin-top: 3%;
+    border-radius: 10px;
+    padding: 6px;
+    background-color: var(--c_buttons);
+    color: var(--c_font);
+}
+
+.main__profile__buttons{
+    margin-top: 8;
+}
+
+.main__profile__buttons button{
+    margin-bottom: 3%;
+}
+.main__profile-submit{
+    border-radius: 10px;
+    padding: 6px;
+    background-color: var(--c_buttons);
+    color: var(--c_font);
+
+}
+
+.main__profile-cancel{
+    background-color: var(--c_squares);
+    text-decoration: underline;
+    color: var(--dark_bg);
+    font-weight: 600;
+}
