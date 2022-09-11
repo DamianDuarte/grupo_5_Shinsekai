@@ -36,7 +36,7 @@ module.exports =
         return res.redirect('/');
     },
     editProfile: (req, res)=>{
-        return res.render("editProfile")
+        return res.render("./users/editProfile", { users, products, categories, tags})
     },
     processRegister: (req, res) =>
     {
