@@ -121,18 +121,10 @@
    },
    {
       "userName": "LulaG",
-      "firstName": " ",
-      "lastName": " ",
-      "email": "lula@gmail.com ",
-      "password": "",
-      "image": "default-img.jpg"
-   },
-   {
-      "userName": "diego",
-      "firstName": "Diego",
-      "lastName": "Montes",
-      "email": "chiwawa@gmail.com",
-      "password": "",
-      "image": "user-1663004735583.png"
+      "firstName": "Lujan",
+      "lastName": "Gutierrez",
+      "email": "lula@gmail.com",
+      "password": "$2a$10$KbtBN1tRHkd1ZEnP2bW70.OdtMe5qvSnNaWXPej/VYAP2/C6zYUYi",
+      "image": "user-1663020342962.png"
    }
 ]

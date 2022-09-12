@@ -19,6 +19,9 @@
     width: 100%;
     border-radius: 50%;
     border:solid 2px var(--dark_bg);
+    overflow: hidden;
+    height: 450px;
+
 }
 
 .profile__edit-img i{

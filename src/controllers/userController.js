@@ -11,64 +11,65 @@ const tags = dataParser.loadData('tags.json');
 const usersFilePath = path.join(__dirname, '../data/users.json');
 
 const admins = dataParser.loadData('admins.json');
-const isAdmin = (user) => 
-{
+const isAdmin = (user) => {
     return admins.find(a => a.userName === user.userName)
 }
 
-module.exports = 
+module.exports =
 {
-    users: (req, res) =>
-    {
-        return res.render('./users/users', { users, products, categories, tags, isAdmin});
+    users: (req, res) => {
+        return res.render('./users/users', { users, products, categories, tags, isAdmin });
     },
-    userProfile: (req, res) =>
-    {
+    userProfile: (req, res) => {
         return res.send("Implementación pendiente");
     },
-    edit: (req, res) =>
-    {
+    edit: (req, res) => {
         let user = users.find(u => u.userName === req.params.username)
-        return res.render("./users/editProfile", { users, products, categories, tags, user})
+        return res.render("./users/editProfile", { users, products, categories, tags, user })
     },
-    update: (req, res) =>
-    {
+    update: (req, res) => {
         const userIndex = users.findIndex((u) => u.userName === req.params.username);
         let userImg = "AvatarDefault.jpeg";
         req.file ? userImg = req.file.filename : userImg = users[userIndex].image;
 
-        users[userIndex] = {
+        let errors = validationResult(req);
+        if (errors.isEmpty()) {
+
+            users[userIndex] = {
                 userName: req.params.username,
                 firstName: req.body.firstName.trim(),
                 lastName: req.body.lastName.trim(),
                 email: req.body.email.trim(),
                 password: req.body.password.trim(),
                 image: userImg
+            }
+            fs.writeFileSync(usersFilePath, JSON.stringify(users, null, 3), 'utf-8');
+            return res.render("./users/editProfile", { users, products, categories, tags, user: users[userIndex] })
+        }else{
+            let profileOld = req.body    
+            let profileErrors= errors.mapped()
+            res.send(profileErrors)
+            return res.render("./users/editProfile", { users, products, categories, tags, profileOld, profileErrors, user: users[userIndex] })
+
         }
 
-        fs.writeFileSync(usersFilePath, JSON.stringify(users, null, 3), 'utf-8');
-        return res.render("./users/editProfile", { users, products, categories, tags, user:users[userIndex]})
-
     },
-    deleteUser: (req, res) =>
-    {
+    deleteUser: (req, res) => {
         const userIndex = users.findIndex((u) => u.userName === req.params.userName);
         users.splice(userIndex, 1);
 
         dataParser.saveData(users, 'users.json');
         return res.redirect('/');
     },
-    editProfile: (req, res)=>{
-        
+    editProfile: (req, res) => {
+
     },
-    processRegister: (req, res) =>
-    {
+    processRegister: (req, res) => {
         let errors = validationResult(req);
 
-        if(errors.isEmpty())
-        {
+        if (errors.isEmpty()) {
             //* Create user
-            const newUser= 
+            const newUser =
             {
                 userName: req.body.userName.trim(),
                 firstName: "",
@@ -79,7 +80,7 @@ module.exports =
             }
 
             //* Check admin permission
-            const admin = isAdmin(newUser) ? true : false; 
+            const admin = isAdmin(newUser) ? true : false;
 
             //* Create session
             req.session.user =
@@ -93,28 +94,25 @@ module.exports =
             users.push(newUser);
             dataParser.saveData(users, 'users.json');
         }
-        else
-        {
+        else {
             req.session.registerErrors = errors.mapped();
             req.session.registerOld = req.body;
         }
 
         return res.redirect('back');
     },
-    processLogin: (req, res) =>
-    {
+    processLogin: (req, res) => {
         let errors = validationResult(req);
 
-        if(errors.isEmpty())
-        {
+        if (errors.isEmpty()) {
             //* Get user
             let user;
-            req.body.userName.includes('@') ? 
+            req.body.userName.includes('@') ?
                 user = users.find(u => u.email === req.body.userName.trim().toLowerCase())
                 : user = users.find(u => u.userName === req.body.userName.trim());
 
             //* Check admin permission
-            const admin = isAdmin(user) ? true : false; 
+            const admin = isAdmin(user) ? true : false;
 
             //* Create session
             req.session.user =
@@ -125,28 +123,25 @@ module.exports =
             }
 
             //* RememberMe Cookie
-            if(req.body.rememberMe)
-            {
+            if (req.body.rememberMe) {
                 res.cookie('Shinsekai', req.session.user,
-                {
-                    maxAge: 5000 * 60
-                })
+                    {
+                        maxAge: 5000 * 60
+                    })
             }
         }
-        else
-        {
+        else {
             req.session.loginErrors = errors.mapped();
             req.session.loginOld = req.body;
         }
 
         return res.redirect('back');
     },
-    logout: (req, res) =>
-    {
+    logout: (req, res) => {
         req.session.destroy();
         res.clearCookie('Shinsekai');
 
         return res.redirect('/');
     }
-    
+
 }

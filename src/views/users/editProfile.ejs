@@ -30,10 +30,16 @@
                     <div class="form__spaces">
                         <label for="firstName">Nombre</label>
                         <input type="text" name="firstName" value="<%= user.firstName %> ">
+                        <% if(locals.profileErrors && profileErrors.firstName) {%>
+                            <p class="errorMsg"><%= profileErrors.firsName.msg %> </p>
+                        <% } %>
                     </div>
                     <div class="form__spaces">
                         <label for="lastName">Apellido</label>
                         <input type="text" name="lastName" value="<%= user.lastName %> ">
+                        <% if(locals.profileErrors && profileErrors.lastName) {%>
+                            <p class="errorMsg"><%= profileErrors.lastName.msg %> </p>
+                        <% } %>
                     </div>
                     <div class="form__spaces">
                         <label for="gender">Genero</label>
@@ -61,7 +67,7 @@
                         </div>
                         <div class="form__spaces">
                             <label for="password">Contraseña</label>
-                            <input type="text" name="password">
+                            <input type="password" name="password" value="<%= user.password%> ">
                         </div>
                     </div>
                     <div class="profile__forms-divs">

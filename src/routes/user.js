@@ -6,6 +6,7 @@ const { users, userProfile, edit,  deleteUser, editProfile, processRegister, pro
 //* Validations
 const registerVal = require('../validations/register');
 const loginVal = require('../validations/login');
+const profileVal = require('../validations/editProfile')
 
 //* Middleware
 const userCheck = require('../middlewares/userCheck');
@@ -14,7 +15,7 @@ const { uploadUserIMG } = require('../middlewares/uploadFiles')
 router
  .get('/', adminCheck, users)
  .get('/edit/:username', edit)
- .put('/edit/:username', uploadUserIMG.single('image'), update)
+ .put('/edit/:username', uploadUserIMG.single('image'), profileVal, update)
  .delete('/delete/:username', deleteUser)
  .get('/profile', userCheck, editProfile)
  .post('/register', registerVal, processRegister)
