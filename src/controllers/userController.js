@@ -39,10 +39,10 @@ module.exports =
 
         users[userIndex] = {
                 userName: req.params.username,
-                firstName: req.body.firstName,
-                lastName: req.body.lastName,
-                email: req.body.email,
-                password: req.body.password,
+                firstName: req.body.firstName.trim(),
+                lastName: req.body.lastName.trim(),
+                email: req.body.email.trim(),
+                password: req.body.password.trim(),
                 image: userImg
         }
 

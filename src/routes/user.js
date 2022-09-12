@@ -14,7 +14,7 @@ const { uploadUserIMG } = require('../middlewares/uploadFiles')
 router
  .get('/', adminCheck, users)
  .get('/edit/:username', edit)
- .put('/edit/:username',uploadUserIMG.single('image') ,update)
+ .put('/edit/:username', uploadUserIMG.single('image'), update)
  .delete('/delete/:username', deleteUser)
  .get('/profile', userCheck, editProfile)
  .post('/register', registerVal, processRegister)

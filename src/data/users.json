@@ -126,5 +126,13 @@
       "email": "lula@gmail.com ",
       "password": "",
       "image": "default-img.jpg"
+   },
+   {
+      "userName": "diego",
+      "firstName": "Diego",
+      "lastName": "Montes",
+      "email": "chiwawa@gmail.com",
+      "password": "",
+      "image": "user-1663004735583.png"
    }
 ]
