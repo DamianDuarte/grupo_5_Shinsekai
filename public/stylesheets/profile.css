@@ -21,6 +21,17 @@
     border:solid 2px var(--dark_bg);
 }
 
+.profile__edit-img i{
+    padding-right: 3%;
+    color: var(--dark_bg);
+}
+.profile__edit-img{
+    color: var(--dark_bg);
+    width: 100%;
+    text-align: center;
+    display: block;
+}
+
 .main__body__profile-image h3{
     font-size: 25px;
     padding-top: 2%;
@@ -184,7 +195,7 @@
 
     .main__body__profile__form input{
         width: 65%;
-        text-align: end;
+        text-align: center;
     }
 
     /* Intereses */
@@ -208,5 +219,11 @@
     .main__profile__buttons{
         justify-content: center;
         width: 100%;
+    }
+}
+
+@media (min-width: 1024px){
+    .main__body__profile{
+        margin: 15%;
     }
 }

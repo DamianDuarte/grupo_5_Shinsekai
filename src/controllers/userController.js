@@ -1,3 +1,5 @@
+const fs = require('fs');
+const path = require('path');
 const { validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
 const dataParser = require('../data/dataParser');
@@ -6,6 +8,7 @@ const users = dataParser.loadData('users.json');
 const products = dataParser.loadData('products.json');
 const categories = dataParser.loadData('categories.json');
 const tags = dataParser.loadData('tags.json');
+const usersFilePath = path.join(__dirname, '../data/users.json');
 
 const admins = dataParser.loadData('admins.json');
 const isAdmin = (user) => 
@@ -25,11 +28,27 @@ module.exports =
     },
     edit: (req, res) =>
     {
-        return res.send("Implementación pendiente");
+        let user = users.find(u => u.userName === req.params.username)
+        return res.render("./users/editProfile", { users, products, categories, tags, user})
     },
     update: (req, res) =>
     {
-        return res.send("Implementación pendiente");
+        const userIndex = users.findIndex((u) => u.userName === req.params.username);
+        let userImg = "AvatarDefault.jpeg";
+        req.file ? userImg = req.file.filename : userImg = users[userIndex].image;
+
+        users[userIndex] = {
+                userName: req.params.username,
+                firstName: req.body.firstName,
+                lastName: req.body.lastName,
+                email: req.body.email,
+                password: req.body.password,
+                image: userImg
+        }
+
+        fs.writeFileSync(usersFilePath, JSON.stringify(users, null, 3), 'utf-8');
+        return res.render("./users/editProfile", { users, products, categories, tags, user:users[userIndex]})
+
     },
     deleteUser: (req, res) =>
     {
@@ -40,7 +59,7 @@ module.exports =
         return res.redirect('/');
     },
     editProfile: (req, res)=>{
-        return res.render("./users/editProfile", { users, products, categories, tags})
+        
     },
     processRegister: (req, res) =>
     {
@@ -129,4 +148,5 @@ module.exports =
 
         return res.redirect('/');
     }
+    
 }

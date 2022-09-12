@@ -12,56 +12,62 @@
         <!-- Imagen y Nombre de perfil -->
         <div class="main__body__profile">
             <div class="main__body__profile-image">
-                <img  src="/img/users/AvatarDefault.jpeg" alt="">
-                <h3>Nombre Generico</h3>
+                <img class="image__profile"src="/img/users/<%= user.image %> " alt="">
+                <input type="file" name="img" id="img" accept=".jpg, .png, .gif, .jpeg" hidden>
+                <label class="profile__edit-img" for="img">
+                        <i class="fa-solid fa-camera"></i>Editar Foto
+                </label>
+                <h3>
+                    <%= user.userName %>
+                </h3>
                 <p><a href=""></a>Editar<i class="fa-sharp fa-solid fa-pen"></i></p>
             </div>
-            <form class="main__body__profile__form" action="">
-                <div class="profile__forms-divs" >
-                    <h3 class="profile-titles" >
+            <form class="main__body__profile__form" action="/user/edit/<%= user.userName %>?_method=PUT" method="POST">
+                <div class="profile__forms-divs">
+                    <h3 class="profile-titles">
                         General
                     </h3>
                     <div class="form__spaces">
-                    <label for="firstName">Nombre</label>
-                    <input type="text" name="firstName">
+                        <label for="firstName">Nombre</label>
+                        <input type="text" name="firstName" value="<%= user.firstName %> ">
                     </div>
                     <div class="form__spaces">
-                    <label for="lastName">Apellido</label>
-                    <input type="text" name="lastName">
+                        <label for="lastName">Apellido</label>
+                        <input type="text" name="lastName" value="<%= user.lastName %> ">
                     </div>
                     <div class="form__spaces">
-                    <label for="gender">Genero</label>
-                    <input type="text" name="gender">
+                        <label for="gender">Genero</label>
+                        <input type="text" name="gender">
                     </div>
                     <div class="form__spaces">
-                    <label for="age">Edad</label>
-                    <input type="text" name="age">
+                        <label for="age">Edad</label>
+                        <input type="text" name="age">
                     </div>
                     <div class="form__spaces">
-                    <label for="city">Ciudad</label>
-                    <input type="text" name="city">
+                        <label for="city">Ciudad</label>
+                        <input type="text" name="city">
                     </div>
                     <div class="form__spaces">
-                    <label for="country">Pais</label>
-                    <input type="text" name="country">
-                </div>
-                <div class="profile__forms-divs" >
-                    <h3 class="profile-titles" >
-                        Cuenta
-                    </h3>
-                    <div class="form__spaces">
-                    <label for="email">E-mail</label>
-                    <input type="text" name="email">
+                        <label for="country">Pais</label>
+                        <input type="text" name="country">
                     </div>
-                    <div class="form__spaces">
-                    <label for="password">Contraseña</label>
-                    <input type="text" name="password">
+                    <div class="profile__forms-divs">
+                        <h3 class="profile-titles">
+                            Cuenta
+                        </h3>
+                        <div class="form__spaces">
+                            <label for="email">E-mail</label>
+                            <input type="text" name="email" value="<%= user.email %> ">
+                        </div>
+                        <div class="form__spaces">
+                            <label for="password">Contraseña</label>
+                            <input type="text" name="password">
+                        </div>
                     </div>
-                </div>
-                <div class="profile__forms-divs" >
-                    <h3 class="profile-titles" >
-                        Intereses
-                    </h3>
+                    <div class="profile__forms-divs">
+                        <h3 class="profile-titles">
+                            Intereses
+                        </h3>
 
                     </div>
                     <!-- Tags de Intereses -->
@@ -83,23 +89,23 @@
                         <input type="checkbox" name="tags" id="no-premium" value="57" hidden>
                         <label for="no-premium">No Premium</label>
                     </div>
-                    
+
                 </div>
-                <div class="profile__forms-divs" >
-                    <h3 class="profile-titles" >
+                <div class="profile__forms-divs">
+                    <h3 class="profile-titles">
                         Facturacion
                     </h3>
                     <div class="profile__plans__divs">
-                    <label class="profile__plans__form" for="plan">Tu plan es</label>
-                    <input class="profile__pans__inputs" type="text" name="plan">
+                        <label class="profile__plans__form" for="plan">Tu plan es</label>
+                        <input class="profile__pans__inputs" type="text" name="plan">
                     </div>
                     <div class="profile__plans__divs">
-                    <label class="profile__plans__form" for="payment-day">Se actializara el pago el dia</label>
-                    <input class="profile__pans__inputs" type="text" name="payment-day">
+                        <label class="profile__plans__form" for="payment-day">Se actializara el pago el dia</label>
+                        <input class="profile__pans__inputs" type="text" name="payment-day">
                     </div>
                     <div class="profile__plans__divs">
-                    <label class="profile__plans__form" for="payment-method">del siguiente metodo de pago</label>
-                    <input class="profile__pans__inputs" type="text" name="payment-method">
+                        <label class="profile__plans__form" for="payment-method">del siguiente metodo de pago</label>
+                        <input class="profile__pans__inputs" type="text" name="payment-method">
                     </div>
                     <button class="cancel-button-plan" name="Cancel">Cancelar Suscripcion</button>
                 </div>
