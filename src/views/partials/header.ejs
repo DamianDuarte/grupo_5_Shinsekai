@@ -22,9 +22,16 @@
 
         <nav class="header__mitad__buttons">
             <a class="header__mitad__buttons__search" href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
-            <a class="header__mitad__buttons__button" href="/edit/product"><i class="fa-solid fa-file-pen"></i></a>
-            <button id="modalTrigger--userAccess" class="header__mitad__buttons__button"><i class="fa-solid fa-user"></i></button>
+            <% if (locals.user && user.admin) { %>
+                <a class="header__mitad__buttons__button" href="/edit/product"><i class="fa-solid fa-file-pen"></i></a>
+                <a class="header__mitad__buttons__button" href="/user"><i class="fa-solid fa-users"></i></a>
+            <% } if(!locals.user) { %>
+                <button id="modalTrigger--userAccess" class="header__mitad__buttons__button"><i class="fa-solid fa-user"></i></button>
+            <% } %> 
             <button id="modalTrigger--MICArt" class="header__mitad__buttons__button"><i class="fa-solid fa-cart-shopping"></i></button>
+            <% if (locals.user) { %>
+                <a class="header__mitad__buttons__button" href="/user/logout"><i class="fa-solid fa-right-from-bracket"></i></a>
+            <% } %>
         </nav>
     </section>
 
