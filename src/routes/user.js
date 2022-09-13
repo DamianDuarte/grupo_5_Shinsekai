@@ -21,5 +21,5 @@ router
  .post('/register', registerVal, processRegister)
  .post('/login', loginVal, processLogin)
  .get('/logout', userCheck, logout)
- .get('/:userName', userProfile)
+ .get('/:username', userProfile)
 module.exports = router;
