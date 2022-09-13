@@ -1,0 +1,66 @@
+<html lang="en">
+<%- include('../partials/head', { title: userProfile.userName }) %>
+
+    <body class="profile">
+        <%- include('../partials/header') %>
+        
+        <main class="profile__main">
+            <div class="profile__main__firstColumn column">
+                <img src="/img/users/<%= userProfile.image %> " alt="user-img">
+                <h1><%= userProfile.userName %></h1>
+                <% if (locals.user && ((userProfile.userName === user.userName) || user.admin)) { %>
+                    <div class="buttons">
+                        <a href="/user/edit/<%= userProfile.userName %> ">Editar perfil</a>
+                        <a href="#">Ver cuentas vinculadas</a>
+                        <a href="#">Datos de tarjeta</a>
+                    </div>
+                <% } %>
+            </div>
+
+            <div class="profile__main__secondColumn column">
+                <div>
+                    <h4>Datos</h4>
+                    <div class="row">
+                        <p><%= userProfile.firstName %></p>
+                        <p><%= userProfile.lastName %></p>
+                    </div>
+                    <p>Edad, Género</p>
+                    <p><%= userProfile.email %></p>
+                    <div class="address">
+                        <p>Ciudad, Pais</p>
+                    </div>
+                    <div class="address">
+                        <p>Calle</p>
+                        <p>CP</p>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4>Subscripciones</h4>
+                    <div class="subscriptions">
+                        <div class="row">
+                            <p>Gold</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="profile__main__thirdColumn column">
+                <div>
+                    <h4>Intereses</h4>
+                    <div class="tags">
+                        <% categories.forEach(category => { %>
+                            <a href="/search?keywords=<%= category.name %>"><%= category.name %> </a>
+                        <% }) %>
+                    </div>
+                </div>
+                
+                <div>
+                </div>
+            </div>
+        </main>
+            
+        <%- include('../partials/footer') %>
+    </body>
+
+</html>

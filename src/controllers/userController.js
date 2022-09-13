@@ -21,7 +21,9 @@ module.exports =
     },
     userProfile: (req, res) =>
     {
-        return res.send("Implementación pendiente");
+        const userProfile = users.find(u => u.userName === req.params.username);
+
+        return res.render('./users/profile', {users, products, categories, tags, userProfile});
     },
     edit: (req, res) =>
     {

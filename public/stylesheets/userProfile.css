@@ -1,0 +1,155 @@
+.profile__main
+{
+    background-color: var(--dark_squares);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 15px;
+    margin: 50px 20px 20px;
+    border-radius: 15px;
+}
+
+.profile__main .row
+{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.profile__main .column p, .profile__main .column h1, .profile__main .column h4, .profile__main h3
+{
+    overflow: hidden;  
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: var(--dark__bg);
+}
+
+.profile__main h4
+{
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.profile__main .address
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.profile__main__firstColumn
+{
+    text-align: center;
+}
+
+.profile__main__firstColumn img
+{
+    padding-top: 20px;
+    height: 200px;
+    border-radius: 100%;
+}
+
+.profile__main .tags
+{
+    margin: 5px;
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+.profile__main .buttons
+{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+}
+
+.profile__main .buttons a
+{
+    background-color: var(--dark_buttons);
+    width: fit-content;
+    padding: 7px;
+    border-radius: 50px;
+    width: 90%;
+
+} 
+
+.profile__main__thirdColumn
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 5px;
+}
+
+.profile__main__thirdColumn .tags a
+{
+    border: solid 1px white;
+    padding: 5px;
+    border-radius: 50px;
+    display: block;
+    width: fit-content;
+    height: fit-content;
+
+}
+
+@media (max-width: 879px)
+{
+    .profile__main
+    {
+        max-width: 460px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .profile__main .column
+    {
+        margin-bottom: 10px;
+    }
+
+    .profile__main__secondColumn, .profile__main__thirdColumn
+    {
+        border-top: solid 1px black;
+        padding: 15px;
+    }
+}
+
+@media (min-width: 880px)
+{
+    .profile__main
+    {
+        flex-direction: row;
+    }
+
+    .profile__main__firstColumn
+    {
+        width: 30%;
+    }
+
+    .profile__main__secondColumn, .profile__main__thirdColumn
+    {
+        width: 34%;
+    }
+
+    .profile__main__secondColumn p
+    {
+        font-size: 20px;
+    }
+
+    .profile__main .column
+    {
+        height: 420px;
+    }
+
+    .profile__main__secondColumn, .profile__main__thirdColumn
+    {
+        border-left: solid 1px black;
+        padding: 15px;
+    }
+
+    .profile__main .row, .profile__main .address
+    {
+        flex-direction: row;
+        gap: 10px;
+    }
+}

@@ -3,9 +3,9 @@
 
     <body class="users">
         <%- include('../partials/header') %>
-            <h3>Lista de usuarios</h3>
-
-            <main class="users__list">
+        
+        <h3 id="title">Lista de usuarios</h3>
+        <main class="users__list">
                 <section>
                 <% 
                     for( let i = 0; i < users.length; i++ ) 
@@ -14,16 +14,22 @@
                 %>
                 
                 <div class="users__list__user">
-                    <img src="/img/users/<%= user.image %>" alt="user-img">
-                    <% if(isAdmin(user)) { %>
-                        <b>Admin</b>
-                    <% } %>
-                    <a href="/user/<%= user.userName %>"><%= user.userName %></a>
-                    <p><%= user.firstName %></p>
-                    <p><%= user.lastName %></p>
-                    <p><%= user.email %></p>
-                    <a href="/user/edit/<%= user.userName %>"></a><i class="fa-solid fa-pen-to-square"></i>
-                    <form action="/user/delete/<%= user.userName %>?_method=DELETE" method="POST"><button><i class="fa-solid fa-trash"></i></button></form>
+                    <div class="cosarara">
+                        <img src="/img/users/<%= user.image %>" alt="user-img">
+                        <% if(isAdmin(user)) { %>
+                            <b class="isAdmin">Admin</b>
+                        <% } %>
+
+                        <a href="/user/<%= user.userName %>"><b><%= user.userName %></b></a>
+                        <p class="hideMobile"><%= user.firstName %></p>
+                        <p class="hideMobile"><%= user.lastName %></p>
+                        <p class="hideMobile"><%= user.email %></p>
+                    </div>
+                    
+                    <div class="buttons">
+                        <a href="/user/edit/<%= user.userName %>"></a><i class="fa-solid fa-pen-to-square"></i>
+                        <form action="/user/delete/<%= user.userName %>?_method=DELETE" method="POST"><button><i class="fa-solid fa-trash"></i></button></form>
+                    </div>
                 </div>
                 
                 <%  } %>

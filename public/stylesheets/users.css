@@ -1,9 +1,29 @@
-.users p, .users b, .users a, .users i
+.users__list p, .users__list b, .users__list a, .users__list i
 {
     color: var(--c_bg);
 }
 
-.users button
+.users__list .isAdmin
+{
+    color: var(--c_header_footer)
+}
+
+.users #title
+{
+    text-align: center;
+    margin: 45px 0 15px;
+}
+
+.users__list
+{
+    background-color: var(--dark_squares);
+    padding: 20px;
+    margin: 2px auto 20px auto;
+    max-width: 1200px;
+    border-radius: 15px;
+}
+
+.users__list button
 {
     background-color: transparent;
     border: none;
@@ -18,10 +38,11 @@
 
 .users__list__user
 {
-    width: 80%;
+    /* width: 80%; */
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-between;
     gap: 15px;
     margin: 20px 0;
     background-color: var(--c_font);
@@ -33,4 +54,26 @@
     width: 50px;
     height: 50px;
     border-radius: 100%;
+}
+
+.users__list__user .cosarara
+{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.users__list__user .buttons
+{
+    display: flex;
+    justify-self: flex-end;
+    margin-right: 25px;
+}
+
+@media (max-width: 800px)
+{
+    .hideMobile
+    {
+        display: none;
+    }
 }
