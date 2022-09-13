@@ -110,5 +110,21 @@
       "email": "j.gakusei11@gmail.com",
       "password": "$2a$10$Gfc6tZroyYRWfEqxWYlheOMF5MCZohZEmpbX.WwwfxlwjRfZMFQ5S",
       "image": "default-img.jpg"
+   },
+   {
+      "userName": "AntoPizarro",
+      "firstName": "Antonella",
+      "lastName": "Pizarro",
+      "email": "anto@yahoo.com.ar",
+      "password": "$2a$10$S9HeelSZkxpAD14Ab7nGi.n1E01jGQe5FpWt8Kl.dQ0aJeTajZpx6",
+      "image": "Avatar (8).jpeg"
+   },
+   {
+      "userName": "LulaG",
+      "firstName": "Lujan",
+      "lastName": "Gutierrez",
+      "email": "lula@gmail.com",
+      "password": "$2a$10$KbtBN1tRHkd1ZEnP2bW70.OdtMe5qvSnNaWXPej/VYAP2/C6zYUYi",
+      "image": "user-1663020342962.png"
    }
 ]
