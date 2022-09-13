@@ -11,10 +11,12 @@ const profileVal = require('../validations/editProfile')
 //* Middleware
 const userCheck = require('../middlewares/userCheck');
 const adminCheck = require('../middlewares/adminCheck');
+const ownerAdminCheck = require('../middlewares/ownerAdminCheck');
 const { uploadUserIMG } = require('../middlewares/uploadFiles')
+
 router
  .get('/', adminCheck, users)
- .get('/edit/:username', edit)
+ .get('/edit/:username', ownerAdminCheck, edit)
  .put('/edit/:username', uploadUserIMG.single('image'), profileVal, update)
  .delete('/delete/:username', deleteUser)
  .get('/profile', userCheck, editProfile)

@@ -47,13 +47,12 @@ module.exports =
                 image: userImg
             }
             fs.writeFileSync(usersFilePath, JSON.stringify(users, null, 3), 'utf-8');
-            return res.render("./users/editProfile", { users, products, categories, tags, user: users[userIndex] })
+            return res.redirect("/user/" + users[userIndex].userName);
         }else{
             let profileOld = req.body    
             let profileErrors= errors.mapped()
             res.send(profileErrors)
             return res.render("./users/editProfile", { users, products, categories, tags, profileOld, profileErrors, user: users[userIndex] })
-
         }
 
     },

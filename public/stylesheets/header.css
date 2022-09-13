@@ -104,6 +104,13 @@ select { /*! Remueve flecha de options (Select)*/
         margin-right: 5px;
     }
 
+    .killmealready
+    {
+        border-radius: 100%;
+        width: 40px;
+        height: 40px;
+    }
+
     .header__mitad__buttons__button i
     {
         color: var(--c_bg);
