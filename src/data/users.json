@@ -126,5 +126,13 @@
       "email": "lula@gmail.com",
       "password": "$2a$10$KbtBN1tRHkd1ZEnP2bW70.OdtMe5qvSnNaWXPej/VYAP2/C6zYUYi",
       "image": "user-1663020342962.png"
+   },
+   {
+      "userName": "anotherUser",
+      "firstName": "",
+      "lastName": "",
+      "email": "user@gmail.com",
+      "password": "$2a$10$IG3fLVxcuQibvTzaEnz74ugq5ePOcYT8qQOvKrFT5sAf/UikEm.f6",
+      "image": "default-img.jpg"
    }
 ]
