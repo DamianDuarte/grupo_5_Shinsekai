@@ -53,7 +53,7 @@
       "lastName": "Arrigucci",
       "email": "earrigucci6@bizjournals.com",
       "password": "$2a$10$UDv5IQ3XS3pF0Q9r0rR/1upWDJ1YvFCpjv6xyq38zmrFvU3lyEvxC",
-      "image": "user-1663110091903.gif"
+      "image": "user-1664216362041.gif"
    },
    {
       "userName": "fdutt7",
@@ -85,31 +85,23 @@
       "lastName": "dsadsa",
       "email": "test@test.com",
       "password": "$2a$10$AtDvzAKH4DU/KEAqGv6veu7jJoXt1H0jSBR5pmmYQBrrGX9awcce6",
-      "image": "default-img.jpg"
-   },
-   {
-      "userName": "testo",
-      "firstName": "",
-      "lastName": "",
-      "email": "testo@gmail.com",
-      "password": "$2a$10$LYabBo8QOERhHrTAFm28uOdsXqk/asHvho74Oip6LlPw3mUC394ai",
-      "image": "default-img.jpg"
+      "image": "user-1664214294627.jpg"
    },
    {
       "userName": "dev",
-      "firstName": "",
-      "lastName": "",
+      "firstName": "Desarrollador",
+      "lastName": "de shinsekai",
       "email": "dev@dev.com",
       "password": "$2a$10$UDv5IQ3XS3pF0Q9r0rR/1upWDJ1YvFCpjv6xyq38zmrFvU3lyEvxC",
-      "image": "default-img.jpg"
+      "image": "user-1664214839362.gif"
    },
    {
       "userName": "julian",
-      "firstName": "",
-      "lastName": "",
+      "firstName": "Julián",
+      "lastName": "B. Ortega",
       "email": "j.gakusei11@gmail.com",
       "password": "$2a$10$Gfc6tZroyYRWfEqxWYlheOMF5MCZohZEmpbX.WwwfxlwjRfZMFQ5S",
-      "image": "default-img.jpg"
+      "image": "user-1664214481928.jpg"
    },
    {
       "userName": "AntoPizarro",
@@ -126,13 +118,5 @@
       "email": "lula@gmail.com",
       "password": "$2a$10$KbtBN1tRHkd1ZEnP2bW70.OdtMe5qvSnNaWXPej/VYAP2/C6zYUYi",
       "image": "user-1663020342962.png"
-   },
-   {
-      "userName": "anotherUser",
-      "firstName": "",
-      "lastName": "",
-      "email": "user@gmail.com",
-      "password": "$2a$10$IG3fLVxcuQibvTzaEnz74ugq5ePOcYT8qQOvKrFT5sAf/UikEm.f6",
-      "image": "default-img.jpg"
    }
 ]

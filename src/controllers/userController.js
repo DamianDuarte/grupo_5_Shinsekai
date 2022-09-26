@@ -57,7 +57,7 @@ module.exports =
 
     },
     deleteUser: (req, res) => {
-        const userIndex = users.findIndex((u) => u.userName === req.params.userName);
+        const userIndex = users.findIndex((u) => u.userName === req.params.username);
         users.splice(userIndex, 1);
 
         dataParser.saveData(users, 'users.json');
