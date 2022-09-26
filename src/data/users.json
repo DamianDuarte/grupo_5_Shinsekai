@@ -118,5 +118,13 @@
       "email": "lula@gmail.com",
       "password": "$2a$10$KbtBN1tRHkd1ZEnP2bW70.OdtMe5qvSnNaWXPej/VYAP2/C6zYUYi",
       "image": "user-1663020342962.png"
+   },
+   {
+      "userName": "GrimClaw",
+      "firstName": "Damian",
+      "lastName": "Duarte",
+      "email": "damykirablack@gmail.com",
+      "password": "$2a$10$ZNGfcPu0in0z/vbuetnOn.Ydx8jC3HrA0SiIEl6c3kVeAMuZ6gNju",
+      "image": "user-1664227561101.png"
    }
 ]
