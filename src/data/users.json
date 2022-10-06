@@ -33,7 +33,7 @@
    },
    {
       "userName": "cjellicorse4",
-      "firstName": "Cazzie",
+      "firstName": "hola",
       "lastName": "Jellicorse",
       "email": "cjellicorse4@blogtalkradio.com",
       "password": "$2a$10$UDv5IQ3XS3pF0Q9r0rR/1upWDJ1YvFCpjv6xyq38zmrFvU3lyEvxC",
@@ -126,5 +126,21 @@
       "email": "damykirablack@gmail.com",
       "password": "$2a$10$ZNGfcPu0in0z/vbuetnOn.Ydx8jC3HrA0SiIEl6c3kVeAMuZ6gNju",
       "image": "user-1664227561101.png"
+   },
+   {
+      "userName": "eric",
+      "firstName": "",
+      "lastName": "",
+      "email": "eric@a.com",
+      "password": "$2a$10$SzYSaTXWfR2u2MWQ3XnKkuXpPaPFOj2n9//SagZOt3uNHY/XSvud6",
+      "image": "default-img.jpg"
+   },
+   {
+      "userName": "diego1",
+      "firstName": "Diego",
+      "lastName": "Montes",
+      "email": "diegjasd@gmail.com",
+      "password": "$2a$10$UvN2yZH8rfD3UsdXcOX7Ce7EFbqlqwKm8n2Wl9s3bAeSfkOgQh90O",
+      "image": "user-1664232095782.png"
    }
 ]
