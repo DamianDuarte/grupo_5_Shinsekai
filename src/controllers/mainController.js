@@ -1,4 +1,5 @@
 const dataParser = require('../data/dataParser');
+const db = require('../database/models');
 
 function searchWords(product, categories, tags, words)
 {
@@ -22,11 +23,15 @@ function searchWords(product, categories, tags, words)
 
 module.exports={
     home: (req, res)=>{
-        const products = dataParser.loadData('products.json');
+        db.users.findAll()
+            .then(r => res.send(r))
+            .catch(err => console.log(err));
+        
+        /* const products = dataParser.loadData('products.json');
         const categories = dataParser.loadData('categories.json');
         const tags = dataParser.loadData('tags.json');
 
-        return res.render('./users/home', { products, categories, tags });
+        return res.render('./users/home', { products, categories, tags }); */
     },
     search: (req, res) =>
     {
