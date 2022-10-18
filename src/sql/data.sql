@@ -15,3 +15,21 @@ insert into products (id, name, price, discount, description, views, category_id
 (13, 'Wine - Semi Dry Riesling Vineland', 64, 30, 'porttitor lacus at turpis donec posuere metus vitae ipsum aliquam non mauris morbi non lectus aliquam sit', 50, 5, 2)
 (14, 'Mushroom - Enoki, Fresh', 181, 90, 'maecenas tristique est et tempus semper est quam pharetra magna ac consequat metus sapien ut nunc vestibulum ante ipsum', 16, 2, 3)
 (15, 'Oil - Olive Bertolli', 159, 70, 'sit amet sapien dignissim vestibulum vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae nulla', 301, 5, 4);
+
+/* ProductImages */
+insert into productImages (id, filename, product_id) values 
+(1, '["product-noimg.png", "product-noimg.png"]', 1)
+(2, '["oro1.png","oro2.png"]', 2)
+(3, '["plata1.png","plata2.png"]', 3)
+(4, '["bronce1.png","bronce2.png"]', 4)
+(5, '["hierro1.png","hierro2.png"]', 5)
+(6, '["product-noimg.png","product-noimg.png"]', 6)
+(7, '["bakugo2.png",bakugo1.png"], 7)
+(8, '["img-2.png","img-6.png","img-9.png","img-8.png","img-1.png","img-10.png"]', 8)
+(9, '["img-2.png","img-8.png","img-1.png","img-9.png"]', 9)
+(10,'["img-1.png","img-4.png","img-7.png","img-8.png","img-3.png","img-9.png","img-6.png"]', 10)
+(11,'["img-9.png","img-8.png","img-2.png","img-1.png"]', 11)
+(12,'["img-1.png","img-7.png","img-10.png","img-9.png","img-5.png","img-2.png","img-8.png"]', 12)
+(13,'["img-9.png","img-1.png","img-6.png","img-4.png"]', 13)
+(14,'["img-5.png","img-8.png","img-1.png","img-10.png","img-2.png","img-4.png","img-7.png"]', 14)
+(15,'["img-2.png","img-3.png","img-10.png","img-1.png"]', 15);
