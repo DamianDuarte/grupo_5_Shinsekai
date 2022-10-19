@@ -5,161 +5,185 @@ use `shinsekai-db`;
 -- PRODUCT DATA / PRODUCT DATA / PRODUCT DATA / PRODUCT DATA / PRODUCT DATA / PRODUCT DATA / PRODUCT DATA --
 
 /*  PRODUCTS */
-insert into products (id, name, price, discount, description, views, category_id, sale_id) values 
-(1, 'Dc - Sakura Fu', 42, 50, 'felis ut at dolor quis odio consequat varius integer ac leo pellentesque ultrices mattis', 217, 2, 4)
-(2, 'Saskatoon Berries - Frozen', 128, 50, 'libero quis orci nullam molestie nibh in lectus pellentesque at nulla suspendisse potenti cras in purus eu magna', 461, 1, 1)
-(3, 'Sole - Iqf', 38, 0, 'mi integer ac neque duis bibendum morbi non quam nec', 382, 5, 4)
-(4, 'Syrup - Golden, Lyles', 193, 70, 'consectetuer adipiscing elit proin risus praesent lectus vestibulum quam sapien varius ut blandit non interdum in ante', 65, 5, 3)
-(5, 'Muffin Chocolate Individual Wrap', 93, 30, 'ut ultrices vel augue vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae', 155, 3, 3)
-(6, 'Marjoram - Dried, Rubbed', 119, 70, 'in quam fringilla rhoncus mauris enim leo rhoncus sed vestibulum sit amet cursus id turpis integer aliquet massa id lobortis', 325, 1, 2)
-(7, 'Emulsifier', 112, 50, 'eget rutrum at lorem integer tincidunt ante vel ipsum praesent blandit lacinia erat vestibulum sed magna at nunc commodo', 246, 5, 2)
-(8, 'Veal - Insides Provini', 83, 30, 'lorem integer tincidunt ante vel ipsum praesent blandit lacinia erat vestibulum sed magna at nunc commodo placerat', 181, 4, 5)
-(9, 'Veal - Chops, Split, Frenched', 141, 50, 'hac habitasse platea dictumst maecenas ut massa quis augue luctus tincidunt nulla', 217, 4, 5)
-(10, 'Noodles - Cellophane, Thin', 179, 50, 'congue eget semper rutrum nulla nunc purus phasellus in felis donec', 230, 1, 5)
-(11, 'Ice Cream Bar - Rolo Cone', 112, 90, 'iaculis congue vivamus metus arcu adipiscing molestie hendrerit at vulputate', 400, 5, 4)
-(12, 'Nantucket Orange Juice', 166, 70, 'metus sapien ut nunc vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae', 43, 4, 1)
-(13, 'Wine - Semi Dry Riesling Vineland', 64, 30, 'porttitor lacus at turpis donec posuere metus vitae ipsum aliquam non mauris morbi non lectus aliquam sit', 50, 5, 2)
-(14, 'Mushroom - Enoki, Fresh', 181, 90, 'maecenas tristique est et tempus semper est quam pharetra magna ac consequat metus sapien ut nunc vestibulum ante ipsum', 16, 2, 3)
-(15, 'Oil - Olive Bertolli', 159, 70, 'sit amet sapien dignissim vestibulum vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae nulla', 301, 5, 4);
+insert into products (name, price, discount, description, views, category_id, sale_id) values 
+('Dc - Sakura Fu', 42, 50, 'felis ut at dolor quis odio consequat varius integer ac leo pellentesque ultrices mattis', 217, 2, 4),
+('Saskatoon Berries - Frozen', 128, 50, 'libero quis orci nullam molestie nibh in lectus pellentesque at nulla suspendisse potenti cras in purus eu magna', 461, 1, 1),
+('Sole - Iqf', 38, 0, 'mi integer ac neque duis bibendum morbi non quam nec', 382, 5, 4),
+('Syrup - Golden, Lyles', 193, 70, 'consectetuer adipiscing elit proin risus praesent lectus vestibulum quam sapien varius ut blandit non interdum in ante', 65, 5, 3),
+('Muffin Chocolate Individual Wrap', 93, 30, 'ut ultrices vel augue vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae', 155, 3, 3),
+('Marjoram - Dried, Rubbed', 119, 70, 'in quam fringilla rhoncus mauris enim leo rhoncus sed vestibulum sit amet cursus id turpis integer aliquet massa id lobortis', 325, 1, 2),
+('Emulsifier', 112, 50, 'eget rutrum at lorem integer tincidunt ante vel ipsum praesent blandit lacinia erat vestibulum sed magna at nunc commodo', 246, 5, 2),
+('Veal - Insides Provini', 83, 30, 'lorem integer tincidunt ante vel ipsum praesent blandit lacinia erat vestibulum sed magna at nunc commodo placerat', 181, 4, 5),
+('Veal - Chops, Split, Frenched', 141, 50, 'hac habitasse platea dictumst maecenas ut massa quis augue luctus tincidunt nulla', 217, 4, 5),
+('Noodles - Cellophane, Thin', 179, 50, 'congue eget semper rutrum nulla nunc purus phasellus in felis donec', 230, 1, 5),
+('Ice Cream Bar - Rolo Cone', 112, 90, 'iaculis congue vivamus metus arcu adipiscing molestie hendrerit at vulputate', 400, 5, 4),
+('Nantucket Orange Juice', 166, 70, 'metus sapien ut nunc vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae', 43, 4, 1),
+('Wine - Semi Dry Riesling Vineland', 64, 30, 'porttitor lacus at turpis donec posuere metus vitae ipsum aliquam non mauris morbi non lectus aliquam sit', 50, 5, 2),
+('Mushroom - Enoki, Fresh', 181, 90, 'maecenas tristique est et tempus semper est quam pharetra magna ac consequat metus sapien ut nunc vestibulum ante ipsum', 16, 2, 3),
+('Oil - Olive Bertolli', 159, 70, 'sit amet sapien dignissim vestibulum vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae nulla', 301, 5, 4);
 
 /* productImages */
-insert into productImages (id, filename, product_id) values 
-(1, '["product-noimg.png", "product-noimg.png"]', 1)
-(2, '["oro1.png","oro2.png"]', 2)
-(3, '["plata1.png","plata2.png"]', 3)
-(4, '["bronce1.png","bronce2.png"]', 4)
-(5, '["hierro1.png","hierro2.png"]', 5)
-(6, '["product-noimg.png","product-noimg.png"]', 6)
-(7, '["bakugo2.png",bakugo1.png"]', 7)
-(8, '["img-2.png","img-6.png","img-9.png","img-8.png","img-1.png","img-10.png"]', 8)
-(9, '["img-2.png","img-8.png","img-1.png","img-9.png"]', 9)
-(10,'["img-1.png","img-4.png","img-7.png","img-8.png","img-3.png","img-9.png","img-6.png"]', 10)
-(11,'["img-9.png","img-8.png","img-2.png","img-1.png"]', 11)
-(12,'["img-1.png","img-7.png","img-10.png","img-9.png","img-5.png","img-2.png","img-8.png"]', 12)
-(13,'["img-9.png","img-1.png","img-6.png","img-4.png"]', 13)
-(14,'["img-5.png","img-8.png","img-1.png","img-10.png","img-2.png","img-4.png","img-7.png"]', 14)
-(15,'["img-2.png","img-3.png","img-10.png","img-1.png"]', 15);
-
-/* products_availableColors */
-insert into products_availableColors (id, product_id, availableColor_id) values
-(1, 1, 1)
-(2, 1, 2)
-(3, 1, 3)
-(4, 1, 4)
-(5, 1, 5)
-(6, 1, 6)
-(7, 1, 7)
-(8, 1, 8)
-(9, 1, 9)
-(10, 1, 10)
-(11, 1, 11)
-(12, 1, 12)
-(13, 1, 13)
-(14, 1, 14)
-(15, 1, 15);
-
-/* availableColors */
-insert into available (id, colorName) values 
-(1, 'Purple')
-(2, 'Red')
-(3, 'Puce')
-(4, 'Pink')
-(5, 'Mauv')
-(6, 'Green')
-(7, 'Crimson')
-(8, 'Goldenrod')
-(9, 'Maroon')
-(10, 'Purple')
-(11, 'Green')
-(12, 'Purple')
-(13, 'Puce')
-(14, 'Teal')
-(15, 'Maroon');
-
-/* products_clothesSizes */
-insert into products_clothesSizes (id, product_id, clothesSize_id) values
-(1, 1, 1)
-(2, 1, 2)
-(3, 1, 3)
-(4, 1, 4)
-(5, 1, 5)
-(6, 1, 6)
-(7, 1, 7)
-(8, 1, 8)
-(9, 1, 9)
-(10, 1, 10)
-(11, 1, 11)
-(12, 1, 12)
-(13, 1, 13)
-(14, 1, 14)
-(15, 1, 15);
-
-/* metricSizes */
-insert into metricSizes (id, amount) values
-(1, 1)
-(2, 2)
-(3, 3)
-(4, 4)
-(5, 5)
-(6, 6)
-(7, 7)
-(8, 8)
-(9, 9)
-(10, 10)
-(11, 11)
-(12, 12)
-(13, 13)
-(14, 14)
-(15, 15);
-
-/* products_metricSize */
-insert into products_metricSize (id, product_id, metricSize_id) values
-(1, 1, 1)
-(2, 1, 2)
-(3, 1, 3)
-(4, 1, 4)
-(5, 1, 5)
-(6, 1, 6)
-(7, 1, 7)
-(8, 1, 8)
-(9, 1, 9)
-(10, 1, 10)
-(11, 1, 11)
-(12, 1, 12)
-(13, 1, 13)
-(14, 1, 14)
-(15, 1, 15);
+insert into productImages (filename, product_id) values 
+('product-noimg.png', 1),
+('product-noimg.png', 1),
+('oro1.png', 2),
+('oro2.png', 2),
+('plata1.png', 3),
+('plata2.png', 3),
+('bronce1.png', 4),
+('bronce2.png', 4),
+('hierro1.png', 5),
+('hierro2.png', 5),
+('product-noimg.png', 6),
+('product-noimg.png', 6),
+('bakugo2.png', 7),
+('bakugo1.png', 7),
+('img-1.png', 8),
+('img-2.png', 8),
+('img-3.png', 9),
+('img-4.png', 9),
+('img-5.png', 10),
+('img-6.png', 10),
+('img-7.png', 11),
+('img-8.png', 11),
+('img-9.png', 12),
+('img-10.png', 12),
+('img-11.png', 13),
+('img-12.png', 13),
+('img-13.png', 14),
+('img-14.png', 14),
+('img-15.png', 15),
+('img-16.png', 15);
 
 /* categories */
-insert into categories (id, name, imageFilename) values
-(1, 'Accesorios', 'product.jpg')
-(2, 'Ropa', 'product.jpg')
-(3, 'Calzado', 'product.jpg')
-(4, 'Deportes', 'product.jpg')
-(5, 'Electrónica', 'product.jpg')
-(6, 'Hogar', 'product.jpg')
-(7, 'Juguetes', 'product.jpg')
-(8, 'Libros', 'product.jpg')
-(9, 'Música', 'product.jpg')
-(10, 'Videojuegos', 'product.jpg');
+insert into categories (name, imageFilename) values
+('Accesorios', 'product.jpg'),
+('Ropa', 'product.jpg'),
+('Calzado', 'product.jpg'),
+('Deportes', 'product.jpg'),
+('Electrónica', 'product.jpg'),
+('Hogar', 'product.jpg'),
+('Juguetes', 'product.jpg'),
+('Libros', 'product.jpg'),
+('Música', 'product.jpg'),
+('Videojuegos', 'product.jpg');
 
 /* sales */
-insert into sales (id, name, imageFileName) values
-(1, 'Black Friday', 'MICArte.jpg')
-(2, 'Cyber Monday', 'MICArte.jpg')
-(3, 'Navida', 'MICArte.jpg')
-(4, 'Carnaval', 'MICArte.jpg')
-(5, 'Dia del padre', 'MICArte.jpg')
-(6, 'Dia de la madre', 'MICArte.jpg')
-(7, 'Dia del niño', 'MICArte.jpg')
-(8, 'Dia del amigo', 'MICArte.jpg')
-(9, 'Dia de la mujer', 'MICArte.jpg')
-(10, 'Dia de la independencia', 'MICArte.jpg')
-(11, 'Dia de la primavera', 'MICArte.jpg')
-(12, 'Dia de la patria', 'MICArte.jpg')
-(13, 'Dia de la tierra', 'MICArte.jpg')
-(14, 'Dia de la juventud', 'MICArte.jpg')
-(15, 'Dia de la familia', 'MICArte.jpg');
+insert into sales (name, imageFileName) values
+('Black Friday', 'MICArte.jpg'),
+('Cyber Monday', 'MICArte.jpg'),
+('Navidá', 'MICArte.jpg'),
+('Carnaval', 'MICArte.jpg'),
+('Dia del padre', 'MICArte.jpg'),
+('Dia de la madre', 'MICArte.jpg'),
+('Dia del niño', 'MICArte.jpg'),
+('Dia del amigo', 'MICArte.jpg'),
+('Dia de la mujer', 'MICArte.jpg'),
+('Dia de la independencia', 'MICArte.jpg'),
+('Dia de la primavera', 'MICArte.jpg'),
+('Dia de la patria', 'MICArte.jpg'),
+('Dia de la tierra', 'MICArte.jpg'),
+('Dia de la juventud', 'MICArte.jpg'),
+('Dia de la familia', 'MICArte.jpg');
+
+/* availableColors */
+insert into availableColors (colorName) values 
+('Purple'),
+('Red'),
+('Puke'),
+('Pink'),
+('Mauv'),
+('Green'),
+('Crimson'),
+('Goldenrod'),
+('Maroon'),
+('Purple'),
+('Green'),
+('Purple'),
+('Puce'),
+('Teal'),
+('Maroon');
+
+/* clothesSizes*/
+insert into clothesSizes (name) values
+('3XL'),
+('XXL'),
+('XL'),
+('L'),
+('M'),
+('S');
+
+/* metricSizes */
+insert into metricSizes (amount) values
+(12),
+(26),
+(38),
+(44),
+(53),
+(61),
+(127),
+(68),
+(29),
+(310),
+(411),
+(112),
+(13),
+(45),
+(55);
+
+/* products_availableColors */
+insert into products_availableColors (product_id, availableColor_id) values
+(1, 1),
+(1, 2),
+(1, 3),
+(1, 4),
+(1, 5),
+(1, 6),
+(1, 7),
+(1, 8),
+(1, 9),
+(1, 10),
+(1, 11),
+(1, 12),
+(1, 13),
+(1, 14),
+(1, 15);
+
+/* products_clothesSizes */
+insert into products_clothesSizes (product_id, clothesSize_id) values
+(2, 1),
+(2, 2),
+(2, 3),
+(2, 4),
+(2, 5),
+(2, 6),
+(3, 1),
+(3, 2),
+(3, 3),
+(3, 4),
+(3, 5),
+(3, 6),
+(4, 1),
+(4, 2),
+(4, 3);
+
+/* products_metricSize */
+insert into products_metricSizes (product_id, metricSize_id) values
+(5, 1),
+(5, 2),
+(5, 3),
+(5, 4),
+(5, 5),
+(5, 6),
+(5, 7),
+(5, 8),
+(5, 9),
+(5, 10),
+(5, 11),
+(5, 12),
+(5, 13),
+(5, 14),
+(5, 15);
 
 -- USER-PRODUCT DATA / USER-PRODUCT DATA / USER-PRODUCT DATA / USER-PRODUCT DATA / USER-PRODUCT DATA --
 -- USER-PRODUCT DATA / USER-PRODUCT DATA / USER-PRODUCT DATA / USER-PRODUCT DATA / USER-PRODUCT DATA --
