@@ -157,7 +157,7 @@ ENGINE = InnoDB;
 -- Table `Shinsekai-db`.`productComments`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Shinsekai-db`.`productComments` (
-  `id` INT UNSIGNED NOT NULL,
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `content` TEXT NOT NULL,
   `user_id` INT UNSIGNED NOT NULL,
   `product_id` INT UNSIGNED NOT NULL,
