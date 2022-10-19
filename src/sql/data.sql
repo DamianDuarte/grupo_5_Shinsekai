@@ -1,202 +1,8 @@
 use `shinsekai-db`;
 
-/* tags */
-insert into tags (name, imageFilename) values 
-('in blandit', 'product2.png'),
-('erat', 'product1.png'),
-('vestibulum rutrum', 'product2.png'),
-('magnis dis', 'product1.png'),
-('etiam justo', 'product3.png'),
-('cursus id', 'product3.png'),
-('nibh', null),
-('vivamus', 'product2.png'),
-('orci eget', 'product2.png'),
-('tortor', 'product2.png'),
-('in', 'product2.png'),
-('nunc', 'product3.png'),
-('aliquam', 'product1.png'),
-('nulla', 'product3.png'),
-('varius ut', null);
-
-/* tags_users */
-insert into tags_users (tag_id, user_id) values 
-(4, 3),
-(5, 2),
-(2, 4),
-(1, 2),
-(3, 5),
-(3, 5),
-(4, 5),
-(4, 4),
-(4, 5),
-(1, 2),
-(1, 4),
-(1, 1),
-(1, 3),
-(5, 3),
-(5, 4);
-
-/* tags_products */
-insert into tags_products (tag_id, product_id) values 
-(1, null),
-(5, 4),
-(4, 1),
-(4, 2),
-(4, 4),
-(2, 4),
-(1, 2),
-(4, 4),
-(1, 1),
-(1, 5),
-(2, 3),
-(5, 4),
-(1, 5),
-(5, 4),
-(4, null);
-
-/* purchasedHistories */
-insert into purchasedHistories (user_id) values 
-(2),
-(5),
-(5),
-(3),
-(4),
-(1),
-(3),
-(4),
-(2),
-(5),
-(5),
-(4),
-(4),
-(4),
-(5);
-
-/* purchasedHistories_products */
-insert into purchasedHistories_products (purchasedHistory_id, product_id) values 
-(1, 3),
-(4, 4),
-(5, 1),
-(1, 2),
-(3, 5),
-(1, 1),
-(3, 3),
-(4, 2),
-(5, 4),
-(5, 5),
-(4, 1),
-(4, 5),
-(2, 4),
-(4, 2),
-(4, 1);
-
-/* purchaseOrders */
-insert into purchaseOrders (user_id) values 
-(1),
-(3),
-(3),
-(3),
-(1),
-(2),
-(1),
-(5),
-(3),
-(3),
-(3),
-(4),
-(2),
-(2),
-(2);
-
-/* purchaseOrders_products */
-insert into purchaseOrders_products (purchaseOrder_id, product_id) values 
-(5, 4),
-(5, 4),
-(2, 4),
-(5, 3),
-(1, 4),
-(5, 2),
-(4, 1),
-(3, 1),
-(4, 1),
-(1, 4),
-(4, 2),
-(1, 4),
-(2, 2),
-(3, 3),
-(5, 2);
-
-/* wishLists */
-insert into wishLists (user_id) values 
-(5),
-(5),
-(3),
-(5),
-(1),
-(3),
-(3),
-(5),
-(2),
-(5),
-(2),
-(1),
-(1),
-(3),
-(2);
-
-/* wishLists_products */
-insert into wishLists_products (wishList_id, product_id) values 
-(1, 5),
-(2, 5),
-(5, 4),
-(5, 4),
-(2, 5),
-(2, 3),
-(1, 4),
-(5, 2),
-(2, 4),
-(3, 3),
-(3, 2),
-(5, 5),
-(1, 5),
-(4, 1),
-(5, 1);
-
-/* viewedHistories */
-insert into viewedHistories (user_id) values 
-(2),
-(5),
-(4),
-(4),
-(1),
-(4),
-(4),
-(3),
-(1),
-(2),
-(1),
-(2),
-(5),
-(5),
-(3);
-
-/* viewedHistories_products */
-insert into viewedHistories_products (viewedHistory_id, product_id) values 
-(4, 1),
-(3, 4),
-(1, 4),
-(3, 2),
-(2, 5),
-(4, 4),
-(3, 5),
-(2, 4),
-(4, 1),
-(2, 5),
-(3, 2),
-(4, 5),
-(1, 1),
-(5, 5),
-(5, 5);
+-- USER-PRODUCT DATA / USER-PRODUCT DATA / USER-PRODUCT DATA / USER-PRODUCT DATA / USER-PRODUCT DATA --
+-- USER-PRODUCT DATA / USER-PRODUCT DATA / USER-PRODUCT DATA / USER-PRODUCT DATA / USER-PRODUCT DATA --
+-- USER-PRODUCT DATA / USER-PRODUCT DATA / USER-PRODUCT DATA / USER-PRODUCT DATA / USER-PRODUCT DATA --
 
 /* productComments */
 insert into productComments (content, user_id, product_id) values 
@@ -293,3 +99,201 @@ insert into productReviews (points, content, karma, user_id, product_id) values
 (1, 'suscipit a feugiat et eros', -2, 5, 2),
 (3, 'erat id mauris vulputate elementum nullam varius nulla facilisi cras', -24, 2, 2),
 (2, 'in ante vestibulum ante ipsum primis in faucibus orci luctus', -22, 5, 4);
+
+/* tags */
+insert into tags (name, imageFilename) values 
+('in blandit', 'tag1.png'),
+('ratt', 'tag2.png'),
+('niggrem', 'tag3.png'),
+('diegum gae', 'tag4.png'),
+('etiam justo', 'tag5.png'),
+('cursus id', 'tag6.png'),
+('nibbha', null),
+('vivamus', 'tag8.png'),
+('orci eget', 'tag9.png'),
+('tortor', 'tag10.png'),
+('cum', 'tag11.png'),
+('nunc', 'tag12.png'),
+('aliquam', 'tag13.png'),
+('mhni herik', 'tag14.png'),
+('varius ut', 'tag15.png');
+
+/* purchasedHistories */
+insert into purchasedHistories (user_id) values 
+(1),
+(2),
+(3),
+(4),
+(5),
+(6),
+(7),
+(8),
+(9),
+(10),
+(11),
+(12),
+(13),
+(14),
+(15);
+
+/* purchaseOrders */
+insert into purchaseOrders (user_id) values 
+(1),
+(2),
+(3),
+(4),
+(5),
+(6),
+(7),
+(8),
+(9),
+(10),
+(11),
+(12),
+(13),
+(14),
+(15);
+
+/* viewedHistories */
+insert into viewedHistories (user_id) values 
+(1),
+(2),
+(3),
+(4),
+(5),
+(6),
+(7),
+(8),
+(9),
+(10),
+(11),
+(12),
+(13),
+(14),
+(15);
+
+/* wishLists */
+insert into wishLists (user_id) values 
+(1),
+(2),
+(3),
+(4),
+(5),
+(6),
+(7),
+(8),
+(9),
+(10),
+(11),
+(12),
+(13),
+(14),
+(15);
+
+/* wishLists_products */
+insert into wishLists_products (wishList_id, product_id) values 
+(1, 1),
+(2, 2),
+(3, 3),
+(4, 4),
+(5, 5),
+(6, 6),
+(7, 7),
+(8, 8),
+(9, 9),
+(10, 10),
+(11, 11),
+(12, 12),
+(13, 13),
+(14, 14),
+(15, 15);
+
+/* viewedHistories_products */
+insert into viewedHistories_products (viewedHistory_id, product_id) values 
+(1, 1),
+(2, 2),
+(3, 3),
+(4, 4),
+(5, 5),
+(6, 6),
+(7, 7),
+(8, 8),
+(9, 9),
+(10, 10),
+(11, 11),
+(12, 12),
+(13, 13),
+(14, 14),
+(15, 15);
+
+/* purchasedHistories_products */
+insert into purchasedHistories_products (purchasedHistory_id, product_id) values 
+(1, 1),
+(2, 2),
+(3, 3),
+(4, 4),
+(5, 5),
+(6, 6),
+(7, 7),
+(8, 8),
+(9, 9),
+(10, 10),
+(11, 11),
+(12, 12),
+(13, 13),
+(14, 14),
+(15, 15);
+
+/* purchaseOrders_products */
+insert into purchaseOrders_products (purchaseOrder_id, product_id) values 
+(1, 1),
+(2, 2),
+(3, 3),
+(4, 4),
+(5, 5),
+(6, 6),
+(7, 7),
+(8, 8),
+(9, 9),
+(10, 10),
+(11, 11),
+(12, 12),
+(13, 13),
+(14, 14),
+(15, 15);
+
+/* tags_users */
+insert into tags_users (tag_id, user_id) values 
+(1, 1),
+(2, 2),
+(3, 3),
+(4, 4),
+(5, 5),
+(6, 6),
+(7, 7),
+(8, 8),
+(9, 9),
+(10, 10),
+(11, 11),
+(12, 12),
+(13, 13),
+(14, 14),
+(15, 15);
+
+/* tags_products */
+insert into tags_products (tag_id, product_id) values 
+(1, 1),
+(2, 2),
+(3, 3),
+(4, 4),
+(5, 5),
+(6, 6),
+(7, 7),
+(8, 8),
+(9, 9),
+(10, 10),
+(11, 11),
+(12, 12),
+(13, 13),
+(14, 14),
+(15, 15);
