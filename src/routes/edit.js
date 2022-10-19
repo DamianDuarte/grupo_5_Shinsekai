@@ -1,16 +1,17 @@
 var express = require('express');
 var router = express.Router();
 
-const { manageProducts, addProduct, editProduct, updateProduct, removeProduct }= require('../controllers/editController');
+const {list,  create, edit, update, destroy} = require('../controllers/productController');
+/* const { manageProducts, addProduct, editProduct, updateProduct, removeProduct }= require('../controllers/editController');*/
 const adminCheck = require('../middlewares/adminCheck');
 
 router
 
 /* edit */
-.get('/product', adminCheck, manageProducts)
-.post('/product', addProduct)
-.get('/product/:id', adminCheck, editProduct)
-.put('/product/update/:id', updateProduct)
-.delete('/product/delete/:id', removeProduct);
+.get('/product', adminCheck, list)
+.post('/product', create)
+.get('/product/:id', adminCheck, edit)
+.put('/product/update/:id', update)
+.delete('/product/delete/:id', destroy);
 
 module.exports = router;
