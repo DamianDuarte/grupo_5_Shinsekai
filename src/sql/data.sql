@@ -1,10 +1,111 @@
 use `shinsekai-db`;
 
+--  USER DATA /  USER DATA /  USER DATA /  USER DATA /  USER DATA /  USER DATA /  USER DATA --
+--  USER DATA /  USER DATA /  USER DATA /  USER DATA /  USER DATA /  USER DATA /  USER DATA --
+--  USER DATA /  USER DATA /  USER DATA /  USER DATA /  USER DATA /  USER DATA /  USER DATA --
+
+/* subscriptions */
+insert into subscriptions(name, description, price) values 
+('Subscripción base', 'Además de contar con un descuento de suscriptor, tendra la opción de leer los comics o mangas de manera online totalmente grátis.', 5),
+('La caja (Hierro)', 'Todos los meses se les enviará a los suscriptores una caja misteriosa que incluirá productos de la tienda. Contiene 4 artículos.', 10),
+('La caja (Bronce)', 'Todos los meses se les enviará a los suscriptores una caja misteriosa que incluirá productos de la tienda. Contiene 6 artículos.', 20),
+('La caja (Plata)', 'Todos los meses se les enviará a los suscriptores una caja misteriosa que incluirá productos de la tienda. Contiene 8 artículos.', 30),
+('La caja (Oro)', 'Todos los meses se les enviará a los suscriptores una caja misteriosa que incluirá productos de la tienda. Contiene 12 artículos.', 40),
+('Miembro de honor (Hierro)', 'En esta suscripcion se obtendran "La caja" (Hierro) y la suscripcion base. Ademas obtendran acceso a estrenos y mercancia nueva que llegue a nuestro local.', 12),
+('Miembro de honor (Bronce)', 'En esta suscripcion se obtendran "La caja" (Bronce) y la suscripcion base. Ademas obtendran acceso a estrenos y mercancia nueva que llegue a nuestro local.', 18),
+('Miembro de honor (Plata)', 'En esta suscripcion se obtendran "La caja" (Plata) y la suscripcion base. Ademas obtendran acceso a estrenos y mercancia nueva que llegue a nuestro local.', 28),
+('Miembro de honor (Oro)', 'En esta suscripcion se obtendran "La caja" (Oro) y la suscripcion base. Ademas obtendran acceso a estrenos y mercancia nueva que llegue a nuestro local.', 38);
+
+/* users */
+insert into users(username, firstName, lastName, email, password, isAdmin, subscription_id) values 
+('Grim', 'Damian', 'Duarte', 'grim@gmail.com', '$2a$10$wG0yuwvLTnwDN5NCekbS/.9QlIjlJaQQ39HBM3wHFbRF.zrZ81EB6', 1, 5),
+('Sai', 'Julián', 'B. Ortega', 'sai@gmail.com', '$2a$10$wG0yuwvLTnwDN5NCekbS/.9QlIjlJaQQ39HBM3wHFbRF.zrZ81EB6', 1, 5),
+('Maga', 'Magali', 'Gayoso', 'maga@gmail.com', '$2a$10$wG0yuwvLTnwDN5NCekbS/.9QlIjlJaQQ39HBM3wHFbRF.zrZ81EB6', 1, 5),
+('Mica', 'Micaela', 'Vizcarra', 'mica@gmail.com', '$2a$10$wG0yuwvLTnwDN5NCekbS/.9QlIjlJaQQ39HBM3wHFbRF.zrZ81EB6', 1, 5),
+('Anto', 'Antonella', 'Pizarro', 'anto@gmail.com', '$2a$10$wG0yuwvLTnwDN5NCekbS/.9QlIjlJaQQ39HBM3wHFbRF.zrZ81EB6', 1, 5),
+('Lula', 'Luján', 'Gutierrez', 'lula@gmail.com', '$2a$10$wG0yuwvLTnwDN5NCekbS/.9QlIjlJaQQ39HBM3wHFbRF.zrZ81EB6', 1, 5),
+('Juan', 'Juan', 'Licciardi', 'juan@gmail.com', '$2a$10$wG0yuwvLTnwDN5NCekbS/.9QlIjlJaQQ39HBM3wHFbRF.zrZ81EB6', 0, 2),
+('Diego', 'Diego', 'Montes', 'diego@gmail.com', '$2a$10$wG0yuwvLTnwDN5NCekbS/.9QlIjlJaQQ39HBM3wHFbRF.zrZ81EB6', 0, 2),
+('Eric', 'Eric', 'Mena', 'eric@gmail.com', '$2a$10$wG0yuwvLTnwDN5NCekbS/.9QlIjlJaQQ39HBM3wHFbRF.zrZ81EB6', 1, 8),
+('Juli', 'Julián', 'Aquino', 'juli@gmail.com', '$2a$10$wG0yuwvLTnwDN5NCekbS/.9QlIjlJaQQ39HBM3wHFbRF.zrZ81EB6', 1, 8),
+('otaku1', 'Nutenno', 'Naada', 'otaku1@gmail.com', '$2a$10$wG0yuwvLTnwDN5NCekbS/.9QlIjlJaQQ39HBM3wHFbRF.zrZ81EB6', 0, 2),
+('otaku2', 'Mekero', 'Mori', 'otaku2@gmail.com', '$2a$10$wG0yuwvLTnwDN5NCekbS/.9QlIjlJaQQ39HBM3wHFbRF.zrZ81EB6', 0, 2),
+('rolero1', 'Villero blanco', 'De ojotas azules', 'rolero1@gmail.com', '$2a$10$wG0yuwvLTnwDN5NCekbS/.9QlIjlJaQQ39HBM3wHFbRF.zrZ81EB6', 0, 1),
+('rolero2', 'Manco', 'Oscuro', 'rolero2@gmail.com', '$2a$10$wG0yuwvLTnwDN5NCekbS/.9QlIjlJaQQ39HBM3wHFbRF.zrZ81EB6', 0, 1),
+('MiniEric', 'Eric', 'Mini', 'minieric@gmail.com', '$2a$10$wG0yuwvLTnwDN5NCekbS/.9QlIjlJaQQ39HBM3wHFbRF.zrZ81EB6', 0, 3);
+
+/* linkedAccounts */
+insert into linkedAccounts(name, auth, user_id) values 
+('MercadoPago', 'nusequeponeraquí', 1),
+('MercadoPago', 'nusequeponeraquí', 2),
+('MercadoPago', 'nusequeponeraquí', 3),
+('MercadoPago', 'nusequeponeraquí', 4),
+('MercadoPago', 'nusequeponeraquí', 5),
+('MercadoPago', 'nusequeponeraquí', 6),
+('MercadoPago', 'nusequeponeraquí', 7),
+('MercadoPago', 'nusequeponeraquí', 8),
+('MercadoPago', 'nusequeponeraquí', 9),
+('MercadoPago', 'nusequeponeraquí', 10),
+('MercadoPago', 'nusequeponeraquí', 11),
+('MercadoPago', 'nusequeponeraquí', 12),
+('MercadoPago', 'nusequeponeraquí', 13),
+('MercadoPago', 'nusequeponeraquí', 14),
+('MercadoPago', 'nusequeponeraquí', 15);
+
+/* userImages */
+insert into userImages(filename, user_id) values 
+('AvatarDefault.jpeg', 1),
+('AvatarDefault.jpeg', 2),
+('AvatarDefault.jpeg', 3),
+('AvatarDefault.jpeg', 4),
+('AvatarDefault.jpeg', 5),
+('AvatarDefault.jpeg', 6),
+('AvatarDefault.jpeg', 7),
+('AvatarDefault.jpeg', 8),
+('AvatarDefault.jpeg', 9),
+('AvatarDefault.jpeg', 10),
+('AvatarDefault.jpeg', 11),
+('AvatarDefault.jpeg', 12),
+('AvatarDefault.jpeg', 13),
+('AvatarDefault.jpeg', 14),
+('AvatarDefault.jpeg', 15);
+
 -- PRODUCT DATA / PRODUCT DATA / PRODUCT DATA / PRODUCT DATA / PRODUCT DATA / PRODUCT DATA / PRODUCT DATA --
 -- PRODUCT DATA / PRODUCT DATA / PRODUCT DATA / PRODUCT DATA / PRODUCT DATA / PRODUCT DATA / PRODUCT DATA --
 -- PRODUCT DATA / PRODUCT DATA / PRODUCT DATA / PRODUCT DATA / PRODUCT DATA / PRODUCT DATA / PRODUCT DATA --
 
-/*  PRODUCTS */
+/* categories */
+insert into categories (name, imageFilename) values
+('Accesorios', 'product.jpg'),
+('Ropa', 'product.jpg'),
+('Calzado', 'product.jpg'),
+('Deportes', 'product.jpg'),
+('Electrónica', 'product.jpg'),
+('Hogar', 'product.jpg'),
+('Juguetes', 'product.jpg'),
+('Libros', 'product.jpg'),
+('Música', 'product.jpg'),
+('Videojuegos', 'product.jpg');
+
+/* sales */
+insert into sales (name, imageFileName) values
+('Black Friday', 'MICArte.jpg'),
+('Cyber Monday', 'MICArte.jpg'),
+('Navidá', 'MICArte.jpg'),
+('Carnaval', 'MICArte.jpg'),
+('Dia del padre', 'MICArte.jpg'),
+('Dia de la madre', 'MICArte.jpg'),
+('Dia del niño', 'MICArte.jpg'),
+('Dia del amigo', 'MICArte.jpg'),
+('Dia de la mujer', 'MICArte.jpg'),
+('Dia de la independencia', 'MICArte.jpg'),
+('Dia de la primavera', 'MICArte.jpg'),
+('Dia de la patria', 'MICArte.jpg'),
+('Dia de la tierra', 'MICArte.jpg'),
+('Dia de la juventud', 'MICArte.jpg'),
+('Dia de la familia', 'MICArte.jpg');
+
+/*  products */
 insert into products (name, price, discount, description, views, category_id, sale_id) values 
 ('Dc - Sakura Fu', 42, 50, 'felis ut at dolor quis odio consequat varius integer ac leo pellentesque ultrices mattis', 217, 2, 4),
 ('Saskatoon Berries - Frozen', 128, 50, 'libero quis orci nullam molestie nibh in lectus pellentesque at nulla suspendisse potenti cras in purus eu magna', 461, 1, 1),
@@ -54,37 +155,6 @@ insert into productImages (filename, product_id) values
 ('img-14.png', 14),
 ('img-15.png', 15),
 ('img-16.png', 15);
-
-/* categories */
-insert into categories (name, imageFilename) values
-('Accesorios', 'product.jpg'),
-('Ropa', 'product.jpg'),
-('Calzado', 'product.jpg'),
-('Deportes', 'product.jpg'),
-('Electrónica', 'product.jpg'),
-('Hogar', 'product.jpg'),
-('Juguetes', 'product.jpg'),
-('Libros', 'product.jpg'),
-('Música', 'product.jpg'),
-('Videojuegos', 'product.jpg');
-
-/* sales */
-insert into sales (name, imageFileName) values
-('Black Friday', 'MICArte.jpg'),
-('Cyber Monday', 'MICArte.jpg'),
-('Navidá', 'MICArte.jpg'),
-('Carnaval', 'MICArte.jpg'),
-('Dia del padre', 'MICArte.jpg'),
-('Dia de la madre', 'MICArte.jpg'),
-('Dia del niño', 'MICArte.jpg'),
-('Dia del amigo', 'MICArte.jpg'),
-('Dia de la mujer', 'MICArte.jpg'),
-('Dia de la independencia', 'MICArte.jpg'),
-('Dia de la primavera', 'MICArte.jpg'),
-('Dia de la patria', 'MICArte.jpg'),
-('Dia de la tierra', 'MICArte.jpg'),
-('Dia de la juventud', 'MICArte.jpg'),
-('Dia de la familia', 'MICArte.jpg');
 
 /* availableColors */
 insert into availableColors (colorName) values 

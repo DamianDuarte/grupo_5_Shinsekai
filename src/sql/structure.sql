@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `Shinsekai-db`.`users` (
   `firstName` VARCHAR(25) NULL,
   `lastName` VARCHAR(25) NULL,
   `email` VARCHAR(45) NOT NULL,
-  `password` VARCHAR(20) NOT NULL,
+  `password` VARCHAR(255) NOT NULL,
   `isAdmin` TINYINT NULL DEFAULT 0,
   `subscription_id` INT UNSIGNED NULL,
   `created_at` TIMESTAMP NULL DEFAULT NULL,
