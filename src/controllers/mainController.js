@@ -1,5 +1,6 @@
 const dataParser = require('../data/dataParser');
 const db = require('../database/models');
+const { associations } = require('../helpers');
 
 function searchWords(product, categories, tags, words)
 {
@@ -25,16 +26,7 @@ module.exports={
     home: async (req, res)=>{
         try 
         {
-            const associations = 
-            {
-                include:
-                [
-                    {
-                        association: 'images'
-                    }
-                ]
-            }
-            const products = await db.products.findAll(associations);
+            const products = await db.products.findAll(associations.get('images'));
             const categories = await db.categories.findAll();
             const tags = await db.tags.findAll();
                 

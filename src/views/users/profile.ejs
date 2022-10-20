@@ -6,7 +6,7 @@
         
         <main class="profile__main">
             <div class="profile__main__firstColumn column">
-                <img src="/img/users/<%= userProfile.image %> " alt="user-img">
+                <img src="/img/users/<%= userProfile.avatar.filename %> " alt="user-img">
                 <h1><%= userProfile.userName %></h1>
                 <% if (locals.user && ((userProfile.userName === user.userName) || user.admin)) { %>
                     <div class="buttons">
