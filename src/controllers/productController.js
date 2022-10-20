@@ -19,8 +19,9 @@ module.exports={
     },
     /* CRUD */
     list: (req, res)=>{
+
         db.products.findAll()
-        .then(products => res.render('./products/list', {products}))
+        .then(products => res.render('./products/details', {products}))
         .catch(error => console.log(error))
     },
     create: (req, res)=>{
