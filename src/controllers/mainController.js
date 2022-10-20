@@ -1,6 +1,7 @@
 const dataParser = require('../data/dataParser');
 const db = require('../database/models');
 const { Op } = require("sequelize");
+const { associations } = require('../helpers');
 
 function searchWords(product, categories, tags, words) {
     for (let i = 0; i < words.length; i++) {
@@ -19,19 +20,11 @@ function searchWords(product, categories, tags, words) {
 }
 
 
-module.exports = {
-    home: async (req, res) => {
-        try {
-            const associations =
-            {
-                include:
-                    [
-                        {
-                            association: 'images'
-                        }
-                    ]
-            }
-            const products = await db.products.findAll(associations);
+module.exports={
+    home: async (req, res)=>{
+        try 
+        {
+            const products = await db.products.findAll(associations.get('images'));
             const categories = await db.categories.findAll();
             const tags = await db.tags.findAll();
 

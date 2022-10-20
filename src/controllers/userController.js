@@ -2,8 +2,11 @@ const fs = require('fs');
 const path = require('path');
 const { validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
+const { associations, filters, createError } = require('../helpers');
+
 const dataParser = require('../data/dataParser');
 const session = require('express-session');
+const db = require('../database/models');
 const users = dataParser.loadData('users.json');
 const products = dataParser.loadData('products.json');
 const categories = dataParser.loadData('categories.json');
@@ -17,15 +20,41 @@ const isAdmin = (user) => {
 
 module.exports =
 {
-    users: (req, res) => {
-        return res.render('./users/users', { users, products, categories, tags, isAdmin });
-    },
-    userProfile: (req, res) =>
-    {
-        const userProfile = users.find(u => u.userName === req.params.username);
+    users: async (req, res) => {
+        try 
+        {
+            const users = await db.users.findAll(associations.get('avatar'));
+            const categories = await db.categories.findAll();
+            const tags = await db.tags.findAll();
 
-        if(userProfile) return res.render('./users/profile', {users, products, categories, tags, userProfile});
-        else res.redirect('/');
+            return res.render('./users/users', {users, categories, tags});
+        } 
+        catch (error) 
+        {
+            console.log(error);
+            return res.send(error);
+        }
+    },
+    userProfile: async (req, res) =>
+    {
+        try 
+        {
+            const userProfile = await db.users.findOne(
+                filters.where('username', req.params.username, 
+                'avatar', 'subscription', 'tagsFollowing'));
+
+            const categories = await db.categories.findAll();
+            const tags = await db.tags.findAll();
+
+            if(!userProfile) { throw createError(404, 'Usuario no existe') }
+
+            return res.render('./users/profile', {userProfile, categories, tags});
+        } 
+        catch (error) 
+        {
+            console.log(error);
+            res.send(error);
+        }
     },
     edit: (req, res) => {
         let user = users.find(u => u.userName === req.params.username)
