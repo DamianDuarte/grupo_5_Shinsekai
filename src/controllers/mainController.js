@@ -1,5 +1,6 @@
 const dataParser = require('../data/dataParser');
 const db = require('../database/models');
+const { Op } = require("sequelize");
 
 function searchWords(product, categories, tags, words)
 {
@@ -22,20 +23,91 @@ function searchWords(product, categories, tags, words)
 
 
 module.exports={
-    home: (req, res)=>{
-         const products = dataParser.loadData('products.json');
-        const categories = dataParser.loadData('categories.json');
-        const tags = dataParser.loadData('tags.json');
-
-        return res.render('./users/home', { products, categories, tags }); 
+    home: async (req, res)=>{
+        try 
+        {
+            const associations = 
+            {
+                include:
+                [
+                    {
+                        association: 'images'
+                    }
+                ]
+            }
+            const products = await db.products.findAll(associations);
+            const categories = await db.categories.findAll();
+            const tags = await db.tags.findAll();
+                
+            return res.render('./users/home', {products, categories, tags});    
+        } 
+        catch (error) 
+        {
+            console.log(error);
+            return res.send(error);
+        }
     },
-    search: (req, res) =>
+    search: async (req, res) =>
     {
-        const categories = dataParser.loadData('categories.json');
+        let {keywords} = req.query;
+        try {
+            const associations =
+            {
+                include: [
+                    {
+                        association: 'images'
+                    }
+                ]
+            }
+            const products = await db.products.findAll({
+                were: {
+                    [Op.or]: [{
+                        name: {
+                            [Op.substring]: keywords
+                        },
+                        desciption: {
+                            [Op.substring]: keywords
+                        }
+                    }]
+                }
+            });
+            const categories = await db.categories.findAll();
+            const tags = await db.tags.findAll();
+            
+            return res.render('./users/search', {keywords, products, categories, tags});
+        } catch (error) {
+            
+        }
+
+
+            /* try 
+            {
+                const associations = 
+                {
+                    include:
+                    [
+                        {
+                            association: 'images'
+                        }
+                    ]
+                }
+                const products = await db.products.findAll(associations);
+                const categories = await db.categories.findAll();
+                const tags = await db.tags.findAll();
+                    
+                return res.render('./users/search', {products, categories, tags});    
+            } 
+            catch (error) 
+            {
+                console.log(error);
+                return res.send(error);
+            } */
+
+/*         const categories = dataParser.loadData('categories.json');
         const tags = dataParser.loadData('tags.json');
         const products = dataParser.loadData('products.json')
             .filter(p => searchWords(p, categories, tags, req.query.keywords.split(' ')));
 
         return res.render('./users/search', { products, categories, tags});
-    }
+ */    }
 }

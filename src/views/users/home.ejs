@@ -18,14 +18,14 @@
             <section class="home__main__showcase__populares">
                 <h3>Productos populares</h3>
                 <% 
-                    const popular = products.filter(product => product.tags.includes(1));
+                    const popular = products;  /* Placeholder */
                     for( let i = 0; i < 4; i++ ) 
                     { 
                         let product = popular[popular.length - (i + 1)];
                 %>
 
                 <a class="home__producto" href="/products/details/<%= product.id %>">
-                    <img src="/img/products/<%= product.images[0] %>" onmouseover="this.src='/img/products/<%= product.images[1] %>';" onmouseout="this.src='/img/products/<%= product.images[0] %>';" alt="producto<%= product.id %>">
+                    <img src="/img/products/<%= product.images[0].filename %>" onmouseover="this.src='/img/products/<%= product.images[1] %>';" onmouseout="this.src='/img/products/<%= product.images[0] %>';" alt="producto<%= product.id %>">
                     <div class="home__producto__nameContainer">
                         <h4><%= product.name %></h4>
                     </div> 

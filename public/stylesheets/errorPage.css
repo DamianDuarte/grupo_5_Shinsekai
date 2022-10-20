@@ -1,0 +1,21 @@
+.errorPage
+{
+    background-color: black;
+    color: white;
+}
+
+.errorPage h1
+{
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.errorPage h2
+{
+    font-size: 16px;
+}
+
+.errorPage pre
+{
+    font-size: 12px;
+}
