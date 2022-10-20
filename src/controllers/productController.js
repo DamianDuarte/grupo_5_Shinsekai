@@ -38,10 +38,15 @@ module.exports={
         }
     },
     processCreate: async (req, res)=>{
-        try {
+        try 
+        {
             const product = await db.products.create(req.body);
+            await db.productimages.create({filename: req.file.filename ? req.file.filename : 'default.png', product_id: product.id});
+
             return res.redirect('/product/details/' + product.id)
-        } catch (error) {
+        } 
+        catch (error) 
+        {
             console.log(error);
             return res.send(error);
         }
