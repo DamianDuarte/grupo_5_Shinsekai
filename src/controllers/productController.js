@@ -1,15 +1,29 @@
 const dataParser = require('../data/dataParser');
 const db = require('../database/models');
-
+const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 module.exports={
-    details: (req, res)=>{
+    detail: (req, res) => {
+		// Do the magic
+		db.Product.findByPk(req.params.id,{
+			include : [{all : true}]
+		})
+			.then(product => {
+				return res.render('detail', {
+			product,
+			toThousand
+			})
+			})
+			.catch(error => console.log(error))
+		
+	},
+    /* details: (req, res)=>{
         const products = dataParser.loadData('products.json');
         const product = products.find(p => p.id === +req.params.id);
         const categories = dataParser.loadData('categories.json');
         const tags = dataParser.loadData('tags.json');
 
         return res.render('./products/details', {products, product, categories, tags})
-    },
+    }, */
     payment: (req, res)=>{
         const products = dataParser.loadData('products.json');
         const categories = dataParser.loadData('categories.json');
@@ -33,7 +47,7 @@ module.exports={
             category_id: req.body.category_id,
             tag_id: req.body.tag_id
         })
-        .then(()=> res.redirect('/products'))
+        .then(()=> res.redirect('/products/details'))
         .catch(error => console.log(error))
     },
     edit: (req, res)=>{
