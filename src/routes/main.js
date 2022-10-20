@@ -1,4 +1,5 @@
 var express = require('express');
+
 var router = express.Router();
 
 const {home, search} = require('../controllers/mainController');
@@ -8,7 +9,7 @@ const {home, search} = require('../controllers/mainController');
 router
 
 /* home */
-.get ('/', home)
+.get ('/', home )
 .get('/search', search);
 
 module.exports = router;

@@ -7,7 +7,7 @@ const userCheck = require('../middlewares/userCheck');
 router
 
 /* details & payment */
-.get('/details/:id', details)
+/* .get('/details/:id', details) */
 .get('/payment', userCheck, payment)
 
 module.exports = router;

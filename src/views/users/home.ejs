@@ -25,7 +25,7 @@
                 %>
 
                 <a class="home__producto" href="/products/details/<%= product.id %>">
-                    <img src="/img/products/<%= product.images[0].filename %>" onmouseover="this.src='/img/products/<%= product.images[1] %>';" onmouseout="this.src='/img/products/<%= product.images[0] %>';" alt="producto<%= product.id %>">
+                    <img src="/img/products/<%= product.images[0].filename %>" onmouseover="this.src='/img/products/<%= product.images[1].filename %>';" onmouseout="this.src='/img/products/<%= product.images[0] %>';" alt="producto<%= product.id %>">
                     <div class="home__producto__nameContainer">
                         <h4><%= product.name %></h4>
                     </div> 
@@ -48,7 +48,7 @@
                 { %>
 
             <a href="#">
-                <img src="/img/<%= randomTags[i].image %>" alt="tag<%= randomTags[i].id %>">
+                <img src="/img/<%= randomTags[i].imageFilename %>" alt="tag<%= randomTags[i].id %>">
             </a>
            
             <%  } %>
@@ -65,7 +65,7 @@
                 %>
                 
                 <a class="home__producto" href="/products/details/<%= product.id %>">
-                    <img src="/img/products/<%= product.images[0] %>" onmouseover="this.src='/img/products/<%= product.images[1] %>';" onmouseout="this.src='/img/products/<%= product.images[0] %>';" alt="producto<%= product.id %>">
+                    <img src="/img/products/<%= product.images[0].filename %>" onmouseover="this.src='/img/products/<%= product.images[1].filename %>';" onmouseout="this.src='/img/products/<%= product.images[0].filename %>';" alt="producto<%= product.id %>">
                     <div class="home__producto__nameContainer">
                         <h4><%= product.name %></h4>
                     </div> 
