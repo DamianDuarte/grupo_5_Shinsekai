@@ -1,6 +1,7 @@
 /*! -- CSS Stylesheets -- */
 @import "/stylesheets/normalize.css";
 @import "/stylesheets/general.css";
+@import "/stylesheets/errorPage.css";
 @import "/stylesheets/header.css";
 @import "/stylesheets/footer.css";
 @import "/stylesheets/eric.css";
