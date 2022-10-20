@@ -22,22 +22,12 @@ function searchWords(product, categories, tags, words)
 
 
 module.exports={
-    home: async (req, res)=>{
-        try {
-             const products = await db.products.findAll();
-                const categories = await db.categories.findAll();
-                const tags = await db.tags.findAll();
-    
-        
-                res.render('./users/home', {products, categories, tags});    
-        } catch (error) {
-            console.log(error);
-        }
-        /* const products = dataParser.loadData('products.json');
+    home: (req, res)=>{
+         const products = dataParser.loadData('products.json');
         const categories = dataParser.loadData('categories.json');
         const tags = dataParser.loadData('tags.json');
 
-        return res.render('./users/home', { products, categories, tags }); */
+        return res.render('./users/home', { products, categories, tags }); 
     },
     search: (req, res) =>
     {
