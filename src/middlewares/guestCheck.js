@@ -5,6 +5,6 @@ module.exports = (req, res, next) =>
         next();
     }
     else {
-        return res.redirect('/' + res.locals.user.userName);
+        return res.redirect('/' + res.locals.user.username);
     }
 }

@@ -1,14 +1,18 @@
 const { check } = require('express-validator');
-const users = require('../data/dataParser').loadData('users.json');
+const { users } = require('../controllers/userController');
+/* const users = require('../data/dataParser').loadData('users.json'); */
+const db = require('../database/models');
+const { filters } = require('../helpers');
 
 module.exports =
 [
-    check('userName')
+    check('username')
         .notEmpty().withMessage("Introduce tu nombre de usuario.").bail()
         .isLength({min: 2, max: 12}).withMessage("Tu nombre de usuario debe contener entre 2 y 12 caracteres.").bail()
-        .custom((value) => 
+        .custom(async (value) => 
         {
-            if(!users.find(u => u.userName === value.trim())) return true;
+            const user = await db.users.findOne(filters.where('username', value.trim()));
+            if(!user) return true;
             else throw new Error("Nombre de usuario ocupado.");
         }),
 
@@ -16,9 +20,10 @@ module.exports =
         .notEmpty().withMessage("Introduce tu email.").bail()
         .isEmail().withMessage("Email inválido.").bail()
         .isLength({min: 3, max: 30}).withMessage("El email solo puede contener entre 3 y 30 caracteres.")
-        .custom((value) =>
+        .custom(async (value) =>
         {
-            if(!users.find(u => u.email.toLowerCase() === value.trim().toLowerCase())) return true;
+            const user = await db.users.findOne(filters.where('email', value.trim().toLowerCase()));
+            if(!user) return true;
             else throw new Error("Este email ya se encuentra registrado.");
         }),
 

@@ -118,29 +118,5 @@
       "email": "lula@gmail.com",
       "password": "$2a$10$KbtBN1tRHkd1ZEnP2bW70.OdtMe5qvSnNaWXPej/VYAP2/C6zYUYi",
       "image": "user-1663020342962.png"
-   },
-   {
-      "userName": "GrimClaw",
-      "firstName": "Damian",
-      "lastName": "Duarte",
-      "email": "damykirablack@gmail.com",
-      "password": "$2a$10$ZNGfcPu0in0z/vbuetnOn.Ydx8jC3HrA0SiIEl6c3kVeAMuZ6gNju",
-      "image": "user-1664227561101.png"
-   },
-   {
-      "userName": "eric",
-      "firstName": "",
-      "lastName": "",
-      "email": "eric@a.com",
-      "password": "$2a$10$SzYSaTXWfR2u2MWQ3XnKkuXpPaPFOj2n9//SagZOt3uNHY/XSvud6",
-      "image": "default-img.jpg"
-   },
-   {
-      "userName": "diego1",
-      "firstName": "Diego",
-      "lastName": "Montes",
-      "email": "diegjasd@gmail.com",
-      "password": "$2a$10$UvN2yZH8rfD3UsdXcOX7Ce7EFbqlqwKm8n2Wl9s3bAeSfkOgQh90O",
-      "image": "user-1664232095782.png"
    }
 ]

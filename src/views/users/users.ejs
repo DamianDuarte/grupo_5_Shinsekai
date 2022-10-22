@@ -15,7 +15,7 @@
                 
                 <div class="users__list__user">
                     <div class="cosarara">
-                        <img src="/img/users/<%= user.avatar.filename %>" alt="user-img">
+                        <img src="/img/users/<%= user.avatar ? user.avatar.filename : 'AvatarDefault.jpeg'%>" alt="user-img">
                         <% if(user.isAdmin) { %>
                             <b class="isAdmin">Admin</b>
                         <% } %>
@@ -27,8 +27,8 @@
                     </div>
                     
                     <div class="buttons">
-                        <a href="/user/edit/<%= user.username %>"><i class="fa-solid fa-pen-to-square"></i></a>
-                        <form action="/user/delete/<%= user.username %>?_method=DELETE" method="POST"><button><i class="fa-solid fa-trash"></i></button></form>
+                        <a href="/user/edit/<%= user.username %>"><i class="fa-solid fa-pen-to-square"></i>e</a>
+                        <form action="/user/delete/<%= user.username %>?_method=DELETE" method="POST"><button><i class="fa-solid fa-trash">d</i></button></form>
                     </div>
                 </div>
                 
