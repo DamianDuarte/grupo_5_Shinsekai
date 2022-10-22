@@ -11,13 +11,13 @@
 
             <section class="editProducts__main__agregar">
 
-                <% if (typeof product !== 'undefined') { %>
+                <% if (product) { %>
                     <h3>Editando producto existente</h3>
                     <hr>
                     <div class="hugeContainer">
                         <input type="file" name="images" id="images" accept=".jpg, .png, .jpeg" form="addProduct" value="<%= product.images %>" hidden>
                         <label class="editProducts__main__agregar__productImg" for="images">
-                            <img src="/img/products/<%= product.images[0] %>" alt="productImg">
+                            <img src="/img/products/<%= product.images[0].filename %>" alt="productImg">
                         </label>
                         
                         <form id="addProduct" class="editProducts__main__agregar__form" action="/edit/product/update/<%= product.id %>?_method=PUT" method="POST">
@@ -31,7 +31,7 @@
                                 <option value="<%= categories[i].id %>" <%= categories[i].id === product.category && 'selected' %>><%= categories[i].name %></option>
                                 <% } %>
                             </select>
-                            <textarea name="description" id="description" placeholder="Descripción" cols="30" rows="10" required><%= product.description %></textarea>
+                            <textarea name="description"  id="description" placeholder="Descripción" cols="30" rows="10" required><%= product.description %></textarea>
                             <h4>Etiquetas</h4>
                             <hr>
                             <div class="tagGroup">
@@ -113,7 +113,7 @@
                     <div class="productList">
                         <% for( let i = 0; i < products.length; i++ ) { %>
                         <a href="/edit/product/<%= products[i].id %>">
-                            <img src="/img/products/<%= products[i].images[0] %>" alt="producto<%= products[i].id %>">
+                            <img src="/img/products/<%= products[i].images[0].filename %>" alt="producto<%= products[i].id %>">
                             <h5><%= products[i].name %></h5>
                         </a>
                         <% } %>

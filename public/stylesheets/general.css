@@ -116,6 +116,9 @@ ol, ul
     padding:0px;
 }
 
+textarea {
+    resize: none;
+}
 
 .errorMsg
 {

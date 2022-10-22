@@ -1,0 +1,109 @@
+<html lang="en">
+<!-- Head -->
+<%- include('./partials/head', { title: 'Administrar productos' }) %>
+
+    <body class="editProducts">
+        <!-- Header -->
+        <%- include('./partials/header') %>
+
+            <main class="editProducts__main">
+                <h3 id="big_h">Administrar productos</h3>
+
+                <section class="editProducts__main__agregar">
+                    <h3>Agregar producto</h3>
+                    <hr>
+                    <div class="hugeContainer">
+                        <input type="file" name="images" id="images" accept=".jpg, .png, .jpeg" form="addProduct"
+                            hidden>
+                        <label class="editProducts__main__agregar__productImg" for="images">
+                            <img src="/img/products/product.jpg" alt="productImg">
+                        </label>
+
+                        <form id="addProduct" class="editProducts__main__agregar__form" action="" method="POST">
+                            <div class="inputGroup">
+                                <input class="c_nombre" type="text" name="name" placeholder="Nombre del producto"
+                                    required>
+                                <input class="c_precio" type="number" name="price" placeholder="Precio original"
+                                    required>
+                                <input class="c_descuento" type="number" min="0" max="100" name="discount" id="discount"
+                                    placeholder="% OFF">
+                            </div>
+                            <select class="c_categoria" name="category" id="category" required>
+                                <option value="-1" disabled selected hidden>Categoría</option>
+                                <% for( let i=0; i < categories.length; i++ ) { %>
+                                    <option value="<%= categories[i].id %>">
+                                        <%= categories[i].name %>
+                                    </option>
+                                    <% } %>
+                            </select>
+                            <textarea name="description" id="description" placeholder="Descripción" cols="30" rows="10"
+                                required></textarea>
+                            <h4>Etiquetas</h4>
+                            <hr>
+                            <div class="tagGroup">
+                                <% for( let i=0; i < tags.length; i++ ) { %>
+                                    <input type="checkbox" name="tags" id="c_tag<%= tags[i].id %>"
+                                        value="<%= tags[i].id %>" hidden>
+                                    <label for="c_tag<%= tags[i].id %>">
+                                        <%= tags[i].name %>
+                                    </label>
+                                    <% } %>
+                            </div>
+
+                            <button type="submit">Agregar producto</button>
+                        </form>
+                    </div>
+
+                </section>
+
+                <section class="editProducts__main__editar">
+                    <hr id="main_hr">
+                    <h3>Editar producto</h3>
+                    <hr>
+
+                    <div class="hugeContainer">
+                        <form action="">
+                            <div class="inputGroup">
+                                <input class="e_buscar" type="text" placeholder="Buscar...">
+                                <select class="e_categoria" name="category" id="category" required>
+                                    <option value="-1" disabled selected hidden>Categoría</option>
+                                    <% for( let i=0; i < categories.length; i++ ) { %>
+                                        <option value="<%= categories[i].id %>">
+                                            <%= categories[i].name %>
+                                        </option>
+                                        <% } %>
+                                </select>
+                            </div>
+
+                            <div class="tagGroup">
+                                <% for( let i=0; i < tags.length; i++ ) { %>
+                                    <input type="checkbox" name="e_tag<%= tags[i].id %>" id="e_tag<%= tags[i].id %>"
+                                        value="<%= tags[i].id %>" hidden>
+                                    <label for="e_tag<%= tags[i].id %>">
+                                        <%= tags[i].name %>
+                                    </label>
+                                    <% } %>
+                            </div>
+
+                            <button type="submit">Buscar</button>
+                        </form>
+
+                        <div class="productList">
+                            <% for( let i=0; i < products.length; i++ ) { %>
+                                <a href="/edit/product/<%= products[i].id %>">
+                                    <img src="/img/products/<%= products[i].images[0].filename %>"
+                                        alt="producto<%= products[i].id %>">
+                                    <h5>
+                                        <%= products[i].name %>
+                                    </h5>
+                                </a>
+                                <% } %>
+                        </div>
+                    </div>
+
+                </section>
+            </main>
+
+    </body>
+
+</html>
