@@ -1,6 +1,7 @@
 const db = require('../database/models');
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 const { associations, filters, createError} = require('../helpers');
+/* const multer = require('multer'); */
 
 module.exports={
     details: async (req, res) => {
@@ -31,26 +32,46 @@ module.exports={
             const categories = await db.categories.findAll();
             const tags = await db.tags.findAll();
             const products = await db.products.findAll(associations.get('images', 'tags')); 
+            /* return res.send(products); */
             return res.render('createProducts', {categories, tags, products});
         } catch (error) {
             console.log(error);
             return res.send(error);            
         }
     },
-    processCreate: async (req, res)=>{
+    processCreate:(req, res) => {
+
+		const {name, price,discount, description, categoryId} = req.body;
+        const product = {
+            name,
+            price,
+            discount,
+            description,
+            categoryId,
+        }
+        db.products.create(product)
+        .then(product => {
+            return res.redirect('/products/details/' + product.id);
+        })
+        .catch(error => {
+            console.log(error);
+            return res.send(error);
+        })
+    },
+    
+    /*  async (req, res)=>{
         try 
         {
-            const product = await db.products.create(req.body);
-            await db.productimages.create({filename: req.file.filename ? req.file.filename : 'default.png', product_id: product.id});
-
-            return res.redirect('/product/details/' + product.id)
+            const {name, description, price, discount, category_id, tags} = req.body;
+            const product = await db.products.create({name, description, price, discount, category_id});
+            await product.addTags(tags);
+            return res.redirect('/products/detail/' + product.id);
         } 
         catch (error) 
         {
             console.log(error);
             return res.send(error);
-        }
-    },
+        } */
     edit: async (req, res)=>{
         try {
             const product = await db.products.findByPk(req.params.id, associations.get('images', 'tags'));

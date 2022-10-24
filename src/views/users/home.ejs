@@ -68,7 +68,11 @@
                 %>
                 
                 <a class="home__producto" href="/products/details/<%= product.id %>">
-                    <img src="/img/products/<%= product.images[0].filename %>" onmouseover="this.src='/img/products/<%= product.images[1].filename %>';" onmouseout="this.src='/img/products/<%= product.images[0].filename %>';" alt="producto<%= product.id %>">
+                    <% if(product.images && product.images.length > 0) { %>
+                    <img src= "<%= product.images ? ("/img/products/ + product.images" + product.images[0].filename) : "img/products/default.png" %>" onmouseover="this.src='/img/products/<%= product.images[1].filename %>';" onmouseout="this.src='/img/products/<%= product.images[0] %>';" alt="producto<%= product.id %>">
+                    <% } else { %>
+                        <img src="/img/products/default.png" alt="producto<%= product.id %>">
+                    <% } %>
                     <div class="home__producto__nameContainer">
                         <h4><%= product.name %></h4>
                     </div> 
