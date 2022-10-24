@@ -13,3 +13,6 @@
 
 ## Sprint 5
 ![sprint5](https://i.imgur.com/Hilx9d4.png)
+
+## Sprint 6
+![sprint6](https://i.imgur.com/3aTln9x.png)
