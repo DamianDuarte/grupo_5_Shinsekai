@@ -19,7 +19,6 @@ router
  .get('/edit/:username', ownerAdminCheck, edit)
  .put('/edit/:username', uploadUserIMG.single('image'), profileVal, update)
  .delete('/delete/:username', deleteUser)
- .get('/profile', userCheck, editProfile)
  .post('/register', registerVal, processRegister)
  .post('/login', loginVal, processLogin)
  .get('/logout', userCheck, logout)

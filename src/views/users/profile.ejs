@@ -6,11 +6,11 @@
         
         <main class="profile__main">
             <div class="profile__main__firstColumn column">
-                <img src="/img/users/<%= userProfile.avatar.filename %> " alt="user-img">
-                <h1><%= userProfile.userName %></h1>
-                <% if (locals.user && ((userProfile.userName === user.userName) || user.admin)) { %>
+                <img src="/img/users/<%= userProfile.avatar ? userProfile.avatar.filename : 'AvatarDefault.jpeg'%> " alt="user-img">
+                <h1><%= userProfile.username %></h1>
+                <% if (locals.user && ((userProfile.username === user.userName) || user.admin)) { %>
                     <div class="buttons">
-                        <a href="/user/edit/<%= userProfile.userName %> ">Editar perfil</a>
+                        <a href="/user/edit/<%= userProfile.username %> ">Editar perfil</a>
                         <a href="#">Ver cuentas vinculadas</a>
                         <a href="#">Datos de tarjeta</a>
                     </div>
@@ -39,7 +39,9 @@
                     <h4>Subscripciones</h4>
                     <div class="subscriptions">
                         <div class="row">
-                            <p>Gold</p>
+                            <% if (userProfile.subscription) { %>
+                                <p><%= userProfile.subscription.name %></p>
+                            <% } %>
                         </div>
                     </div>
                 </div>
@@ -49,8 +51,8 @@
                 <div>
                     <h4>Intereses</h4>
                     <div class="tags">
-                        <% categories.forEach(category => { %>
-                            <a href="/search?keywords=<%= category.name %>"><%= category.name %> </a>
+                        <% userProfile.tagsFollowing.forEach(tag => { %>
+                            <a href="/search?keywords=<%= tag.name %>"><%= tag.name %></a>
                         <% }) %>
                     </div>
                 </div>

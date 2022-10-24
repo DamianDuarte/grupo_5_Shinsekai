@@ -30,7 +30,7 @@
             <% } %> 
             <button id="modalTrigger--MICArt" class="header__mitad__buttons__button"><i class="fa-solid fa-cart-shopping"></i></button>
             <% if (locals.user) { %>
-                <a href="/user/<%= user.userName %>"><img class="killmealready" src="/img/users/<%= user.image %>" alt="pfp"></a>
+                <a href="/user/<%= user.username %>"><img class="killmealready" src="/img/users/<%= user.image %>" alt="pfp"></a>
                 <a class="header__mitad__buttons__button" href="/user/logout"><i class="fa-solid fa-right-from-bracket"></i></a>
             <% } %>
         </nav>
