@@ -91,7 +91,7 @@
                         <div class="productList">
                             <% for( let i=0; i < products.length; i++ ) { %>
                                 <a href="/edit/product/<%= products[i].id %>">
-                                    <img src="/img/products/<%= products[i].images[0].filename %>"
+                                    <img src="/img/products/<%= (products[i].images != null && products[i].images.length > 0) ? products[i].images[0].filename : 'default.png'%>"
                                         alt="producto<%= products[i].id %>">
                                     <h5>
                                         <%= products[i].name %>
