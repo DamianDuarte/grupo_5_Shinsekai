@@ -19,12 +19,27 @@ module.exports={
             return res.send(error);            
         }
 	},
-    payment: (req, res)=>{
-        const products = dataParser.loadData('products.json');
+    payment: async (req, res)=>{
+        try 
+        {
+            const products = await db.products.findAll();
+            const categories = await db.categories.findAll();
+            const tags = await db.tags.findAll();
+
+            return res.render('./products/payment', {products, categories, tags})
+        } 
+        catch (error) 
+        {
+            console.log(error);
+            res.send(error);
+        }
+
+
+        /* const products = dataParser.loadData('products.json');
         const categories = dataParser.loadData('categories.json');
         const tags = dataParser.loadData('tags.json');
 
-        return res.render('./products/payment', {products, categories, tags})
+        return res.render('./products/payment', {products, categories, tags}) */
     },
     /* CRUD */
     create : async(req,res)=>{

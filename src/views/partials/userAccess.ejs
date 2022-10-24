@@ -14,9 +14,9 @@
                 <h3>Accede a tu cuenta</h3>
 
                 <form action="/user/login" method="POST">
-                    <input type="text" name="userName" id="userName" placeholder="Usuario/Email" value="<%= locals.loginOld && loginOld.userName %>" required>
-                    <% if(locals.loginErrors && loginErrors.userName) {%>
-                        <p class="errorMsg"><%= loginErrors.userName.msg %> </p>
+                    <input type="text" name="username" id="userName" placeholder="Usuario/Email" value="<%= locals.loginOld && loginOld.username %>" required>
+                    <% if(locals.loginErrors && loginErrors.username) {%>
+                        <p class="errorMsg"><%= loginErrors.username.msg %> </p>
                     <% } %>
 
                     <input type="password" name="password" id="password" placeholder="Contraseña" value="<%= locals.loginOld && loginOld.password %>" required>
@@ -39,9 +39,9 @@
                 <h3>Registrate</h3>
 
                 <form action="/user/register" method="POST">
-                    <input type="text" name="userName" id="userName" placeholder="Nombre de usuario" value="<%= locals.registerOld && registerOld.userName %>" required>
-                    <% if(locals.registerErrors && registerErrors.userName) {%>
-                        <p class="errorMsg"><%= registerErrors.userName.msg %> </p>
+                    <input type="text" name="username" id="userName" placeholder="Nombre de usuario" value="<%= locals.registerOld && registerOld.username %>" required>
+                    <% if(locals.registerErrors && registerErrors.username) {%>
+                        <p class="errorMsg"><%= registerErrors.username.msg %> </p>
                     <% } %>
 
                     <input type="email" name="email" id="email" placeholder="Email" value="<%= locals.registerOld && registerOld.email %>" required>
