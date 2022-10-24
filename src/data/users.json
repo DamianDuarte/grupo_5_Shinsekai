@@ -142,5 +142,13 @@
       "email": "diegjasd@gmail.com",
       "password": "$2a$10$UvN2yZH8rfD3UsdXcOX7Ce7EFbqlqwKm8n2Wl9s3bAeSfkOgQh90O",
       "image": "user-1664232095782.png"
+   },
+   {
+      "userName": "SantiagoO",
+      "firstName": "",
+      "lastName": "",
+      "email": "desactivounatrampa@gmail.com",
+      "password": "$2a$10$rMuYJqgJbdc.eYiOuissb..DF8rR2x/fIFc8lpETGQUhK01JRLbju",
+      "image": "default-img.jpg"
    }
 ]

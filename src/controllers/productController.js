@@ -39,9 +39,9 @@ module.exports={
             return res.send(error);            
         }
     },
-    processCreate:(req, res) => {
+    processCreate:async (req, res) => {
 
-		const {name, price,discount, description, categoryId} = req.body;
+ 		const {name, price,discount, description, categoryId} = req.body;
         const product = {
             name,
             price,
@@ -49,29 +49,16 @@ module.exports={
             description,
             categoryId,
         }
-        db.products.create(product)
+        db.products.create(associations.get('images', 'tags'), product)
         .then(product => {
             return res.redirect('/products/details/' + product.id);
         })
         .catch(error => {
             console.log(error);
             return res.send(error);
-        })
+        }) 
     },
     
-    /*  async (req, res)=>{
-        try 
-        {
-            const {name, description, price, discount, category_id, tags} = req.body;
-            const product = await db.products.create({name, description, price, discount, category_id});
-            await product.addTags(tags);
-            return res.redirect('/products/detail/' + product.id);
-        } 
-        catch (error) 
-        {
-            console.log(error);
-            return res.send(error);
-        } */
     edit: async (req, res)=>{
         try {
             const product = await db.products.findByPk(req.params.id, associations.get('images', 'tags'));
