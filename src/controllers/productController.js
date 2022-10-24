@@ -47,7 +47,7 @@ module.exports={
             const categories = await db.categories.findAll();
             const tags = await db.tags.findAll();
             const products = await db.products.findAll(associations.get('images', 'tags')); 
-            /* return res.send(products); */
+          /*   return res.send(products); */
             return res.render('createProducts', {categories, tags, products});
         } catch (error) {
             console.log(error);
@@ -64,7 +64,8 @@ module.exports={
             description,
             categoryId,
         }
-        db.products.create(associations.get('images', 'tags'), product)
+
+        db.products.create(product)
         .then(product => {
             return res.redirect('/products/details/' + product.id);
         })
