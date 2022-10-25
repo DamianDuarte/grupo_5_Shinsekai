@@ -12,11 +12,11 @@
         <div class="details__main--photo">
             <div class="details__main--preview">
                 <% if(product.images.constructor === Array) product.images.forEach((img, index) => { %>
-                    <img src="/img/products/<%= img %>" alt="<%= product.name + index %>">
+                    <img src="/img/products/<%= img ? img.filename : 'default.png'%>" alt="<%= product.name + index %>">
                 <% }) %>
             </div>
             <div class="details__main--max">
-                <img src="/img/products/<%= product.images[0] %>" alt="<%= product.name %>0-max">
+                <img src="/img/products/<%= (product.images && product.images[0]) ? product.images[0].filename : 'default.png' %>" alt="<%= product.name %>0-max">
             </div>
         </div>
         <article class="details__main--detail">

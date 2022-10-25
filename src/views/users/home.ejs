@@ -1,8 +1,5 @@
 <html lang="en">
-    <%- include('../partials/head', 
-    {
-        title: 'Home'
-    }) %>   
+    <%- include('../partials/head', { title: 'Home' }) %>   
 <body class="home">
     <%- include('../partials/header') %> 
     <main class="home__main">
@@ -17,44 +14,25 @@
 
             <section class="home__main__showcase__populares">
                 <h3>Productos populares</h3>
-                <% 
-                    const popular = products;  /* Placeholder */
-                    for( let i = 0; i < 4; i++ ) 
-                    { 
-                        let product = popular[popular.length - (i + 1)];    
-                %>
+                <% recommended.forEach((product) => {%>
                 <a class="home__producto" href="/products/details/<%= product.id %>">
-                    <% if(product.images && product.images.length > 0) { %>
-                    <img src= "<%= product.images ? ("/img/products/ + product.images" + product.images[0].filename) : "img/products/default.png" %>" onmouseover="this.src='/img/products/<%= product.images[1].filename %>';" onmouseout="this.src='/img/products/<%= product.images[0] %>';" alt="producto<%= product.id %>">
-                    <% } else { %>
-                        <img src="/img/products/default.png" alt="producto<%= product.id %>">
-                    <% } %>
+                    <img src="/img/products/<%= checkImg.forProduct(product.images) %>" onmouseover="this.src='/img/products/<%= checkImg.forProduct(product.images, 1) %>';" onmouseout="this.src='/img/products/<%= checkImg.forProduct(product.images) %>';" alt="producto<%= product.id %>">
                     <div class="home__producto__nameContainer">
                         <h4><%= product.name %></h4>
                     </div> 
                 </a>
 
-                <%  } %>
+                <%  }) %>
             </section>
         </div>
         
         <a class="home__main__banner" id="banner2" href="/products/details"><img src="/img/banner2.png" alt="banner2"></a>
         <section class="home__main__carrousel">
-            <% 
-            const randomTags = tags;
-            while (randomTags.length > 5) 
-            {
-                randomTags.splice(Math.floor(Math.random() * (randomTags.length - 1)), 1)
-            }
-
-            for (let i = 0; i < randomTags.length; i++) 
-                { %>
-
-            <a href="#">
-                <img src="/img/<%= randomTags[i].imageFilename %>" alt="tag<%= randomTags[i].id %>">
-            </a>
-           
-            <%  } %>
+            <% tags.forEach(tag => { %>
+                <a href="/search?keywords=<%= tag.name %> ">
+                    <img src="/img/tags/<%= tag.imageFilename ? tag.imageFilename : 'default.png'%>" alt="tag<%= tag.id %>">
+                </a>
+            <% }) %>
         </section>
 
         <div class="home__main__infinite">
@@ -68,11 +46,7 @@
                 %>
                 
                 <a class="home__producto" href="/products/details/<%= product.id %>">
-                    <% if(product.images && product.images.length > 0) { %>
-                    <img src= "<%= product.images ? ("/img/products/ + product.images" + product.images[0].filename) : "img/products/default.png" %>" onmouseover="this.src='/img/products/<%= product.images[1].filename %>';" onmouseout="this.src='/img/products/<%= product.images[0] %>';" alt="producto<%= product.id %>">
-                    <% } else { %>
-                        <img src="/img/products/default.png" alt="producto<%= product.id %>">
-                    <% } %>
+                    <img src="/img/products/<%= checkImg.forProduct(product.images) %>" onmouseover="this.src='/img/products/<%= checkImg.forProduct(product.images, 1) %>';" onmouseout="this.src='/img/products/<%= checkImg.forProduct(product.images) %>';" alt="producto<%= product.id %>">
                     <div class="home__producto__nameContainer">
                         <h4><%= product.name %></h4>
                     </div> 

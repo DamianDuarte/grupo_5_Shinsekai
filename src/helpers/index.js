@@ -2,5 +2,6 @@ module.exports =
 {
     associations: require('./associations'),
     filters: require('./filters'),
-    createError: require('./createError')
+    createError: require('./createError'),
+    checkImg: require('./checkImg')
 }

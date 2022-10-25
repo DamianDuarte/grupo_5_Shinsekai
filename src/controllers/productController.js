@@ -6,7 +6,7 @@ const { associations, filters, createError} = require('../helpers');
 module.exports={
     details: async (req, res) => {
         try {
-            const product = await db.products.findByPk(req.params.id, associations.get('images'))
+            let product = await db.products.findByPk(req.params.id, associations.get('images'))
 /*             const products = await db.products.findAll();  No tengo pensado usarte hasta que ande la pagina */
             const categories = await db.categories.findAll();
             const tags = await db.tags.findAll();
