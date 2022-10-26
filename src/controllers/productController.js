@@ -1,6 +1,6 @@
 const db = require('../database/models');
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-const { associations, filters, createError} = require('../helpers');
+const { associations, filters, createError, checkImg} = require('../helpers');
 /* const multer = require('multer'); */
 
 module.exports={
@@ -48,31 +48,43 @@ module.exports={
             const tags = await db.tags.findAll();
             const products = await db.products.findAll(associations.get('images', 'tags')); 
           /*   return res.send(products); */
-            return res.render('createProducts', {categories, tags, products});
+            return res.render('createProducts', {categories, tags, products, checkImg});
         } catch (error) {
             console.log(error);
             return res.send(error);            
         }
     },
     processCreate:async (req, res) => {
+        try 
+        {
+            const product = await db.products.create(
+                {
+                    name: req.body.name.trim(),
+                    price: req.body.price,
+                    discount: req.body.discount,
+                    description: req.body.description.trim(),
+                    categoryId: req.body.categoryId
+                }
+            );
+            
+            if(req.files && req.files.length > 0)
+            {
+                const rows = [];
+                req.files.forEach(file => 
+                    {
+                        rows.push({ filename: file.filename, product_id: product.id})
+                    });
 
- 		const {name, price,discount, description, categoryId} = req.body;
-        const product = {
-            name,
-            price,
-            discount,
-            description,
-            categoryId,
-        }
+                await db.productimages.bulkCreate(rows);
+            }
 
-        db.products.create(product)
-        .then(product => {
             return res.redirect('/products/details/' + product.id);
-        })
-        .catch(error => {
+        } 
+        catch (error) 
+        {
             console.log(error);
             return res.send(error);
-        }) 
+        } 
     },
     
     edit: async (req, res)=>{
@@ -85,7 +97,7 @@ module.exports={
             console.log(product);
             if(!product) throw createError(404, 'Producto no encontrado');
 
-            return res.render('editProducts', { product, products, categories, tags });
+            return res.render('editProducts', { product, products, categories, tags, checkImg });
         } catch (error) {
             console.log(error);
             return res.send(error);            
@@ -94,11 +106,23 @@ module.exports={
     update: async (req, res)=>{
         try {
             const product = await db.products.findByPk(req.params.id, associations.get('images', 'tags'));
-            const products  = await db.products.findAll(associations.get('images'));
-            const categories = await db.categories.findAll();
-            const tags = await db.tags.findAll();
 
             if(!product) throw createError(404, 'Producto no encontrado.')
+
+            if(req.files && req.files.length > 0)
+            {
+                await db.productimages.destroy(
+                    { where: { product_id: product.id }}
+                );
+
+                const rows = [];
+                req.files.forEach(file => 
+                    {
+                        rows.push({ filename: file.filename, product_id: product.id})
+                    });
+                
+                await db.productimages.bulkCreate(rows);
+            }
 
             await product.update({
                 name: req.body.name,

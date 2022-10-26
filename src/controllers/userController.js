@@ -92,11 +92,24 @@ module.exports =
             
             if(req.file)
             {
-                await db.userimages.update(
+                const avatar = await db.userimages.findOne(filters.where('user_id', user.id));
+
+                if(avatar)
                 {
-                    filename: req.file.filename
-                }, 
-                filters.where('user_id', user.id));
+                    await avatar.update(
+                        {
+                            filename: req.file.filename
+                        });
+                }
+                else
+                {
+                    await db.userimages.create(
+                        {
+                            filename: req.file.filename,
+                            user_id: user.id
+                        }
+                    )
+                }
             }
 
             await user.update(

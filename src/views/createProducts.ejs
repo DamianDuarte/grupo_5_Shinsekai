@@ -14,12 +14,12 @@
                     <hr>
                     <div class="hugeContainer">
                         <input type="file" name="images" id="images" accept=".jpg, .png, .jpeg" form="addProduct"
-                            hidden>
+                            multiple hidden>
                         <label class="editProducts__main__agregar__productImg" for="images">
                             <img src="/img/products/product.jpg" alt="productImg">
                         </label>
 
-                        <form id="addProduct" class="editProducts__main__agregar__form" action="" method="POST">
+                        <form id="addProduct" class="editProducts__main__agregar__form" action="" method="POST" enctype="multipart/form-data">
                             <div class="inputGroup">
                                 <input class="c_nombre" type="text" name="name" placeholder="Nombre del producto"
                                     required>
@@ -91,8 +91,7 @@
                         <div class="productList">
                             <% for( let i=0; i < products.length; i++ ) { %>
                                 <a href="/edit/product/<%= products[i].id %>">
-                                    <img src="/img/products/<%= (products[i].images != null && products[i].images.length > 0) ? products[i].images[0].filename : 'default.png'%>"
-                                        alt="producto<%= products[i].id %>">
+                                    <img src="/img/products/<%= checkImg.forProduct(products[i].images) %>" alt="producto<%= products[i].id %>">
                                     <h5>
                                         <%= products[i].name %>
                                     </h5>
