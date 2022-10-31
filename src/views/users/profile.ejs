@@ -8,7 +8,7 @@
             <div class="profile__main__firstColumn column">
                 <img src="/img/users/<%= userProfile.avatar ? userProfile.avatar.filename : 'AvatarDefault.jpeg'%> " alt="user-img">
                 <h1><%= userProfile.username %></h1>
-                <% if (locals.user && ((userProfile.username === user.userName) || user.admin)) { %>
+                <% if (locals.user && ((userProfile.username === user.username) || user.admin)) { %>
                     <div class="buttons">
                         <a href="/user/edit/<%= userProfile.username %> ">Editar perfil</a>
                         <a href="#">Ver cuentas vinculadas</a>

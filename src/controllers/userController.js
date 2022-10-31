@@ -194,7 +194,7 @@ module.exports =
             let user;
 
             req.body.username.includes('@') ?
-                user = await db.users.findOne(filters.where('email', req.body.email.toLowerCase().trim(), 'avatar'))
+                user = await db.users.findOne(filters.where('email', req.body.username.toLowerCase().trim(), 'avatar'))
                 : user = await db.users.findOne(filters.where('username', req.body.username.toLowerCase().trim(), 'avatar'));
             
             req.session.user =
