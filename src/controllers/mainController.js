@@ -3,33 +3,23 @@ const db = require('../database/models');
 const { Op, Sequelize } = require("sequelize");
 const { associations, checkImg } = require('../helpers');
 
-function searchWords(product, categories, tags, words) {
-    for (let i = 0; i < words.length; i++) {
-        let word = words[i].toLowerCase();
+const imgFitter = (imageCount, totalSlots) =>
+{
+    //* do later*/
 
-        if (product.name.toLowerCase().includes(word)) return true;
-        if (categories.find(c => c.id === +product.category).name.toLowerCase() === word) return true;
-
-        for (let e = 0; e < product.tags.length; e++) {
-            let tag = product.tags[e];
-            if (tags.find(t => t.id === +tag).name.toLowerCase() === word) return true;
-        }
-    }
-
-    return false;
+    return ['product-wide', 'product-wide', 'product', 'product-wide', 'product', 'product', 'product']
 }
-
 
 module.exports={
     home: async (req, res)=>{
         try 
         {
             let products = await db.products.findAll(associations.get('images')); 
-            let recommended = await db.products.findAll(
+            let popular = await db.products.findAll(
                 {
                     include: [{association: 'images'}],
                     order: [['views', 'DESC']],
-                    limit: 4
+                    limit: 7
                 }
             )
             const categories = await db.categories.findAll();
@@ -40,7 +30,7 @@ module.exports={
                 }
             );
 
-            return res.render('./users/home', { products, recommended, categories, tags, checkImg });
+            return res.render('./users/home', { products, popular, categories, tags, checkImg, imgFitter: imgFitter(7, 10)});
         }
         catch (error) {
             console.log(error);

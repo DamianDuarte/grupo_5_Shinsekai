@@ -1,0 +1,17 @@
+<section class="recommendedSection">
+    <h3>Nuestras recomendaciones para tí</h3>
+
+    <div class="recommended-grid">
+        <% products.forEach(product => { %>
+            <div class="productContainer">
+                <div class="product" style="background-image:url('/img/products/<%= checkImg.forProduct(product.images) %>')">
+                    <a href="/products/details/<%= product.id %>" class="link"></a>
+                </div>
+                <div class="productInfo">
+                    <h5><%= product.name %></h5>
+                    <h5>$<%= product.price %></h5>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+</section>

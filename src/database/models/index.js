@@ -122,4 +122,9 @@ db.products.belongsToMany(db.tags,
     as: 'tags'
   });
 
+
+//! ------------- Más asociaciones ---------------- 
+
+
+
 module.exports = db;

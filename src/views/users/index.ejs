@@ -1,0 +1,61 @@
+<html lang="en">
+    <%- include('../partials/head', { title: 'Home' }) %>   
+<body class="home">
+    <%- include('../partials/header') %> 
+    <main class="home__main">
+        <a class="home__main__banner" href="/products/details/11"><img src="/img/banner1.png" alt="banner1"></a>
+        <div class="home__main__showcase">
+            <section class="home__main__showcase__rebajas">
+                <h3>Rebajas</h3>
+                <a href="/products/details/11"><img src="/img/sale.png" alt="sale1"></a>
+                <a href="/products/details/11"><img src="/img/sale.png" alt="sale2"></a>
+                <a href="/products/details/11"><img src="/img/sale.png" alt="sale3"></a>
+            </section>
+
+            <section class="home__main__showcase__populares">
+                <h3>Productos populares</h3>
+                <% popular.forEach((product) => {%>
+                <a class="home__producto" href="/products/details/<%= product.id %>">
+                    <img src="/img/products/<%= checkImg.forProduct(product.images) %>" onmouseover="this.src='/img/products/<%= checkImg.forProduct(product.images, 1) %>';" onmouseout="this.src='/img/products/<%= checkImg.forProduct(product.images) %>';" alt="producto<%= product.id %>">
+                    <div class="home__producto__nameContainer">
+                        <h4><%= product.name %></h4>
+                    </div> 
+                </a>
+
+                <%  }) %>
+            </section>
+        </div>
+        
+        <a class="home__main__banner" id="banner2" href="/products/details"><img src="/img/banner2.png" alt="banner2"></a>
+        <section class="home__main__carrousel">
+            <% tags.forEach(tag => { %>
+                <a href="/search?keywords=<%= tag.name %> ">
+                    <img src="/img/tags/<%= tag.imageFilename ? tag.imageFilename : 'default.png'%>" alt="tag<%= tag.id %>">
+                </a>
+            <% }) %>
+        </section>
+
+        <div class="home__main__infinite">
+            <h3>Recomendaciones para tí</h3>
+
+            <section class="home__main__infinite__recomendaciones">
+                <% 
+                    for( let i = 0; i < products.length; i++ ) 
+                    { 
+                        let product = products[i];
+                %>
+                
+                <a class="home__producto" href="/products/details/<%= product.id %>">
+                    <img src="/img/products/<%= checkImg.forProduct(product.images) %>" onmouseover="this.src='/img/products/<%= checkImg.forProduct(product.images, 1) %>';" onmouseout="this.src='/img/products/<%= checkImg.forProduct(product.images) %>';" alt="producto<%= product.id %>">
+                    <div class="home__producto__nameContainer">
+                        <h4><%= product.name %></h4>
+                    </div> 
+                </a>
+                
+                <%  } %>
+            </section>
+        </div>
+    </main>
+    <%- include('../partials/footer') %> 
+</body>
+</html>

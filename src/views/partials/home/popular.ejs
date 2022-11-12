@@ -1,0 +1,18 @@
+<section class="popularSection">
+    <h3>Productos populares</h3>
+
+    <div class="popular-grid">
+        <% popular.forEach((product, i) => { %>
+            <div class="product <%= imgFitter[i] %>" style="background-image:url('/img/products/<%= checkImg.forProduct(product.images) %>')">
+                <a href="/products/details/<%= product.id %>"></a>
+                <div class="invisibleParent">
+                    <div class="infoContainer">
+                        <h3><%= product.name %></h3>
+                        <h5>$<%= product.price %></h5>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+        </div>
+    </div>
+</section>

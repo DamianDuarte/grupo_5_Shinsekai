@@ -5,4 +5,12 @@ function forProduct(imgArray, index = 0) {
     else return imgArray[index].filename;
 }
 
-module.exports = { forProduct }
+function forTag(img)
+{
+    const defaultPic = "default.png";
+
+    if(!img) return defaultPic;
+    else return img;
+}
+
+module.exports = { forProduct, forTag }
