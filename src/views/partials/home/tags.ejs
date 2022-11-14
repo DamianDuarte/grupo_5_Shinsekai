@@ -4,7 +4,7 @@
       <% tags.forEach((tag, i) => { %>
         <a href="#" class="tag">
           <h2 class="tagName"><%= tag.name %></h2>   
-          <img src="./img/tags/<%= checkImg.forTag(tag.img) %>"  alt="tag_img">
+          <img src="./img/tags/<%= checkImg.forTag(tag.imageFilename) %>"  alt="tag_img">
         </a>
         <div class="favButtonContainer">
           <% if (tag.fav) { %>
