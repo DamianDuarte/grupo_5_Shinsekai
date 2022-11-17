@@ -4,5 +4,6 @@ module.exports =
     filters: require('./filters'),
     createError: require('./createError'),
     checkImg: require('./checkImg'),
-    apiHelper: require('./apiHelper')
+    apiHelper: require('./apiHelper'),
+    url: require('./url')
 }
