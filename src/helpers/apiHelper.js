@@ -65,6 +65,35 @@ function addDetailToData(req, data)
     return data;
 }
 
+function userReply(res, data = null, status = 200, msg = '')
+{
+    let meta = {};
+
+    if(status != 200)
+    {
+        console.log(msg);
+
+        meta = 
+        {
+            status,
+            count: -1,
+            msg: `Error ${status} - ${msg}`,
+            errorImg: `http://http.cat/${status}.jpg`
+        };
+
+        return res.status(status).json({ data, ...meta });
+    }
+
+    meta = 
+    {
+        status,
+        count: data ? data.length : 0,
+        msg: msg ? msg : 'Success!'
+    };
+
+    return res.status(status).json({ data, ...meta });
+}
+
 function productReply(res, data = null, status = 200, msg = '')
 {
     let meta = {};
@@ -97,4 +126,4 @@ function productReply(res, data = null, status = 200, msg = '')
 }
 
 
-module.exports = { productReply, addDetailToData, addImgToData };
+module.exports = { productReply, addDetailToData, addImgToData, userReply };
