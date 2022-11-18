@@ -3,7 +3,7 @@ const router = express.Router();
 
 // ******* CONTROLLERS REQUIRE ********
 
-const {getProfile, setProfile, remove, getAvatar} = require('../controllers/userApiController');
+const { getOne, getAll, getImg } = require('../controllers/userApiController');
 
 /* Middlewares */
 
@@ -11,3 +11,6 @@ const {getProfile, setProfile, remove, getAvatar} = require('../controllers/user
 /* /users */
 
 router
+    .get('/user/:id', getOne)
+    .get('/user', getAll)
+    .get('/user/img/:id', getImg)
