@@ -2,12 +2,13 @@ const db = require('../../database/models');
 const path = require('path');
 const { createError, apiHelper} = require('../../helpers');
 
-module.export = {
+module.exports = {
 
     getOne: async (req, res) => {
         try {
             const { id } = req.params;
-            const user = await User.findByPk(id, {
+            if(isNaN(id)) throw createError(400, 'No aceptamos numeros romanos, salame. Escribe en cristiano');
+            let user = await db.users.findByPk(id, {
                 attributes: {
                     exclude: ['password']
                 },
@@ -16,11 +17,15 @@ module.export = {
                         association: 'avatar' 
                     },
                     {
-                        association: 'followingTags'
+                        association: 'tagsFollowing'
                     }
 
                 ]
             });
+
+            if(!user) throw createError(404, 'El usuario no pudo ser encontrado');
+            
+
             user = apiHelper.addDetailToData(req, user);
             user = apiHelper.addImgToData(req, user, 'user');
             
@@ -32,7 +37,7 @@ module.export = {
     },
     getAll: async (req, res) => {
         try {
-            const users = await User.findAll({
+            let users = await db.users.findAll({
                 attributes: {
                     exclude: ['password']
                 },
@@ -41,7 +46,7 @@ module.export = {
                         association: 'avatar' 
                     },
                     {
-                        association: 'followingTags'
+                        association: 'tagsFollowing'
                     }
 
                 ]
@@ -57,7 +62,7 @@ module.export = {
     },
     getImg: async (req, res) =>
     {
-        return res.sendFile(path.join(__dirname, '..','..', '..', 'public','img','products', req.params.filename));
+        return res.sendFile(path.join(__dirname, '..','..', '..', 'public','img','users', req.params.filename));
     }
 
 
