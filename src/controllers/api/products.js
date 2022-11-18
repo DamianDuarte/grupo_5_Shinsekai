@@ -6,9 +6,25 @@ module.exports =
 {
     getAll: async (req, res) => 
     {
+        const orderByChoices = ['id', 'name', 'price', 'discount', 'views'];
+        const limit = req.query.limit ? +req.query.limit : 10;
+        const page = req.query.page ? +req.query.page : 0;
+        const orderBy = (req.query.orderBy && orderByChoices.includes(req.query.orderBy)) ? req.query.orderBy : 'id';
+
         try 
         {
-            let products = await db.products.findAll(associations.get('images', 'category', 'sale', 'tags'));
+            /* let products = await db.products.findAll(associations.get('images', 'category', 'sale', 'tags')); */
+            let products = await db.products.findAll(
+                {
+                    include: 
+                    [
+                        { association: 'images' }, { association: 'category' }, { association: 'sale' }, { association: 'tags' }
+                    ],
+                    limit,
+                    offset: limit * page,
+                    order: [orderBy]
+                }
+            );
             products = apiHelper.addDetailToData(req, products);
             products = apiHelper.addImgToData(req, products, 'products');
             
