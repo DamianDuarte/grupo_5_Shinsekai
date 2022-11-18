@@ -37,7 +37,15 @@ module.exports = {
     },
     getAll: async (req, res) => {
         try {
+
+            const orderByChoices = ['id', 'username', 'firstName', 'isAdmin', 'subscription_id'];
+            const limit = req.query.limit ? +req.query.limit : 10;
+            const page = req.query.page ? +req.query.page : 0;
+            const orderBy = (req.query.orderBy && orderByChoices.includes(req.query.orderBy)) ? req.query.orderBy : 'id';
+
+
             let users = await db.users.findAll({
+
                 attributes: {
                     exclude: ['password']
                 },
@@ -49,7 +57,10 @@ module.exports = {
                         association: 'tagsFollowing'
                     }
 
-                ]
+                ],
+                limit,
+                offset: limit * page,
+                order: [orderBy]
             });
             users = apiHelper.addDetailToData(req, users);
             users = apiHelper.addImgToData(req, users, 'users');
