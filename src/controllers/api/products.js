@@ -30,7 +30,7 @@ module.exports =
             products = apiHelper.addImgToData(req, products, 'products');
             products = apiHelper.addMeta(products, await db.products.count());
             products = apiHelper.addCategoryCount(products);
-            products = apiHelper.addNavUrls(req, products, page, perPage);
+            products = apiHelper.addNavUrls(req, products, page, perPage, orderBy);
 
             return res.status(products.status).json(products);
         } 
