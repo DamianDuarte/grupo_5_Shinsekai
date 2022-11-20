@@ -124,7 +124,208 @@ db.products.belongsToMany(db.tags,
 
 
 //! ------------- Más asociaciones ---------------- 
+db.linkedaccounts.belongsTo(db.users,
+  {
+    foreignKey: 'user_id',
+    as: 'user'
+  });
+db.users.hasMany(db.linkedaccounts,
+  {
+    foreignKey: 'user_id',
+    as: 'linkedAccounts'
+  });
 
+db.products.belongsToMany(db.availablecolors,
+  {
+    through: 'products_availableColors',
+    foreignKey: 'product_id',
+    otherKey: 'availableColor_id',
+    as: 'colors'
+  });
+db.availablecolors.belongsToMany(db.products,
+  {
+    through: 'products_availableColors',
+    foreignKey: 'availableColor_id',
+    otherKey: 'product_id',
+    as: 'products'
+  });
 
+db.products.belongsToMany(db.clothessizes,
+  {
+    through: 'products_clothesSizes',
+    foreignKey: 'product_id',
+    otherKey: 'clothesSize_id',
+    as: 'sizes'
+  });
+db.clothessizes.belongsToMany(db.products,
+  {
+    through: 'products_clothesSizes',
+    foreignKey: 'clothesSize_id',
+    otherKey: 'product_id',
+    as: 'products'
+  });
+
+db.products.belongsToMany(db.metricsizes,
+  {
+    through: 'products_metricSizes',
+    foreignKey: 'product_id',
+    otherKey: 'metricSize_id',
+    as: 'metricSizes'
+  });
+db.metricsizes.belongsToMany(db.products,
+  {
+    through: 'products_metricSizes',
+    foreignKey: 'metricSize_id',
+    otherKey: 'product_id',
+    as: 'products'
+  });
+
+db.purchasedhistories.belongsTo(db.users,
+  {
+    foreignKey: 'user_id',
+    as: 'user'
+  });
+db.users.hasOne(db.purchasedhistories,
+  {
+    foreignKey: 'user_id',
+    as: 'purchasedHistory'
+  });
+
+db.purchasedhistories.belongsToMany(db.products, 
+  {
+    through: 'purchasedHistories_products',
+    foreignKey: 'purchasedHistory_id',
+    otherKey: 'product_id',
+    as: 'products'
+  });
+db.products.belongsToMany(db.purchasedhistories,
+  {
+    through: 'purchasedHistories_products',
+    foreignKey: 'product_id',
+    otherKey: 'purchasedHistory_id',
+    as: 'products'
+  });
+
+db.users.hasMany(db.purchaseorders,
+  {
+    foreignKey: 'user_id',
+    as: 'purchaseOrders'
+  });
+db.purchaseorders.belongsTo(db.users,
+  {
+    foreignKey: 'user_id',
+    as: 'user'
+  });
+
+db.purchaseorders.belongsToMany(db.products,
+  {
+    through: 'purchaseOrders_products',
+    foreignKey: 'purchaseOrder_id',
+    otherKey: 'product_id',
+    as: 'products'
+  });
+db.products.belongsToMany(db.purchaseorders,
+  {
+    through: 'purchaseOrders_products',
+    foreignKey: 'product_id',
+    otherKey: 'purchaseOrder_id',
+    as: 'purchaseOrders'
+  });
+
+db.users.hasOne(db.wishlists,
+  {
+    foreignKey: 'user_id',
+    as: 'wishList'
+  });
+db.wishlists.belongsTo(db.users,
+  {
+    foreignKey: 'user_id',
+    as: 'user'
+  });
+
+db.wishlists.belongsToMany(db.products,
+  {
+    through: 'wishLists_products',
+    foreignKey: 'wishList_id',
+    otherKey: 'product_id',
+    as: 'products'
+  });
+db.products.belongsToMany(db.wishlists,
+  {
+    through: 'wishLists_products',
+    foreignKey: 'product_id',
+    otherKey: 'wishList_id',
+    as: 'wishLists'
+  });
+
+db.users.hasOne(db.viewedhistories,
+  {
+    foreignKey: 'user_id',
+    as: 'viewedHistory'
+  });
+db.viewedhistories.belongsTo(db.users,
+  {
+    foreignKey: 'user_id',
+    as: 'user'
+  });
+
+db.viewedhistories.belongsToMany(db.products,
+  {
+    through: 'viewedHistories_products',
+    foreignKey: 'viewedHistory_id',
+    otherKey: 'product_id',
+    as: 'products'
+  });
+db.products.belongsToMany(db.viewedhistories,
+  {
+    through: 'viewedHistories_products',
+    foreignKey: 'product_id',
+    otherKey: 'viewedHistory_id',
+    as: 'viewedHistories'
+  });
+
+db.users.hasMany(db.productcomments,
+  {
+    foreignKey: 'user_id',
+    as: 'comments'
+  });
+db.productcomments.belongsTo(db.users,
+  {
+    foreignKey: 'user_id',
+    as: 'author'
+  });
+
+db.productcomments.belongsTo(db.products,
+  {
+    foreignKey: 'product_id',
+    as: 'product'
+  });
+db.products.hasMany(db.productcomments, 
+  {
+    foreignKey: 'product_id',
+    as: 'comments'
+  });
+
+db.users.hasMany(db.productreviews,
+  {
+    foreignKey: 'user_id',
+    as: 'reviews'
+  });
+db.productreviews.belongsTo(db.users,
+  {
+    foreignKey: 'user_id',
+    as: 'author'
+  });
+
+db.productreviews.belongsTo(db.products,
+  {
+    foreignKey: 'product_id',
+    as: 'product'
+  });
+db.products.hasMany(db.productreviews,
+  {
+    foreignKey: 'product_id',
+    as: 'reviews'
+  });
 
 module.exports = db;
