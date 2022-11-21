@@ -1,9 +1,10 @@
 const url = require('./url');
 
-const countProductCategories = (data) =>
+const addCategoryCount = (dataWithMeta) =>
 {
-    let result = {};
-    let categories = [{id: -1, name: 'Sin categoría', amount: 0}];
+    const data = dataWithMeta.data;
+    let countByCategory = {};
+    let categories = [{id: -1, name: 'Sin categoría', count: 0}];
 
     if(Array.isArray(data))
     {
@@ -11,29 +12,30 @@ const countProductCategories = (data) =>
 
             if(!product.category)
             {
-                categories[0].amount++
+                categories[0].count++
                 return;
             }
             
             const index = categories.findIndex(category => category.name === product.category.name);
             (index != -1) ? 
-                categories[index].amount++ : 
-                categories.push({id: product.category.id, name: product.category.name, amount: 1});
+                categories[index].count++ : 
+                categories.push({id: product.category.id, name: product.category.name, count: 1});
         });
     
         categories.forEach(category => {
-            result[category.name] = { id: category.id, amount: category.amount };
+            countByCategory[category.name] = { id: category.id, count: category.count };
         });
     }
     else
     {
-        result[data.category ? data.category.name : 'Sin categoría'] = { id: data.category ? data.category.id : -1, amount: 1 };
+        countByCategory[data.category ? data.category.name : 'Sin categoría'] = { id: data.category ? data.category.id : -1, count: 1 };
     }
 
-    return result;
+    dataWithMeta.data = data;
+    return { ...dataWithMeta, countByCategory };
 }
 
-const addImg = (req, unit, route) =>
+const attachImgUrl = (req, unit, route) =>
 {
     if(unit.images)
     {
@@ -48,9 +50,9 @@ const addImg = (req, unit, route) =>
 function addImgToData (req, data, route)
 {
     if(Array.isArray(data))
-        data.forEach(unit => unit = addImg(req, unit, route));
+        data.forEach(unit => unit = attachImgUrl(req, unit, route));
     else
-        addImg(req, data, route);
+        attachImgUrl(req, data, route);
     
     return data;
 }
@@ -58,72 +60,82 @@ function addImgToData (req, data, route)
 function addDetailToData(req, data)
 {
     if(Array.isArray(data))
-        data.forEach(unit => { unit.setDataValue('url', `${url.get(req)}/${unit.id}`) });
+    {
+        let currentUrl = url.get(req);
+        (currentUrl.includes('/?')) && (currentUrl = currentUrl.slice(0, currentUrl.indexOf('/?')));
+        data.forEach(unit => { unit.setDataValue('url', `${currentUrl}/${unit.id}`) });
+    }
     else
+    {
         data.setDataValue('url', `${url.get(req)}`);    
+    }
 
     return data;
 }
 
-function userReply(res, data = null, status = 200, msg = '')
+function addNavUrls(req, dataWithMeta, currentPage, perPage, orderBy)
 {
-    let meta = {};
+    let prevUrl = nextUrl = url.get(req);
 
-    if(status != 200)
+    if(prevUrl.includes('page='))
+    {   
+        if(dataWithMeta.count == perPage && ((currentPage + 1) * perPage < dataWithMeta.totalCount))
+            nextUrl = nextUrl.replace(`page=${currentPage}`, `page=${(currentPage + 1)}`);
+        else
+            nextUrl = null;
+        
+        if(currentPage > 0) 
+            prevUrl = prevUrl.replace(`page=${currentPage}`, `page=${(currentPage - 1)}`)
+        else
+            prevUrl = null;
+    }
+    else if(prevUrl.includes('?'))
     {
-        console.log(msg);
+        prevUrl = null;
 
-        meta = 
+        if(dataWithMeta.count == perPage && ((currentPage + 1) * perPage < dataWithMeta.totalCount))
+            nextUrl = nextUrl.slice(0, nextUrl.indexOf('/?') + 2) + "limit=" + perPage + "&page=1&orderBy=" + orderBy; 
+    }
+    else
+    {
+        prevUrl = null;
+
+        if(dataWithMeta.count == perPage && ((currentPage + 1) * perPage < dataWithMeta.totalCount))
         {
-            status,
-            count: -1,
-            msg: `Error ${status} - ${msg}`,
-            errorImg: `http://http.cat/${status}.jpg`
-        };
-
-        return res.status(status).json({ data, ...meta });
+            nextUrl += (nextUrl[nextUrl.length - 1] == '/') ? '' : '/';
+            nextUrl += `?limit=${perPage}&page=1&orderBy=${orderBy}`;
+        }
+        else
+        {
+            nextUrl = null;
+        }
     }
 
-    meta = 
-    {
-        status,
-        count: data ? data.length : 0,
-        msg: msg ? msg : 'Success!'
-    };
-
-    return res.status(status).json({ data, ...meta });
+    return { ...dataWithMeta, orderBy, currentPage, perPage, prevUrl, nextUrl };
 }
 
-function productReply(res, data = null, status = 200, msg = '')
+function addMeta(data, totalCount, status = 200, msg = 'success')
 {
-    let meta = {};
-
-    if(status != 200)
-    {
-        console.log(msg);
-
-        meta = 
-        {
-            status,
-            count: -1,
-            countByCategory: null,
-            msg: `Error ${status} - ${msg}`,
-            errorImg: `http://http.cat/${status}.jpg`
-        };
-
-        return res.status(status).json({ data, ...meta });
+    result = 
+    { 
+        data,
+        status,
+        totalCount,
+        count: data ? data.length : 0,
+        msg
     }
 
-    meta = 
-    {
-        status,
-        count: data ? data.length : 0,
-        countByCategory: countProductCategories(data),
-        msg: msg ? msg : 'Success!'
-    };
-
-    return res.status(status).json({ data, ...meta });
+    return result;
 }
 
+function error(res, status = 400, msg)
+{
+    console.log(msg);
 
-module.exports = { productReply, addDetailToData, addImgToData, userReply };
+    return res.status(status).json({
+        data: null, status, 
+        msg: `Error ${status} - ${msg}`, 
+        errorImg: `http://http.cat/${status}.jpg`});
+}
+
+module.exports = { error, addCategoryCount, addDetailToData, addImgToData, addMeta, addNavUrls };
