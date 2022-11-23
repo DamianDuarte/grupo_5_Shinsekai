@@ -14,6 +14,7 @@ var userRouter= require('./routes/user');
 var editRouter = require('./routes/edit');
 var apiRouter = require('./routes/api');
 var apiUserRouter = require('./routes/apiUser');
+var apiAuth = require ('./routes/auth');
 
 var app = express();
 
@@ -45,6 +46,8 @@ app.use('/user', userRouter);
 app.use('/edit', editRouter);
 app.use('/api', apiRouter);
 app.use('/api/user', apiUserRouter);
+app.use('/api/auth', apiAuth);
+
 app.use(session(
   {
     secret: 'Shinsekai11',
