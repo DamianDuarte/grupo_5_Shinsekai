@@ -3,12 +3,10 @@ const express = require('express');
 const router = express.Router();
 
 // ************ Controller Require ************
-const {signUp, signIn} = require('../controllers/authController');
-const {uploadUser} = require('../middlewares');
+const {signUp, signIn} = require('../controllers/api/authController');
 
-/* /users */
-router
-    .post('/signup', uploadUser.single('avatar'), signUp)
-    .post('/signin', signIn)
+
+router.post('/signup', signUp);
+router.post('/signin', signIn)
 
 module.exports = router;
