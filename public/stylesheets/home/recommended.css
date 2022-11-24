@@ -1,7 +1,20 @@
 .recommendedSection
 {
     font-family: var(--f_general);
+    border-radius: 20px;
+    padding: 15px 5px;
+    margin: 0px 10px;
+    background-blend-mode: soft-light;
+    background-size: cover;
     padding-bottom: 50px;
+}
+
+.recommendedSection h3
+{
+    background-color: var(--dark_squares);
+    color: black;
+    border-radius: 15px;
+    padding: 20px;
 }
 
 .recommendedSection h2
