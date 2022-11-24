@@ -12,9 +12,9 @@ var mainRouter = require('./routes/main');
 var productsRouter = require('./routes/products');
 var userRouter= require('./routes/user');
 var editRouter = require('./routes/edit');
-var apiRouter = require('./routes/api');
-var apiUserRouter = require('./routes/apiUser');
-var apiAuth = require ('./routes/auth');
+var apiProductRouter = require('./routes/apiProducts');
+var apiUserRouter = require('./routes/apiUsers');
+var apiAuthRouter = require ('./routes/apiAuth');
 
 var app = express();
 
@@ -44,9 +44,9 @@ app.use('/', mainRouter);
 app.use('/products', productsRouter);
 app.use('/user', userRouter);
 app.use('/edit', editRouter);
-app.use('/api', apiRouter);
-app.use('/api/user', apiUserRouter);
-app.use('/api/auth', apiAuth);
+app.use('/api/products', apiProductRouter);
+app.use('/api/users', apiUserRouter);
+app.use('/api/auth', apiAuthRouter);
 
 app.use(session(
   {

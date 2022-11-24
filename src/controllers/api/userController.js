@@ -1,7 +1,6 @@
 const db = require('../../database/models');
 const path = require('path');
 const { createError, apiHelper } = require('../../helpers');
-const products = require('./products');
 
 module.exports = {
 
