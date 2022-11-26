@@ -76,9 +76,12 @@ const attachImgUrl = (req, unit) =>
                 }
                 break;
             case 'imageFilename':
-                if(req.originalUrl.includes('category')) unit.setDataValue('imgUrl', `${url.getImg(req, 'categories')}/${unit.imageFilename}`)
-                else if(req.originalUrl.includes('tag')) unit.setDataValue('imgUrl', `${url.getImg(req, 'tags')}/${unit.imageFilename}`)
-                else if(req.originalUrl.includes('sale')) unit.setDataValue('imgUrl', `${url.getImg(req, 'sales')}/${unit.imageFilename}`)
+                if(req.originalUrl.includes('category')) 
+                    unit.setDataValue('imgUrl', `${url.getImg(req, 'categories')}/${unit.imageFilename}`)
+                else if(req.originalUrl.includes('tag')) 
+                    unit.setDataValue('imgUrl', `${url.getImg(req, 'tags')}/${unit.imageFilename}`)
+                else if(req.originalUrl.includes('sale')) 
+                    unit.setDataValue('imgUrl', `${url.getImg(req, 'sales')}/${unit.imageFilename}`)
                 break
             case 'wishList':
             case 'viewedHistory':
