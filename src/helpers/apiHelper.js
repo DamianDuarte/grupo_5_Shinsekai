@@ -37,7 +37,7 @@ const addCategoryCount = (dataWithMeta) =>
 
 const attachImgUrl = (req, unit) =>
 {
-    for (const key in unit) 
+    for (const key in unit.dataValues) 
     {
         switch (key) {
             case 'images':
@@ -63,6 +63,35 @@ const attachImgUrl = (req, unit) =>
             case 'sale':
                 if(unit.sale)
                     unit.sale.setDataValue('url', `${url.getImg(req, 'sales')}/${unit.sale.imageFilename}`)
+                break;
+            case 'products':
+                if(unit.products)
+                {
+                    unit.products.forEach(product => 
+                        {
+                            if(product.images)
+                            product.images.forEach(img => img.setDataValue('url', `${url.getImg(req, 'products')}/${img.filename}`))
+                        }
+                    )
+                }
+                break;
+            case 'imageFilename':
+                if(req.originalUrl.includes('category')) unit.setDataValue('imgUrl', `${url.getImg(req, 'categories')}/${unit.imageFilename}`)
+                else if(req.originalUrl.includes('tag')) unit.setDataValue('imgUrl', `${url.getImg(req, 'tags')}/${unit.imageFilename}`)
+                else if(req.originalUrl.includes('sale')) unit.setDataValue('imgUrl', `${url.getImg(req, 'sales')}/${unit.imageFilename}`)
+                break
+            case 'wishList':
+            case 'viewedHistory':
+            case 'purchasedHistory':
+                if(unit[key]) attachImgUrl(req, unit[key]);
+                break;
+            case 'purchaseOrders':
+                unit.purchaseOrders.forEach(order => order && attachImgUrl(req, order));
+                break;
+            case 'comments':
+            case 'reviews':
+                if(unit[key]) 
+                    unit[key].forEach(c => c.author && attachImgUrl(req, c.author))
                 break;
             default:
                 break;
