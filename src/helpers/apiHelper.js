@@ -35,24 +35,47 @@ const addCategoryCount = (dataWithMeta) =>
     return { ...dataWithMeta, countByCategory };
 }
 
-const attachImgUrl = (req, unit, route) =>
+const attachImgUrl = (req, unit) =>
 {
-    if(unit.images)
+    for (const key in unit) 
     {
-        unit.images.forEach(img => img.setDataValue('url', `${url.getImg(req, route)}/${img.filename}`))
-    }
-    else if (unit.avatar)
-    {
-        unit.avatar.setDataValue('url', `${url.getImg(req, route)}/${unit.avatar.filename}`)
+        switch (key) {
+            case 'images':
+                if(unit.images)
+                    unit.images.forEach(img => img.setDataValue('url', `${url.getImg(req, 'products')}/${img.filename}`))
+                break;
+            case 'avatar':
+                if(unit.avatar)
+                    unit.avatar.setDataValue('url', `${url.getImg(req, 'users')}/${unit.avatar.filename}`)
+                break;
+            case 'tags':
+                if(unit.tags)
+                    unit.tags.forEach(tag => tag.setDataValue('url', `${url.getImg(req, 'tags')}/${tag.imageFilename}`))
+                break;
+            case 'tagsFollowing':
+                if(unit.tagsFollowing)
+                    unit.tagsFollowing.forEach(tag => tag.setDataValue('url', `${url.getImg(req, 'tags')}/${tag.imageFilename}`))
+                break;
+            case 'category':
+                if(unit.category)
+                unit.category.setDataValue('url', `${url.getImg(req, 'categories')}/${unit.category.imageFilename}`)
+                break;
+            case 'sale':
+                if(unit.sale)
+                    unit.sale.setDataValue('url', `${url.getImg(req, 'sales')}/${unit.sale.imageFilename}`)
+                break;
+            default:
+                break;
+        }
     }
 }
 
-function addImgToData (req, data, route)
+function addImgToData (req, data)
 {
     if(Array.isArray(data))
-        data.forEach(unit => unit = attachImgUrl(req, unit, route));
+        data.forEach(unit => unit = attachImgUrl(req, unit));
     else
-        attachImgUrl(req, data, route);
+        attachImgUrl(req, data);
     
     return data;
 }
