@@ -1,7 +1,20 @@
 .recommendedSection
 {
     font-family: var(--f_general);
+    border-radius: 20px;
+    padding: 15px 5px;
+    margin: 0px 10px;
+    background-blend-mode: soft-light;
+    background-size: cover;
     padding-bottom: 50px;
+}
+
+.recommendedSection h3
+{
+    background-color: var(--dark_squares);
+    color: black;
+    border-radius: 15px;
+    padding: 20px;
 }
 
 .recommendedSection h2
@@ -37,7 +50,7 @@
 {
     box-shadow: rgba(2, 8, 20, 0.1) 0px 0.35em 1.175em, rgba(2, 8, 20, 0.08) 0px 0.175em 0.5em;
     transform: translateY(-3px) scale(1.03);
-    background-color: rgb(199, 10, 126);
+    background-color: #FBCB0A;
 }
 
 .recommendedSection .recommended-grid .productContainer .product 
@@ -105,12 +118,19 @@
     pointer-events: none;
 }
 
+.recommendedSection .recommended-grid .productContainer:hover > .productInfo h5
+{
+    font-weight: 800;
+    color: black;
+    
+}
 .recommendedSection .recommended-grid .productContainer .productInfo h5
 {
     font-size: 16px;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    color: white;
 }
 
 .recommendedSection .recommended-grid .productContainer .product:hover + .productInfo

@@ -19,7 +19,7 @@ module.exports={
                 {
                     include: [{association: 'images'}],
                     order: [['views', 'DESC']],
-                    limit: 7
+                    limit: 10
                 }
             )
             const categories = await db.categories.findAll();

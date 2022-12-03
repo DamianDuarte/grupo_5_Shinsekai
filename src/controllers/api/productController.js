@@ -1,6 +1,25 @@
 const db = require('../../database/models');
 const path = require('path');
-const { associations, filters, createError, apiHelper} = require('../../helpers');
+const { createError, apiHelper} = require('../../helpers');
+
+const excludedAttr = ['created_at', 'updated_at', 'deleted_at'];
+
+const productAssociations = [
+    { association: 'images', attributes: { exclude: [ ...excludedAttr, 'product_id' ] } }, 
+    { association: 'category', attributes: { exclude: excludedAttr } }, 
+    { association: 'sale', attributes: { exclude: excludedAttr } }, 
+    { association: 'tags', attributes: { exclude: excludedAttr }, through: { attributes: [] } },
+    { association: 'colors', attributes: { exclude: excludedAttr }, through: { attributes: [] } },
+    { association: 'sizes', attributes: { exclude: excludedAttr }, through: { attributes: [] } },
+    { association: 'metricSizes', attributes: { exclude: excludedAttr }, through: { attributes: [] } },
+    { association: 'comments', attributes: { exclude: [ ...excludedAttr, 'product_id', 'user_id' ] },
+        include: [ { association: 'author', attributes: { exclude: [...excludedAttr, 'email', 'password', 'subscription_id'] },
+            include: [ { association: 'avatar', attributes: { exclude: [ ...excludedAttr, 'user_id' ] } } ] } ] },
+    { association: 'reviews', attributes: { exclude: [ ...excludedAttr, 'product_id', 'user_id'] },
+        include: [ { association: 'author', attributes: { exclude: [...excludedAttr, 'email', 'password', 'subscription_id'] },
+            include: [ { association: 'avatar', attributes: { exclude: [ ...excludedAttr, 'user_id' ] } } ] } ] }
+];
+
 
 module.exports =
 {
@@ -15,19 +34,17 @@ module.exports =
         {
             let products = await db.products.findAll(
                 {
-                    include: 
-                    [
-                        { association: 'images' }, { association: 'category' }, { association: 'sale' }, { association: 'tags' }
-                    ],
+                    include: productAssociations,
+                    attributes: { exclude: [ ...excludedAttr, 'sale_id', 'category_id' ] },
                     limit: perPage,
                     offset: perPage * page,
-                    order: [orderBy]
+                    order: [ orderBy ]
                 }
             );
 
             //* Meta
             products = apiHelper.addDetailToData(req, products)
-            products = apiHelper.addImgToData(req, products, 'products');
+            products = apiHelper.addImgToData(req, products);
             products = apiHelper.addMeta(products, await db.products.count());
             products = apiHelper.addCategoryCount(products);
             products = apiHelper.addNavUrls(req, products, page, perPage, orderBy);
@@ -44,13 +61,18 @@ module.exports =
         try 
         {
             if(isNaN(req.params.id)) throw createError(400, 'La id debe ser un número.')
-            let product = await db.products.findByPk(req.params.id, associations.get('images', 'category', 'sale', 'tags'));
+            let product = await db.products.findByPk(req.params.id, 
+                { 
+                    include: productAssociations,
+                    attributes: { exclude: excludedAttr }
+                }
+            );
 
             if(!product) throw createError(404, 'El producto no pudo ser encontrado');
             
             //* Meta
             product = apiHelper.addDetailToData(req, product);
-            product = apiHelper.addImgToData(req, product, 'products');
+            product = apiHelper.addImgToData(req, product);
             product = apiHelper.addMeta(product, await db.products.count());
             product = apiHelper.addCategoryCount(product);
             
