@@ -34,6 +34,16 @@
     margin: 0;
 }
 
+.invalid
+{
+    color: red;
+}
+
+.valid
+{
+    color: green;
+}
+
 body
 {
     font-family: var(--f_general);
