@@ -1,4 +1,4 @@
-console.log("userRegister.js connected!");
+console.log("El registro anda Wachin");
 
 const exRegs = {
   exRegAlfa: /^[A-Za-zÁÉÍÓÚáéíóúñÑ ]+$/,

@@ -3,7 +3,7 @@ const router = express.Router();
 
 // ******* CONTROLLERS REQUIRE ********
 
-const { getOne, getAll, getImg } = require('../controllers/api/userApiController');
+const { getOne, getAll, getImg } = require('../controllers/api/userController');
 
 /* Middlewares */
 

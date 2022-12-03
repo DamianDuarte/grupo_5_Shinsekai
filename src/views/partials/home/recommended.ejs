@@ -4,7 +4,7 @@
     <div class="recommended-grid">
         <% products.forEach(product => { %>
             <div class="productContainer">
-                <div class="product" style="background-image:url('/img/products/<%= checkImg.forProduct(product.images) %>')">
+                <div class="product" data-pic="url('/img/products/<%= checkImg.forProduct(product.images) %>')">
                     <a href="/products/details/<%= product.id %>" class="link"></a>
                 </div>
                 <div class="productInfo">

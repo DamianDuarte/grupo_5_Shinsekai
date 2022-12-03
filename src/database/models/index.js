@@ -203,7 +203,7 @@ db.products.belongsToMany(db.purchasedhistories,
     through: 'purchasedHistories_products',
     foreignKey: 'product_id',
     otherKey: 'purchasedHistory_id',
-    as: 'products'
+    as: 'histories'
   });
 
 db.users.hasMany(db.purchaseorders,
