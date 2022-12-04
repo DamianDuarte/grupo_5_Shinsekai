@@ -14,12 +14,12 @@
                 <h3>Accede a tu cuenta</h3>
 
                 <form action="/user/login" method="POST">
-                    <input type="text" name="username" id="userName" placeholder="Usuario/Email" value="<%= locals.loginOld && loginOld.username %>" required>
+                    <input type="text" name="username" id="username" placeholder="Usuario/Email" value="<%= locals.loginOld && loginOld.username %>" required>
                     <% if(locals.loginErrors && loginErrors.username) {%>
                         <p class="errorMsg"><%= loginErrors.username.msg %> </p>
                     <% } %>
 
-                    <input type="password" name="password" id="password" placeholder="Contraseña" value="<%= locals.loginOld && loginOld.password %>" required>
+                    <input type="password" name="password" id="passwordlog" placeholder="Contraseña" value="<%= locals.loginOld && loginOld.password %>" required>
                     <% if(locals.loginErrors && loginErrors.password) {%>
                         <p class="errorMsg"><%= loginErrors.password.msg %> </p>
                     <% } %>
@@ -38,36 +38,42 @@
             <div class="userAccess__content__split__register">
                 <h3>Registrate</h3>
 
-                <form action="/user/register" method="POST">
+                <form action="/user/register" id="registerForm" method="POST">
                     <input type="text" name="username" id="userName" placeholder="Nombre de usuario" value="<%= locals.registerOld && registerOld.username %>" required>
-                    <% if(locals.registerErrors && registerErrors.username) {%>
-                        <p class="errorMsg"><%= registerErrors.username.msg %> </p>
-                    <% } %>
+                        <p class="errorMsg" id="errorUsername" %> "><% if(locals.registerErrors && registerErrors.username) {%> <%= registerErrors.username.msg %> <% } %></p>
+                    
 
                     <input type="email" name="email" id="email" placeholder="Email" value="<%= locals.registerOld && registerOld.email %>" required>
-                    <% if(locals.registerErrors && registerErrors.email) {%>
-                        <p class="errorMsg"><%= registerErrors.email.msg %> </p>
-                    <% } %>
+                    
+                        <p class="errorMsg" id="errorEmail"><% if(locals.registerErrors && registerErrors.email) {%> <%= registerErrors.email.msg %> <% } %></p>
+                    
 
                     <input type="password" name="password" id="password" placeholder="Contraseña" value="<%= locals.registerOld && registerOld.password %>" required>
-                    <% if(locals.registerErrors && registerErrors.password) {%>
-                        <p class="errorMsg"><%= registerErrors.password.msg %> </p>
-                    <% } %>
+                        <p class="errorMsg" id="errorPass"><% if(locals.registerErrors && registerErrors.password) {%> <%= registerErrors.password.msg %> <% } %> </p>
+                    <ul id="msgPass" hidden>
+                        <li id="mayu">Una mayúscula</li>
+                        <li id="minu">Un minúscula</li>
+                        <li id="num">Un número</li>
+                        <li id="esp">Un caracter especial ($@$!%*?&)</li>
+                        <li id="min">Mínimo 6 caracteres</li>
+                        <li id="max">Máximo 8 caracteres</li>
+                      </ul>
 
                     <input type="password" name="v_password" id="v_password" placeholder="Repetir contraseña" value="<%= locals.registerOld && registerOld.v_password %>" required>
-                    <% if(locals.registerErrors && registerErrors.v_password) {%>
-                        <p class="errorMsg"><%= registerErrors.v_password.msg %> </p>
-                    <% } %>
+                    
+                        <p class="errorMsg" id="errorPass2"><% if(locals.registerErrors && registerErrors.v_password) {%> <%= registerErrors.v_password.msg %> <% } %></p>
+                    
 
                     <div class="checkbox">
                         <input type="checkbox" name="terms" id="terms" <%= (locals.registerOld && registerOld.terms) && "checked" %>>
                         <label for="terms">Acepto términos y condiciones</label>
                     </div>
-                    <% if(locals.registerErrors && registerErrors.terms) {%>
-                        <p class="errorMsg"><%= registerErrors.terms.msg %> </p>
-                    <% } %>
+                    
+                        <p class="errorMsg" id="errorTerms" ><% if(locals.registerErrors && registerErrors.terms) {%> <%= registerErrors.terms.msg %> <% } %></p>
+                    
 
                     <button type="submit">Listo</button>
+                    <p class="errorMsg" id="errorSubmit""></p>
                 </form>
             </div>
         </div>
@@ -77,4 +83,5 @@
 
 <!-- !!! Scripts !!! -->
 <script src="/javascript/userAccess_modal.js"></script>
+<script src="/js/userRegister.js" ></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

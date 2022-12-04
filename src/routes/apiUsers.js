@@ -3,7 +3,8 @@ const router = express.Router();
 
 // ******* CONTROLLERS REQUIRE ********
 
-const { getOne, getAll, getImg } = require('../controllers/api/userController');
+const { getOne, getAll, getImg, verifyEmail } = require('../controllers/api/userController');
+
 
 /* Middlewares */
 
@@ -14,5 +15,9 @@ router
     .get('/', getAll)
     .get('/:id', getOne)
     .get('/img/:filename', getImg)
+
+    /* Validaciones */
+
+    .post('/verify-email', verifyEmail)
 
 module.exports = router;

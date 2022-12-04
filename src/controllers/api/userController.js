@@ -73,7 +73,30 @@ module.exports = {
     },
     getImg: async (req, res) => {
         return res.sendFile(path.join(__dirname, '..', '..', '..', 'public', 'img', 'users', req.params.filename));
+    },
+    verifyEmail : async (req,res) => {
+
+        try {
+            const {email} = req.body;
+            let user = await db.users.findOne({
+                where : {
+                    email
+                }
+            })
+
+            return res.status(200).json({
+                ok : true,
+                verified : user ? true : false
+            })
+
+        } catch (error) {
+            return res.status(error.status || 500).json({
+                ok : false,
+                error : error.message
+            })
+        }
     }
+
 
 
 }

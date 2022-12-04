@@ -1,35 +1,37 @@
 console.log("El registro anda Wachin");
 
+const $ = (element) => document.getElementById(element);
+
 const exRegs = {
   exRegAlfa: /^[A-Za-zÁÉÍÓÚáéíóúñÑ ]+$/,
   exRegEmail: /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/,
-  exRegPass:
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{6,8}/,
+  exRegPass:  /^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[$@$!%?&=])[A-Za-z\d$@$!%?&=].{6,8}/,
   exRegMayu: /[A-Z]/,
   exRegMinu: /[a-z]/,
   exRegNum: /[0-9]/,
-  exRegEsp: /[$@$!%*?&]/,
+  exRegEsp: /[$@$!%*?&=]/,
   exRegMin: /.{6,}/,
-  exRegMax: /.{8}/,
+  exRegMax: /^.{6,8}$/,
 };
 
 const msgError = (element, msg, target) => {
   $(element).innerText = msg;
-  target.classList.add("is-invalid");
+  target.classList.add("invalid");
 };
 
 const validField = (element, target) => {
   $(element).innerText = null;
-  target.classList.remove("is-invalid");
-  target.classList.add("is-valid");
+  target.classList.remove("invalid");
+  target.classList.add("valid");
 };
 
 const validPass = (element, exReg, value) => {
   if (!exReg.test(value)) {
-    $(element).classList.add("text-danger");
+    $(element).classList.add("invalid");
+    $(element).classList.remove("valid");
   } else {
-    $(element).classList.add("text-success");
-    $(element).classList.remove("text-danger");
+    $(element).classList.add("valid");
+    $(element).classList.remove("invalid");
   }
 };
 
@@ -55,44 +57,23 @@ const verifyEmail = async (email) => {
   }
 };
 
-$("name").addEventListener("blur", function ({ target }) {
+$("userName").addEventListener("blur", function ({ target }) {
   switch (true) {
     case !this.value.trim():
-      msgError("errorNombre", "El nombre es obligatorio", target);
+      msgError("errorUsername", "No tienes nombre, sempai? (*ﾉωﾉ)", target);
       break;
     case this.value.trim().length < 2:
       msgError(
-        "errorNombre",
-        "El nombre como mínimino debe tener dos caracteres",
+        "errorUsername",
+        "El nombre es muy corto onee-chan, no seas tan tímido (´・ω・`)",
         target
       );
       break;
     case !exRegs.exRegAlfa.test(this.value):
-      msgError("errorNombre", "El nombre debe tener solo letras", target);
+      msgError("errorUsername", "A caso eres un modelo de robot? (; ･`д･´) ", target);
       break;
     default:
-      validField("errorNombre", target);
-      break;
-  }
-});
-
-$("surname").addEventListener("blur", function ({ target }) {
-  switch (true) {
-    case !this.value.trim():
-      msgError("errorApellido", "El apellido es obligatorio", target);
-      break;
-    case this.value.trim().length < 2:
-      msgError(
-        "errorApellido",
-        "El apellido como mínimino debe tener dos caracteres",
-        target
-      );
-      break;
-    case !exRegs.exRegAlfa.test(this.value):
-      msgError("errorApellido", "El apellido debe tener solo letras", target);
-      break;
-    default:
-      validField("errorApellido", target);
+      validField("errorUsername", target);
       break;
   }
 });
@@ -100,13 +81,13 @@ $("surname").addEventListener("blur", function ({ target }) {
 $("email").addEventListener("blur", async function ({ target }) {
   switch (true) {
     case !this.value.trim():
-      msgError("errorEmail", "El email es obligatorio", target);
+      msgError("errorEmail", "M...me das tu correo, sempai? (≧◇≦) ", target);
       break;
     case !exRegs.exRegEmail.test(this.value):
-      msgError("errorEmail", "El email tiene un formato incorrecto", target);
+      msgError("errorEmail", "ME QUIERES VER LA CARA DE ESTUPIDA!? el email esta mal", target);
       break;
     case await verifyEmail(this.value):
-      msgError("errorEmail", "El email ya está registrado", target);
+      msgError("errorEmail", "Deja un poco de lugar para los demas, tu ya estas dentro (´-ω-`)", target);
       break;
     default:
       validField("errorEmail", target);
@@ -114,30 +95,30 @@ $("email").addEventListener("blur", async function ({ target }) {
   }
 });
 
-$("pass").addEventListener("focus", () => {
+$("password").addEventListener("focus", () => {
   $("msgPass").hidden = false;
 });
 
-$("pass").addEventListener("blur", function ({ target }) {
+$("password").addEventListener("blur", function ({ target }) {
   $("msgPass").hidden = true;
   switch (true) {
     case !this.value.trim():
-      msgError("errorPass", "La contraseña es obligatoria", target);
+      msgError("errorPass", "Debes protegerte, onii-chan |ω・)", target);
       break;
-    case !exRegs.exRegPass.test(this.value):
+/*      case !exRegs.exRegPass.test(this.value):
       msgError(
         "errorPass",
-        "La contraseña debe tener un símbolo, una número, una mayúscula, una minúscula y entre 6 y 8 caracteres",
+        "Presta atencion. *La contraseña debe tener un símbolo, una número, una mayúscula, una minúscula y entre 6 y 8 caracteres. Hazlo bien, onii-chan （＾ω＾)",
         target
-      );
-      break;
+      ); //No anda, no funciona, rompe todo y encima me molesta. Conclucion. Lo saco alv
+      break; */
     default:
       validField("errorPass", target);
       break;
   }
 });
 
-$("pass").addEventListener("keyup", function ({ target }) {
+$("password").addEventListener("keyup", function ({ target }) {
   validPass("mayu", exRegs.exRegMayu, target.value);
   validPass("minu", exRegs.exRegMinu, target.value);
   validPass("num", exRegs.exRegNum, target.value);
@@ -146,15 +127,16 @@ $("pass").addEventListener("keyup", function ({ target }) {
   validPass("max", exRegs.exRegMax, target.value);
 });
 
-$("pass2").addEventListener("blur", function ({ target }) {
+$("v_password").addEventListener("blur", function ({ target }) {
     switch (true) {
       case !this.value.trim():
-        msgError("errorPass2", "Debes verificar la contraseña", target);
+        msgError("errorPass2", "Repitela para que se te grabe en tu cabeza distraida, sempai (∩´∀｀)∩", target);
         break;
-      case this.value.trim() !== $('pass').value.trim():
+      case this.value.trim() !== $('password').value.trim():
+        console.log(this.value.trim(), $('password').value.trim());
         msgError(
           "errorPass2",
-          "Las contraseñas no coinciden",
+          "ACASO YA TE LA OLVIDASTE!? luego te quejas de que no te acuerdas de nada (´・ω・`)",
           target
         );
         break;
@@ -170,7 +152,7 @@ $("pass2").addEventListener("blur", function ({ target }) {
 
   })
 
-$("form-register").addEventListener("submit", function (e) {
+$("registerForm").addEventListener("submit", function (e) {
 
   e.preventDefault();
   let error = false;
@@ -178,7 +160,7 @@ $("form-register").addEventListener("submit", function (e) {
   if(!$('terms').checked){
     error = true;
     $('errorTerms').innerText = "Debes aceptar las bases y condiciones";
-    $('terms').classList.add('is-invalid')
+    $('terms').classList.add('invalid')
   }
 
 
@@ -186,9 +168,9 @@ $("form-register").addEventListener("submit", function (e) {
   const elements = this.elements;
     for (let i = 0; i < elements.length - 2; i++) {
         
-        if(!elements[i].value.trim() || elements[i].classList.contains('is-invalid')){
-            elements[i].classList.add('is-invalid')
-           $('msgError').innerText = 'Hay campos con errores o están vacíos';
+        if(!elements[i].value.trim() || elements[i].classList.contains('invalid')){
+            elements[i].classList.add('invalid')
+           $('errorSubmit').innerText = 'Completa todo, se buen niño y no te olvides de nada (´・ω・`)';
            error = true;
         }
     }
@@ -201,12 +183,4 @@ $("form-register").addEventListener("submit", function (e) {
 
 });
 
-$("btn-show-pass").addEventListener("click", ({ target }) => {
-  if (target.localName === "i") {
-    target.classList.toggle("fa-eye");
-    $("pass").type = $("pass").type === "text" ? "password" : "text";
-  } else {
-    target.childNodes[0].classList.toggle("fa-eye");
-    $("pass").type = $("pass").type === "text" ? "password" : "text";
-  }
-});
+
