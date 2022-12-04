@@ -1,61 +1,62 @@
 console.log("El registro anda Wachin");
 
-const $ = (element) => document.getElementById(element);
-
-const exRegs = {
+const exReg = {
   exRegAlfa: /^[A-Za-zÁÉÍÓÚáéíóúñÑ ]+$/,
   exRegEmail: /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/,
-  exRegPass:  /^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[$@$!%?&=])[A-Za-z\d$@$!%?&=].{6,8}/,
+  exRegPass: /^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[$@$!%?&=])[A-Za-z\d$@$!%?&=].{6,8}/,
   exRegMayu: /[A-Z]/,
   exRegMinu: /[a-z]/,
   exRegNum: /[0-9]/,
   exRegEsp: /[$@$!%*?&=]/,
   exRegMin: /.{6,}/,
-  exRegMax: /^.{6,8}$/,
+  exRegMax: /^.{6,8}$/
+}
+
+
+let $ = (element) => document.getElementById(element);
+
+let msgError = (element, msg, target) => {
+    $(element).innerText = msg;
+    target.classList.add("invalid");
 };
 
-const msgError = (element, msg, target) => {
-  $(element).innerText = msg;
-  target.classList.add("invalid");
+let validField = (element, target) => {
+    $(element).innerText = null;
+    target.classList.remove("invalid");
+    target.classList.add("valid");
 };
 
-const validField = (element, target) => {
-  $(element).innerText = null;
-  target.classList.remove("invalid");
-  target.classList.add("valid");
+let validPass = (element, exReg, value) => {
+    if (!exReg.test(value)) {
+        $(element).classList.add("invalid");
+        $(element).classList.remove("valid");
+    } else {
+        $(element).classList.add("valid");
+        $(element).classList.remove("invalid");
+    }
 };
 
-const validPass = (element, exReg, value) => {
-  if (!exReg.test(value)) {
-    $(element).classList.add("invalid");
-    $(element).classList.remove("valid");
-  } else {
-    $(element).classList.add("valid");
-    $(element).classList.remove("invalid");
-  }
-};
+let verifyEmail = async (email) => {
+    try {
+        let response = await fetch("/api/users/verify-email", {
+            method: "POST",
+            body: JSON.stringify({
+                email: email,
+            }),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
 
-const verifyEmail = async (email) => {
-  try {
-    let response = await fetch("/api/users/verify-email", {
-      method: "POST",
-      body: JSON.stringify({
-        email: email,
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+        let result = await response.json();
 
-    let result = await response.json();
+        console.log(result);
 
-    console.log(result);
-
-    return result.verified;
-  } catch (error) {
-    console.error;
-  }
-};
+        return result.verified;
+    } catch (error) {
+        console.error;
+    }
+}
 
 $("userName").addEventListener("blur", function ({ target }) {
   switch (true) {
@@ -69,7 +70,7 @@ $("userName").addEventListener("blur", function ({ target }) {
         target
       );
       break;
-    case !exRegs.exRegAlfa.test(this.value):
+    case !exReg.exRegAlfa.test(this.value):
       msgError("errorUsername", "A caso eres un modelo de robot? (; ･`д･´) ", target);
       break;
     default:
@@ -83,7 +84,7 @@ $("email").addEventListener("blur", async function ({ target }) {
     case !this.value.trim():
       msgError("errorEmail", "M...me das tu correo, sempai? (≧◇≦) ", target);
       break;
-    case !exRegs.exRegEmail.test(this.value):
+    case !exReg.exRegEmail.test(this.value):
       msgError("errorEmail", "ME QUIERES VER LA CARA DE ESTUPIDA!? el email esta mal", target);
       break;
     case await verifyEmail(this.value):
@@ -105,7 +106,7 @@ $("password").addEventListener("blur", function ({ target }) {
     case !this.value.trim():
       msgError("errorPass", "Debes protegerte, onii-chan |ω・)", target);
       break;
-/*      case !exRegs.exRegPass.test(this.value):
+/*      case !exReg.exRegPass.test(this.value):
       msgError(
         "errorPass",
         "Presta atencion. *La contraseña debe tener un símbolo, una número, una mayúscula, una minúscula y entre 6 y 8 caracteres. Hazlo bien, onii-chan （＾ω＾)",
@@ -119,12 +120,12 @@ $("password").addEventListener("blur", function ({ target }) {
 });
 
 $("password").addEventListener("keyup", function ({ target }) {
-  validPass("mayu", exRegs.exRegMayu, target.value);
-  validPass("minu", exRegs.exRegMinu, target.value);
-  validPass("num", exRegs.exRegNum, target.value);
-  validPass("esp", exRegs.exRegEsp, target.value);
-  validPass("min", exRegs.exRegMin, target.value);
-  validPass("max", exRegs.exRegMax, target.value);
+  validPass("mayu", exReg.exRegMayu, target.value);
+  validPass("minu", exReg.exRegMinu, target.value);
+  validPass("num", exReg.exRegNum, target.value);
+  validPass("esp", exReg.exRegEsp, target.value);
+  validPass("min", exReg.exRegMin, target.value);
+  validPass("max", exReg.exRegMax, target.value);
 });
 
 $("v_password").addEventListener("blur", function ({ target }) {
