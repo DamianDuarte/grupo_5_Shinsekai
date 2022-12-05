@@ -1,5 +1,5 @@
 console.log("El registro anda Wachin");
-
+let $ = (element) => document.getElementById(element);
 const exRegs = {
   exRegAlfa: /^[A-Za-zÁÉÍÓÚáéíóúñÑ ]+$/,
   exRegEmail: /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/,
