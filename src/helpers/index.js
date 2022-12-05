@@ -5,5 +5,6 @@ module.exports =
     createError: require('./createError'),
     checkImg: require('./checkImg'),
     apiHelper: require('./apiHelper'),
-    url: require('./url')
+    url: require('./url'),
+
 }

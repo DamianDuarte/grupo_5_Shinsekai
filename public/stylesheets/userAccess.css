@@ -152,6 +152,16 @@
     flex-direction: column;
 }
 
+/*! msg error */
+
+.msgError
+{
+    color: red;
+    font-size: 12px;
+    margin-bottom: 10px;
+    display: none;
+}
+
 @media (min-width: 375px) 
 {
     .userAccess__content__split__login, .userAccess__content__split__register
