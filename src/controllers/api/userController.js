@@ -5,24 +5,40 @@ const { createError, apiHelper } = require('../../helpers');
 const excludedAttr = ['created_at', 'updated_at', 'deleted_at'];
 
 const userAssociations = [
-    { association: 'avatar', attributes: { exclude: [ ...excludedAttr, 'user_id' ] } },
+    { association: 'avatar', attributes: { exclude: [...excludedAttr, 'user_id'] } },
     { association: 'tagsFollowing', attributes: { exclude: excludedAttr }, through: { attributes: [] } },
     { association: 'subscription', attributes: { exclude: excludedAttr } },
-    { association: 'linkedAccounts', attributes: { exclude: [ ...excludedAttr, 'user_id', 'auth' ] } },
-    { association: 'wishList', attributes: { exclude: [ ...excludedAttr, 'user_id' ] } ,
-        include: [ { association: 'products', attributes: { exclude: excludedAttr }, through: { attributes: [] },
-            include: [ { association: 'images', attributes: { exclude: [ ...excludedAttr, 'product_id'] } } ] } ] },
-    { association: 'comments', attributes: { exclude: [ ...excludedAttr, 'product_id', 'user_id' ] } },
-    { association: 'reviews', attributes: { exclude: [ ...excludedAttr, 'product_id', 'user_id' ] } },
-    { association: 'viewedHistory', attributes: { exclude: [ ...excludedAttr, 'user_id' ] },
-        include: [ { association: 'products', attributes: { exclude: [ ...excludedAttr ] }, through: { attributes: [] },
-            include: [ { association: 'images', attributes: { exclude: [ ...excludedAttr, 'product_id'] } } ] } ] },
-    { association: 'purchasedHistory', attributes: { exclude: [ ...excludedAttr, 'user_id' ] },
-        include: [ { association: 'products', attributes: { exclude: [ ...excludedAttr ] }, through: { attributes: [] },
-            include: [ { association: 'images', attributes: { exclude: [ ...excludedAttr, 'product_id'] } } ] } ] },
-    { association: 'purchaseOrders', attributes: { exclude: [ ...excludedAttr, 'user_id' ] },
-        include: [ { association: 'products', attributes: { exclude: [ ...excludedAttr ] }, through: { attributes: [] },
-            include: [ { association: 'images', attributes: { exclude: [ ...excludedAttr, 'product_id'] } } ] } ] },
+    { association: 'linkedAccounts', attributes: { exclude: [...excludedAttr, 'user_id', 'auth'] } },
+    {
+        association: 'wishList', attributes: { exclude: [...excludedAttr, 'user_id'] },
+        include: [{
+            association: 'products', attributes: { exclude: excludedAttr }, through: { attributes: [] },
+            include: [{ association: 'images', attributes: { exclude: [...excludedAttr, 'product_id'] } }]
+        }]
+    },
+    { association: 'comments', attributes: { exclude: [...excludedAttr, 'product_id', 'user_id'] } },
+    { association: 'reviews', attributes: { exclude: [...excludedAttr, 'product_id', 'user_id'] } },
+    {
+        association: 'viewedHistory', attributes: { exclude: [...excludedAttr, 'user_id'] },
+        include: [{
+            association: 'products', attributes: { exclude: [...excludedAttr] }, through: { attributes: [] },
+            include: [{ association: 'images', attributes: { exclude: [...excludedAttr, 'product_id'] } }]
+        }]
+    },
+    {
+        association: 'purchasedHistory', attributes: { exclude: [...excludedAttr, 'user_id'] },
+        include: [{
+            association: 'products', attributes: { exclude: [...excludedAttr] }, through: { attributes: [] },
+            include: [{ association: 'images', attributes: { exclude: [...excludedAttr, 'product_id'] } }]
+        }]
+    },
+    {
+        association: 'purchaseOrders', attributes: { exclude: [...excludedAttr, 'user_id'] },
+        include: [{
+            association: 'products', attributes: { exclude: [...excludedAttr] }, through: { attributes: [] },
+            include: [{ association: 'images', attributes: { exclude: [...excludedAttr, 'product_id'] } }]
+        }]
+    },
 ];
 
 module.exports = {
@@ -64,7 +80,7 @@ module.exports = {
             user = apiHelper.addDetailToData(req, user);
             user = apiHelper.addImgToData(req, user);
             user = apiHelper.addMeta(user, await db.users.count());
-           
+
 
             return res.status(user.status).json(user);
         } catch (error) {
@@ -74,29 +90,48 @@ module.exports = {
     getImg: async (req, res) => {
         return res.sendFile(path.join(__dirname, '..', '..', '..', 'public', 'img', 'users', req.params.filename));
     },
-    verifyEmail : async (req,res) => {
+    verifyEmail: async (req, res) => {
 
         try {
-            const {email} = req.body;
+            const { email } = req.body;
             let user = await db.users.findOne({
-                where : {
+                where: {
                     email
                 }
             })
 
             return res.status(200).json({
-                ok : true,
-                verified : user ? true : false
+                ok: true,
+                verified: user ? true : false
             })
 
         } catch (error) {
             return res.status(error.status || 500).json({
-                ok : false,
-                error : error.message
+                ok: false,
+                error: error.message
             })
         }
-    }
+    },
+    verifyPassword: async (req, res) => {
+        try {
+            const { password, email } = req.body;
+            let user = await db.User.findOne({
+                where: {
+                    email
+                }})
+                let match = bcryptjs.compareSync(password, user.password)
 
+                return res.status(200).json({
+                    ok: true,
+                    verified: match ? true : false
+                })
 
+        } catch (error) {
+            return res.status(error.status || 500).json({
+                ok: false,
+                error: error.message
+            })
+        }
+    },
 
 }

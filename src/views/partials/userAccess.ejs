@@ -13,16 +13,16 @@
             <div class="userAccess__content__split__login">
                 <h3>Accede a tu cuenta</h3>
 
-                <form action="/user/login" method="POST">
+                <form action="/user/login" method="POST" id="formLogin">
                     <input type="text" name="username" id="username" placeholder="Usuario/Email" value="<%= locals.loginOld && loginOld.username %>" required>
-                    <% if(locals.loginErrors && loginErrors.username) {%>
-                        <p class="errorMsg"><%= loginErrors.username.msg %> </p>
-                    <% } %>
+                    
+                        <p class="msgErrors" id="errorusername"><% if(locals.loginErrors && loginErrors.username) {%> <%= loginErrors.username.msg %> <% } %></p>
+                    
 
-                    <input type="password" name="password" id="passwordlog" placeholder="Contraseña" value="<%= locals.loginOld && loginOld.password %>" required>
-                    <% if(locals.loginErrors && loginErrors.password) {%>
-                        <p class="errorMsg"><%= loginErrors.password.msg %> </p>
-                    <% } %>
+                    <input type="password" name="password" id="passLog" placeholder="Contraseña" value="<%= locals.loginOld && loginOld.password %>" required>
+                    
+                        <p class="msgErrors" id="erroruserpass"> <% if(locals.loginErrors && loginErrors.password) {%><%= loginErrors.password.msg %> <% } %>  </p>
+                    
                     <div class="checkbox">
                         <input type="checkbox" name="rememberMe" id="rememberMe" <%= (locals.loginOld && loginOld.rememberMe) && "checked" %>>
                         <label for="rememberMe">Recordarme</label>
@@ -84,4 +84,5 @@
 <!-- !!! Scripts !!! -->
 <script src="/javascript/userAccess_modal.js"></script>
 <script src="/js/userRegister.js" ></script>
+<script src="/js/userLogin.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

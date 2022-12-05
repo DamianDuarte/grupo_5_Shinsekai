@@ -2,6 +2,19 @@ console.log("El registro anda Wachin");
 
 
 let $ = (element) => document.getElementById(element);
+const exReg = {
+  exRegAlfa: /^[A-Za-zÁÉÍÓÚáéíóúñÑ ]+$/,
+  exRegEmail: /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/,
+  exRegPass:
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&=])[A-Za-z\d$@$!%*?&=]{6,8}/,
+  exRegMayu: /[A-Z]/,
+  exRegMinu: /[a-z]/,
+  exRegNum: /[0-9]/,
+  exRegEsp: /[$@$!%*?&=]/,
+  exRegMin: /.{6,}/,
+  exRegMax: /.{6,8}/,
+};
+
 
 let msgError = (element, msg, target) => {
     $(element).innerText = msg;
