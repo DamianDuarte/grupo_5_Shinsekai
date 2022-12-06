@@ -14,14 +14,14 @@
                 <h3>Accede a tu cuenta</h3>
 
                 <form action="/user/login" method="POST" id="formLogin">
-                    <input type="text" name="username" id="username" placeholder="Usuario/Email" value="<%= locals.loginOld && loginOld.username %>" required>
+                    <input type="text" name="username" id="username"  class="validateInput" placeholder="Usuario/Email" value="<%= locals.loginOld && loginOld.username %>" required>
                     
-                        <p class="msgErrors" id="errorusername"><% if(locals.loginErrors && loginErrors.username) {%> <%= loginErrors.username.msg %> <% } %></p>
+                        <small class="msgErrors invalid" id="errorusername"><% if(locals.loginErrors && loginErrors.username) {%> <%= loginErrors.username.msg %> <% } %></small>
                     
 
-                    <input type="password" name="password" id="passLog" placeholder="Contraseña" value="<%= locals.loginOld && loginOld.password %>" required>
+                    <input type="password" name="password" id="passLog" class="validateInput" placeholder="Contraseña" value="<%= locals.loginOld && loginOld.password %>" required>
                     
-                        <p class="msgErrors" id="erroruserpass"> <% if(locals.loginErrors && loginErrors.password) {%><%= loginErrors.password.msg %> <% } %>  </p>
+                        <small class="msgErrors invalid" id="erroruserpass"> <% if(locals.loginErrors && loginErrors.password) {%><%= loginErrors.password.msg %> <% } %>  </small>
                     
                     <div class="checkbox">
                         <input type="checkbox" name="rememberMe" id="rememberMe" <%= (locals.loginOld && loginOld.rememberMe) && "checked" %>>

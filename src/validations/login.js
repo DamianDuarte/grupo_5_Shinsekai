@@ -39,6 +39,6 @@ module.exports =
         .custom((value, {req}) => 
         {
             if(userFound && bcrypt.compareSync(value, userFound.password)) return true;
-            else throw new Error("Contraseña incorrecta.");
+            else throw new Error("Campos incorrectos");
         })
 ]

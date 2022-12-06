@@ -112,26 +112,5 @@ module.exports = {
             })
         }
     },
-    verifyPassword: async (req, res) => {
-        try {
-            const { password, email } = req.body;
-            let user = await db.User.findOne({
-                where: {
-                    email
-                }})
-                let match = bcryptjs.compareSync(password, user.password)
-
-                return res.status(200).json({
-                    ok: true,
-                    verified: match ? true : false
-                })
-
-        } catch (error) {
-            return res.status(error.status || 500).json({
-                ok: false,
-                error: error.message
-            })
-        }
-    },
 
 }
