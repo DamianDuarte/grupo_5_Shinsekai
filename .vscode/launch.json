@@ -5,12 +5,47 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Launch Chrome",
+            "name": "Attach",
+            "port": 9229,
+            "request": "attach",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "type": "node"
+        },
+        {
+            "name": "Attach to Process",
+            "type": "node",
+            "processId": "${command:PickProcess}",
+            "protocol": "inspector",
+            "request": "attach",
+            "stopOnEntry": false,
+            "port": 5858,
+            "localRoot": "${workspaceRoot}",
+            "remoteRoot": "${workspaceFolder}",
+            "sourceMaps": true,
+            "skipFiles": [
+                "<node_internals>/**"
+            ]
+        },
+        {
+            "type": "node",
             "request": "launch",
-            "type": "chrome",
-            "url": "http://localhost:3000",
-            "webRoot": "${workspaceFolder}"
-        }
-
+            "name": "Launch Program",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}\\src\\bin\\www",
+            "sourceMaps": true
+        },
+        {
+            "name": "Middleware",
+            "type": "node",
+            "request": "attach",
+            "port": 9229,
+            "cwd": "${workspaceFolder}",
+            "trace": true,
+            "sourceMaps": true
+          }
     ]
 }

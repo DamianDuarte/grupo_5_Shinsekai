@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./src/bin/www"
+    "start": "node ./src/bin/www",
+    "debug": "node --inspect ./src/bin/www"
   },
   "nodemonConfig": {
     "ignore": "*.json"

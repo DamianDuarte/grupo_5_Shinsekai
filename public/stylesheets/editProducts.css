@@ -327,7 +327,7 @@
 {
     .editProducts__main__agregar .tagGroup
     {
-        height: 35%;
+        /* height: 35%; */
         overflow-y: auto;
         align-content: flex-start;
     }
