@@ -13,23 +13,33 @@
                     <h3>Editando producto existente</h3>
                     <hr>
                     <div class="hugeContainer">
-                        <input type="file" name="images" id="images" accept=".jpg, .png, .jpeg" form="addProduct" value="<%= product.images %>" multiple hidden>
+                        <input type="file" name="images" id="images" 
+                        class="validateInput" accept=".jpg, .png, .jpeg" form="addProduct" value="<%= product.images %>" multiple hidden>
                         <label class="editProducts__main__agregar__productImg" for="images">
                             <img src="/img/products/<%= checkImg.forProduct(product.images) %>" alt="productImg">
                         </label>
                         
                         <form id="addProduct" class="editProducts__main__agregar__form" action="/edit/product/update/<%= product.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
                             <div class="inputGroup">
-                                <input class="c_nombre" type="text" name="name" placeholder="Nombre del producto" value="<%= product.name %>" required>
-                                <input class="c_precio" type="number" name="price" placeholder="Precio original" value="<%= product.price %>" required>
-                                <input class="c_descuento" type="number" min="0" max="100" name="discount" id="discount" placeholder="% OFF" value="<%= product.discount %>">
+                                <input class="c_nombre validateInput" type="text" name="name" id="name" placeholder="Nombre del producto" value="<%= product.name %>" required>
+                                <input class="c_precio validateInput" type="number" id="price" name="price" placeholder="Precio original" value="<%= product.price %>" required>
+                                <input class="c_descuento validateInput" type="number" id="discount" min="0" max="100" name="discount" id="discount" placeholder="% OFF" value="<%= product.discount %>">
                             </div>
                             <select class="c_categoria" name="category" id="category" required>
                                 <% for( let i = 0; i < categories.length; i++ ) { %>
                                 <option value="<%= categories[i].id %>" <%= categories[i].id === product.category && 'selected' %>><%= categories[i].name %></option>
                                 <% } %>
                             </select>
-                            <textarea name="description"  id="description" placeholder="Descripción" cols="30" rows="10" required><%= product.description %></textarea>
+                            <textarea name="description" class="validateInput" id="description" placeholder="Descripción" cols="30" rows="10" required><%= product.description %></textarea>
+                            
+                            <div style="display:flex; flex-direction: column;">
+                                <small style='color:red' id="errorName"><%= (locals.productsErrors && productsErrors.name) && productsErrors.name.msg %></small>
+                                <small style='color:red' id="errorPrice"><%= (locals.productsErrors && productsErrors.price) && productsErrors.price.msg %></small>
+                                <small style='color:red' id="errorDiscount"><%= (locals.productsErrors && productsErrors.discount) && productsErrors.discount.msg %></small>
+                                <small style='color:red' id="errorDescription"><%= (locals.productsErrors && productsErrors.description) && productsErrors.description.msg %></small>
+                                <small style='color:red' id="errorImages"><%= (locals.productsErrors && productsErrors.images) && productsErrors.images.msg %></small>
+                            </div>
+                            
                             <h4>Etiquetas</h4>
                             <hr>
                             <div class="tagGroup">
@@ -53,7 +63,7 @@
                     <form action="">
                         <div class="inputGroup">
                             <input class="e_buscar" type="text" placeholder="Buscar...">
-                            <select class="e_categoria" name="category" id="category" required>
+                            <select class="e_categoria" name="category" id="e_category" required>
                                 <option value="-1" disabled selected hidden>Categoría</option>
                                 <% for( let i = 0; i < categories.length; i++ ) { %>
                                 <option value="<%= categories[i].id %>"><%= categories[i].name %></option>
@@ -85,4 +95,5 @@
         </main>
 
     </body>
+<script src="/js/createProduct.js"></script>
 </html>
