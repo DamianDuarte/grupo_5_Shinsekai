@@ -126,7 +126,6 @@ $("password").addEventListener("keyup", function ({ target }) {
   validPass("num", exReg.exRegNum, target.value);
   validPass("esp", exReg.exRegEsp, target.value);
   validPass("min", exReg.exRegMin, target.value);
-  validPass("max", exReg.exRegMax, target.value);
 });
 
 $("v_password").addEventListener("blur", function ({ target }) {
