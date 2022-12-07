@@ -13,22 +13,21 @@
                     <h3>Agregar producto</h3>
                     <hr>
                     <div class="hugeContainer">
-                        <input type="file" name="images" id="images" accept=".jpg, .png, .jpeg" form="addProduct"
+                        <input type="file" name="images" class="validateInput" id="images" accept=".jpg, .png, .jpeg" form="addProduct"
                             multiple hidden>
-                        <label class="editProducts__main__agregar__productImg" for="images">
+                        <label class="editProducts__main__agregar__productImg" id="imagesLabel" for="images">
                             <img src="/img/products/product.jpg" alt="productImg">
                         </label>
 
                         <form id="addProduct" class="editProducts__main__agregar__form" action="" method="POST" enctype="multipart/form-data">
                             <div class="inputGroup">
-                                <input class="c_nombre" type="text" name="name" placeholder="Nombre del producto"
+                                <input class="c_nombre validateInput" type="text" id="name" name="name" placeholder="Nombre del producto"required>
+                                <input class="c_precio validateInput" id="price" type="number" name="price" placeholder="Precio original"
                                     required>
-                                <input class="c_precio" type="number" name="price" placeholder="Precio original"
-                                    required>
-                                <input class="c_descuento" type="number" min="0" max="100" name="discount" id="discount"
+                                <input class="c_descuento validateInput" type="number" min="0" max="100" name="discount" id="discount"
                                     placeholder="% OFF">
                             </div>
-                            <select class="c_categoria" name="category" id="category" required>
+                            <select class="c_categoria" name="category" id="categoryAdd" required>
                                 <option value="-1" disabled selected hidden>Categoría</option>
                                 <% for( let i=0; i < categories.length; i++ ) { %>
                                     <option value="<%= categories[i].id %>">
@@ -36,8 +35,17 @@
                                     </option>
                                     <% } %>
                             </select>
-                            <textarea name="description" id="description" placeholder="Descripción" cols="30" rows="10"
+                            <textarea name="description" class="validateInput" id="description" placeholder="Descripción" cols="30" rows="10"
                                 required></textarea>
+
+                            <div style="display:flex; flex-direction: column;">
+                                <small style='color:red' id="errorName"><%= (locals.productsErrors && productsErrors.name) && productsErrors.name.msg %></small>
+                                <small style='color:red' id="errorPrice"><%= (locals.productsErrors && productsErrors.price) && productsErrors.price.msg %></small>
+                                <small style='color:red' id="errorDiscount"><%= (locals.productsErrors && productsErrors.discount) && productsErrors.discount.msg %></small>
+                                <small style='color:red' id="errorDescription"><%= (locals.productsErrors && productsErrors.description) && productsErrors.description.msg %></small>
+                                <small style='color:red' id="errorImages"><%= (locals.productsErrors && productsErrors.images) && productsErrors.images.msg %></small>
+                            </div>
+
                             <h4>Etiquetas</h4>
                             <hr>
                             <div class="tagGroup">
@@ -51,6 +59,7 @@
                             </div>
 
                             <button type="submit">Agregar producto</button>
+                            <small id="errorSubmit"></small>
                         </form>
                     </div>
 
@@ -65,7 +74,7 @@
                         <form action="">
                             <div class="inputGroup">
                                 <input class="e_buscar" type="text" placeholder="Buscar...">
-                                <select class="e_categoria" name="category" id="category" required>
+                                <select class="e_categoria" name="category" id="categorySearch" required>
                                     <option value="-1" disabled selected hidden>Categoría</option>
                                     <% for( let i=0; i < categories.length; i++ ) { %>
                                         <option value="<%= categories[i].id %>">
@@ -104,5 +113,5 @@
             </main>
 
     </body>
-
+<script src="/js/createProduct.js"></script>
 </html>

@@ -81,7 +81,9 @@
 </div>
 
 <!-- !!! Scripts !!! -->
-<script src="/javascript/userAccess_modal.js"></script>
+<%if(!locals.user) { %>
+    <script src="/javascript/userAccess_modal.js"></script>
+<% } %> 
 <script src="/js/userRegister.js" ></script>
 <script src="/js/userLogin.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
