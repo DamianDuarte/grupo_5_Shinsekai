@@ -29,7 +29,7 @@ module.exports =
 
     check('password')
         .notEmpty().withMessage("Introduce tu contraseña.").bail()
-        .isLength({min: 5, max: 16}).withMessage("La contraseña debe poseer entre 5 y 16 caracteres."),
+        .isLength({min: 8, max: 16}).withMessage("La contraseña debe poseer entre 8 y 16 caracteres."),
     
     check('v_password')
         .notEmpty().withMessage("Verifica tu contraseña.").bail()
