@@ -32,7 +32,7 @@ module.exports =
         .isLength({min: 6}).withMessage("La contraseña debe poseer minimo 6 caracteres")
         .custom ((value) => {
             if(value.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{6,}$/)) return true;
-            else throw new Error("La contraseña debe poseer al menos una mayúscula, una minúscula, un número y un símbolo.");
+            else throw new Error("La contraseña debe poseer al menos una mayúscula, una minúscula, un número y un símbolo. Respetalo porfa.");
         }),
     
     check('v_password')
