@@ -128,7 +128,7 @@ function addDetailToData(req, data)
     return data;
 }
 
-function addNavUrls(req, dataWithMeta, currentPage, perPage, orderBy)
+function addNavUrls(req, dataWithMeta, currentPage, perPage, orderBy, sortType)
 {
     let prevUrl = nextUrl = url.get(req);
 
@@ -149,7 +149,7 @@ function addNavUrls(req, dataWithMeta, currentPage, perPage, orderBy)
         prevUrl = null;
 
         if(dataWithMeta.count == perPage && ((currentPage + 1) * perPage < dataWithMeta.totalCount))
-            nextUrl = nextUrl.slice(0, nextUrl.indexOf('/?') + 2) + "limit=" + perPage + "&page=1&orderBy=" + orderBy; 
+            nextUrl = nextUrl.slice(0, nextUrl.indexOf('/?') + 2) + "limit=" + perPage + "&page=1&orderBy=" + orderBy + "&sortType=" + sortType; 
     }
     else
     {
@@ -158,7 +158,7 @@ function addNavUrls(req, dataWithMeta, currentPage, perPage, orderBy)
         if(dataWithMeta.count == perPage && ((currentPage + 1) * perPage < dataWithMeta.totalCount))
         {
             nextUrl += (nextUrl[nextUrl.length - 1] == '/') ? '' : '/';
-            nextUrl += `?limit=${perPage}&page=1&orderBy=${orderBy}`;
+            nextUrl += `?limit=${perPage}&page=1&orderBy=${orderBy}&sortType=ASC`;
         }
         else
         {

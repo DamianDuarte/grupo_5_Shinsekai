@@ -2,7 +2,7 @@ const db = require('../../database/models');
 const path = require('path');
 const { createError, apiHelper } = require('../../helpers');
 
-const excludedAttr = ['created_at', 'updated_at', 'deleted_at'];
+const excludedAttr = ['updated_at', 'deleted_at'];
 
 const userAssociations = [
     { association: 'avatar', attributes: { exclude: [...excludedAttr, 'user_id'] } },
@@ -43,10 +43,12 @@ const userAssociations = [
 
 module.exports = {
     getAll: async (req, res) => {
-        const orderByChoices = ['id', 'username', 'firstName', 'isAdmin', 'subscription_id'];
+        const orderByChoices = ['id', 'username', 'firstName', 'isAdmin', 'subscription_id', 'sortType'];
         const perPage = req.query.limit ? +req.query.limit : 10;
         const page = req.query.page ? +req.query.page : 0;
         const orderBy = (req.query.orderBy && orderByChoices.includes(req.query.orderBy)) ? req.query.orderBy : 'id';
+        const sortType = ['ASC', 'DESC'].includes(req.query.sortType) ? req.query.sortType : 'ASC';
+
         try {
 
             let users = await db.users.findAll({
@@ -54,12 +56,12 @@ module.exports = {
                 attributes: { exclude: [...excludedAttr, 'email', 'password', 'subscription_id'] },
                 limit: perPage,
                 offset: perPage * page,
-                order: [orderBy]
+                order: [ [ orderBy, sortType ] ]
             });
             users = apiHelper.addDetailToData(req, users);
             users = apiHelper.addImgToData(req, users);
             users = apiHelper.addMeta(users, await db.users.count());
-            users = apiHelper.addNavUrls(req, users, page, perPage, orderBy);
+            users = apiHelper.addNavUrls(req, users, page, perPage, orderBy, sortType);
 
             return res.status(users.status).json(users);
         } catch (error) {

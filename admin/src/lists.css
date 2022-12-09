@@ -1,0 +1,43 @@
+*
+{
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.list
+{
+    margin-left: 25px;
+}
+
+.list .itemContainer
+{
+    display: flex;
+    flex-wrap: wrap;
+    align-items:flex-start;
+    justify-content: center;
+    gap: 15px 15px;
+}
+
+.list .itemContainer .item
+{
+    width: 200px;
+    background-color: #858796;
+    border-radius: 5px;
+    color: white;
+    display:flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.list .itemContainer .item img
+{
+    width: 200px;
+    height: 170px;
+    background-color: white;
+}
+
+.list .itemContainer .item p
+{
+    font-size: 12px;
+    text-align: center;
+}
