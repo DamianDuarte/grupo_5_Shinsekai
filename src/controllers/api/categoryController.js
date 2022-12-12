@@ -2,7 +2,7 @@ const db = require('../../database/models');
 const path = require('path');
 const { createError, apiHelper} = require('../../helpers');
 
-const excludedAttr = ['created_at', 'updated_at', 'deleted_at'];
+const excludedAttr = ['updated_at', 'deleted_at'];
 const categoryAssociations = [
     { association: 'products', attributes: { exclude: [ ...excludedAttr, 'category_id' ] },
         include: [ { association: 'images', attributes: { exclude: [ ...excludedAttr, 'product_id' ] } } ] }
@@ -12,10 +12,11 @@ module.exports =
 {
     getAll: async (req, res) => 
     {
-        const orderByChoices = ['id', 'name'];
+        const orderByChoices = ['id', 'name', 'created_at'];
         const perPage = req.query.limit ? +req.query.limit : 10;
         const page = (req.query.page && req.query.limit) ? +req.query.page : 0;
         const orderBy = (req.query.orderBy && orderByChoices.includes(req.query.orderBy)) ? req.query.orderBy : 'id';
+        const sortType = ['ASC', 'DESC'].includes(req.query.sortType) ? req.query.sortType : 'ASC';
 
         try 
         {
@@ -25,7 +26,7 @@ module.exports =
                     attributes: { exclude: excludedAttr },
                     limit: perPage,
                     offset: perPage * page,
-                    order: [ orderBy ]
+                    order: [ [ orderBy, sortType ] ]
                 }
             );
 
@@ -33,7 +34,7 @@ module.exports =
             categories = apiHelper.addDetailToData(req, categories)
             categories = apiHelper.addImgToData(req, categories);
             categories = apiHelper.addMeta(categories, await db.categories.count());
-            categories = apiHelper.addNavUrls(req, categories, page, perPage, orderBy);
+            categories = apiHelper.addNavUrls(req, categories, page, perPage, orderBy, sortType);
 
             return res.status(categories.status).json(categories);
         } 

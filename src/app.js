@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const session = require('express-session');
 const methodOverride = require('method-override');
+const cors = require('cors');
 
 const localSession = require('./middlewares/localSession');
 
@@ -18,6 +19,7 @@ var apiCategoryRouter = require('./routes/apiCategories');
 var apiTagRouter = require('./routes/apiTags');
 var apiSaleRouter = require('./routes/apiSales');
 var apiAuthRouter = require ('./routes/apiAuth');
+var apiMiscRouter = require('./routes/apiMisc');
 
 var app = express();
 
@@ -38,6 +40,7 @@ app.use(session(
     resave: false,
     saveUninitialized: true
   }));
+app.use(cors())
 
 //* Custom middlewares
 app.use(localSession);
@@ -53,6 +56,7 @@ app.use('/api/categories', apiCategoryRouter);
 app.use('/api/tags', apiTagRouter);
 app.use('/api/sales', apiSaleRouter);
 app.use('/api/auth', apiAuthRouter);
+app.use('/api/misc', apiMiscRouter);
 
 app.use(session(
   {
