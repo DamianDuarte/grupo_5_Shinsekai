@@ -51,4 +51,5 @@ module.exports = [
 
             return true;
         })
+
 ]
