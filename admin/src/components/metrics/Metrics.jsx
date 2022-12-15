@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Metric } from './Metric'
-import { useFetch } from '../../hooks/useFetch';
+import { fetchThis } from '../../hooks/fetchThis';
 
 export const Metrics = () => {
 
@@ -32,7 +32,7 @@ export const Metrics = () => {
     {
         try
         {
-            let response = await useFetch(endpoint);
+            let response = await fetchThis(endpoint);
             setstate({
                 loading: false,
                 products: { ...state.products, count: response.data.products },

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useFetch } from '../../hooks/useFetch';
+import { fetchThis } from '../../hooks/fetchThis';
 import { Category } from './Category'
 
 export const Categories = () => {
@@ -10,7 +10,7 @@ export const Categories = () => {
         data: []
     });
     useEffect(() => {
-        useFetch('categories')
+        fetchThis('categories')
             .then((response) =>
             {
                 if(response.msg != "success")

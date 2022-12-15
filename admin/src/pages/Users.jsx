@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { User } from '../components/User'
-import { useFetch } from '../hooks/useFetch';
+import { fetchThis } from '../hooks/fetchThis';
 import '../lists.css';
 
 export const Users = () => {
@@ -11,7 +11,7 @@ export const Users = () => {
   });
 
   useEffect(() => {
-      useFetch('users/?limit=9999')
+      fetchThis('users/?limit=9999')
           .then((response) =>
           {
               if(response.msg != 'success')
