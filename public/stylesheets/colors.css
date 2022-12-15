@@ -1,0 +1,27 @@
+/*! -- Con esto se seleccionan los colores según el tema de tu dispositivo -- */
+@media(prefers-color-scheme: dark) 
+{
+    :root 
+    {
+        /** Tema oscuro - Dark*/
+        --c_bg: var(--dark_bg);
+        --c_header_footer: var(--dark_header_footer);
+        --c_buttons: var(--dark_buttons);
+        --c_squares: var(--dark_squares);
+        --c_font: var(--dark_font);
+    }
+}
+
+@media(prefers-color-scheme: light) 
+
+{
+    :root
+    {
+        /** Tema claro - Light*/
+        --c_bg: var(--light_bg);
+        --c_header_footer: var(--light_header_footer);
+        --c_buttons: var(--light_buttons);
+        --c_squares: var(--light_squares);
+        --c_font: var(--light_font);
+    }
+}
