@@ -60,7 +60,7 @@
                 <i class="fa-solid fa-share-nodes"></i>
                 <% if (locals.user && user.admin) { %>
                     <a href="/edit/product/<%= product.id %>"><i class="fa-solid fa-pen-to-square"></i></a>
-                    <button style="background-color: var(--c_squares)" type="submit" form="deleteForm"><i class="fa-solid fa-trash-can"></i></button>
+                    <button style="background-color: var(--c_squares)" type="submit" form="deleteForm" id="deleteButton"><i class="fa-solid fa-trash-can"></i></button>
                     <form id="deleteForm" action="/edit/product/delete/<%= product.id %>?_method=DELETE" method="POST"></form>
                 <% } %>
             </div>
@@ -80,3 +80,6 @@
 </body>
 
 </html>
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/js/productDelete.js"></script>

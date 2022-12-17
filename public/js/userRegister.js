@@ -73,7 +73,7 @@ let verifyUserName = async (username) => {
 
       let result = await response.json();
 
-      console.log(result);
+      
 
       return result.verified;
   } catch (error) {

@@ -87,5 +87,15 @@ module.exports =
     getImg: async (req, res) =>
     {
         return res.sendFile(path.join(__dirname, '..','..', '..', 'public','img','products', req.params.filename));
-    }
+    },
+    destroy : (req, res) => {
+	
+		db.products.destroy({
+			where : {
+				id : req.params.id
+			}
+		})
+			.then( () => res.redirect('/products'))
+			.catch( error => console.log(error));
+	}
 }
