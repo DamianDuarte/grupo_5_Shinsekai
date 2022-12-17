@@ -9,9 +9,10 @@
 {
     overflow: hidden;
     text-align: center;
+    background-color: var(--dark_bg);
 }
 
-.home__main section
+/* .home__main section
 {
     margin-bottom: 40px;
-}
+} */

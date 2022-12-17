@@ -10,7 +10,7 @@ let updateCart = (data) => {
     ActualCart = data;
     document.getElementById('cart__list').innerHTML = ''
     if (data.length == 0) {
-        document.getElementById('cart__list').innerHTML = "<img src='/img/MICArtTriste.png' alt=''> <p style = 'color:#292F36'  >El carrito está vacío</p>"
+        document.getElementById('cart__list').innerHTML = "<img src='/img/MICArtTriste.png' alt='' style='margin: auto; display: block;'> <p style = 'color:#292F36;text-align: center;margin: 15px;font-size: 16px;'  >El carrito está vacío</p>"
 
     } else {
         data.forEach(product => {

@@ -3,8 +3,9 @@
     font-family: var(--f_general);
     border-radius: 20px;
     padding: 15px 5px;
-    margin: 0px 10px;
-    background: linear-gradient(0deg, rgba(199,10,128,0) 0%, rgb(199 10 128 / 65%) 85%);
+    margin: 20px;
+    /* background: linear-gradient(0deg, rgba(199,10,128,0) 0%, rgb(199 10 128 / 65%) 85%); */
+    background: linear-gradient(0deg, rgba(199,10,128,0) 0%, var(--c_header_footer) 85%);
     background-blend-mode: soft-light;
     background-size: cover;
 }
@@ -14,7 +15,7 @@
     content: "";
     position: absolute;
     background-image: var(--popularBg);
-    background-color: rgb(199 10 128 / 80%);
+    background-color: var(--c_header_footer);
     background-blend-mode: soft-light;
     background-size: cover;
     left: 0;

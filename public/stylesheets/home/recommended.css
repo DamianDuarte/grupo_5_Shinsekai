@@ -1,9 +1,12 @@
 .recommendedSection
 {
+    background: url('https://i.pinimg.com/originals/39/f5/70/39f570a5f25eb6a004fc857283540168.png');
+    background-attachment: fixed;
+    background-repeat: round;
     font-family: var(--f_general);
-    border-radius: 20px;
-    padding: 15px 5px;
-    margin: 0px 10px;
+    /* border-radius: 20px; */
+    padding: 15px 15px;
+    /* margin: 0px 10px; */
     background-blend-mode: soft-light;
     background-size: cover;
     padding-bottom: 50px;
@@ -33,6 +36,9 @@
 
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     grid-auto-rows: 200px;
+    background-color: #00000080;
+    padding: 15px;
+    border-radius: 10px;
 }
 
 @media screen and (min-width: 424px)

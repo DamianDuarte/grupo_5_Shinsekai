@@ -189,6 +189,11 @@
     flex-direction: column;
 }
 
+.cart__pago__payment button a, .cart__pago__payment button
+{
+    color: var(--light_bg);
+}
+
 .cart__pago__payment button{
     border: none;
     border-radius: 20px;
