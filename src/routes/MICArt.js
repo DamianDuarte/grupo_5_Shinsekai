@@ -3,13 +3,15 @@ const router = express.Router();
 
 // ******* CONTROLLERS REQUIRE ********
 
-const { list, addItem, removeItem, removeAllItems } = require('../controllers/api/apiMICArtController');
+const { list, addItem, removeItem, removeAllItems, addqty, removeqty } = require('../controllers/api/apiMICArtController');
 
-//* ************ RUTAS ************
+//* ************ RUTAS (/api/MICArt) ************
 
 router
 .get('/', list)
-.post('/add/:id', addItem)
+.get('/add/:id', addItem)
+.get('/addqty/:id', addqty)
+.get('/removeqty/:id', removeqty)
 .delete('/remove/:id', removeItem)
 .delete('/removeAll', removeAllItems)
 

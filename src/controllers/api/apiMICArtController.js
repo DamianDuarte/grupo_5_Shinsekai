@@ -1,4 +1,5 @@
 const db = require('../../database/models');
+const {apiHelper} = require('../../helpers');
 
 module.exports = {
     list: async (req, res) => {
@@ -16,9 +17,15 @@ module.exports = {
         }
     },
     addItem: async (req, res) => {
+
         try {
             const {id} = req.params;
-            let product = await db.products.findByPk(id);
+            let product = await db.products.findByPk(id, {
+                include: [
+                    {association: 'images'},
+                ] 
+            });
+            product = apiHelper.addImgToData(req, product);
             if (!product) {
                 return res.status(404).json({
                     status: 'error',
@@ -28,7 +35,7 @@ module.exports = {
             if (!req.session.MICArt) {
                 req.session.MICArt = [];
             }
-            const index = req.session.MICArt.findIndex(p => p.id == id);
+            const index = req.session.MICArt.findIndex(p => p.data.id == id);
             if (index >= 0) {
                 req.session.MICArt[index].qty++;
             }else{
@@ -50,7 +57,7 @@ module.exports = {
     removeItem: async (req, res) => {
         try {
             const {id} = req.params;
-            const product = await db.Product.findByPk(id);
+            const product = await db.products.findByPk(id);
             if (!product) {
                 return res.status(404).json({
                     status: 'error',
@@ -60,7 +67,7 @@ module.exports = {
             if (!req.session.MICArt) {
                 req.session.MICArt = [];
             }
-            const index = req.session.MICArt.product.findIndex(p => p.id == id);
+            const index = req.session.MICArt.findIndex(p => p.data.id == id);
             req.session.MICArt.splice(index, 1);
             return res.status(200).json({
                 ok: true,
@@ -92,7 +99,7 @@ module.exports = {
     addqty: async (req, res) => {
         try {
             const {id} = req.params;
-            const product = await db.Product.findByPk(id);
+            const product = await db.products.findByPk(id);
             if (!product) {
                 return res.status(404).json({
                     status: 'error',
@@ -102,7 +109,7 @@ module.exports = {
             if (!req.session.MICArt) {
                 req.session.MICArt = [];
             }
-            const index = req.session.MICArt.product.findIndex(p => p.id == id);
+            const index = req.session.MICArt.findIndex(p => p.data.id == id);
             req.session.MICArt[index].qty++;
             return res.status(200).json({
                 ok: true,
@@ -119,7 +126,7 @@ module.exports = {
     removeqty: async (req, res) => {
         try {
             const {id} = req.params;
-            const product = await db.Product.findByPk(id);
+            const product = await db.products.findByPk(id);
             if (!product) {
                 return res.status(404).json({
                     status: 'error',
@@ -129,7 +136,7 @@ module.exports = {
             if (!req.session.MICArt) {
                 req.session.MICArt = [];
             }
-            const index = req.session.MICArt.product.findIndex(p => p.id == id);
+            const index = req.session.MICArt.findIndex(p => p.data.id == id);
             req.session.MICArt[index].qty--;
 
             if (req.session.MICArt[index].qty == 0) {

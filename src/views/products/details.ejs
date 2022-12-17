@@ -49,12 +49,7 @@
                 </form>
             </div>
             <div class="details__main--add-to-cart">
-                <button class="details__main--add-to-cart--button" type="submit"> <a href="#">Agregar al carrito <i class="fa-solid fa-cart-shopping"></i></a></button>
-                <form class="details__main--form">
-                    <button class="btn-plus" onclick="decrementar()">-</button>
-                    <input class="number_view" type="text" value="0" id="item" name="item" disabled>
-                    <button class="btn-min" onclick="incrementar()">+</button>
-                </form>
+                <button class="details__main--add-to-cart--button" type="submit" onclick="addToCart()"> Agregar al carrito <i class="fa-solid fa-cart-shopping"></i></button>
             </div>
             <div class="details__main--prod-detail">
                 <h4>Detalle del producto</h4>
@@ -79,17 +74,6 @@
                     <img src="/img/caja.jpg" alt="">
                     <img src="/img/caja.jpg" alt="">
             </div>
-        </div>
-        <div class="details__main--QaA">
-            <div class="details__main--QaA--title">
-            <h3>Preguntas y respuestas </h3>
-            <i class="fa-solid fa-messages-question"></i>
-            </div>
-            <form action="">
-                <textarea name="Pregunta" cols="30" rows="2" placeholder="Escriba su pregunta" style="resize: none;"></textarea>
-                <button class="details__main--QaA-btn" type="submit">enviar</button>
-            </form>
-            <img src="/img/timmy.jpg" alt="">
         </div>
     </main>
     <%- include('../partials/footer') %> 
