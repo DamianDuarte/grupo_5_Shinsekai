@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useFetch } from '../hooks/useFetch';
+import { fetchThis } from '../hooks/fetchThis';
 
 export const LastProduct = () => {
 
@@ -13,7 +13,7 @@ export const LastProduct = () => {
 
     let productImg;
     useEffect(() => {
-        useFetch('products/?limit=1&page=0&orderBy=created_at&sortType=DESC')
+        fetchThis('products/?limit=1&page=0&orderBy=created_at&sortType=DESC')
             .then((response) => {
                 if(response.msg != 'success')
                 {

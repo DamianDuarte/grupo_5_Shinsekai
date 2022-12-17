@@ -20,6 +20,7 @@ var apiTagRouter = require('./routes/apiTags');
 var apiSaleRouter = require('./routes/apiSales');
 var apiAuthRouter = require ('./routes/apiAuth');
 var apiMiscRouter = require('./routes/apiMisc');
+var apiMICArtRouter = require('./routes/MICArt');
 
 var app = express();
 
@@ -57,6 +58,7 @@ app.use('/api/tags', apiTagRouter);
 app.use('/api/sales', apiSaleRouter);
 app.use('/api/auth', apiAuthRouter);
 app.use('/api/misc', apiMiscRouter);
+app.use('/api/MICArt', apiMICArtRouter);
 
 app.use(session(
   {

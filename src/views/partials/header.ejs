@@ -8,6 +8,11 @@
             </a>
         </figure>
 
+        <!-- BOTON TEMAS -->
+        <div class="header__mitad__temas">
+            <button id="switchTheme" class="header__mitad__temas--light"><i class="buttonTheme fa-solid fa-moon" id="icon"></i></button>
+            </div>
+
         <form class="header__mitad__searchbar" action="/search">
             <select class="header__mitad__searchbar--filter" name="filtro" id="filtro">
                 <option value="-1" disabled selected hidden>Filtro</option>
@@ -45,3 +50,5 @@
 
 <%- include('./userAccess') %> 
 <%- include('./MICArt') %> 
+
+<script src="/js/MICArt.js"></script>

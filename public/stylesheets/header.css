@@ -46,6 +46,15 @@
     display:none;
 }
 
+#switchTheme
+{
+    border: none;
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    
+}
+
 select { /*! Remueve flecha de options (Select)*/
     -webkit-appearance: none;
     -moz-appearance: none;
