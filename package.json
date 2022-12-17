@@ -36,5 +36,8 @@
     "sequelize": "^6.25.1",
     "sequelize-cli": "^6.5.1",
     "sweetalert2": "^11.6.15"
+  },
+  "devDependencies": {
+    "concurrently": "^7.6.0"
   }
 }

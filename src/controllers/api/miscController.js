@@ -24,5 +24,27 @@ module.exports =
         {
             return apiHelper.error(res, error.status ? error.status : 400, error.msg ? error.msg : error);
         }
+    },
+
+    changeTheme : async (req, res) =>{
+        if(!req.session.theme) {
+            req.session.theme = 'darkTheme';
+        }
+        req.session.theme = req.session.theme === 'darkTheme' ? 'lightTheme' : 'darkTheme';
+        return res.status(200).json({
+            data: req.session.theme,
+            status: 200,
+            msg: 'success'
+        });
+    },
+    getTheme: async (req, res) => {
+        if(!req.session.theme) {
+            req.session.theme = 'darkTheme';
+        }
+        return res.status(200).json({
+            data: req.session.theme,
+            status: 200,
+            msg: 'success'
+        });
     }
 }

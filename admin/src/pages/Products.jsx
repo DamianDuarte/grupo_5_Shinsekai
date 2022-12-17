@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Product } from '../components/Product'
-import { useFetch } from '../hooks/useFetch';
+import { fetchThis } from '../hooks/fetchThis';
 import '../lists.css';
 
 export const Products = () => {
@@ -12,7 +12,7 @@ export const Products = () => {
     });
 
     useEffect(() => {
-        useFetch('products/?limit=9999')
+        fetchThis('products/?limit=9999')
             .then((response) =>
             {
                 if(response.msg != 'success')

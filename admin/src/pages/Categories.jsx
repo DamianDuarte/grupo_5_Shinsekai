@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Category } from '../components/Category'
-import { useFetch } from '../hooks/useFetch';
+import { fetchThis } from '../hooks/fetchThis';
 import '../lists.css';
 
 export const Categories = () => {
@@ -11,7 +11,7 @@ export const Categories = () => {
   });
 
   useEffect(() => {
-      useFetch('categories/?limit=9999')
+      fetchThis('categories/?limit=9999')
           .then((response) =>
           {
               if(response.msg != 'success')

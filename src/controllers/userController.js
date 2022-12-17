@@ -211,7 +211,9 @@ module.exports =
                         maxAge: 5000 * 60
                     })
             }
-
+                /* CARRITO */
+            /* No hay, no existe, no me dio la gana */
+             
             return res.redirect('back');
         } 
         catch (error) 

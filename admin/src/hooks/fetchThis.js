@@ -1,4 +1,4 @@
-const useFetch = async (endpoint, method='GET', data) => {
+const fetchThis = async (endpoint, method='GET', data) => {
     const apiUrlBase = process.env.REACT_APP_API_URL_BASE; 
     const url = `${apiUrlBase}/${endpoint}`;
     let response;
@@ -13,7 +13,7 @@ const useFetch = async (endpoint, method='GET', data) => {
     return result;
 }
 
-const useFetchWithToken = async (endpoint, method='GET', token, data) => {
+const fetchThisWithToken = async (endpoint, method='GET', token, data) => {
     const apiUrlBase = process.env.REACT_APP_API_URL_BASE; 
     const url = `${apiUrlBase}/${endpoint}`;
     let response;
@@ -29,4 +29,4 @@ const useFetchWithToken = async (endpoint, method='GET', token, data) => {
     return result;
 }
 
-export { useFetch, useFetchWithToken }
+export { fetchThis, fetchThisWithToken}
