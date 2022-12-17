@@ -2,8 +2,11 @@ console.log("Mica te amamos");
 
 let ActualCart = false;
 
+let totalPrice = document.getElementById('totalPrice')
+
 
 let updateCart = (data) => {
+    totalPrice.textContent = data.reduce((acc, product) => acc + product.data.price * product.qty, 0)
     ActualCart = data;
     document.getElementById('cart__list').innerHTML = ''
     if (data.length == 0) {
@@ -11,7 +14,6 @@ let updateCart = (data) => {
 
     } else {
         data.forEach(product => {
-            console.log(product.data.images)
             document.getElementById('cart__list').innerHTML += ` 
             <div class="product__container">
             <a href="#" class="cart__list__product">
@@ -27,7 +29,7 @@ let updateCart = (data) => {
             <input class="button-number" type="text" value="${product.qty}" id="itemCarrito" name="item" disabled>
             <button class="button-min" onclick="addqty(${product.data.id})">+</button>
             </div>
-            <a class="product--delete"><i class="fa-solid fa-trash"></i></a>
+            <button class="product--delete" onclick="removeItem(${product.data.id})"><i class="fa-solid fa-trash"></i></button>
             </div>
             </div>
             </a>
@@ -42,11 +44,10 @@ let addToCart = async () => {
 
     try {
         let ProductUrl = parseInt(document.URL.substring(document.URL.lastIndexOf('/') + 1));
-        console.log([ProductUrl]);
         let response = await fetch(`/api/MICArt/add/${ProductUrl}`)
         let result = await response.json()
         updateCart(result.data)
-        console.log([result.data]);
+
 
     } catch (error) {
         console.log(error)
@@ -58,7 +59,7 @@ let addqty = async (id) => {
         let response = await fetch(`/api/MICArt/addqty/${id}`)
         let result = await response.json()
         updateCart(result.data)
-        console.log([result.data]);
+
 
 
 
@@ -72,10 +73,31 @@ let removeqty = async (id) => {
         let response = await fetch(`/api/MICArt/removeqty/${id}`)
         let result = await response.json()
         updateCart(result.data)
+
+
+
+
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+let removeItem = async (id) => {
+    try {
+        let response = await fetch(`/api/MICArt/remove/${id}`)
+        let result = await response.json()
+        updateCart(result.data)
         console.log([result.data]);
+    } catch (error) {
+        console.log(error)
+    }
+}
 
-
-
+let removeAllItems = async () => {
+    try {
+        let response = await fetch(`/api/MICArt/removeAll`)
+        let result = await response.json()
+        updateCart(result.data)
     } catch (error) {
         console.log(error)
     }

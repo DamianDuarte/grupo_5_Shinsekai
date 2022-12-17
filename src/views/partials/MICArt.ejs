@@ -21,10 +21,13 @@
             
             <div class="cart__pago__total">
                 <p class="cart__pago-total">Total</p>
-                <p class="cart__pago__price">$0</p>
+                <p class="cart__pago__price" id="totalPrice">$0</p>
             </div>
             <div class="cart__pago__payment">
                 <button><a href="/products/payment">Iniciar compra</a></button>
+            </div>
+            <div class="cart__pago__payment">
+                <button onclick="removeAllItems()">Vaciar Carrito</button>
             </div>
             <hr class="cart__line">
          </section>

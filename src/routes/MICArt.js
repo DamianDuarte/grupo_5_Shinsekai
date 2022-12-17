@@ -12,7 +12,7 @@ router
 .get('/add/:id', addItem)
 .get('/addqty/:id', addqty)
 .get('/removeqty/:id', removeqty)
-.delete('/remove/:id', removeItem)
-.delete('/removeAll', removeAllItems)
+.get('/remove/:id', removeItem)
+.get('/removeAll', removeAllItems)
 
 module.exports = router;
