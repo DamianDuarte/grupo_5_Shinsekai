@@ -4,6 +4,10 @@
   "private": true,
   "scripts": {
     "start": "node ./src/bin/www",
+    "server": "nodemon ./src/bin/www",
+    "client:start": "cd admin & npm run start",
+    "client:build": "cd admin & npm run build",
+    "dev": "concurrently \"npm run server\" \"npm run client:start\"",
     "debug": "node --inspect ./src/bin/www"
   },
   "nodemonConfig": {
@@ -13,6 +17,7 @@
     "bcryptjs": "^2.4.3",
     "bootstrap": "^5.2.3",
     "cookie-parser": "~1.4.4",
+    "cors": "^2.8.5",
     "debug": "~2.6.9",
     "dotenv": "^16.0.3",
     "ejs": "~2.6.1",
