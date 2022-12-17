@@ -1,9 +1,12 @@
 .recommendedSection
 {
+    background: url('https://i.pinimg.com/originals/39/f5/70/39f570a5f25eb6a004fc857283540168.png');
+    background-attachment: fixed;
+    background-repeat: round;
     font-family: var(--f_general);
-    border-radius: 20px;
-    padding: 15px 5px;
-    margin: 0px 10px;
+    /* border-radius: 20px; */
+    padding: 15px 15px;
+    /* margin: 0px 10px; */
     background-blend-mode: soft-light;
     background-size: cover;
     padding-bottom: 50px;
@@ -11,7 +14,7 @@
 
 .recommendedSection h3
 {
-    background-color: var(--dark_squares);
+    background-color: var(--c_squares);
     color: black;
     border-radius: 15px;
     padding: 20px;
@@ -27,12 +30,31 @@
 
 .recommendedSection .recommended-grid
 {
-    margin: 25px;
+    /* margin: 25px; */
     display: grid;
     gap: 0.75rem;
 
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    grid-auto-rows: 300px;
+    grid-auto-rows: 200px;
+    background-color: #00000080;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+@media screen and (min-width: 424px)
+{
+    .recommendedSection .recommended-grid
+    {
+        margin: 25px;
+    }
+}
+
+@media screen and (min-width: 424px)
+{
+    .recommendedSection .recommended-grid
+    {
+        grid-auto-rows: 300px;
+    }
 }
 
 /*! Product */
@@ -50,7 +72,7 @@
 {
     box-shadow: rgba(2, 8, 20, 0.1) 0px 0.35em 1.175em, rgba(2, 8, 20, 0.08) 0px 0.175em 0.5em;
     transform: translateY(-3px) scale(1.03);
-    background-color: #FBCB0A;
+    background-color: var(--c_squares);
 }
 
 .recommendedSection .recommended-grid .productContainer .product 

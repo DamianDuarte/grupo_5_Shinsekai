@@ -129,6 +129,11 @@
     height: 40px;
 }
 
+.userAccess__content__quick--button i
+{
+    color: var(--light_bg)
+}
+
 /*! userAccess content -- split parts */
 
 .userAccess__content__split

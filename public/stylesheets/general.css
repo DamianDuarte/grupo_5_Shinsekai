@@ -10,9 +10,10 @@
 
     /** Light */
     --light_bg: #F7FFF7;
-    --light_header_footer: #4ECDC4;
-    --light_buttons: #FF6B6B;
-    --light_squares: #FFE66D;
+    /* --light_header_footer: #4ECDC4; */
+    --light_header_footer: #29c5ba; 
+    --light_buttons: #ff629f;
+    --light_squares: #ffd610;
     --light_font:#292F36;
 
     /*! -- Tipo de Fuentes -- */

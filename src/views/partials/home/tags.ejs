@@ -1,5 +1,5 @@
 <section class="tagsSection">
-    <h3>Explora nuestras etiquetas</h3>
+    <h3>¿Te interesa?</h3>
 
     <div class="tagContainer">
       <% tags.forEach((tag, i) => { %>
@@ -7,16 +7,8 @@
           <h2 class="tagName"><%= tag.name %></h2>   
           <img src="./img/tags/<%= checkImg.forTag(tag.imageFilename) %>"  alt="tag_img">
         </a>
-        <div class="favButtonContainer">
-          <% if (tag.fav) { %>
-            <i class="fa-solid fa-heart favButton clickable"></i>
-          <% } else { %>
-            <i class="fa-regular fa-heart favButton favButtonUnselected clickable"></i>
-          <% } %>
-        </div>
       <% }) %>
     </div>
 </section>
 
-<script src="./javascript/home/favButtons.js"></script>
 <script src="./javascript/home/glowEffect.js"></script>
