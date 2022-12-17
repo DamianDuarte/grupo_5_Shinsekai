@@ -9,17 +9,21 @@
             <button class="userAccess__content__quick--button" type="submit"><i class="fa-brands fa-twitter"></i></button>
         </div>
 
+
+        <!-- LOGUEO -->
+
         <div class="userAccess__content__split">
             <div class="userAccess__content__split__login">
                 <h3>Accede a tu cuenta</h3>
 
                 <form action="/user/login" method="POST" id="formLogin">
-                    <input type="text" name="username" id="username"  class="validateInput" placeholder="Usuario/Email" value="<%= locals.loginOld && loginOld.username %>" required>
+                    <input type="text" name="username" id="username"  class="validateInput" placeholder="Usuario/Email" value="<%= locals.loginOld && loginOld.username %>" >
                     
                         <small class="msgErrors invalid" id="errorusername"><% if(locals.loginErrors && loginErrors.username) {%> <%= loginErrors.username.msg %> <% } %></small>
                     
 
-                    <input type="password" name="password" id="passLog" class="validateInput" placeholder="Contraseña" value="<%= locals.loginOld && loginOld.password %>" required>
+                    <input type="password" name="password" id="passLog" class="validateInput" placeholder="Contraseña" value="<%= locals.loginOld && loginOld.password %>">
+                    <span class="input-group-text" style="cursor: pointer;" id="btn-show-pass"><i class="fa-solid fa-eye-slash" ></i></span>
                     
                         <small class="msgErrors invalid" id="erroruserpass"> <% if(locals.loginErrors && loginErrors.password) {%><%= loginErrors.password.msg %> <% } %>  </small>
                     
@@ -35,21 +39,30 @@
             
             <hr>
 
+
+
+
+
+            <!-- REGISTRO -->
+
             <div class="userAccess__content__split__register">
                 <h3>Registrate</h3>
 
                 <form action="/user/register" id="registerForm" method="POST">
-                    <input type="text" name="username" id="userName" placeholder="Nombre de usuario" value="<%= locals.registerOld && registerOld.username %>" required>
+                    <input type="text" name="username" id="userName" placeholder="Nombre de usuario" value="<%= locals.registerOld && registerOld.username %>" >
                         <p class="errorMsg" id="errorUsername" %> "><% if(locals.registerErrors && registerErrors.username) {%> <%= registerErrors.username.msg %> <% } %></p>
                     
 
-                    <input type="email" name="email" id="email" placeholder="Email" value="<%= locals.registerOld && registerOld.email %>" required>
+                    <input type="email" name="email" id="email" placeholder="Email" value="<%= locals.registerOld && registerOld.email %>" >
                     
                         <p class="errorMsg" id="errorEmail"><% if(locals.registerErrors && registerErrors.email) {%> <%= registerErrors.email.msg %> <% } %></p>
                     
 
-                    <input type="password" name="password" id="password" placeholder="Contraseña" value="<%= locals.registerOld && registerOld.password %>" required>
-                        <p class="errorMsg" id="errorPass"><% if(locals.registerErrors && registerErrors.password) {%> <%= registerErrors.password.msg %> <% } %> </p>
+                    <input type="password" name="password" id="password" placeholder="Contraseña" value="<%= locals.registerOld && registerOld.password %>" > 
+
+                    <span class="input-group-text" style="cursor: pointer;" id="btn-pass"><i class="fa-solid fa-eye-slash" ></i></span>
+
+                        <p class="errorMsg" id="errorPass"><% if(locals.registerErrors && registerErrors.password) {%> <%= registerErrors.password.msg %> <% } %></p>
                     <ul id="msgPass" hidden>
                         <li id="mayu">Una mayúscula</li>
                         <li id="minu">Un minúscula</li>
@@ -58,7 +71,7 @@
                         <li id="min">Mínimo 6 caracteres</li>
                       </ul>
 
-                    <input type="password" name="v_password" id="v_password" placeholder="Repetir contraseña" value="<%= locals.registerOld && registerOld.v_password %>" required>
+                    <input type="password" name="v_password" id="v_password" placeholder="Repetir contraseña" value="<%= locals.registerOld && registerOld.v_password %>" >
                     
                         <p class="errorMsg" id="errorPass2"><% if(locals.registerErrors && registerErrors.v_password) {%> <%= registerErrors.v_password.msg %> <% } %></p>
                     

@@ -183,5 +183,12 @@ $("registerForm").addEventListener("submit", function (e) {
 
 
 });
-
-
+$("btn-pass").addEventListener("click", ({ target }) => {
+  if (target.localName === "i") {
+    target.classList.toggle("fa-eye");
+  $("password").type = $("password").type === "text" ? "password" : "text";
+  } else {
+    target.childNodes[0].classList.toggle("fa-eye");
+    $("password").type = $("password").type === "text" ? "password" : "text";
+  }
+});

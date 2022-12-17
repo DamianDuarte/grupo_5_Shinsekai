@@ -83,4 +83,13 @@ dq("formLogin").addEventListener("submit", function (e) {
 
     console.log(inputVal, error)
     !error && this.submit()
-})
+});
+dq("btn-show-pass").addEventListener("click", ({ target }) => {
+    if (target.localName === "i") {
+      target.classList.toggle("fa-eye");
+    dq("passLog").type = dq("passLog").type === "text" ? "password" : "text";
+    } else {
+      target.childNodes[0].classList.toggle("fa-eye");
+      dq("passLog").type = dq("passLog").type === "text" ? "password" : "text";
+    }
+  });
