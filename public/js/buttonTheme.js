@@ -1,66 +1,70 @@
 /* Agregar un boton para cambiar entre tema claro y oscuro */
 console.log("Pinshi tema claro complicas las cosas");
 
-const root = document.documentElement;
-
-
 const button = document.getElementById('switchTheme');
-
 const iconSwitch = document.getElementById('icon');
 
-const updateTheme = (darkTheme) =>{
-    if(darkTheme == 'darkTheme')
+const updateIcon = async () =>
+{
+    try 
     {
+        const theme = await getTheme();
 
-        iconSwitch.classList.remove('fa-sun');
-        iconSwitch.classList.add('fa-moon');
+        if(theme == 'darkTheme')
+        {
+            iconSwitch.classList.remove('fa-sun');
+            iconSwitch.classList.add('fa-moon');
+        }
+        else
+        {
+            iconSwitch.classList.remove('fa-moon');
+            iconSwitch.classList.add('fa-sun');
+        }
 
-        root.style.setProperty('--c_header_footer', getComputedStyle(root).getPropertyValue('--dark_header_footer'))
-
-        root.style.setProperty('--c_buttons', getComputedStyle(root).getPropertyValue('--dark_buttons'))
-
-        root.style.setProperty('--c_squares', getComputedStyle(root).getPropertyValue('--dark_squares'))
-
-        root.style.setProperty('--c_font', getComputedStyle(root).getPropertyValue('--dark_font'))
-
-        root.style.setProperty('--c_bg', getComputedStyle(root).getPropertyValue('--dark_bg'))
-    }
-    else
+        iconSwitch.style.display = 'block';
+    } 
+    catch (error) 
     {
-        
-
-        iconSwitch.classList.remove('fa-moon');
-        iconSwitch.classList.add('fa-sun');
-
-        root.style.setProperty('--c_header_footer', getComputedStyle(root).getPropertyValue('--light_header_footer'))
-
-        root.style.setProperty('--c_buttons', getComputedStyle(root).getPropertyValue('--light_buttons'))
-
-        root.style.setProperty('--c_squares', getComputedStyle(root).getPropertyValue('--light_squares'))
-
-        root.style.setProperty('--c_font', getComputedStyle(root).getPropertyValue('--light_font'))
-
-        root.style.setProperty('--c_bg', getComputedStyle(root).getPropertyValue('--light_bg'))
+        console.log(error)   
     }
-
 }
 
-let themesChanges = async () =>{
-    let response  = await fetch('http://localhost:4000/api/misc/getTheme')
-    response = await response.json();
-    let darkTheme = response.data;
-    updateTheme(darkTheme);
-    
+updateIcon();
 
+const switchTheme = async () =>
+{
+    let response;
 
+    try
+    {
+        response = await fetch ('http://localhost:4000/api/misc/changeTheme');
+        response = await response.json();
+        window.sessionStorage.setItem('theme', response.data);
+    }
+    catch (error)
+    {
+        console.log(error);
+    }
+
+    updateTheme();
+
+    return response.data;
+}
+
+let themeChanges = async () =>{
     button.addEventListener('click', async () =>
     {
-        let response= await fetch ('http://localhost:4000/api/misc/changeTheme');
-        response = await response.json();
-        let darkTheme = response.data;
-        updateTheme(darkTheme);
+        try
+        {
+            await switchTheme();
+            updateIcon();
+        }
+        catch (error)
+        {
+            console.log(error);
+        }
+
     });
 }
-themesChanges();
 
-
+themeChanges();

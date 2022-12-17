@@ -1,42 +1,59 @@
 console.log("Mica te amamos");
 
-let ActualCart = false;
-
-let totalPrice = document.getElementById('totalPrice')
-
+let actualCart = false;
 
 let updateCart = (data) => {
-    totalPrice.textContent = data.reduce((acc, product) => acc + product.data.price * product.qty, 0)
-    ActualCart = data;
+    actualCart = data;
+    const totalPrice = data.reduce((acc, product) => acc + product.data.price * product.qty, 0)
+    const cartList = document.getElementById('cart__list');
+    const cartOptions = document.getElementById('cartOptions');
+
     document.getElementById('cart__list').innerHTML = ''
     if (data.length == 0) {
-        document.getElementById('cart__list').innerHTML = "<img src='/img/MICArtTriste.png' alt='' style='margin: auto; display: block;'> <p style = 'color:#292F36;text-align: center;margin: 15px;font-size: 16px;'  >El carrito está vacío</p>"
-
+        cartList.innerHTML = "<img src='/img/MICArtTriste.png' alt='' style='margin: 50px auto; display: block;'> <p style = 'color:#292F36;text-align: center;margin: 15px;font-size: 16px;'  >El carrito está vacío</p>"
+        cartOptions.innerHTML = '';
     } else {
         data.forEach(product => {
-            document.getElementById('cart__list').innerHTML += ` 
-            <div class="product__container">
-            <a href="#" class="cart__list__product">
-            <img class="cart__list__product--img" src="${product.data.images[0].url}" alt="producto-img">
-            <div class="cart__list--product-form">
-            <div class="cart__list__product--name--price">
-            <p class="product--name">${product.data.name}</p>
-            <p class="product--price">$ ${product.data.price * product.qty}</p>
+            cartList.innerHTML += `
+            <div class="cart__product">
+                    <a href="http://localhost:4000/products/details/${product.data.id}">
+                        <img src="${product.data.images[0].url}" alt="img-${product.data.name}">
+                    </a>
+
+                    <div class="cart__product__info">
+                        <a href="http://localhost:4000/products/details/${product.data.id}">
+                            <p>${product.data.name}</p>
+                        </a>
+
+                        <div class="cart__product__info__price">
+                            <div class="cart__product__info__price__quantity">
+                                <button class="button-plus" onclick="removeqty(${product.data.id})">-</button>
+                                <input class="button-number" type="text" value="${product.qty}" id="itemCarrito" name="item" disabled>
+                                <button class="button-min" onclick="addqty(${product.data.id})">+</button>
+                            </div>
+    
+                            <p>$ ${product.data.price * product.qty}</p>
+                        </div>
+                    </div>
+                    
+                    <button class="product--delete" onclick="removeItem(${product.data.id})"><i class="fa-solid fa-trash"></i></button>
+                </div>
+            `;
+        });
+
+        cartOptions.innerHTML = `
+            <hr>
+                
+            <div class="cart__pago__total">
+                <p class="cart__pago-total">Total</p>
+                <p class="cart__pago__price" id="totalPrice">$ ${totalPrice}</p>
             </div>
-            <div class="cart_list__form">
-            <div class="cart__list--form">
-            <button class="button-plus" onclick="removeqty(${product.data.id})">-</button>
-            <input class="button-number" type="text" value="${product.qty}" id="itemCarrito" name="item" disabled>
-            <button class="button-min" onclick="addqty(${product.data.id})">+</button>
+
+            <div class="cart__pago__payment">
+                <button><a href="/products/payment">Iniciar compra</a></button>
+                <button onclick="removeAllItems()" style="color: var(--light_bg);">Vaciar Carrito</button>
             </div>
-            <button class="product--delete" onclick="removeItem(${product.data.id})"><i class="fa-solid fa-trash"></i></button>
-            </div>
-            </div>
-            </a>
-            </div>  
-            `
-        }
-        )
+            `;
     }
 }
 

@@ -14,7 +14,7 @@
 
 .recommendedSection h3
 {
-    background-color: var(--dark_squares);
+    background-color: var(--c_squares);
     color: black;
     border-radius: 15px;
     padding: 20px;
@@ -72,7 +72,7 @@
 {
     box-shadow: rgba(2, 8, 20, 0.1) 0px 0.35em 1.175em, rgba(2, 8, 20, 0.08) 0px 0.175em 0.5em;
     transform: translateY(-3px) scale(1.03);
-    background-color: #FBCB0A;
+    background-color: var(--c_squares);
 }
 
 .recommendedSection .recommended-grid .productContainer .product 
