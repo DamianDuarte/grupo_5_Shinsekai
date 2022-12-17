@@ -59,7 +59,29 @@ let verifyEmail = async (email) => {
     }
 }
 
-$("userName").addEventListener("blur", function ({ target }) {
+let verifyUserName = async (username) => {
+  try {
+      let response = await fetch("/api/users/verify-username", {
+          method: "POST",
+          body: JSON.stringify({
+              username : username
+          }),
+          headers: {
+              "Content-Type": "application/json",
+          },
+      });
+
+      let result = await response.json();
+
+      console.log(result);
+
+      return result.verified;
+  } catch (error) {
+      console.error;
+  }
+}
+
+$("userName").addEventListener("blur", async function ({ target }) {
   switch (true) {
     case !this.value.trim():
       msgError("errorUsername", "No tienes nombre, sempai? (*ﾉωﾉ)", target);
@@ -74,6 +96,9 @@ $("userName").addEventListener("blur", function ({ target }) {
     case !exReg.exRegAlfa.test(this.value):
       msgError("errorUsername", "A caso eres un modelo de robot? (; ･`д･´) ", target);
       break;
+      case await verifyUserName(this.value):
+        msgError("errorUsername", "ALERTA DE DOPPELGANGER! o solo es coincidencia? Prueba otro nombre (´-ω-`)", target);
+        break;
     default:
       validField("errorUsername", target);
       break;

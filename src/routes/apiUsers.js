@@ -3,7 +3,7 @@ const router = express.Router();
 
 // ******* CONTROLLERS REQUIRE ********
 
-const { getOne, getAll, getImg, verifyEmail } = require('../controllers/api/userController');
+const { getOne, getAll, getImg, verifyEmail, verifyUserName } = require('../controllers/api/userController');
 
 
 /* Middlewares */
@@ -19,5 +19,6 @@ router
     /* Validaciones */
 
     .post('/verify-email', verifyEmail)
+    .post('/verify-username', verifyUserName)
 
 module.exports = router;
