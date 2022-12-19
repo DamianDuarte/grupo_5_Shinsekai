@@ -1,7 +1,7 @@
 <header class="header">
     <section class="header__mitad">
         <figure class="header__mitad__logo">
-            <i id="burger" class="fa-solid fa-bars" onclick="diego()"></i>
+            <i id="burger" class="fa-solid fa-bars" onclick="burgerBars()"></i>
             <a href="/">
                 <img src="/img/logo.png" alt="logo">
                 <h1>Shinsekai</h1>
@@ -49,29 +49,23 @@
 
 <%- include('./userAccess') %> 
 <%- include('./MICArt') %> 
+<%- include('./menuBurger')  %> 
 
 <script src="/js/MICArt.js"></script>
 <script>
-let diego = () => {
-    let burger = document.getElementById('burger');
-    let contenido = [
-        document.querySelector('.header__categorias'),
-        document.querySelector('.header__mitad__searchbar'),
-        document.querySelector('.header__mitad__buttons')
-    ]
-    contenido.forEach(element => {
-        if (element.style.display == 'none') {
-            element.style.display = 'flex';
+    
+let burgerBars = () => {
+    let element = document.getElementById('burger')
+    let menuBurger = document.getElementById('menuBurger')
+    console.log([element]);
+        if (menuBurger.style.display == 'none') {
+            menuBurger.style.display = 'block';
             burger.classList.remove('fa-bars');
             burger.classList.add('fa-times');
         } else {
-            element.style.display = 'none';
+            menuBurger.style.display = 'none';
             burger.classList.remove('fa-times');
             burger.classList.add('fa-bars');
         }
-    });
-
-}
-
-
+            }
 </script>

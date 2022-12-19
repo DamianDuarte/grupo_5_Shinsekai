@@ -1,0 +1,63 @@
+    <div class="menuBurger" id="menuBurger">
+
+    <!-- Filtro y busqueda -->
+    
+    <form class="buscador">
+        <select class="filtro" name="filtro" id="filtMenu">
+            <% for( let i = 0; i < tags.length; i++ ) { %>
+                <option value="<%= tags[i].id %>"><%= tags[i].name %></option>
+            <% } %>
+        </select>
+        <input class="barraBuscador" type="text" name="keywordsmenu" id="" placeholder="Buscar">
+        <button class="lupa" type="submit"><i
+                class="fa-solid fa-magnifying-glass"></i></button>
+    </form>
+    
+    <!-- botones en general -->
+    
+    <nav class="botones_nav">
+        <% if (!locals.user) { %>
+            <button id="modalTrigger--userAccess" class="usuario-btn"><i class="fa-solid fa-user"></i><p>Acceder</p></button>
+        <% }else { %>
+        <a href="/user/username" class="perfil"><img class="" src="../../public/img/users/Avatar (5).jpeg" alt="pfp"><p>Nombre</p></a>
+        <a class="salir" href="/user/logout"><p>Salir</p><i class="fa-solid fa-right-from-bracket"></i></a>
+        <% } %>
+
+        <button id="modalTrigger--MICArt" class="usuario-btn"><i class="fa-solid fa-cart-shopping"></i><p>Carrito</p></button>
+        
+        <% if (locals.user && user.admin) { %>
+        <a class="editar" href="/edit/product"><i class="fa-solid fa-file-pen"></i></i><p>Editar Usuario</p></a>
+        <a class="editar" href="/user"><i class="fa-solid fa-users"></i></i><p>Editar Usuario</p></a> <% } %> 
+        
+        
+        
+    </nav>
+    
+    <!-- Categorias -->
+    
+    <section class="categorias" >
+        <h2 id="categorias">Categorias <i class="fa-solid fa-chevron-down" id="flecha"></i></h2>
+        <ul id="section" style="display: none;" class="categorias-li">
+            <% for( let i = 0; i < categories.length; i++ ) { %>
+                <li><a class="header__categorias--categoria" href="/search?keywords=<%= categories[i].name %>"><%= categories[i].name %></a></li>
+                <% } %>
+        </ul>
+    </section>
+    
+    </div>
+
+    <script>
+        document.getElementById("categorias").addEventListener("click", function(){
+    if(document.getElementById("section").style.display != "block"){
+        document.getElementById("section").style.display = "block";
+        document.getElementById("flecha").classList.remove("fa-chevron-down");
+        document.getElementById("flecha").classList.add("fa-chevron-up");
+    }else{
+        document.getElementById("section").style.display = "none";
+        document.getElementById("flecha").classList.remove("fa-chevron-up");
+        document.getElementById("flecha").classList.add("fa-chevron-down");
+    }
+});
+    </script>
+
+
