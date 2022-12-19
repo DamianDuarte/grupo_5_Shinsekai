@@ -95,7 +95,7 @@
     gap: 10px;
 }
 
-.editar{
+.usuario-btn{
     display: flex;
     align-items: center;
     border: none;
@@ -103,11 +103,35 @@
     padding : 0;
 }
 
-.editar p{
+.usuario-btn p{
+    margin-left: 10px;
+}
+
+.editar
+{
+    height: 41px;
+    display: flex;
+    align-items: center;
+}
+
+
+.editar p 
+{
     margin-left: 10px;
 }
 /* categorias desplegables */
+.categorias-li
+{
+    display: flex;
+    flex-direction: column;
 
+}
+.categorias-li li
+{
+    gap: 10px;
+    margin: 10px;
+    list-style-type: none;
+}
 
 
 </style>
@@ -137,11 +161,11 @@
         <a href="/user/username" class="perfil"><img class="" src="../../public/img/users/Avatar (5).jpeg" alt="pfp"><p>Nombre</p></a>
         <a class="salir" href="/user/logout"><p>Salir</p><i class="fa-solid fa-right-from-bracket"></i></a>
         
-        <button id="modalTrigger--MICArt" class="editar"><i class="fa-solid fa-cart-shopping"></i><p>Carrito</p></button>
-        <button id="modalTrigger--userAccess" class="editar"><i class="fa-solid fa-user"></i><p>Acceder</p></button>
+        <button id="modalTrigger--userAccess" class="usuario-btn"><i class="fa-solid fa-user"></i><p>Acceder</p></button>
+        <button id="modalTrigger--MICArt" class="usuario-btn"><i class="fa-solid fa-cart-shopping"></i><p>Carrito</p></button>
         
-        <a class="" href="/edit/product"><i class="fa-solid fa-file-pen"></i></i> Editar Producto</a>
-        <a class="" href="/user"><i class="fa-solid fa-users"></i></i>Editar Usuario</a>
+        <a class="editar" href="/edit/product"><i class="fa-solid fa-file-pen"></i></i><p>Editar Usuario</p></a>
+        <a class="editar" href="/user"><i class="fa-solid fa-users"></i></i><p>Editar Usuario</p></a>
         
         
         
@@ -151,7 +175,7 @@
     
     <section class="categorias" >
         <h2 id="categorias">Categorias <i class="fa-solid fa-chevron-down" id="flecha"></i></h2>
-        <ul id="section" style="display: none;">
+        <ul id="section" style="display: none;" class="categorias-li">
             <li><a href="/category/1">Categoria 1</a></li>
             <li><a href="/category/2">Categoria 2</a></li>
             <li><a href="/category/3">Categoria 3</a></li>
