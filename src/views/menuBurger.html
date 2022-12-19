@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/da8f9c3d94.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../../public/stylesheets/styles.css">
+    <title>Document</title>
+</head>
+<style>
+
+    
+    .menuBurger
+{
+    display: block;
+    background-color: #FBCB0A;
+    width: 80%;
+    padding: 10px;
+}
+
+.menuBurger a {
+    text-decoration: none;
+    color: black;
+}
+
+
+/* BUSCADOR */
+
+.buscador{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    background-color: white;
+    border: solid 1px #FBCB0A;
+    width: 60%;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    
+}
+
+.filtro{
+    background-color: white;
+    color: grey;
+    text-align: center;
+    border: none;
+    width: 25%;
+    border-radius: 20px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+}
+
+.barraBuscador
+{
+    border: none;
+    width: 30%;
+}
+
+.lupa
+{
+    border: none;
+    background-color: white;
+    width: 15%;
+    border-radius: 20px;
+    
+}
+
+/* lista de botones */
+
+.botones_nav{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    
+}
+
+.perfil{
+    text-align: center;
+}
+
+.perfil img 
+{
+    width: 20%;
+    border-radius: 100%;
+}
+
+.salir
+{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    margin-right: 10px;
+    gap: 10px;
+}
+
+.editar{
+    display: flex;
+    align-items: center;
+    border: none;
+    background: transparent;
+    padding : 0;
+}
+
+.editar p{
+    margin-left: 10px;
+}
+/* categorias desplegables */
+
+
+
+</style>
+<body>
+    <div class="menuBurger">
+
+    <!-- Filtro y busqueda -->
+    
+    <form class="buscador">
+        <select class="filtro" name="filtro" id="filtro" ">
+            <option value="-1" disabled selected hidden>Filtro</option>
+            <option value="0">Nombre</option>
+            <option value="1">Precio</option>
+            <option value="2">Categoria</option>
+            <option value="3">Marca</option>
+            <option value="4">algo</option>
+        </select>
+        <input class="barraBuscador" type="text" name="keywords" id="keywords" placeholder="Buscar">
+        <button class="lupa" type="submit"><i
+                class="fa-solid fa-magnifying-glass"></i></button>
+    </form>
+    
+    <!-- botones en general -->
+    
+    <nav class="botones_nav">
+
+        <a href="/user/username" class="perfil"><img class="" src="../../public/img/users/Avatar (5).jpeg" alt="pfp"><p>Nombre</p></a>
+        <a class="salir" href="/user/logout"><p>Salir</p><i class="fa-solid fa-right-from-bracket"></i></a>
+        
+        <button id="modalTrigger--MICArt" class="editar"><i class="fa-solid fa-cart-shopping"></i><p>Carrito</p></button>
+        <button id="modalTrigger--userAccess" class="editar"><i class="fa-solid fa-user"></i><p>Acceder</p></button>
+        
+        <a class="" href="/edit/product"><i class="fa-solid fa-file-pen"></i></i> Editar Producto</a>
+        <a class="" href="/user"><i class="fa-solid fa-users"></i></i>Editar Usuario</a>
+        
+        
+        
+    </nav>
+    
+    <!-- Categorias -->
+    
+    <section class="categorias" >
+        <h2 id="categorias">Categorias <i class="fa-solid fa-chevron-down" id="flecha"></i></h2>
+        <ul id="section" style="display: none;">
+            <li><a href="/category/1">Categoria 1</a></li>
+            <li><a href="/category/2">Categoria 2</a></li>
+            <li><a href="/category/3">Categoria 3</a></li>
+            <li><a href="/category/4">Categoria 4</a></li>
+            <li><a href="/category/5">Categoria 5</a></li>
+            <li><a href="/category/6">Categoria 6</a></li>
+            <li><a href="/category/7">Categoria 7</a></li>
+            <li><a href="/category/8">Categoria 8</a></li>
+            <li><a href="/category/9">Categoria 9</a></li>
+            <li><a href="/category/10">Categoria 10</a></li>
+        </ul>
+    </section>
+    
+    </div>
+</body>
+</html>
+
+<script>
+document.getElementById("categorias").addEventListener("click", function(){
+    if(document.getElementById("section").style.display != "block"){
+        document.getElementById("section").style.display = "block";
+        document.getElementById("flecha").classList.remove("fa-chevron-down");
+        document.getElementById("flecha").classList.add("fa-chevron-up");
+    }else{
+        document.getElementById("section").style.display = "none";
+        document.getElementById("flecha").classList.remove("fa-chevron-up");
+        document.getElementById("flecha").classList.add("fa-chevron-down");
+    }
+});
+
+</script>
