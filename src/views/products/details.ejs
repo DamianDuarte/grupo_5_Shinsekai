@@ -38,7 +38,7 @@
 
             <div class="details__front__info__pricing">
                 <div class="details__front__info__pricing__numbers">
-                    <h4>$ <%= product.price - (product.price / 100 * product.discount)%></>
+                    <h4>$ <%= (product.price - (product.price / 100 * product.discount)).toFixed(2) %></>
                     <% if (product.discount > 0) { %>
                         <p><strike>$ <%= product.price %> </strike><h5><%= product.discount %>% OFF</h5></p>
                     <% } %>

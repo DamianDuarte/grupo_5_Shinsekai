@@ -326,15 +326,16 @@
 
     #payment__main__div
     {
-        margin: 0px 2%;
-        flex-direction: row;
+        margin: 0px auto;
+        flex-direction: column;
+        align-items: center;
         gap: 10px;
         width: 98%;
     }
 
     .payment__main__info
     {
-        width: 70%;
+        width: 85%;
     }
 
     .payment__main__total
@@ -385,6 +386,7 @@
     .payment__main__info__amount__list
     {
         width: 75%;
+        margin-left: 5%;
     }
 
     .payment__main__info__amount__list__product__column, .payment__main__info__amount__list__product__column:first-child

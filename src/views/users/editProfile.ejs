@@ -12,7 +12,7 @@
         <!-- Imagen y Nombre de perfil -->
         <div class="main__body__profile">
             <div class="main__body__profile-image">
-                <img class="image__profile" src="/img/users/<%= userProfile.avatar ? userProfile.avatar.filename : 'AvatarDefault.jpeg' %> " alt="">
+                <img class="image__profile" id="imgProf" src="/img/users/<%= userProfile.avatar ? userProfile.avatar.filename : 'AvatarDefault.jpeg' %> " alt="">
                 <input type="file" form="form1" name="image" id="image" accept=".jpg, .png, .gif, .jpeg" hidden>
                 <label class="profile__edit-img" for="image">
                         <i class="fa-solid fa-camera"></i>Editar Foto

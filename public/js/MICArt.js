@@ -75,10 +75,6 @@ let addqty = async (id) => {
         let response = await fetch(`/api/MICArt/addqty/${id}`)
         let result = await response.json()
         updateCart(result.data)
-
-
-
-
     } catch (error) {
         console.log(error)
     }
@@ -89,10 +85,6 @@ let removeqty = async (id) => {
         let response = await fetch(`/api/MICArt/removeqty/${id}`)
         let result = await response.json()
         updateCart(result.data)
-
-
-
-
     } catch (error) {
         console.log(error)
     }
