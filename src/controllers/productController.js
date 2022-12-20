@@ -143,7 +143,7 @@ module.exports={
     
     edit: async (req, res)=>{
         try {
-            const product = await db.products.findByPk(req.params.id, associations.get('images', 'tags'));
+            const product = await db.products.findByPk(req.params.id, associations.get('images', 'tags', 'category'));
             const products  = await db.products.findAll(associations.get('images'));
             const categories = await db.categories.findAll();
             const tags = await db.tags.findAll();
@@ -174,36 +174,33 @@ module.exports={
                 return res.render('editProducts', {categories, tags, product, products, productsOld, productsErrors, checkImg});
             }
 
-            if(req.body.tags)
-            {
-                await db.tags_products.destroy(
+            await db.tags_products.destroy(
+                {
+                    where:
                     {
-                        where:
-                        {
-                            product_id: product.id
-                        }
+                        product_id: product.id
+                    }
+                }
+            )
+
+            if(Array.isArray(req.body.tags))
+            {
+                const tagsToAdd = [];
+                
+                req.body.tags.forEach(t => tagsToAdd.push(
+                    { tag_id: t, product_id: product.id }
+                ));
+                
+                await db.tags_products.bulkCreate(tagsToAdd);
+            }
+            else if(req.body.tags)
+            {
+                await db.tags_products.create(
+                    {
+                        tag_id: req.body.tags,
+                        product_id: product.id
                     }
                 )
-
-                if(Array.isArray(req.body.tags))
-                {
-                    const tagsToAdd = [];
-                    
-                    req.body.tags.forEach(t => tagsToAdd.push(
-                        { tag_id: t, product_id: product.id }
-                    ));
-                    
-                    await db.tags_products.bulkCreate(tagsToAdd);
-                }
-                else
-                {
-                    await db.tags_products.create(
-                        {
-                            tag_id: req.body.tags,
-                            product_id: product.id
-                        }
-                    )
-                }
             }
 
             if(!product) throw createError(404, 'Producto no encontrado.')

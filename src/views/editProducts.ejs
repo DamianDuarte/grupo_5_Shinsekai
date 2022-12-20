@@ -27,7 +27,7 @@
                             </div>
                             <select class="c_categoria" name="category" id="category" >
                                 <% for( let i = 0; i < categories.length; i++ ) { %>
-                                <option value="<%= categories[i].id %>" <%= categories[i].id === product.category && 'selected' %>><%= categories[i].name %></option>
+                                <option value="<%= categories[i].id %>" <%= categories[i].id == product.category.id && 'selected' %>><%= categories[i].name %></option>
                                 <% } %>
                             </select>
                             <textarea name="description" class="validateInput" id="description" placeholder="Descripción" cols="30" rows="10" ><%= product.description %></textarea>
@@ -44,7 +44,7 @@
                             <hr>
                             <div class="tagGroup">
                                 <% for( let i = 0; i < tags.length; i++ ) { %>
-                                <input type="checkbox" name="tags" id="c_tag<%= tags[i].id %>" value="<%= tags[i].id %>" <%= product.tags.includes(tags[i].id) && 'checked' %> hidden>
+                                <input type="checkbox" name="tags" id="c_tag<%= tags[i].id %>" value="<%= tags[i].id %>" <%= product.tags.find(t => t.id == tags[i].id) && 'checked' %> hidden>
                                 <label for="c_tag<%= tags[i].id %>"><%= tags[i].name %></label>
                                 <% } %>
                             </div>
