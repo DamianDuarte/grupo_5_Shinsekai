@@ -14,6 +14,10 @@ function getImages(data)
         response.json().then(result =>
         {
             images = result.data;
+            const firstProduct = document.querySelector('.productLink');
+            const id = firstProduct.dataset.pid;
+            const img = images.find((i) => i.id == id);
+            img ? (document.querySelector('#productImg').src = img.url) : ''; 
         })
         .catch(error =>
         {
