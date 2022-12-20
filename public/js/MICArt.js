@@ -32,7 +32,7 @@ let updateCart = (data) => {
                                 <button class="button-min" onclick="addqty(${product.data.id})">+</button>
                             </div>
     
-                            <p>$ ${product.data.price * product.qty}</p>
+                            <p>$ ${(product.data.price - product.data.price / 100 * product.data.discount) * product.qty}</p>
                         </div>
                     </div>
                     

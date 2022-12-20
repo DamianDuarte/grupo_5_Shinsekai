@@ -225,6 +225,7 @@ module.exports={
                 description: req.body.description,
                 price: req.body.price,
                 image: req.body.image,
+                discount: req.body.discount,
                 category_id: req.body.category,
                 tag_id: req.body.tag_id
             })
