@@ -105,23 +105,25 @@ insert into sales (name, imageFileName) values
 ('Dia de la juventud', 'MICArte.jpg'),
 ('Dia de la familia', 'MICArte.jpg');
 
+
+
 /*  products */
 insert into products (name, price, discount, description, views, category_id, sale_id) values 
-('Dc - Sakura Fu', 42, 50, 'felis ut at dolor quis odio consequat varius integer ac leo pellentesque ultrices mattis', 217, 2, 4),
-('Saskatoon Berries - Frozen', 128, 50, 'libero quis orci nullam molestie nibh in lectus pellentesque at nulla suspendisse potenti cras in purus eu magna', 461, 1, 1),
-('Sole - Iqf', 38, 0, 'mi integer ac neque duis bibendum morbi non quam nec', 382, 5, 4),
-('Syrup - Golden, Lyles', 193, 70, 'consectetuer adipiscing elit proin risus praesent lectus vestibulum quam sapien varius ut blandit non interdum in ante', 65, 5, 3),
-('Muffin Chocolate Individual Wrap', 93, 30, 'ut ultrices vel augue vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae', 155, 3, 3),
-('Marjoram - Dried, Rubbed', 119, 70, 'in quam fringilla rhoncus mauris enim leo rhoncus sed vestibulum sit amet cursus id turpis integer aliquet massa id lobortis', 325, 1, 2),
-('Emulsifier', 112, 50, 'eget rutrum at lorem integer tincidunt ante vel ipsum praesent blandit lacinia erat vestibulum sed magna at nunc commodo', 246, 5, 2),
-('Veal - Insides Provini', 83, 30, 'lorem integer tincidunt ante vel ipsum praesent blandit lacinia erat vestibulum sed magna at nunc commodo placerat', 181, 4, 5),
-('Veal - Chops, Split, Frenched', 141, 50, 'hac habitasse platea dictumst maecenas ut massa quis augue luctus tincidunt nulla', 217, 4, 5),
-('Noodles - Cellophane, Thin', 179, 50, 'congue eget semper rutrum nulla nunc purus phasellus in felis donec', 230, 1, 5),
-('Ice Cream Bar - Rolo Cone', 112, 90, 'iaculis congue vivamus metus arcu adipiscing molestie hendrerit at vulputate', 400, 5, 4),
-('Nantucket Orange Juice', 166, 70, 'metus sapien ut nunc vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae', 43, 4, 1),
-('Wine - Semi Dry Riesling Vineland', 64, 30, 'porttitor lacus at turpis donec posuere metus vitae ipsum aliquam non mauris morbi non lectus aliquam sit', 50, 5, 2),
-('Mushroom - Enoki, Fresh', 181, 90, 'maecenas tristique est et tempus semper est quam pharetra magna ac consequat metus sapien ut nunc vestibulum ante ipsum', 16, 2, 3),
-('Oil - Olive Bertolli', 159, 70, 'sit amet sapien dignissim vestibulum vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae nulla', 301, 5, 4);
+('Figura POP Pikachu Pokemon', 42, 50, 'Funko original, distribuidor oficial vendido desde España, muñeco coleccionable ideal para regalos', 217, 2, 4),
+('Réplica Varita Albus Dumbledore', 128, 50, 'Producto Original, distribuidor oficial vendido desde España, ideal para regalos', 461, 1, 1),
+('Poster Logo Nirvana', 38, 0, 'Poster The Rolling Stones Logo', 382, 5, 4),
+('Figura POP Baby Yoda The Mandalorian Star Wars', 193, 70, 'Funko original, distribuidor oficial vendido desde España, muñeco coleccionable ideal para regalos', 65, 5, 3),
+('Camiseta Logo Punisher', 93, 30, 'Producto Original, distribuidor oficial vendido desde España, ideal para regalos', 155, 3, 3),
+('Figura Articulada Hulkbuster 21,5 cm Marvel Select',  119, 70, 'Diamond Select Toys, la armadura anti-Hulk favorita de los fanáticos de Iron Man', 325, 1, 2),
+('Caja regalo coleccionista Star Wars 2022', 112, 50, 'Diario de 2022 tamaño A5.', 246, 5, 2),
+('Felpudo Star Wars', 83, 30, 'Felpudo Darth Vader Dark Side Star Wars 40 x 60 cm', 181, 4, 5),
+('Taza Hedwing', 141, 50, 'Taza Hedwing Harry Pottera', 217, 4, 5),
+('Figura POP Spider-Man (Metálico) Marvel', 179, 50, 'Funko original, distribuidor oficial vendido desde España, muñeco coleccionable ideal para regalos', 230, 1, 5),
+('PELUCHE PICOLO', 112, 90, 'Peluche Dragon Ball Z 50cm Picolo', 400, 5, 4),
+('Figura Articulada Eleven Stranger Things Nendoroid Good Smile', 166, 70, 'Figura Nendoroid: Eleven 10 cm', 43, 4, 1),
+('Figura Super Sailor Moon', 64, 30, 'Figura Super Sailor Moon II Sailor Moon Eternal 23 cm Glitter & Glamours Banpresto', 50, 5, 2),
+('Hucha Trunks Chibi', 181, 90, 'Hucha Trunks Chibi 15 cm Dragon Ball Plastoy', 16, 2, 3),
+('Alfombrilla PC Bleach Personajes', 159, 70, 'Alfombrilla de PC de los personajes de Bleach con espuma de espesor de 3 mm.', 301, 5, 4);
 
 /* productImages */
 insert into productImages (filename, product_id) values 
@@ -261,18 +263,18 @@ insert into products_metricSizes (product_id, metricSize_id) values
 
 /* productComments */
 insert into productComments (content, user_id, product_id) values 
-('eget elit sodales scelerisque mauris sit amet', 5, 3),
-('pellentesque quisque porta volutpat erat quisque erat eros viverra', 4, 2),
-('condimentum neque sapien placerat ante nulla', 2, 4),
-('curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor', 1, 1),
-('elementum ligula vehicula consequat morbi a ipsum integer a', 4, 1),
-('duis bibendum morbi non quam nec dui luctus rutrum nulla', 3, 4),
-('venenatis turpis enim blandit mi in porttitor', 3, 2),
+('Ame super ame este reloj de shingeki es tan bello uwu', 5, 3),
+('Lo pedi de envio al Puyo , me asustaba que no llegara o que llegara dañada, pero llego en perfectas condiciones y bastante rapido ,me alegro mucho tenerla en mis manos , es super comoda, espaciosa y sobretodo se ve hermosa.', 4, 2),
+('Me encanta que vino en su empaque original, lo pedi por envio y llego bastante rapido en perfecta condiciones , muchas gracias', 2, 4),
+('Me encanto muy simpatico el diseño, y es ajustable super cool', 1, 1),
+('Super buena calidad, hace tiempo que lo buscaba para un cosplay , excelente material', 4, 1),
+('muy detallado, en verdad un excelente producto y de gran nostalgia', 3, 4),
+('Super bien, me encanto todas las latas tienen diseños muy originales y el material me da seguridad, los termos latas son bastantes buenos', 3, 2),
 ('velit vivamus vel nulla eget eros elementum', 3, 3),
 ('ipsum primis in faucibus orci luctus et', 1, 1),
 ('diego gay', 3, 4),
 ('maecenas rhoncus aliquam lacus morbi quis tortor id nulla', 1, 1),
-('turpis elementum ligula vehicula consequat morbi a ipsum integer a', 4, 1),
+('turpis elementum liqawgula vehicula consequat morbi a ipsum integer a', 4, 1),
 ('quisque ut erat curabitur gravida', 1, 1),
 ('in sagittis dui vel nisl', 4, 2),
 ('sed ante vivamus tortor duis mattis egestas metus aenean', 1, 3),
@@ -355,23 +357,24 @@ insert into productReviews (points, content, karma, user_id, product_id) values
 (3, 'erat id mauris vulputate elementum nullam varius nulla facilisi cras', -24, 2, 2),
 (2, 'in ante vestibulum ante ipsum primis in faucibus orci luctus', -22, 5, 4);
 
-/* tags */
 insert into tags (name, imageFilename) values 
-('in blandit', 'tag1.png'),
-('ratt', 'tag2.png'),
-('niggrem', 'tag3.png'),
-('diegum gae', 'tag4.png'),
-('etiam justo', 'tag5.png'),
-('cursus id', 'tag6.png'),
-('nibbha', null),
-('vivamus', 'tag8.png'),
-('orci eget', 'tag9.png'),
-('tortor', 'tag10.png'),
-('cum', 'tag11.png'),
-('nunc', 'tag12.png'),
-('aliquam', 'tag13.png'),
-('mhni herik', 'tag14.png'),
-('varius ut', 'tag15.png');
+('dragon ball z', 'tag1.png'),
+('otakus', 'tag2.png'),
+('manga', 'tag3.png'),
+('gamer', 'tag4.png'),
+('pokemon', 'tag5.png'),
+('comic', 'tag6.png'),
+('anime', null),
+('juegos', 'tag8.png'),
+('Eleven Stranger Things', 'tag9.png'),
+('strat wars', 'tag10.png'),
+('cosplay', 'tag11.png'),
+('marvel', 'tag12.png'),
+('harry potter', 'tag13.png'),
+('videos juegos', 'tag14.png'),
+('funko', 'tag15.png'),
+('rol', 'tag15.png');
+
 
 /* purchasedHistories */
 insert into purchasedHistories (user_id) values 
