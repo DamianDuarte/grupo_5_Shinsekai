@@ -13,7 +13,7 @@
             <button id="switchTheme" class="header__mitad__temas--light"><i style='display:none' class="buttonTheme fa-solid fa-sun" id="icon"></i></button>
             </div>
 
-        <form class="header__mitad__searchbar" action="/search">
+        <form class="header__mitad__searchbar" action="/search" id="form-search">
             <select class="header__mitad__searchbar--filter" name="filtro" id="filtro">
                 <option value="-1" disabled selected hidden>Filtro</option>
                 <% for( let i = 0; i < tags.length; i++ ) { %>
@@ -69,3 +69,5 @@ let burgerBars = () => {
         }
             }
 </script>
+
+<script src="/js/buscador.js"></script>
