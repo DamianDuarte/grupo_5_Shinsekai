@@ -14,23 +14,23 @@
                     <hr>
                     <div class="hugeContainer">
                         <input type="file" name="images" id="images" 
-                        class="validateProduct" accept=".jpg, .png, .jpeg" form="addProduct" value="<%= product.images %>" multiple hidden>
+                        class="validateInput" accept=".jpg, .png, .jpeg" form="addProduct" value="<%= product.images %>" multiple hidden>
                         <label class="editProducts__main__agregar__productImg" for="images">
                             <img src="/img/products/<%= checkImg.forProduct(product.images) %>" alt="productImg">
                         </label>
                         
                         <form id="addProduct" class="editProducts__main__agregar__form" action="/edit/product/update/<%= product.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
                             <div class="inputGroup">
-                                <input class="c_nombre validateProduct" type="text" name="name" id="name" placeholder="Nombre del producto" value="<%= product.name %>" >
-                                <input class="c_precio validateProduct" type="number" id="price" name="price" placeholder="Precio original" value="<%= product.price %>" >
-                                <input class="c_descuento validateProduct" type="number" id="discount" min="0" max="100" name="discount" id="discount" placeholder="% OFF" value="<%= product.discount %>">
+                                <input class="c_nombre validateInput" type="text" name="name" id="name" placeholder="Nombre del producto" value="<%= product.name %>" >
+                                <input class="c_precio validateInput" type="number" id="price" name="price" placeholder="Precio original" value="<%= product.price %>" >
+                                <input class="c_descuento validateInput" type="number" id="discount" min="0" max="100" name="discount" id="discount" placeholder="% OFF" value="<%= product.discount %>">
                             </div>
                             <select class="c_categoria" name="category" id="category" >
                                 <% for( let i = 0; i < categories.length; i++ ) { %>
                                 <option value="<%= categories[i].id %>" <%= categories[i].id === product.category && 'selected' %>><%= categories[i].name %></option>
                                 <% } %>
                             </select>
-                            <textarea name="description" class="validateProduct" id="description" placeholder="Descripción" cols="30" rows="10" ><%= product.description %></textarea>
+                            <textarea name="description" class="validateInput" id="description" placeholder="Descripción" cols="30" rows="10" ><%= product.description %></textarea>
                             
                             <div style="display:flex; flex-direction: column;">
                                 <small style='color:red' id="errorName"><%= (locals.productsErrors && productsErrors.name) && productsErrors.name.msg %></small>

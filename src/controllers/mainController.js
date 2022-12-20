@@ -56,7 +56,7 @@ module.exports={
             const categories = await db.categories.findAll();
             const tags = await db.tags.findAll();
 
-            return res.render('./users/search', { products, categories, tags });
+            return res.render('./users/search', { products, categories, tags, checkImg });
         } 
         catch (error) 
         {
