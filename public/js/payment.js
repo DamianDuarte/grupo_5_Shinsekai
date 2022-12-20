@@ -1,20 +1,46 @@
 const cartContainer = document.querySelector('#cartDetail')
 
 let content;
+let images;
+
+function getImages(data)
+{
+    fetch('/api/misc/productsImg', {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {'Content-Type': 'application/json'}
+    }).then(response =>
+    {
+        response.json().then(result =>
+        {
+            images = result.data;
+        })
+        .catch(error =>
+        {
+            console.log(error);
+        })
+    })
+    .catch(error =>
+    {
+        console.log(error);
+    })
+}
 
 function updateLinks()
 {
-    const imgPrev = document.querySelector('#productImg'); //! Element img para actualizar
-    const allLinks = document.querySelectorAll('.productLink'); //! Lista de links (al pasarles el mouse, cambiar imagen)
-
+    const imgPrev = document.querySelector('#productImg'); 
+    const allLinks = document.querySelectorAll('.productLink');
 
     for (let i = 0; i < allLinks.length; i++) 
     {
-        allLinks[i].addEventListener('mouseenter', (event) => //! Evento: Al pasar el mouse, hacer lo de aquí adentro.
+        allLinks[i].addEventListener('mouseenter', (event) =>
         {
-            console.log(event.target); //! log de prueba
-            //! Aca agrega el código para actualizar la imagen usando imgPrev
-
+            if(images)
+            {
+                const id = allLinks[i].dataset.pid;
+                const img = images.find((i) => i.id == id);
+                img ? (imgPrev.src = img.url) : ''; 
+            }
         });
     }
 }
@@ -74,7 +100,7 @@ function updateList(data)
         cartContainer.innerHTML += `
         <div class="payment__main__info__amount__list__product" id='listProduct${item.data.id}'>
             <div class="payment__main__info__amount__list__product__column">
-                <a class="productLink" href="http://localhost:4000/products/details/${item.data.id}"><h4>${item.data.name}</h4></a>
+                <a class="productLink" data-pid="${item.data.id}" href="http://localhost:4000/products/details/${item.data.id}"><h4>${item.data.name}</h4></a>
                 <p class="desktop-cantidad">Cantidad</p>
                 <div class="amount">
                     <button onclick="decreaseQty(${item.data.id})">-</button>
@@ -106,11 +132,17 @@ fetch('/api/MICArt').then(response =>
         console.log(content);
         updateList(content);
 
-    }).catch(error =>
+        const imgData = { ids: [] };
+        content.forEach(item => imgData.ids.push(item.data.id))
+        getImages(imgData);
+
+    })
+    .catch(error =>
     {
         console.log(error);
     })
-}).catch(error =>
+})
+.catch(error =>
 {
     console.log(error);
 })

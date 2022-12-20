@@ -108,5 +108,40 @@ module.exports =
         {
             return apiHelper.error(res, error.status ? error.status : 400, error.msg ? error.msg : error);
         }
+    },
+    getProductsImg: async (req, res) =>
+    {
+        console.log(':::::::::::::::::', req.body.ids)
+        const ids = req.body.ids;
+
+        try 
+        {
+            let products = await db.products.findAll({ where: { id: ids }, include: [{ association: 'images'}]});
+            products = apiHelper.addImgToData(req, products);
+
+            const data = [];
+
+            products.forEach(p => 
+            {
+                data.push(
+                    { 
+                        id: p.id, url: 
+                        (p.images && p.images.length > 0) ? p.images[0].dataValues.url : 'http://localhost:4000/api/products/img/default.png' 
+                    }
+                );
+            });
+
+            
+
+            return res.status(200).json({
+                data,
+                status: 200,
+                msg: 'success'
+            });
+        } 
+        catch (error) 
+        {
+            return apiHelper.error(res, error.status ? error.status : 400, error.msg ? error.msg : error);
+        }
     }
 }
