@@ -1,0 +1,85 @@
+<html lang="en">
+
+    <%- include('../partials/head',
+    {
+        title: 'Details'
+    }) %>  
+
+<body class="details">
+    <%- include('../partials/header') %> 
+    <main class="details__main">
+        <div class="details__main__photo-detail">
+        <div class="details__main--photo">
+            <div class="details__main--preview">
+                <% if(product.images.constructor === Array) product.images.forEach((img, index) => { %>
+                    <img src="/img/products/<%= img ? img.filename : 'default.png'%>" alt="<%= product.name + index %>">
+                <% }) %>
+            </div>
+            <div class="details__main--max">
+                <img src="/img/products/<%= (product.images && product.images[0]) ? product.images[0].filename : 'default.png' %>" alt="<%= product.name %>0-max">
+            </div>
+        </div>
+        <article class="details__main--detail">
+            <div class="details__main--sar">
+                <div class="details__main--stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <p>Reseña de producto</p>
+            </div>
+            <h3><%= product.name %></h3>
+            <h4 class="details__main--price">$<%= product.price %></h4>
+            <div class="details__main--chart">
+                <h5>Tabla de talles</h5>
+                <form action="" method="POST">
+                    <select name="Talle"  value="Talle">
+                        <option class="form__option" value="-1" disabled selected hidden>Selecciona talle...</option>
+                        <option class="form__option" value="1">XS</option>
+                        <option class="form__option" value="2">S</option>
+                        <option class="form__option" value="3">M</option>
+                        <option class="form__option" value="4">L</option>
+                        <option class="form__option" value="5">XL</option>
+                        <option class="form__option" value="6">XXL</option>
+                        <option class="form__option" value="7">XXXL</option>
+                        <option class="form__option" value="8">4XL</option>
+                    </select>
+                </form>
+            </div>
+            <div class="details__main--add-to-cart">
+                <button class="details__main--add-to-cart--button" type="submit" onclick="addToCart()"> Agregar al carrito <i class="fa-solid fa-cart-shopping"></i></button>
+            </div>
+            <div class="details__main--prod-detail">
+                <h4>Detalle del producto</h4>
+                <p class="details__main--prod--text"><%= product.description %></p>
+            </div>
+            <div class="details__main--share">
+                <i class="fa-solid fa-heart"></i>
+                <i class="fa-solid fa-share-nodes"></i>
+                <% if (locals.user && user.admin) { %>
+                    <a href="/edit/product/<%= product.id %>"><i class="fa-solid fa-pen-to-square"></i></a>
+                    <button style="background-color: var(--c_squares)" type="submit" form="deleteForm" id="deleteButton"><i class="fa-solid fa-trash-can"></i></button>
+                    <form id="deleteForm" action="/edit/product/delete/<%= product.id %>?_method=DELETE" method="POST"></form>
+                <% } %>
+            </div>
+        </article>
+    </div>
+        <div class="details__main--prod-rel">
+            <h3>productos relacionados</h3>
+            <div class="details__main--prod-rel--image">
+                    <img src="/img/caja.jpg" alt="">
+                    <img src="/img/caja.jpg" alt="">
+                    <img src="/img/caja.jpg" alt="">
+                    <img src="/img/caja.jpg" alt="">
+            </div>
+        </div>
+    </main>
+    <%- include('../partials/footer') %> 
+</body>
+
+</html>
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/js/productDelete.js"></script>

@@ -64,8 +64,7 @@ let addToCart = async () => {
         let response = await fetch(`/api/MICArt/add/${ProductUrl}`)
         let result = await response.json()
         updateCart(result.data)
-
-
+        document.getElementById("MICArt").style.display = "block";
     } catch (error) {
         console.log(error)
     }

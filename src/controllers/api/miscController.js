@@ -46,5 +46,67 @@ module.exports =
             status: 200,
             msg: 'success'
         });
+    },
+    commentProduct: async (req, res) =>
+    {
+        const { content, productId, username } = req.body;
+
+        try
+        {
+            const user = await db.users.findOne({where: {username}}, {include: [{association: 'comments', include: [{association: 'product'}]}]});
+            const product = await db.products.findByPk(productId, {include:[{association: 'comments', include: [{association: 'author'}]}]});
+            const comment = await db.productcomments.create({
+                content,
+                author: user,
+                product,
+                user_id: user.id,
+                product_id: product.id
+            });
+
+            return res.status(200).json({
+                data: {
+                    content,
+                    username: user.username
+                 },
+                status: 200,
+                msg: 'success'
+            });
+        }
+        catch(error)
+        {
+            return apiHelper.error(res, error.status ? error.status : 400, error.msg ? error.msg : error);
+        }
+    },
+    reviewProduct: async (req, res) =>
+    {
+        const { points, content, productId, username } = req.body;
+
+        try
+        {
+            const user = await db.users.findOne({where: {username}}, {include: [{association: 'reviews', include: [{association: 'product'}]}]});
+            const product = await db.products.findByPk(productId, {include:[{association: 'reviews', include: [{association: 'author'}]}]});
+            const review = await db.productreviews.create({
+                points,
+                content,
+                author: user,
+                product,
+                user_id: user.id,
+                product_id: product.id
+            });
+
+            return res.status(200).json({
+                data: {
+                    points,
+                    content,
+                    username: user.username
+                 },
+                status: 200,
+                msg: 'success'
+            });
+        }
+        catch(error)
+        {
+            return apiHelper.error(res, error.status ? error.status : 400, error.msg ? error.msg : error);
+        }
     }
 }
