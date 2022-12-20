@@ -16,7 +16,7 @@
                         <input type="file" name="images" id="images" 
                         class="validateInput" accept=".jpg, .png, .jpeg" form="addProduct" value="<%= product.images %>" multiple hidden>
                         <label class="editProducts__main__agregar__productImg" for="images">
-                            <img src="/img/products/<%= checkImg.forProduct(product.images) %>" alt="productImg">
+                            <img src="/img/products/<%= checkImg.forProduct(product.images) %>" alt="productImg" id="prodVis">
                         </label>
                         
                         <form id="addProduct" class="editProducts__main__agregar__form" action="/edit/product/update/<%= product.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
@@ -96,4 +96,5 @@
 
     </body>
 <script src="/js/createProduct.js"></script>
+<script src="/js/visualizarProd.js"></script>
 </html>
