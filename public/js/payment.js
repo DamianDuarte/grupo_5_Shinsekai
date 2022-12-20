@@ -13,7 +13,8 @@ function updateLinks()
         allLinks[i].addEventListener('mouseenter', (event) => //! Evento: Al pasar el mouse, hacer lo de aquí adentro.
         {
             console.log(event.target); //! log de prueba
-            //! Aca agrega el código para actualizar la imagen
+            //! Aca agrega el código para actualizar la imagen usando imgPrev
+
         });
     }
 }
