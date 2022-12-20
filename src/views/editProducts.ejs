@@ -27,7 +27,7 @@
                             </div>
                             <select class="c_categoria" name="category" id="category" >
                                 <% for( let i = 0; i < categories.length; i++ ) { %>
-                                <option value="<%= categories[i].id %>" <%= categories[i].id == product.category.id && 'selected' %>><%= categories[i].name %></option>
+                                <option value="<%= categories[i].id %>" <%= (product.category && product.category.id && categories[i].id == product.category.id) ? 'selected' : '' %>><%= categories[i].name %></option>
                                 <% } %>
                             </select>
                             <textarea name="description" class="validateInput" id="description" placeholder="Descripción" cols="30" rows="10" ><%= product.description %></textarea>
