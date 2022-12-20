@@ -12,15 +12,14 @@
         <!-- Imagen y Nombre de perfil -->
         <div class="main__body__profile">
             <div class="main__body__profile-image">
-                <img class="image__profile" src="/img/users/<%= user.avatar ? user.avatar.filename : 'AvatarDefault.jpeg' %> " alt="">
-                <input type="file" form="form1" name="image" id="image" accept=".jpg, .png, .gif, .jpeg" hidden>
+                <img class="image__profile" src="/img/users/<%= user.avatar ? user.avatar.filename : 'AvatarDefault.jpeg' %> " alt="" id="imgProf">
+                <input type="file" form="form1" name="image" id="image" accept=".jpg, .png, .gif, .jpeg"  hidden>
                 <label class="profile__edit-img" for="image">
                         <i class="fa-solid fa-camera"></i>Editar Foto
                 </label>
                 <h3>
                     <%= user.username %>
                 </h3>
-                <p><a href=""></a>Editar<i class="fa-sharp fa-solid fa-pen"></i></p>
             </div>
             <form id="form1" class="main__body__profile__form" action="/user/edit/<%= user.username %>?_method=PUT" method="POST" enctype="multipart/form-data">
                 <div class="profile__forms-divs">
@@ -124,3 +123,4 @@
 </body>
 
 </html>
+<script src="/js/userEdit.js"></script>
