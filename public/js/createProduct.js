@@ -1,6 +1,8 @@
 /* const $ = (element) => document.querySelector(element); */
-const toValidate = document.querySelectorAll('.validateInput');
-console.log([toValidate])
+console.log("porque no anda?");
+const toValidate = document.querySelectorAll('.validateProduct');
+console.log(toValidate);
+
 
 const regex = {
     regexAlfa: /^[A-Za-zÁÉÍÓÚáéíóúñÑ ]+$/,
@@ -110,7 +112,7 @@ const checkExtensions = files =>
     
     return true;
 }
-console.log([document.querySelector('#errorImages')])
+
 
 document.querySelector("#images").addEventListener("change", function ({ target }) {
     console.log('reding image event')
@@ -134,6 +136,7 @@ form.addEventListener('submit', function(e)
     
     toValidate.forEach(field =>
     {
+        console.log( field, !field.value.trim(), field.classList.contains('invalid'));
         if(!field.value.trim() || field.classList.contains('invalid'))
         {
             field.classList.add('invalid');

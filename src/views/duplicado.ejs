@@ -21,13 +21,13 @@
 
                         <form id="addProduct" class="editProducts__main__agregar__form" action="" method="POST" enctype="multipart/form-data">
                             <div class="inputGroup">
-                                <input class="c_nombre validateInput" type="text" id="name" name="name" placeholder="Nombre del producto"required>
+                                <input class="c_nombre validateInput" type="text" id="name" name="name" placeholder="Nombre del producto">
                                 <input class="c_precio validateInput" id="price" type="number" name="price" placeholder="Precio original"
-                                    required>
+                                    >
                                 <input class="c_descuento validateInput" type="number" min="0" max="100" name="discount" id="discount"
                                     placeholder="% OFF">
                             </div>
-                            <select class="c_categoria" name="category" id="categoryAdd" required>
+                            <select class="c_categoria" name="category" id="categoryAdd" >
                                 <option value="-1" disabled selected hidden>Categoría</option>
                                 <% for( let i=0; i < categories.length; i++ ) { %>
                                     <option value="<%= categories[i].id %>">
@@ -36,7 +36,7 @@
                                     <% } %>
                             </select>
                             <textarea name="description" class="validateInput" id="description" placeholder="Descripción" cols="30" rows="10"
-                                required></textarea>
+                                ></textarea>
 
                             <div style="display:flex; flex-direction: column;">
                                 <small style='color:red' id="errorName"><%= (locals.productsErrors && productsErrors.name) && productsErrors.name.msg %></small>
@@ -74,7 +74,7 @@
                         <form action="">
                             <div class="inputGroup">
                                 <input class="e_buscar" type="text" placeholder="Buscar...">
-                                <select class="e_categoria" name="category" id="categorySearch" required>
+                                <select class="e_categoria" name="category" id="categorySearch" >
                                     <option value="-1" disabled selected hidden>Categoría</option>
                                     <% for( let i=0; i < categories.length; i++ ) { %>
                                         <option value="<%= categories[i].id %>">

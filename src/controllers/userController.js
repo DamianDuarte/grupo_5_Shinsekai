@@ -159,7 +159,6 @@ module.exports =
                     firstName: req.body.firstName.trim(),
                     lastName: req.body.lastName.trim(),
                     email: req.body.email.trim(),
-                    password: bcrypt.hashSync(req.body.password.trim(), 10)
                 }
             )
             

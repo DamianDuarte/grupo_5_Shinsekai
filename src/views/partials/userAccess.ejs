@@ -23,7 +23,7 @@
                     
 
                     <input type="password" name="password" id="passLog" class="validateInput" placeholder="Contraseña" value="<%= locals.loginOld && loginOld.password %>">
-                    <span class="input-group-text" style="cursor: pointer;" id="btn-show-pass"><i class="fa-solid fa-eye-slash" ></i></span>
+                    <span class="input-group-text" style="cursor: pointer; text-align: center; justify-content: center;" id="btn-show-pass"><i class="fa-solid fa-eye-slash" style=""></i></span>
                     
                         <small class="msgErrors invalid" id="erroruserpass"> <% if(locals.loginErrors && loginErrors.password) {%><%= loginErrors.password.msg %> <% } %>  </small>
                     
@@ -60,7 +60,7 @@
 
                     <input type="password" name="password" id="password" placeholder="Contraseña" value="<%= locals.registerOld && registerOld.password %>" > 
 
-                    <span class="input-group-text" style="cursor: pointer;" id="btn-pass"><i class="fa-solid fa-eye-slash" ></i></span>
+                    <span class="input-group-text" style="cursor: pointer; text-align: center; justify-content: center;" id="btn-pass"><i class="fa-solid fa-eye-slash" style="text-align: center; justify-content: center;"></i></span>
 
                         <p class="errorMsg" id="errorPass"><% if(locals.registerErrors && registerErrors.password) {%> <%= registerErrors.password.msg %> <% } %></p>
                     <ul id="msgPass" hidden>

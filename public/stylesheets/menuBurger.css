@@ -1,0 +1,122 @@
+.menuBurger
+{
+    display: none;
+    background-color: #FBCB0A;
+    width: 80%;
+    padding: 10px;
+    display: none;
+}
+
+.menuBurger a {
+    text-decoration: none;
+    color: black;
+}
+
+
+/* BUSCADOR */
+
+.buscador{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    background-color: white;
+    border: solid 1px #FBCB0A;
+    width: 60%;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    
+}
+
+.filtro{
+    background-color: white;
+    color: grey;
+    text-align: center;
+    border: none;
+    width: 25%;
+    border-radius: 20px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+}
+
+.barraBuscador
+{
+    border: none;
+    width: 30%;
+}
+
+.lupa
+{
+    border: none;
+    background-color: white;
+    width: 15%;
+    border-radius: 20px;
+    
+}
+
+/* lista de botones */
+
+.botones_nav{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    
+}
+
+.perfil{
+    text-align: center;
+}
+
+.perfil img 
+{
+    width: 20%;
+    border-radius: 100%;
+}
+
+.salir
+{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    margin-right: 10px;
+    gap: 10px;
+}
+
+.usuario-btn{
+    display: flex;
+    align-items: center;
+    border: none;
+    background: transparent;
+    padding : 0;
+}
+
+.usuario-btn p{
+    margin-left: 10px;
+}
+
+.editar
+{
+    height: 41px;
+    display: flex;
+    align-items: center;
+}
+
+
+.editar p 
+{
+    margin-left: 10px;
+}
+/* categorias desplegables */
+.categorias-li
+{
+    display: flex;
+    flex-direction: column;
+
+}
+.categorias-li li
+{
+    gap: 10px;
+    margin: 10px;
+    list-style-type: none;
+}

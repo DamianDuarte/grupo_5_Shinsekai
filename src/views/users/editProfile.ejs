@@ -20,7 +20,6 @@
                 <h3>
                     <%= userProfile.username %>
                 </h3>
-                <p><a href=""></a>Editar<i class="fa-sharp fa-solid fa-pen"></i></p>
             </div>
             <form id="form1" class="main__body__profile__form" action="/user/edit/<%= userProfile.username %>?_method=PUT" method="POST" enctype="multipart/form-data">
                 <div class="profile__forms-divs">
@@ -49,7 +48,7 @@
                         </div>
                         <div class="form__spaces">
                             <label for="password">Contraseña</label>
-                            <input type="password" name="password" value="<%= userProfile.password%> ">
+                            <input type="password" name="password" value="">
                         </div>
                     </div>
                     <div class="profile__forms-divs">
@@ -81,3 +80,4 @@
 </body>
 
 </html>
+<script src="/js/userEdit.js"></script>
