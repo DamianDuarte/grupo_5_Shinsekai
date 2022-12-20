@@ -4,15 +4,14 @@
     <body class="home">
         <%- include('../partials/header') %>
             <main class="home__main ">
-                <section class="recommended-grid">
+                <section style="display:flex; flex-wrap: wrap; justify-content: center; margin: 5%; gap: 40px 15px;">
                     <% products.forEach(product => { %>
                         <div class="productContainer">
                             
-                            <a href="/products/details/<%= product.id %>" class="link"><img src="/img/products/<%= checkImg.forProduct(product.images) %>" alt=""></a>
+                            <a href="/products/details/<%= product.id %>" class="home__producto" style="display:flex; flex-wrap: wrap; justify-content: center; margin: 5%; gap: 40px 15px;"><img src="/img/products/<%= checkImg.forProduct(product.images) %>" alt="" style="width: 200px; height: 200px;"></a>
                         
-                        <div class="productInfo">
-                            <h5><%= product.name %></h5>
-                            <h5>$<%= product.price %></h5>
+                        <div class="phome__producto__nameContainer">
+                            <h4 style="height: 150px;"><%= product.name %></h4>
                         </div>
                     </div>
                     <% }) %>
