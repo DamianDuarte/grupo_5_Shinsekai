@@ -7,14 +7,32 @@ const { associations, filters, createError, checkImg} = require('../helpers');
 module.exports={
     details: async (req, res) => {
         try {
-            let product = await db.products.findByPk(req.params.id, associations.get('images'))
+            let op = [
+                { association:'images'},
+                { association:'tags'},
+                { association:'category'},
+                { association:'sizes'},
+                { association:'colors'},
+                { association:'metricSizes'},
+                { association:'comments', order: [ ['created_at' , 'ASC'] ], include: [{ association: 'author', include: [{ association: 'avatar' }], attributes: { exclude: [ 'password', 'email', 'isAdmin', 'created_at'] }}]},
+                { association:'reviews', order: [ ['karma' , 'DESC'] ], include: [{ association: 'author', include: [{ association: 'avatar' }], attributes: { exclude: [ 'password', 'email', 'isAdmin', 'created_at'] }}]},
+            ];
+
+            let product = await db.products.findByPk(req.params.id, { include: op });
 /*             const products = await db.products.findAll();  No tengo pensado usarte hasta que ande la pagina */
             const categories = await db.categories.findAll();
             const tags = await db.tags.findAll();
+            let relatedProducts = await db.products.findAll({
+                include: [{ association: 'images'}],
+                where:
+                {
+                    category_id: product.category_id
+                }
+            });
 
             if(!product) throw createError(404, 'Producto no encontrado.')
             
-            return res.render('./products/details', { product, categories, tags });
+            return res.render('./products/details', { product, categories, tags, relatedProducts });
         } catch (error) {
             console.log(error);
             return res.send(error);            
@@ -76,9 +94,32 @@ module.exports={
                     price: req.body.price,
                     discount: req.body.discount,
                     description: req.body.description.trim(),
-                    categoryId: req.body.categoryId
+                    category_id: req.body.category
                 }
             );
+
+            if(req.body.tags)
+            {
+                if(Array.isArray(req.body.tags))
+                {
+                    const tagsToAdd = [];
+                    
+                    req.body.tags.forEach(t => tagsToAdd.push(
+                        { tag_id: t, product_id: product.id }
+                    ));
+                    
+                    await db.tags_products.bulkCreate(tagsToAdd);
+                }
+                else
+                {
+                    await db.tags_products.create(
+                        {
+                            tag_id: req.body.tags,
+                            product_id: product.id
+                        }
+                    )
+                }
+            }
             
             if(req.files && req.files.length > 0)
             {
@@ -102,7 +143,7 @@ module.exports={
     
     edit: async (req, res)=>{
         try {
-            const product = await db.products.findByPk(req.params.id, associations.get('images', 'tags'));
+            const product = await db.products.findByPk(req.params.id, associations.get('images', 'tags', 'category'));
             const products  = await db.products.findAll(associations.get('images'));
             const categories = await db.categories.findAll();
             const tags = await db.tags.findAll();
@@ -133,6 +174,35 @@ module.exports={
                 return res.render('editProducts', {categories, tags, product, products, productsOld, productsErrors, checkImg});
             }
 
+            await db.tags_products.destroy(
+                {
+                    where:
+                    {
+                        product_id: product.id
+                    }
+                }
+            )
+
+            if(Array.isArray(req.body.tags))
+            {
+                const tagsToAdd = [];
+                
+                req.body.tags.forEach(t => tagsToAdd.push(
+                    { tag_id: t, product_id: product.id }
+                ));
+                
+                await db.tags_products.bulkCreate(tagsToAdd);
+            }
+            else if(req.body.tags)
+            {
+                await db.tags_products.create(
+                    {
+                        tag_id: req.body.tags,
+                        product_id: product.id
+                    }
+                )
+            }
+
             if(!product) throw createError(404, 'Producto no encontrado.')
 
             if(req.files && req.files.length > 0)
@@ -155,7 +225,7 @@ module.exports={
                 description: req.body.description,
                 price: req.body.price,
                 image: req.body.image,
-                category_id: req.body.category_id,
+                category_id: req.body.category,
                 tag_id: req.body.tag_id
             })
 

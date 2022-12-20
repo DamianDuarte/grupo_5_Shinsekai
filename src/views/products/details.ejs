@@ -7,79 +7,219 @@
 
 <body class="details">
     <%- include('../partials/header') %> 
-    <main class="details__main">
-        <div class="details__main__photo-detail">
-        <div class="details__main--photo">
-            <div class="details__main--preview">
-                <% if(product.images.constructor === Array) product.images.forEach((img, index) => { %>
-                    <img src="/img/products/<%= img ? img.filename : 'default.png'%>" alt="<%= product.name + index %>">
+
+    <section class="details__front">
+        <div class="details__front__images">
+            <% if (!product.images || product.images.length < 1) { %>
+                <img src="/img/products/default.png" alt="no-img">
+            <% } else { %>
+                <% product.images.forEach((img , i) => { %>
+                    <div class="details__front__images__imgContainer">
+                        <img src="/img/products/<%= img ? img.filename : 'default.png'%>" alt="product-img-<%= i %>">
+                    </div>
                 <% }) %>
-            </div>
-            <div class="details__main--max">
-                <img src="/img/products/<%= (product.images && product.images[0]) ? product.images[0].filename : 'default.png' %>" alt="<%= product.name %>0-max">
-            </div>
+            <% } %> 
         </div>
-        <article class="details__main--detail">
-            <div class="details__main--sar">
-                <div class="details__main--stars">
+
+        <div class="details__front__info" action="" method="POST">
+
+            <h2><%= product.name %></h2>
+
+            <div class="details__front__info__rating">
+                <div class="details__front__info__rating__stars">
                     <i class="fa-solid fa-star"></i>
                     <i class="fa-solid fa-star"></i>
                     <i class="fa-solid fa-star"></i>
                     <i class="fa-solid fa-star"></i>
                     <i class="fa-solid fa-star"></i>
                 </div>
-                <p>Reseña de producto</p>
+                <a href="#reviews"><u> Ver reseñas</u></a>
             </div>
-            <h3><%= product.name %></h3>
-            <h4 class="details__main--price">$<%= product.price %></h4>
-            <div class="details__main--chart">
-                <h5>Tabla de talles</h5>
-                <form action="" method="POST">
-                    <select name="Talle"  value="Talle">
-                        <option class="form__option" value="-1" disabled selected hidden>Selecciona talle...</option>
-                        <option class="form__option" value="1">XS</option>
-                        <option class="form__option" value="2">S</option>
-                        <option class="form__option" value="3">M</option>
-                        <option class="form__option" value="4">L</option>
-                        <option class="form__option" value="5">XL</option>
-                        <option class="form__option" value="6">XXL</option>
-                        <option class="form__option" value="7">XXXL</option>
-                        <option class="form__option" value="8">4XL</option>
+
+            <div class="details__front__info__pricing">
+                <div class="details__front__info__pricing__numbers">
+                    <h4>$ <%= product.price - (product.price / 100 * product.discount)%></>
+                    <% if (product.discount > 0) { %>
+                        <p><strike>$ <%= product.price %> </strike><h5><%= product.discount %>% OFF</h5></p>
+                    <% } %>
+                </div>
+
+                <button onclick="addToCart()">Agregar al carrito</button>
+            </div>
+
+            <div class="details__front__info__fields">
+                <% if (product.sizes && product.sizes.length > 0) { %>
+                    <select name="clothesSizes">
+                        <option value="-1" disabled selected>Seleccionar un talle...</option>
+                        <% product.sizes.forEach(size => { %>
+                            <option value="<%= size.id %>"><%= size.name %> </option>
+                        <% }) %>
                     </select>
-                </form>
-            </div>
-            <div class="details__main--add-to-cart">
-                <button class="details__main--add-to-cart--button" type="submit" onclick="addToCart()"> Agregar al carrito <i class="fa-solid fa-cart-shopping"></i></button>
-            </div>
-            <div class="details__main--prod-detail">
-                <h4>Detalle del producto</h4>
-                <p class="details__main--prod--text"><%= product.description %></p>
-            </div>
-            <div class="details__main--share">
-                <i class="fa-solid fa-heart"></i>
-                <i class="fa-solid fa-share-nodes"></i>
-                <% if (locals.user && user.admin) { %>
-                    <a href="/edit/product/<%= product.id %>"><i class="fa-solid fa-pen-to-square"></i></a>
-                    <button style="background-color: var(--c_squares)" type="submit" form="deleteForm" id="deleteButton"><i class="fa-solid fa-trash-can"></i></button>
-                    <form id="deleteForm" action="/edit/product/delete/<%= product.id %>?_method=DELETE" method="POST"></form>
                 <% } %>
+                <% if (product.colors && product.colors.length > 0) { %>
+                    <select name="availableColors">
+                        <option value="-1" disabled selected>Seleccionar un color..</option>
+                        <% product.colors.forEach(color => { %>
+                            <option value="<%= color.id %>"><%= color.colorName %></option>
+                        <% }) %>
+                    </select>
+                <% } %>
+                <% if (product.metricSizes && product.metricSizes.length > 0) { %>
+                    <select name="metricSizes">
+                        <option value="-1" disabled selected>Selecciona el tamaño...</option>
+                        <% product.metricSizes.forEach(size => { %>
+                            <option value="<%= size.id %>"><%= size.amount %> cm</option>
+                        <% }) %>
+                    </select>
+                <% } %>
+                <p><%= product.description %></p>
             </div>
-        </article>
-    </div>
-        <div class="details__main--prod-rel">
-            <h3>productos relacionados</h3>
-            <div class="details__main--prod-rel--image">
-                    <img src="/img/caja.jpg" alt="">
-                    <img src="/img/caja.jpg" alt="">
-                    <img src="/img/caja.jpg" alt="">
-                    <img src="/img/caja.jpg" alt="">
+
+            <div class="details__front__info__actions">
+                <div class="props">
+                    <% if (product.category) { %>
+                        <a class="category" href="http://localhost:4000/search?category='<%= product.category.name %>'"><%= product.category.name %></a>
+                    <% } %>
+                    <% if (product.tags && product.tags.length > 0) { %>
+                        <% product.tags.forEach(tag => { %>
+                            <a class="tag" href="http://localhost:4000/search?tags=['<%= tag.name %>']"><%= tag.name %> </a> 
+                        <% }) %>
+                    <% } %>
+                </div>
+
+                <div class="buttons">
+                    <% if (locals.user && user.admin) { %>
+                        <a href="/edit/product/<%= product.id %>"><i class="fa-solid fa-pen-to-square"></i></a>
+                        <button type="submit" form="deleteForm" id="deleteButton"><i class="fa-solid fa-trash-can"></i></button>
+                        <form id="deleteForm" action="/edit/product/delete/<%= product.id %>?_method=DELETE" method="POST"></form>
+                    <% } %>
+                </div>
             </div>
         </div>
-    </main>
+    </section>
+
+    <section class="details__qa">
+        <h2>Preguntas y respuetas</h2>
+
+        <hr>
+
+        <div class="details__qa__comments" id="comments" data-productId="<%= product.id %>" data-length="<%= (!product.comments || product.comments.length < 1) ? -1 : product.comments.length %>">
+            <% if (!product.comments || product.comments.length < 1) { %>
+                <div class="msgContainer">
+                    <img src="/img/tomoko.png" alt="tomoko" id='tomoko'>
+                    <div>
+                        <h4>¡No hay preguntas!</h4>
+                        <p>Y sin preguntas, no hay respuestas...</p>
+                        <p>No seas tímido... ¡Pregunta algo! |ω・)</p>
+                    </div>
+                </div>
+            <% } else { %>
+                <% product.comments.forEach((comment, i) => { %>
+                    <div class="<%= comment.content.includes('>>#') ? "details__qa__comments__a" : "details__qa__comments__q" %>" >
+                        <p class="id">#<%= i + 1 %> </p>
+                        <img src="/img/users/<%= comment.author.avatar ? comment.author.avatar.filename : 'default.jpeg' %> " alt="">
+                        <h5 class="username"><%= comment.author.username %> </h5>
+                        <p class="content"><%= comment.content %> </p>
+                    </div>
+                <% }) %>
+            <% } %> 
+        </div>
+
+        <hr>
+
+        <div class="details__qa__form">
+            <h4>Preguntar</h4>
+            <div class="questionSend">
+                <textarea name="content" id="content" cols="100" rows="2" data-user="<%= locals.user ? locals.user.username : '' %>" data-avatar="<%= locals.user ? '/img/users/' + locals.user.image : '/img/users/default.jpeg' %>"></textarea>
+                <button onclick="sendQuestion()">Enviar</button> 
+            </div>
+            <small id="errorQA"></small>
+        </div>
+    </section>
+
+    <section class="details__reviews" id="reviews">
+        <h2>Reviews</h2>
+
+        <hr>
+
+        <div class="details__reviews__reviews" id="reviews">
+            <% if (!product.reviews || product.reviews.length < 1) { %>
+                <div class="msgContainer">
+                    <img src="https://images.fineartamerica.com/images/artworkimages/medium/3/5-ponyo-charlie-bost-transparent.png" alt="ponyo" id='ponyo'>
+                    <div>
+                        <h4>No hay reviews</h4>
+                        <p>¡Compra el producto y sé el primero en dar tu opinión!</p>
+                    </div>
+                </div>
+            <% } else { %>
+                <% product.reviews.forEach((review, i) => { %>
+                    <div class="details__reviews__review">
+                        <div class="yanosequenombreponer">
+                            <div class="firstPart">
+                                <img src="/img/users/<%= review.author.avatar ? review.author.avatar.filename : 'default.jpeg' %> " alt="">
+                                <h5 class="username"><%= review.author.username %> </h5>
+                                <p class="karma"><%= review.karma > 0 ? '+' + review.karma : review.karma %></p>
+                            </div>
+                            <div class="secondPart">
+                                <p class="content"><%= review.content %></p>
+                            </div>
+                        </div>
+                        <h2 class="points"><%= review.points %> <i class="fa-solid fa-star"></i></h2>
+                    </div>
+                <% }) %>
+            <% } %> 
+        </div>
+
+        <hr>
+
+        <div class="details__reviews__form">
+            <h4>Review</h4>
+            <div class="reviewSend">
+                <h4>
+                    <u>¡Necesitas comprar el producto antes de enviar una review!</u>
+                </h4>
+                <!-- <textarea name="content" id="contentReview" cols="100" rows="2"></textarea>
+                <div class="pointsContainer">
+                    <label for="points">Puntaje</label>
+                    <div class="input">
+                        <input type="text" name="points" id="points">
+                        <p>/ 5 <i class="fa-solid fa-star"></i></p>
+                    </div>
+                </div>
+                <button onclick="sendReview()">Enviar</button>  -->
+            </div>
+            <small id="errorReview"></small>
+        </div>
+    </section>
+
+    <section class="details__related">
+
+        <h2>Productos relacionados</h2>
+
+        <div class="glider-contain">
+            <div class="glider">
+                <% relatedProducts.forEach(p => { %>
+                    <div class="productCard">
+                        <a href="http://localhost:4000/products/details/<%= p.id %> " class="relatedProduct">
+                            <img src="/img/products/<%= (p.images && p.images.length > 0) ? p.images[0].filename : 'default.png' %> " alt="img-<%= p.name %>">
+                            <p><%= p.name %></p>
+                        </a>
+                    </div>
+                <% }) %>
+            </div>
+            
+            <button aria-label="Previous" class="glider-prev"><</button>
+            <button aria-label="Next" class="glider-next">></button>
+            <div role="tablist" class="dots"></div>
+        </div>
+    </section>
+
     <%- include('../partials/footer') %> 
 </body>
 
 </html>
 
+<script src="/javascript/loadGliderDetail.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="/js/productDelete.js"></script>
+<script src="/js/qa.js"></script>

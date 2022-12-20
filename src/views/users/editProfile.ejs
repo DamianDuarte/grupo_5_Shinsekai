@@ -12,57 +12,43 @@
         <!-- Imagen y Nombre de perfil -->
         <div class="main__body__profile">
             <div class="main__body__profile-image">
-                <img class="image__profile" src="/img/users/<%= user.avatar ? user.avatar.filename : 'AvatarDefault.jpeg' %> " alt="" id="imgProf">
-                <input type="file" form="form1" name="image" id="image" accept=".jpg, .png, .gif, .jpeg"  hidden>
+                <img class="image__profile" src="/img/users/<%= userProfile.avatar ? userProfile.avatar.filename : 'AvatarDefault.jpeg' %> " alt="">
+                <input type="file" form="form1" name="image" id="image" accept=".jpg, .png, .gif, .jpeg" hidden>
                 <label class="profile__edit-img" for="image">
                         <i class="fa-solid fa-camera"></i>Editar Foto
                 </label>
                 <h3>
-                    <%= user.username %>
+                    <%= userProfile.username %>
                 </h3>
             </div>
-            <form id="form1" class="main__body__profile__form" action="/user/edit/<%= user.username %>?_method=PUT" method="POST" enctype="multipart/form-data">
+            <form id="form1" class="main__body__profile__form" action="/user/edit/<%= userProfile.username %>?_method=PUT" method="POST" enctype="multipart/form-data">
                 <div class="profile__forms-divs">
                     <h3 class="profile-titles">
                         General
                     </h3>
                     <div class="form__spaces">
                         <label for="firstName">Nombre</label>
-                        <input type="text" name="firstName" value="<%= user.firstName %> ">
+                        <input type="text" name="firstName" value="<%= userProfile.firstName %> ">
                         <% if(locals.profileErrors && profileErrors.firstName) {%>
                             <p class="errorMsg"><%= profileErrors.firsName.msg %> </p>
                         <% } %>
                     </div>
                     <div class="form__spaces">
                         <label for="lastName">Apellido</label>
-                        <input type="text" name="lastName" value="<%= user.lastName %> ">
+                        <input type="text" name="lastName" value="<%= userProfile.lastName %> ">
                         <% if(locals.profileErrors && profileErrors.lastName) {%>
                             <p class="errorMsg"><%= profileErrors.lastName.msg %> </p>
                         <% } %>
                     </div>
-                    <div class="form__spaces">
-                        <label for="gender">Genero</label>
-                        <input type="text" name="gender">
-                    </div>
-                    <div class="form__spaces">
-                        <label for="age">Edad</label>
-                        <input type="text" name="age">
-                    </div>
-                    <div class="form__spaces">
-                        <label for="city">Ciudad</label>
-                        <input type="text" name="city">
-                    </div>
-                    <div class="form__spaces">
-                        <label for="country">Pais</label>
-                        <input type="text" name="country">
-                    </div>
+                    
                     <div class="profile__forms-divs">
-                        <h3 class="profile-titles">
-                            Cuenta
-                        </h3>
                         <div class="form__spaces">
                             <label for="email">E-mail</label>
-                            <input type="text" name="email" value="<%= user.email %> ">
+                            <input type="text" name="email" value="<%= userProfile.email %> ">
+                        </div>
+                        <div class="form__spaces">
+                            <label for="password">Contraseña</label>
+                            <input type="password" name="password" value="">
                         </div>
                     </div>
                     <div class="profile__forms-divs">
@@ -73,43 +59,14 @@
                     </div>
                     <!-- Tags de Intereses -->
                     <div class="tagGroup">
-                        <input type="checkbox" name="tags" id="anime" value="50" hidden>
-                        <label for="anime">Anime</label>
-                        <input type="checkbox" name="tags" id="manga" value="51" hidden>
-                        <label for="manga">Manga</label>
-                        <input type="checkbox" name="tags" id="comics" value="52" hidden>
-                        <label for="comics">Comics</label>
-                        <input type="checkbox" name="tags" id="dc" value="53" hidden>
-                        <label for="dc">Dc</label>
-                        <input type="checkbox" name="tags" id="marvel" value="54" hidden>
-                        <label for="marvel">Marvel</label>
-                        <input type="checkbox" name="tags" id="new" value="55" hidden>
-                        <label for="new">Nuevo</label>
-                        <input type="checkbox" name="tags" id="premium" value="56" hidden>
-                        <label for="premium">Premium</label>
-                        <input type="checkbox" name="tags" id="no-premium" value="57" hidden>
-                        <label for="no-premium">No Premium</label>
+                        <% tags.forEach(tag => { %>
+                            <input type="checkbox" name="tags" id="<%= tag.name %>" value="<%= tag.id %>" <%= userProfile.tagsFollowing.find(t => t.name == tag.name) && 'checked' %> hidden>
+                            <label for="<%= tag.name %>"><%= tag.name %></label>
+                        <% }) %>
                     </div>
 
                 </div>
-                <div class="profile__forms-divs">
-                    <h3 class="profile-titles">
-                        Facturacion
-                    </h3>
-                    <div class="profile__plans__divs">
-                        <label class="profile__plans__form" for="plan">Tu plan es</label>
-                        <input class="profile__pans__inputs" type="text" name="plan">
-                    </div>
-                    <div class="profile__plans__divs">
-                        <label class="profile__plans__form" for="payment-day">Se actializara el pago el dia</label>
-                        <input class="profile__pans__inputs" type="text" name="payment-day">
-                    </div>
-                    <div class="profile__plans__divs">
-                        <label class="profile__plans__form" for="payment-method">del siguiente metodo de pago</label>
-                        <input class="profile__pans__inputs" type="text" name="payment-method">
-                    </div>
-                    <button class="cancel-button-plan" name="Cancel">Cancelar Suscripcion</button>
-                </div>
+                
                 <div class="main__profile__buttons">
                     <button class="main__profile-submit" name="save">Guardar</button>
                     <button class="main__profile-cancel" name="cancel">Cancelar</button>

@@ -66,7 +66,7 @@ module.exports =
 
             if(!user) throw createError(404, 'Usuario no existe.');
 
-            return res.render('./users/editProfile', {user, categories, tags});
+            return res.render('./users/editProfile', {userProfile: user, categories, tags});
         } 
         catch (error) 
         {
@@ -88,8 +88,41 @@ module.exports =
         try 
         {
             const user = await db.users.findOne(
-                filters.where('username', req.params.username));
+                filters.where('username', req.params.username, 'tagsFollowing'));
+
+            if(req.body.tags)
+            {
+                await db.tags_users.destroy(
+                    {
+                        where:
+                        {
+                            user_id: user.id
+                        }
+                    }
+                )
+
+                if(Array.isArray(req.body.tags))
+                {
+                    const tagsToAdd = [];
+                    
+                    req.body.tags.forEach(t => tagsToAdd.push(
+                        { tag_id: t, user_id: user.id }
+                    ));
+                    
+                    await db.tags_users.bulkCreate(tagsToAdd);
+                }
+                else
+                {
+                    await db.tags_users.create(
+                        {
+                            tag_id: req.body.tags,
+                            user_id: user.id
+                        }
+                    )
+                }
+            }
             
+
             if(req.file)
             {
                 const avatar = await db.userimages.findOne(filters.where('user_id', user.id));
@@ -100,6 +133,15 @@ module.exports =
                         {
                             filename: req.file.filename
                         });
+                    
+
+                    if(req.session.user.username == user.username)
+                    {
+                        req.session.user = {
+                            ...req.session.user,
+                            image: req.file.filename
+                        }
+                    }
                 }
                 else
                 {
@@ -124,8 +166,8 @@ module.exports =
         } 
         catch (error) 
         {
-            console.log(err);
-            res.send(err);
+            console.log(error);
+            res.send(error);
         }
     },
     deleteUser: (req, res) => { //! I'll start from here

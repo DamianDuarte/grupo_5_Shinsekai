@@ -67,6 +67,7 @@
 
 .profile__main .buttons a
 {
+    color: var(--light_bg);
     background-color: var(--dark_buttons);
     width: fit-content;
     padding: 7px;
