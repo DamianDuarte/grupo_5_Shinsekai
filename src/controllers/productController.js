@@ -1,7 +1,7 @@
 const db = require('../database/models');
 const { validationResult } = require('express-validator');
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-const { associations, filters, createError, checkImg} = require('../helpers');
+const { associations, filters, createError, checkImg, apiHelper} = require('../helpers');
 /* const multer = require('multer'); */
 
 module.exports={
@@ -143,7 +143,7 @@ module.exports={
     
     edit: async (req, res)=>{
         try {
-            const product = await db.products.findByPk(req.params.id, associations.get('images', 'tags', 'category'));
+            let product = await db.products.findByPk(req.params.id, associations.get('images', 'tags', 'category'));
             const products  = await db.products.findAll(associations.get('images'));
             const categories = await db.categories.findAll();
             const tags = await db.tags.findAll();

@@ -383,3 +383,32 @@
     }
     
 }
+
+@media (min-width: 550px)
+{
+    .editProducts__main__agregar__imagesContainer
+    {
+        width: 50%;
+    }
+}
+
+.editProducts__main__agregar__imagesContainer__array
+{
+    display: none; 
+    flex-wrap: wrap; 
+    margin-bottom: 5px;
+    height: 72px; 
+    gap: 4px; 
+
+    overflow-y:auto; 
+}
+
+.product-thumbnail
+{
+    background-image: url('http://pm1.narvii.com/6310/e275a2d0a54e7789fa5d0dced55cf56474a5f5fa_00.jpg'); 
+
+    width:69px; 
+    height:69px; 
+    background-position: 50% 50%; 
+    background-size: 100%;
+}

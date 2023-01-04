@@ -15,9 +15,13 @@
                     <div class="hugeContainer">
                         <input type="file" name="images" class="validateInput" id="images" accept=".jpg, .png, .jpeg" form="addProduct"
                             multiple hidden>
-                        <label class="editProducts__main__agregar__productImg" id="imagesLabel" for="images">
-                            <img src="/img/products/product-noimg.png" alt="productImg" id="prodVis">
-                        </label>
+                        <div class="editProducts__main__agregar__imagesContainer">
+                            <div id="arrayContainer" class="editProducts__main__agregar__imagesContainer__array">
+                            </div>
+                            <label class="editProducts__main__agregar__productImg" id="imagesLabel" for="images">
+                                <img src="/img/products/product-noimg.png" alt="productImg" id="prodVis">
+                            </label>
+                        </div>
 
                         <form id="addProduct" class="editProducts__main__agregar__form" action="" method="POST" enctype="multipart/form-data">
                             <div class="inputGroup">
