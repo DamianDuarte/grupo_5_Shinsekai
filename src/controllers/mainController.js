@@ -39,18 +39,36 @@ module.exports={
     },
     search: async (req, res) => 
     {
-        let { keywords } = req.query;
+        let { keywords, category, tag } = req.query;
         try 
         {
+            const whereClause = {};
+              
+            if(keywords)
+            {
+                whereClause[Op.or] = [{ name: { [Op.substring]: keywords } }, { description: { [Op.substring]: keywords } }];
+            }
+
+            if (category) 
+            {
+                whereClause['category_id'] = category;
+            }
+            
+            if (tag) 
+            {
+                whereClause['$tags.id$'] = tag;
+            }
+
             const products = await db.products.findAll({
                 include: [
                     {
                         association: 'images'
+                    },
+                    {
+                        association: 'tags'
                     }
                 ],
-                where: {
-                    [Op.or]: [{name: {[Op.substring]: keywords}}, {description: {[Op.substring]: keywords }}]
-                }
+                where: whereClause
             });
 
             const categories = await db.categories.findAll();

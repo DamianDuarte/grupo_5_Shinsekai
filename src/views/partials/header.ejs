@@ -14,7 +14,7 @@
             </div>
 
         <form class="header__mitad__searchbar" action="/search" id="form-search">
-            <select class="header__mitad__searchbar--filter" name="filtro" id="filtro">
+            <select class="header__mitad__searchbar--filter" name="tag" id="tag">
                 <option value="-1" disabled selected hidden>Filtro</option>
                 <% for( let i = 0; i < tags.length; i++ ) { %>
                     <option value="<%= tags[i].id %>"><%= tags[i].name %></option>
@@ -42,7 +42,7 @@
 
     <section class="header__categorias">
         <% for( let i = 0; i < categories.length; i++ ) { %>
-            <a class="header__categorias--categoria" href="/search?keywords=<%= categories[i].name %>"><%= categories[i].name %></a>
+            <a class="header__categorias--categoria" href="/search?category=<%= categories[i].id %>"><%= categories[i].name %></a>
         <% } %>
     </section>
 </header>

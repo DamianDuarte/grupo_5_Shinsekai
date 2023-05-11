@@ -5,6 +5,11 @@
 @import '/stylesheets/home/popular.css';
 @import '/stylesheets/home/recommended.css';
 
+section
+{
+    padding-bottom: 80px;
+}
+
 .home__main
 {
     overflow: hidden;

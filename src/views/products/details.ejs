@@ -78,11 +78,11 @@
             <div class="details__front__info__actions">
                 <div class="props">
                     <% if (product.category) { %>
-                        <a class="category" href="http://localhost:4000/search?category='<%= product.category.name %>'"><%= product.category.name %></a>
+                        <a class="category" href="http://localhost:4000/search?category=<%= product.category.id %>"><%= product.category.name %></a>
                     <% } %>
                     <% if (product.tags && product.tags.length > 0) { %>
                         <% product.tags.forEach(tag => { %>
-                            <a class="tag" href="http://localhost:4000/search?tags=['<%= tag.name %>']"><%= tag.name %> </a> 
+                            <a class="tag" href="http://localhost:4000/search?tag=<%= tag.id %>"><%= tag.name %> </a> 
                         <% }) %>
                     <% } %>
                 </div>
