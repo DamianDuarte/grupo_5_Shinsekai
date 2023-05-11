@@ -3,7 +3,7 @@
 
     <div class="tagContainer">
       <% tags.forEach((tag, i) => { %>
-        <a href="#" class="tag">
+        <a href="/search?tag=<%= tag.id %>" class="tag">
           <h2 class="tagName"><%= tag.name %></h2>   
           <img src="./img/tags/<%= checkImg.forTag(tag.imageFilename) %>"  alt="tag_img">
         </a>
